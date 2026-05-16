@@ -1,0 +1,503 @@
+{
+    "source_file": "RESPONSE-950-DATA-LEAKAGES.conf",
+    "crs_version": "v4.26.0",
+    "rule_count": 14,
+    "rules": [
+        {
+            "id": 950021,
+            "phase": 3,
+            "operator": "eq",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "crs_skip_response_analysis",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS",
+                "OWASP_CRS/DATA-LEAKAGES"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-959-BLOCKING-EVALUATION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 950010,
+            "phase": 4,
+            "operator": "pm",
+            "operator_arg": "gzip compress deflate br zstd",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "RESPONSE_HEADERS",
+                    "selector": "Content-Encoding",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS",
+                "OWASP_CRS/DATA-LEAKAGES"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-950-DATA-LEAKAGES",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 950011,
+            "phase": 3,
+            "operator": "lt",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-950-DATA-LEAKAGES",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 950012,
+            "phase": 4,
+            "operator": "lt",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-950-DATA-LEAKAGES",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 950130,
+            "phase": 4,
+            "operator": "rx",
+            "operator_arg": "(?:<(?:TITLE>Index of.*?<H|title>Index of.*?<h)1>Index of|>\\[To Parent Directory\\]</[Aa]><br>)",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "RESPONSE_BODY",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "error",
+            "message": "Directory Listing",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-disclosure",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/DATA-LEAKAGES",
+                "capec/1000/118/116/54/127"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [
+                {
+                    "name": "tx.outbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "4"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 950140,
+            "phase": 4,
+            "operator": "rx",
+            "operator_arg": "^#\\!\\s?/",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "RESPONSE_BODY",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "error",
+            "message": "CGI source code leakage",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-disclosure",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/DATA-LEAKAGES",
+                "capec/1000/118/116"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [
+                {
+                    "name": "tx.outbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "4"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 950150,
+            "phase": 4,
+            "operator": "pmf",
+            "operator_arg": "System.NullReferenceException\nSystem.ArgumentException\nSystem.InvalidOperationException\nSystem.IndexOutOfRangeException\nSystem.IO.IOException\nSystem.Net.WebException\nSystem.OutOfMemoryException\nSystem.StackOverflowException\nSystem.FormatException\nSystem.DivideByZeroException\nSystem.ArgumentNullException\nSystem.ArgumentOutOfRangeException\nSystem.NotImplementedException\nSystem.NotSupportedException\nSystem.Data.SqlClient.SqlException\nSystem.UnauthorizedAccessException\nSystem.Security.SecurityException\nSystem.Web.HttpException\nHttpException\nViewStateException\nHttpRequestValidationException\nHttpCompileException\nHttpParseException\nHttpUnhandledException\nHttpRequestWrapper\nHttpResponseWrapper\nHttpServerUtilityWrapper\nHttpSessionStateWrapper\nHttpStaticObjectsCollectionWrapper\nSystem.Web.Mvc.HttpAntiForgeryException\nSystem.Web.Mvc.Controller\nSystem.Web.Mvc.ActionResult\nSystem.Web.Mvc.ViewResult\nSystem.Web.Mvc.RedirectResult\nSystem.Web.Mvc.RedirectToRouteResult\nSystem.Web.Mvc.JsonResult\nSystem.Web.Mvc.ContentResult\nSystem.Web.Mvc.HttpStatusCodeResult\nSystem.Web.Mvc.FileResult\nSystem.Web.Mvc.View\nSystem.Web.Mvc.PartialViewResult\nSystem.Data.Entity.Core.EntityException\nSystem.Data.Entity.Infrastructure.DbUpdateException\nSystem.Data.Entity.Validation.DbEntityValidationException\nSystem.Data.Entity.Core.OptimisticConcurrencyException\nSystem.Data.Entity.Infrastructure.DbUpdateConcurrencyException\nMicrosoft.AspNet.Identity.IdentityResult\nMicrosoft.AspNet.Identity.UserManager\nMicrosoft.AspNet.Identity.SignInManager\nMicrosoft.AspNet.Identity.RoleManager\nMicrosoft.AspNet.Identity.Owin\nMicrosoft.Owin.Security\nMicrosoft.Owin.Security.DataProtection\nSystem.Web.Http.HttpResponseException\nSystem.Web.Http.HttpRequestException\nSystem.Web.Http.HttpError\nSystem.Web.Http.HttpRouteCollection",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "RESPONSE_BODY",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "error",
+            "message": "ASP.NET exception leakage",
+            "tags": [
+                "application-multi",
+                "language-aspnet",
+                "platform-multi",
+                "attack-disclosure",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/DATA-LEAKAGES",
+                "capec/1000/118/116/54/127"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [
+                {
+                    "name": "tx.outbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "4"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 950013,
+            "phase": 3,
+            "operator": "lt",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-950-DATA-LEAKAGES",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 950014,
+            "phase": 4,
+            "operator": "lt",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-950-DATA-LEAKAGES",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 950100,
+            "phase": 3,
+            "operator": "rx",
+            "operator_arg": "^5\\d{2}$",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "RESPONSE_STATUS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "error",
+            "message": "The Application Returned a 500-Level Status Code",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-disclosure",
+                "paranoia-level/2",
+                "OWASP_CRS",
+                "OWASP_CRS/DATA-LEAKAGES",
+                "capec/1000/152"
+            ],
+            "paranoia": 2,
+            "category": "response_leak",
+            "setvars": [
+                {
+                    "name": "tx.outbound_anomaly_score_pl2",
+                    "op": "+",
+                    "value": "4"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 950015,
+            "phase": 3,
+            "operator": "lt",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-950-DATA-LEAKAGES",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 950016,
+            "phase": 4,
+            "operator": "lt",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-950-DATA-LEAKAGES",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 950017,
+            "phase": 3,
+            "operator": "lt",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-950-DATA-LEAKAGES",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 950018,
+            "phase": 4,
+            "operator": "lt",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-950-DATA-LEAKAGES",
+            "multi_match": false,
+            "warnings": []
+        }
+    ]
+}

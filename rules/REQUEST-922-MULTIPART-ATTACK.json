@@ -1,0 +1,285 @@
+{
+    "source_file": "REQUEST-922-MULTIPART-ATTACK.conf",
+    "crs_version": "v4.26.0",
+    "rule_count": 5,
+    "rules": [
+        {
+            "id": 922100,
+            "phase": 2,
+            "operator": "eq",
+            "operator_arg": "0",
+            "operator_negated": true,
+            "targets": [
+                {
+                    "collection": "MULTIPART_PART_HEADERS",
+                    "selector": "_charset_",
+                    "negated": false,
+                    "count": true,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Multipart content type global _charset_ definition is not allowed by policy",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-multipart-header",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/MULTIPART-ATTACK",
+                "capec/1000/255/153"
+            ],
+            "paranoia": 1,
+            "category": "multipart",
+            "setvars": [
+                {
+                    "name": "tx.922100_charset",
+                    "op": "=",
+                    "value": "|0|"
+                }
+            ],
+            "chain": [
+                {
+                    "id": 922140,
+                    "phase": 2,
+                    "operator": "gt",
+                    "operator_arg": "0",
+                    "operator_negated": false,
+                    "targets": [
+                        {
+                            "collection": "MULTIPART_PART_HEADERS",
+                            "selector": null,
+                            "negated": false,
+                            "count": true,
+                            "regex": false
+                        }
+                    ],
+                    "transforms": [
+                        "none"
+                    ],
+                    "action": "pass",
+                    "severity": "notice",
+                    "message": "",
+                    "tags": [
+                        "attack-multipart-header",
+                        "OWASP_CRS",
+                        "OWASP_CRS/MULTIPART-ATTACK"
+                    ],
+                    "paranoia": 1,
+                    "category": "multipart",
+                    "setvars": [
+                        {
+                            "name": "tx.multipart_headers_content_counter",
+                            "op": "=",
+                            "value": "0"
+                        }
+                    ],
+                    "chain": [],
+                    "capture": false,
+                    "skip_after": null,
+                    "multi_match": false,
+                    "warnings": []
+                }
+            ],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 922150,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "^content-type\\s*:\\s*(.*)$",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "MULTIPART_PART_HEADERS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "lowercase"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "attack-multipart-header",
+                "OWASP_CRS",
+                "OWASP_CRS/MULTIPART-ATTACK"
+            ],
+            "paranoia": 1,
+            "category": "multipart",
+            "setvars": [
+                {
+                    "name": "tx.multipart_headers_content_types_%{tx.multipart_headers_content_counter}",
+                    "op": "=",
+                    "value": "0"
+                },
+                {
+                    "name": "tx.multipart_headers_content_counter",
+                    "op": "+",
+                    "value": "1"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 922110,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "^(?:(?:\\*|[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]+)/(?:\\*|[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]+)|\\*)(?:[\\s\\x0b]*;[\\s\\x0b]*(?:charset[\\s\\x0b]*=[\\s\\x0b]*\"?(?:iso-8859-15?|utf-8|windows-1252)\\b\"?|(?:[^\\s\\x0b-\"\\(\\),/:-\\?\\[-\\]c\\{\\}]|c(?:[^!\"\\(\\),/:-\\?\\[-\\]h\\{\\}]|h(?:[^!\"\\(\\),/:-\\?\\[-\\]a\\{\\}]|a(?:[^!\"\\(\\),/:-\\?\\[-\\]r\\{\\}]|r(?:[^!\"\\(\\),/:-\\?\\[-\\]s\\{\\}]|s(?:[^!\"\\(\\),/:-\\?\\[-\\]e\\{\\}]|e[^!\"\\(\\),/:-\\?\\[-\\]t\\{\\}]))))))[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]*[\\s\\x0b]*=[\\s\\x0b]*[^!\\(\\),/:-\\?\\[-\\]\\{\\}]+);?)*(?:[\\s\\x0b]*,[\\s\\x0b]*(?:(?:\\*|[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]+)/(?:\\*|[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]+)|\\*)(?:[\\s\\x0b]*;[\\s\\x0b]*(?:charset[\\s\\x0b]*=[\\s\\x0b]*\"?(?:iso-8859-15?|utf-8|windows-1252)\\b\"?|(?:[^\\s\\x0b-\"\\(\\),/:-\\?\\[-\\]c\\{\\}]|c(?:[^!\"\\(\\),/:-\\?\\[-\\]h\\{\\}]|h(?:[^!\"\\(\\),/:-\\?\\[-\\]a\\{\\}]|a(?:[^!\"\\(\\),/:-\\?\\[-\\]r\\{\\}]|r(?:[^!\"\\(\\),/:-\\?\\[-\\]s\\{\\}]|s(?:[^!\"\\(\\),/:-\\?\\[-\\]e\\{\\}]|e[^!\"\\(\\),/:-\\?\\[-\\]t\\{\\}]))))))[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]*[\\s\\x0b]*=[\\s\\x0b]*[^!\\(\\),/:-\\?\\[-\\]\\{\\}]+);?)*)*$",
+            "operator_negated": true,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "MULTIPART_HEADERS_CONTENT_TYPES_*",
+                    "negated": false,
+                    "count": false,
+                    "regex": true
+                }
+            ],
+            "transforms": [
+                "none",
+                "lowercase"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Illegal MIME Multipart Header content-type: charset parameter",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-multipart-header",
+                "attack-protocol",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/MULTIPART-ATTACK",
+                "capec/272/220"
+            ],
+            "paranoia": 1,
+            "category": "multipart",
+            "setvars": [
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 922120,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "content-transfer-encoding:(.*)",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "MULTIPART_PART_HEADERS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "lowercase"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Content-Transfer-Encoding was deprecated by rfc7578 in 2015 and should not be used",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-multipart-header",
+                "attack-deprecated-header",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/MULTIPART-ATTACK",
+                "capec/272/220"
+            ],
+            "paranoia": 1,
+            "category": "multipart",
+            "setvars": [
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 922130,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "[^\\x21-\\x7E][\\x21-\\x39\\x3B-\\x7E]*:",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "MULTIPART_PART_HEADERS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "lowercase"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Multipart header contains characters outside of valid range",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-multipart-header",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/MULTIPART-ATTACK",
+                "capec/272/220"
+            ],
+            "paranoia": 1,
+            "category": "multipart",
+            "setvars": [
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        }
+    ]
+}

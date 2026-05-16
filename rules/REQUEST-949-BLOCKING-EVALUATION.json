@@ -1,0 +1,948 @@
+{
+    "source_file": "REQUEST-949-BLOCKING-EVALUATION.conf",
+    "crs_version": "v4.26.0",
+    "rule_count": 25,
+    "rules": [
+        {
+            "id": 949052,
+            "phase": 1,
+            "operator": "ge",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "BLOCKING_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [
+                {
+                    "name": "tx.blocking_inbound_anomaly_score",
+                    "op": "+",
+                    "value": "0"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949152,
+            "phase": 1,
+            "operator": "ge",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [
+                {
+                    "name": "tx.detection_inbound_anomaly_score",
+                    "op": "+",
+                    "value": "0"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949053,
+            "phase": 1,
+            "operator": "ge",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "BLOCKING_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [
+                {
+                    "name": "tx.blocking_inbound_anomaly_score",
+                    "op": "+",
+                    "value": "0"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949153,
+            "phase": 1,
+            "operator": "ge",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [
+                {
+                    "name": "tx.detection_inbound_anomaly_score",
+                    "op": "+",
+                    "value": "0"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949054,
+            "phase": 1,
+            "operator": "ge",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "BLOCKING_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [
+                {
+                    "name": "tx.blocking_inbound_anomaly_score",
+                    "op": "+",
+                    "value": "0"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949154,
+            "phase": 1,
+            "operator": "ge",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [
+                {
+                    "name": "tx.detection_inbound_anomaly_score",
+                    "op": "+",
+                    "value": "0"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949055,
+            "phase": 1,
+            "operator": "ge",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "BLOCKING_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [
+                {
+                    "name": "tx.blocking_inbound_anomaly_score",
+                    "op": "+",
+                    "value": "0"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949155,
+            "phase": 1,
+            "operator": "ge",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [
+                {
+                    "name": "tx.detection_inbound_anomaly_score",
+                    "op": "+",
+                    "value": "0"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949060,
+            "phase": 2,
+            "operator": "ge",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "BLOCKING_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [
+                {
+                    "name": "tx.blocking_inbound_anomaly_score",
+                    "op": "+",
+                    "value": "0"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949160,
+            "phase": 2,
+            "operator": "ge",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [
+                {
+                    "name": "tx.detection_inbound_anomaly_score",
+                    "op": "+",
+                    "value": "0"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949061,
+            "phase": 2,
+            "operator": "ge",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "BLOCKING_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [
+                {
+                    "name": "tx.blocking_inbound_anomaly_score",
+                    "op": "+",
+                    "value": "0"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949161,
+            "phase": 2,
+            "operator": "ge",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [
+                {
+                    "name": "tx.detection_inbound_anomaly_score",
+                    "op": "+",
+                    "value": "0"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949062,
+            "phase": 2,
+            "operator": "ge",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "BLOCKING_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [
+                {
+                    "name": "tx.blocking_inbound_anomaly_score",
+                    "op": "+",
+                    "value": "0"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949162,
+            "phase": 2,
+            "operator": "ge",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [
+                {
+                    "name": "tx.detection_inbound_anomaly_score",
+                    "op": "+",
+                    "value": "0"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949063,
+            "phase": 2,
+            "operator": "ge",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "BLOCKING_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [
+                {
+                    "name": "tx.blocking_inbound_anomaly_score",
+                    "op": "+",
+                    "value": "0"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949163,
+            "phase": 2,
+            "operator": "ge",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [
+                {
+                    "name": "tx.detection_inbound_anomaly_score",
+                    "op": "+",
+                    "value": "0"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949111,
+            "phase": 1,
+            "operator": "ge",
+            "operator_arg": "%{tx.inbound_anomaly_score_threshold}",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "BLOCKING_INBOUND_ANOMALY_SCORE",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "deny",
+            "severity": "notice",
+            "message": "Inbound Anomaly Score Exceeded in phase 1 (Total Score: %{TX.BLOCKING_INBOUND_ANOMALY_SCORE})",
+            "tags": [
+                "anomaly-evaluation",
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [],
+            "chain": [
+                {
+                    "id": 949110,
+                    "phase": 2,
+                    "operator": "ge",
+                    "operator_arg": "%{tx.inbound_anomaly_score_threshold}",
+                    "operator_negated": false,
+                    "targets": [
+                        {
+                            "collection": "TX",
+                            "selector": "BLOCKING_INBOUND_ANOMALY_SCORE",
+                            "negated": false,
+                            "count": false,
+                            "regex": false
+                        }
+                    ],
+                    "transforms": [
+                        "none"
+                    ],
+                    "action": "deny",
+                    "severity": "notice",
+                    "message": "Inbound Anomaly Score Exceeded (Total Score: %{TX.BLOCKING_INBOUND_ANOMALY_SCORE})",
+                    "tags": [
+                        "anomaly-evaluation",
+                        "OWASP_CRS"
+                    ],
+                    "paranoia": 1,
+                    "category": "misc",
+                    "setvars": [],
+                    "chain": [],
+                    "capture": false,
+                    "skip_after": null,
+                    "multi_match": false,
+                    "warnings": []
+                }
+            ],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949011,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-949-BLOCKING-EVALUATION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949012,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-949-BLOCKING-EVALUATION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949013,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-949-BLOCKING-EVALUATION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949014,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-949-BLOCKING-EVALUATION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949015,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-949-BLOCKING-EVALUATION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949016,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-949-BLOCKING-EVALUATION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949017,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-949-BLOCKING-EVALUATION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 949018,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-949-BLOCKING-EVALUATION",
+            "multi_match": false,
+            "warnings": []
+        }
+    ]
+}

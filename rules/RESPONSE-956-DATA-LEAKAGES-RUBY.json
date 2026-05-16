@@ -1,0 +1,379 @@
+{
+    "source_file": "RESPONSE-956-DATA-LEAKAGES-RUBY.conf",
+    "crs_version": "v4.26.0",
+    "rule_count": 11,
+    "rules": [
+        {
+            "id": 956010,
+            "phase": 4,
+            "operator": "pm",
+            "operator_arg": "gzip compress deflate br zstd",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "RESPONSE_HEADERS",
+                    "selector": "Content-Encoding",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS",
+                "OWASP_CRS/DATA-LEAKAGES-RUBY"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 956011,
+            "phase": 3,
+            "operator": "lt",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 956012,
+            "phase": 4,
+            "operator": "lt",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 956100,
+            "phase": 4,
+            "operator": "pmf",
+            "operator_arg": "ArgumentError:\nArgumentError (\nIndexError:\nIndexError (\nLoadError:\nLoadError (\nLocalJumpError:\nLocalJumpError (\nNameError:\nNameError (\nNoMethodError:\nNoMethodError (\nNotImplementedError:\nNotImplementedError (\nRangeError:\nRangeError (\nRuntimeError:\nRuntimeError (\nScriptError:\nScriptError (\nSecurityError:\nSecurityError (\nStandardError:\nStandardError (\nSyntaxError:\nSyntaxError (\nSystemExit:\nSystemExit (\nTypeError:\nTypeError (\nZeroDivisionError:\nZeroDivisionError (\nActionController::RoutingError\nActionController::InvalidAuthenticityToken\nActionController::ParameterMissing\nActionController::UnknownFormat\nActionController::BadRequest\nActionController::UrlGenerationError\nActionController::RedirectBackError\nActionController::InvalidCrossOriginRequest\nActiveRecord::RecordNotFound\nActiveRecord::RecordInvalid\nActiveRecord::StatementInvalid\nActiveRecord::RecordNotUnique\nActiveRecord::ConnectionTimeoutError\nActiveRecord::SerializationTypeMismatch\nActiveRecord::Deadlocked\nActiveRecord::SubclassNotFound\nActiveModel::ForbiddenAttributesError\nActiveSupport::MessageVerifier::InvalidSignature\nActiveSupport::DeprecationException\nPG::ConnectionBad\nPG::UndefinedTable\nPG::UndefinedColumn\nPG::SyntaxError\nPG::UniqueViolation\nPG::CheckViolation\nPG::ForeignKeyViolation\nPG::NotNullViolation\nPG::InvalidTextRepresentation\nPG::CharacterNotInRepertoire\nMysql2::Error\nMysql2::TimeoutError\nSQLite3::BusyException\nSQLite3::ConstraintException\nRack::Timeout::RequestTimeoutException\nRack::Lint::LintError\nRack::QueryParser::ParameterTypeError\nPuma::HttpParserError\nUnicorn::ClientShutdown\nThin::ConnectionError\nWEBrick::HTTPStatus::InternalServerError\nJSON::ParserError\nJSON::GeneratorError\nOj::ParseError\nOj::GeneratorError\nSocketError\nEOFError\nOpenSSL::SSL::SSLError\nTimeout::Error\nNet::ReadTimeout\nNet::OpenTimeout\nNet::HTTPBadResponse\nNet::HTTPHeaderSyntaxError\nErrno::ENOENT\nErrno::EACCES\nErrno::ECONNREFUSED\nErrno::ETIMEDOUT\nErrno::EPIPE\nErrno::EMFILE\nSystemCallError\nDevise::Unauthorized\nJWT::DecodeError\nJWT::ExpiredSignature\nBCrypt::Errors::InvalidHash\nThreadError\nFiberError\nMutex::LockError\nActionView::Template::Error\nActionView::MissingTemplate\nActionView::MissingPartial\nActionView::Template::Handlers::ERB::ERBError\nActionView::SyntaxErrorInTemplate\nActionView::Template::Handlers::Builder::TemplateError\nActionView::Helpers::NumberHelper::InvalidNumberError\nActionView::TemplateError",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "RESPONSE_BODY",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "error",
+            "message": "RUBY Information Leakage",
+            "tags": [
+                "application-multi",
+                "language-ruby",
+                "platform-multi",
+                "attack-disclosure",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/DATA-LEAKAGES-RUBY",
+                "capec/1000/118/116"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [
+                {
+                    "name": "tx.outbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "4"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 956013,
+            "phase": 3,
+            "operator": "lt",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 956014,
+            "phase": 4,
+            "operator": "lt",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 956110,
+            "phase": 4,
+            "operator": "rx",
+            "operator_arg": "(?i)(?:<%[=#\\s]|#\\{[^}]+\\})",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "RESPONSE_BODY",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "error",
+            "message": "Ruby source code leakage",
+            "tags": [
+                "application-multi",
+                "language-ruby",
+                "platform-multi",
+                "attack-disclosure",
+                "paranoia-level/2",
+                "OWASP_CRS",
+                "OWASP_CRS/DATA-LEAKAGES-RUBY",
+                "capec/1000/118/116"
+            ],
+            "paranoia": 2,
+            "category": "response_leak",
+            "setvars": [
+                {
+                    "name": "tx.outbound_anomaly_score_pl2",
+                    "op": "+",
+                    "value": "4"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 956015,
+            "phase": 3,
+            "operator": "lt",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 956016,
+            "phase": 4,
+            "operator": "lt",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 956017,
+            "phase": 3,
+            "operator": "lt",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 956018,
+            "phase": 4,
+            "operator": "lt",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
+            "multi_match": false,
+            "warnings": []
+        }
+    ]
+}

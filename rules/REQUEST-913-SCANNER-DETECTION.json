@@ -1,0 +1,301 @@
+{
+    "source_file": "REQUEST-913-SCANNER-DETECTION.conf",
+    "crs_version": "v4.26.0",
+    "rule_count": 9,
+    "rules": [
+        {
+            "id": 913011,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "scanner",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-913-SCANNER-DETECTION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 913012,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "scanner",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-913-SCANNER-DETECTION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 913100,
+            "phase": 1,
+            "operator": "pmf",
+            "operator_arg": "arachni\nbetabot\nbewica-security-scan\nBFAC\ncommix\nDetectify\ndirbuster\nfimap\nfuzz faster\nwhatwaf\ngobuster\nhavij\nhexometer\njbrofuzz\njorgee\nlibwhisker\nmasscan\nmorfeus\nMozlila\nMozilla/5.g\nnessus\nnetlab360\nnetsparker\nnettacker\nnikto\nnmap\nnuclei\nopenvas\nsecurityagent\nsitelockspider\nsqlmap\nsysscan\nTsunamiSecurityScanner\nw3af.org\nwebbandit\nwebshag\nwfuzz\nwhatweb\nwprecon\nwpscan\nferoxbuster\nl9explore\nl9tcpid\nwapiti\nvega\nappspider\nironwasp\nskipfish\nqualysguard\nn-stalker\nacunetix\ncmsmap\nsqlninja\nxsstrike\nxsser\njoomscan\ndroopescan\nzgrab\nGhauri\nzmeu\nWPProbe\nSSTIMap\nMozilla/4.0 (Hydra)\ntplmap\nDotDotPwn\nshortscan\nKadimus\nLFISuite\nMozilla/5.0 (compatible; Panoptic\nLFImap\ngraphw00f\ngraphql-cop\njSQL\nnoseyparker\nTruffleHog\nYesWeHack-Hunter\nTInjA\nMozilla/5.0 (compatible; AppScan;",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_HEADERS",
+                    "selector": "User-Agent",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Found User-Agent associated with security scanner",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-reputation-scanner",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/SCANNER-DETECTION",
+                "capec/1000/118/224/541/310"
+            ],
+            "paranoia": 1,
+            "category": "scanner",
+            "setvars": [
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 913013,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "scanner",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-913-SCANNER-DETECTION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 913014,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "scanner",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-913-SCANNER-DETECTION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 913015,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "scanner",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-913-SCANNER-DETECTION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 913016,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "scanner",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-913-SCANNER-DETECTION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 913017,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "scanner",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-913-SCANNER-DETECTION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 913018,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "scanner",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-913-SCANNER-DETECTION",
+            "multi_match": false,
+            "warnings": []
+        }
+    ]
+}

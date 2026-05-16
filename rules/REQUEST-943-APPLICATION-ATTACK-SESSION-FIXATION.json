@@ -1,0 +1,430 @@
+{
+    "source_file": "REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION.conf",
+    "crs_version": "v4.26.0",
+    "rule_count": 9,
+    "rules": [
+        {
+            "id": 943011,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "session_fixation",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 943012,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "session_fixation",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 943100,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "(?i)\\.cookie\\b.*?;[^0-9A-Z_a-z]*?(?:expires|domain)[^0-9A-Z_a-z]*?=|\\bhttp-equiv[^0-9A-Z_a-z]+set-cookie\\b",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "urlDecodeUni"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Possible Session Fixation Attack: Setting Cookie Values in HTML",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-fixation",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-SESSION-FIXATION",
+                "capec/1000/225/21/593/61"
+            ],
+            "paranoia": 1,
+            "category": "session_fixation",
+            "setvars": [
+                {
+                    "name": "tx.session_fixation_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 943110,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "^(?:j(?:se(?:ssionid|rvsession)|wsession)|(?:asp(?:\\.net_)?session|zend_session_)id|p(?:hpsessi(?:on|d)|lay_session)|(?:(?:w(?:eblogic|l)|rack\\.|laravel_)sessio|(?:next-auth\\.session-|meteor_login_)toke)n|s(?:(?:ession[\\-_]?|ails\\.s)id|hiny-token)|_(?:session_id|(?:(?:flask|rails)_sessio|_(?:secure|host)-next-auth\\.session-toke)n)|c(?:f(?:s?id|token)|onnect\\.sid|akephp|i_session)|koa[\\.:]sess)$",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "lowercase"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Possible Session Fixation Attack: SessionID Parameter Name with Off-Domain Referer",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-fixation",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-SESSION-FIXATION",
+                "capec/1000/225/21/593/61"
+            ],
+            "paranoia": 1,
+            "category": "session_fixation",
+            "setvars": [
+                {
+                    "name": "tx.943110_matched_var_name",
+                    "op": "=",
+                    "value": "0"
+                }
+            ],
+            "chain": [
+                {
+                    "id": 943120,
+                    "phase": 2,
+                    "operator": "rx",
+                    "operator_arg": "^(?:j(?:se(?:ssionid|rvsession)|wsession)|(?:asp(?:\\.net_)?session|session[\\-_]?)id|phpsessi(?:on|d)|(?:weblogic|laravel_)session|_(?:session_id|flask_session)|c(?:f(?:s?id|token)|onnect\\.sid))$",
+                    "operator_negated": false,
+                    "targets": [
+                        {
+                            "collection": "ARGS_NAMES",
+                            "selector": null,
+                            "negated": false,
+                            "count": false,
+                            "regex": false
+                        }
+                    ],
+                    "transforms": [
+                        "none",
+                        "lowercase"
+                    ],
+                    "action": "block",
+                    "severity": "critical",
+                    "message": "Possible Session Fixation Attack: SessionID Parameter Name with No Referer",
+                    "tags": [
+                        "application-multi",
+                        "language-multi",
+                        "platform-multi",
+                        "attack-fixation",
+                        "paranoia-level/1",
+                        "OWASP_CRS",
+                        "OWASP_CRS/ATTACK-SESSION-FIXATION",
+                        "capec/1000/225/21/593/61"
+                    ],
+                    "paranoia": 1,
+                    "category": "session_fixation",
+                    "setvars": [
+                        {
+                            "name": "tx.943120_matched_var_name",
+                            "op": "=",
+                            "value": "0"
+                        }
+                    ],
+                    "chain": [],
+                    "capture": true,
+                    "skip_after": null,
+                    "multi_match": false,
+                    "warnings": []
+                },
+                {
+                    "id": 943013,
+                    "phase": 1,
+                    "operator": "lt",
+                    "operator_arg": "2",
+                    "operator_negated": false,
+                    "targets": [
+                        {
+                            "collection": "TX",
+                            "selector": "DETECTION_PARANOIA_LEVEL",
+                            "negated": false,
+                            "count": false,
+                            "regex": false
+                        }
+                    ],
+                    "transforms": [],
+                    "action": "pass",
+                    "severity": "notice",
+                    "message": "",
+                    "tags": [
+                        "OWASP_CRS"
+                    ],
+                    "paranoia": 1,
+                    "category": "session_fixation",
+                    "setvars": [],
+                    "chain": [],
+                    "capture": false,
+                    "skip_after": "END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION",
+                    "multi_match": false,
+                    "warnings": []
+                }
+            ],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 943014,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "session_fixation",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 943015,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "session_fixation",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 943016,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "session_fixation",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 943017,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "session_fixation",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 943018,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "session_fixation",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION",
+            "multi_match": false,
+            "warnings": []
+        }
+    ]
+}

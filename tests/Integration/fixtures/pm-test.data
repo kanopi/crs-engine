@@ -1,0 +1,5 @@
+# Sample phrase list for @pmFromFile tests.
+sleep
+benchmark
+load_file
+into outfile

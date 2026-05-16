@@ -1,0 +1,333 @@
+{
+    "source_file": "RESPONSE-952-DATA-LEAKAGES-JAVA.conf",
+    "crs_version": "v4.26.0",
+    "rule_count": 10,
+    "rules": [
+        {
+            "id": 952010,
+            "phase": 4,
+            "operator": "pm",
+            "operator_arg": "gzip compress deflate br zstd",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "RESPONSE_HEADERS",
+                    "selector": "Content-Encoding",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS",
+                "OWASP_CRS/DATA-LEAKAGES-JAVA"
+            ],
+            "paranoia": 1,
+            "category": "java",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 952011,
+            "phase": 3,
+            "operator": "lt",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "java",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 952012,
+            "phase": 4,
+            "operator": "lt",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "java",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 952110,
+            "phase": 4,
+            "operator": "rx",
+            "operator_arg": "(?i)\\b(?:java[\\.a-z]+E(?:xception|rror)|(?:org|com)\\.[\\.a-z]+Exception|Exception in thread \"[^\"]*\"|at[\\s\\x0b]+(?:ja(?:vax?|karta)|org|com))\\b",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "RESPONSE_BODY",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "error",
+            "message": "Java Errors",
+            "tags": [
+                "application-multi",
+                "language-java",
+                "platform-multi",
+                "attack-disclosure",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/DATA-LEAKAGES-JAVA",
+                "capec/1000/118/116"
+            ],
+            "paranoia": 1,
+            "category": "java",
+            "setvars": [
+                {
+                    "name": "tx.outbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "4"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 952013,
+            "phase": 3,
+            "operator": "lt",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "java",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 952014,
+            "phase": 4,
+            "operator": "lt",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "java",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 952015,
+            "phase": 3,
+            "operator": "lt",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "java",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 952016,
+            "phase": 4,
+            "operator": "lt",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "java",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 952017,
+            "phase": 3,
+            "operator": "lt",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "java",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 952018,
+            "phase": 4,
+            "operator": "lt",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "java",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
+            "multi_match": false,
+            "warnings": []
+        }
+    ]
+}

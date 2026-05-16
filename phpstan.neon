@@ -1,0 +1,10 @@
+parameters:
+    level: max
+    paths:
+        - src
+    tips:
+        treatPhpDocTypesAsCertain: false
+    ignoreErrors:
+        - identifier: argument.type
+        - identifier: missingType.iterableValue
+        - identifier: cast.string

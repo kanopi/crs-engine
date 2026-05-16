@@ -1,0 +1,299 @@
+{
+    "source_file": "REQUEST-911-METHOD-ENFORCEMENT.conf",
+    "crs_version": "v4.26.0",
+    "rule_count": 9,
+    "rules": [
+        {
+            "id": 911011,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "rce",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-911-METHOD-ENFORCEMENT",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 911012,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "rce",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-911-METHOD-ENFORCEMENT",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 911100,
+            "phase": 1,
+            "operator": "within",
+            "operator_arg": "%{tx.allowed_methods}",
+            "operator_negated": true,
+            "targets": [
+                {
+                    "collection": "REQUEST_METHOD",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "block",
+            "severity": "critical",
+            "message": "Method is not allowed by policy",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-generic",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/METHOD-ENFORCEMENT",
+                "capec/1000/210/272/220/274"
+            ],
+            "paranoia": 1,
+            "category": "rce",
+            "setvars": [
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 911013,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "rce",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-911-METHOD-ENFORCEMENT",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 911014,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "rce",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-911-METHOD-ENFORCEMENT",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 911015,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "rce",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-911-METHOD-ENFORCEMENT",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 911016,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "rce",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-911-METHOD-ENFORCEMENT",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 911017,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "rce",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-911-METHOD-ENFORCEMENT",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 911018,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "rce",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-911-METHOD-ENFORCEMENT",
+            "multi_match": false,
+            "warnings": []
+        }
+    ]
+}

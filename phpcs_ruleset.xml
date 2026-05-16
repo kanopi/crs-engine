@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ruleset name="CrsEngine">
+    <description>CRS Engine Coding Standards (mirrors kanopi/firewall)</description>
+
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="ignoreComments" value="true"/>
+        </properties>
+    </rule>
+
+    <rule ref="PSR1"/>
+    <rule ref="PSR2"/>
+    <rule ref="PSR12"/>
+    <rule ref="PHPCompatibility"/>
+
+    <exclude-pattern>/vendor/*</exclude-pattern>
+    <exclude-pattern>/rules/*</exclude-pattern>
+    <exclude-pattern>*.json</exclude-pattern>
+
+    <arg name="warning-severity" value="0"/>
+
+    <!-- CRS Engine baseline is PHP 8.1; check cross-version up to current. -->
+    <config name="testVersion" value="8.1-"/>
+</ruleset>

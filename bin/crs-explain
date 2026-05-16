@@ -1,0 +1,89 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+/**
+ * Debug helper: show how a parsed rule would evaluate against a payload.
+ *
+ * Usage:
+ *   bin/crs-explain 942100
+ *   bin/crs-explain 942100 --payload="' OR 1=1"
+ */
+
+use Kanopi\Crs\CrsConfig;
+use Kanopi\Crs\CrsEngine;
+use Kanopi\Crs\Request\RequestData;
+
+$root = dirname(__DIR__);
+$autoload = $root . '/vendor/autoload.php';
+if (!is_file($autoload)) {
+    fwrite(STDERR, "vendor/autoload.php not found. Run 'composer install' first.\n");
+    exit(1);
+}
+require $autoload;
+
+$id = (int) ($argv[1] ?? 0);
+if ($id <= 0) {
+    fwrite(STDERR, "Usage: crs-explain <rule-id> [--payload=<text>]\n");
+    exit(1);
+}
+$payload = null;
+foreach ($argv as $arg) {
+    if (str_starts_with($arg, '--payload=')) {
+        $payload = substr($arg, strlen('--payload='));
+    }
+}
+
+$engine = new CrsEngine(new CrsConfig(paranoia: 4));
+$rule = null;
+foreach ($engine->ruleSet()->all() as $r) {
+    if ($r->id === $id) {
+        $rule = $r;
+        break;
+    }
+}
+if ($rule === null) {
+    fwrite(STDERR, "Rule {$id} not found. Have you run bin/refresh-crs?\n");
+    exit(1);
+}
+
+echo "Rule {$rule->id} ({$rule->category}, paranoia {$rule->paranoia}, severity {$rule->severity})\n";
+echo "  message:   {$rule->message}\n";
+echo "  operator:  @{$rule->operator}" . ($rule->operatorNegated ? ' (negated)' : '') . "\n";
+echo "  argument:  " . substr($rule->operatorArgument, 0, 200) . (strlen($rule->operatorArgument) > 200 ? '...' : '') . "\n";
+echo "  transforms: " . implode(',', $rule->transforms) . "\n";
+echo "  targets:   " . count($rule->targets) . " target spec(s)\n";
+foreach ($rule->targets as $t) {
+    $prefix = ($t['negated'] ?? false) ? '!' : (($t['count'] ?? false) ? '&' : '');
+    $sel = isset($t['selector']) && $t['selector'] !== null ? ":{$t['selector']}" : '';
+    echo "    {$prefix}{$t['collection']}{$sel}\n";
+}
+echo "  action:    {$rule->action}\n";
+echo "  tags:      " . implode(', ', $rule->tags) . "\n";
+
+if ($payload !== null) {
+    $req = new RequestData(
+        method: 'GET',
+        uri: '/?test=' . urlencode($payload),
+        rawUri: '/?test=' . urlencode($payload),
+        queryString: 'test=' . urlencode($payload),
+        protocol: 'HTTP/1.1',
+        remoteAddr: '127.0.0.1',
+        queryArgs: ['test' => $payload],
+    );
+    $verdict = $engine->evaluate($req);
+    $hit = false;
+    foreach ($verdict->matchedRules as $m) {
+        if ($m['id'] === $id) {
+            $hit = true;
+            echo "  → MATCHED on payload: {$m['matched_data']}\n";
+            break;
+        }
+    }
+    if (!$hit) {
+        echo "  → did not match payload\n";
+    }
+}
+
+exit(0);

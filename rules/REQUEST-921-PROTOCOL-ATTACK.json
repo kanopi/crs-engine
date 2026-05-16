@@ -1,0 +1,1260 @@
+{
+    "source_file": "REQUEST-921-PROTOCOL-ATTACK.conf",
+    "crs_version": "v4.26.0",
+    "rule_count": 26,
+    "rules": [
+        {
+            "id": 921011,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921012,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921110,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "(?:get|p(?:(?:os|u)t|atch|rop(?:find|atch))|head|options|co(?:nnect|py)|delete|trac[ek]|m(?:kcol|ove)|(?:un)?lock)[\\s\\x0b]+[^\\s\\x0b]+[\\s\\x0b]+http/[0-9]",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_BODY",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "htmlEntityDecode",
+                "lowercase"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "HTTP Request Smuggling Attack",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-protocol",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/PROTOCOL-ATTACK",
+                "capec/1000/210/272/220/33"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [
+                {
+                    "name": "tx.http_violation_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921120,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "[\\n\\r][^0-9A-Z_a-z]*?(?:content-(?:type|length)|set-cookie|location):[\\s\\x0b]*[0-9A-Z_a-z]",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "lowercase"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "HTTP Response Splitting Attack",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-protocol",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/PROTOCOL-ATTACK",
+                "capec/1000/210/272/220/34"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [
+                {
+                    "name": "tx.http_violation_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921130,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "(?:\\bhttp/\\d|<(?:html|meta)\\b)",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "htmlEntityDecode",
+                "lowercase"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "HTTP Response Splitting Attack",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-protocol",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/PROTOCOL-ATTACK",
+                "capec/1000/210/272/220/34"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [
+                {
+                    "name": "tx.http_violation_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921140,
+            "phase": 1,
+            "operator": "rx",
+            "operator_arg": "[\\n\\r]",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_HEADERS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_HEADERS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "urlDecodeUni"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "HTTP Header Injection Attack via headers",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-protocol",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/PROTOCOL-ATTACK",
+                "capec/1000/210/272/220/273"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [
+                {
+                    "name": "tx.http_violation_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921150,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "[\\n\\r]",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "HTTP Header Injection Attack via payload (CR/LF detected)",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-protocol",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/PROTOCOL-ATTACK",
+                "capec/1000/210/272/220/33"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [
+                {
+                    "name": "tx.http_violation_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921160,
+            "phase": 1,
+            "operator": "rx",
+            "operator_arg": "[\\n\\r]+(?:[\\s\\x0b]|location|re(?:fresh|mote-(?:ip|addr))|(?:set-)?cookie|forwarded-(?:(?:fo|serve)r|host)|host|via|originating-IP|x-(?:forwarded-(?:(?:fo|serve)r|host)|host|via|remote-(?:ip|addr)|originating-IP))[\\s\\x0b]*:",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "ARGS_GET_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_GET",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "lowercase"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "HTTP Header Injection Attack via payload (CR/LF and header-name detected)",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-protocol",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/PROTOCOL-ATTACK",
+                "capec/1000/210/272/220/33"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [
+                {
+                    "name": "tx.http_violation_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921190,
+            "phase": 1,
+            "operator": "rx",
+            "operator_arg": "[\\n\\r]",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_FILENAME",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "urlDecodeUni"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "HTTP Splitting (CR/LF in request filename detected)",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-protocol",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/PROTOCOL-ATTACK",
+                "capec/1000/210/272/220/34"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [
+                {
+                    "name": "tx.http_violation_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921200,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "^[^!&\\(\\):<>\\|~]*\\)[\\s\\x0b]*(?:\\((?:[^!&\\(\\),<->\\|~]+[<>~]?=|[\\s\\x0b]*[!&\\|][\\s\\x0b]*[\\(\\)]?[\\s\\x0b]*)|\\)[\\s\\x0b]*\\([\\s\\x0b]*[!&\\|][\\s\\x0b]*|[!&\\|][\\s\\x0b]*\\([^!&\\(\\),<->\\|~]+[<>~]?=[^!&\\(\\):<>\\|~]*)",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "htmlEntityDecode"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "LDAP Injection Attack",
+            "tags": [
+                "application-multi",
+                "language-ldap",
+                "platform-multi",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/PROTOCOL-ATTACK",
+                "capec/1000/152/248/136"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921421,
+            "phase": 1,
+            "operator": "rx",
+            "operator_arg": "^[^\\s\\x0b,;]+[\\s\\x0b,;].*?(?:application/(?:.+\\+)?json|(?:application/(?:soap\\+)?|text/)xml)",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_HEADERS",
+                    "selector": "Content-Type",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "lowercase"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Content-Type header: Dangerous content type outside the mime type declaration",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-protocol",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/PROTOCOL-ATTACK",
+                "capec/1000/255/153"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921240,
+            "phase": 1,
+            "operator": "rx",
+            "operator_arg": "unix:[^|]*\\|",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_URI_RAW",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "urlDecodeUni",
+                "lowercase"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "mod_proxy attack attempt detected",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-apache",
+                "attack-protocol",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/PROTOCOL-ATTACK",
+                "capec/1000/210/272/220/33"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921250,
+            "phase": 1,
+            "operator": "streq",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": "\\x22?\\x24Version",
+                    "negated": false,
+                    "count": false,
+                    "regex": true
+                }
+            ],
+            "transforms": [
+                "none",
+                "lowercase"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Old Cookies V1 usage attempt detected",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "attack-protocol",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/PROTOCOL-ATTACK",
+                "capec/1000/210/272/220/33"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921013,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921014,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921151,
+            "phase": 1,
+            "operator": "rx",
+            "operator_arg": "[\\n\\r]",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "ARGS_GET",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "HTTP Header Injection Attack via payload (CR/LF detected)",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-protocol",
+                "paranoia-level/2",
+                "OWASP_CRS",
+                "OWASP_CRS/PROTOCOL-ATTACK",
+                "capec/1000/210/272/220/33"
+            ],
+            "paranoia": 2,
+            "category": "protocol_attack",
+            "setvars": [
+                {
+                    "name": "tx.http_violation_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl2",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921422,
+            "phase": 1,
+            "operator": "rx",
+            "operator_arg": "^[^\\s\\x0b,;]+[\\s\\x0b,;].*?\\b(?:((?:tex|multipar)t|application)|((?:audi|vide)o|image|cs[sv]|(?:vn|relate)d|p(?:df|lain)|json|(?:soa|cs)p|x(?:ml|-www-form-urlencoded)|form-data|x-amf|(?:octe|repor)t|stream)|([\\+/]))\\b",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_HEADERS",
+                    "selector": "Content-Type",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "lowercase"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Content-Type header: Dangerous content type outside the mime type declaration",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-protocol",
+                "paranoia-level/2",
+                "OWASP_CRS",
+                "OWASP_CRS/PROTOCOL-ATTACK",
+                "capec/1000/255/153"
+            ],
+            "paranoia": 2,
+            "category": "protocol_attack",
+            "setvars": [
+                {
+                    "name": "tx.inbound_anomaly_score_pl2",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921015,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921016,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921230,
+            "phase": 1,
+            "operator": "gt",
+            "operator_arg": "0",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_HEADERS",
+                    "selector": "Range",
+                    "negated": false,
+                    "count": true,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "HTTP Range Header detected",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-protocol",
+                "paranoia-level/3",
+                "OWASP_CRS",
+                "OWASP_CRS/PROTOCOL-ATTACK",
+                "capec/1000/210/272/220"
+            ],
+            "paranoia": 3,
+            "category": "protocol_attack",
+            "setvars": [
+                {
+                    "name": "tx.inbound_anomaly_score_pl3",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921170,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": ".",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-protocol",
+                "OWASP_CRS",
+                "OWASP_CRS/PROTOCOL-ATTACK",
+                "capec/1000/152/137/15/460"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [
+                {
+                    "name": "TX.paramcounter_%{MATCHED_VAR_NAME}",
+                    "op": "+",
+                    "value": "1"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921180,
+            "phase": 2,
+            "operator": "gt",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "paramcounter_.*",
+                    "negated": false,
+                    "count": false,
+                    "regex": true
+                }
+            ],
+            "transforms": [],
+            "action": "block",
+            "severity": "critical",
+            "message": "HTTP Parameter Pollution (%{MATCHED_VAR_NAME})",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-protocol",
+                "paranoia-level/3",
+                "OWASP_CRS",
+                "OWASP_CRS/PROTOCOL-ATTACK",
+                "capec/1000/152/137/15/460"
+            ],
+            "paranoia": 3,
+            "category": "protocol_attack",
+            "setvars": [
+                {
+                    "name": "tx.http_violation_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl3",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921210,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "(][^\\]]+$|][^\\]]+\\[)",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "block",
+            "severity": "critical",
+            "message": "HTTP Parameter Pollution after detecting bogus char after parameter array",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-protocol",
+                "paranoia-level/3",
+                "OWASP_CRS",
+                "OWASP_CRS/PROTOCOL-ATTACK",
+                "capec/1000/152/137/15/460"
+            ],
+            "paranoia": 3,
+            "category": "protocol_attack",
+            "setvars": [
+                {
+                    "name": "tx.http_violation_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl3",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921017,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921018,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 921220,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "\\[",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "block",
+            "severity": "critical",
+            "message": "HTTP Parameter Pollution possible via array notation",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-protocol",
+                "paranoia-level/4",
+                "OWASP_CRS",
+                "OWASP_CRS/PROTOCOL-ATTACK",
+                "capec/1000/152/137/15/460"
+            ],
+            "paranoia": 4,
+            "category": "protocol_attack",
+            "setvars": [
+                {
+                    "name": "tx.http_violation_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl4",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        }
+    ]
+}

@@ -1,0 +1,74 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+/**
+ * Fetch the pinned CRS release, parse all REQUEST-* rules, and write the
+ * compiled cache + per-file JSON into rules/.
+ *
+ * Usage:
+ *   bin/refresh-crs                  Use the tag in .crs-version
+ *   bin/refresh-crs --bump           Query GitHub for latest tag, update pin
+ *   bin/refresh-crs --tag=v4.7.0     Pin to a specific tag
+ *   bin/refresh-crs --dry-run        Parse but don't write
+ */
+
+use Kanopi\Crs\Refresh\CrsFetcher;
+use Kanopi\Crs\Refresh\RefreshRunner;
+use Kanopi\Crs\Refresh\RuleWriter;
+use Kanopi\Crs\Refresh\VersionPin;
+
+$root = dirname(__DIR__);
+
+$autoload = $root . '/vendor/autoload.php';
+if (!is_file($autoload)) {
+    fwrite(STDERR, "vendor/autoload.php not found. Run 'composer install' first.\n");
+    exit(1);
+}
+require $autoload;
+
+$bump = in_array('--bump', $argv, true);
+$dryRun = in_array('--dry-run', $argv, true);
+$tag = null;
+foreach ($argv as $arg) {
+    if (str_starts_with($arg, '--tag=')) {
+        $tag = substr($arg, strlen('--tag='));
+    }
+}
+
+$pin     = new VersionPin($root . '/.crs-version');
+$fetcher = new CrsFetcher();
+$workDir = sys_get_temp_dir() . '/crs-engine-' . bin2hex(random_bytes(4));
+$writer  = new RuleWriter($dryRun ? $workDir . '/rules-out' : $root . '/rules');
+
+$runner = new RefreshRunner($pin, $fetcher, $writer, $workDir);
+
+try {
+    $result = $runner->run($tag, $bump);
+} catch (\Throwable $e) {
+    fwrite(STDERR, "refresh-crs failed: " . $e->getMessage() . "\n");
+    exit(1);
+} finally {
+    if (is_dir($workDir)) {
+        passthru('rm -rf ' . escapeshellarg($workDir));
+    }
+}
+
+printf("CRS %s parsed: %d rules across %d files, %d parser warnings\n",
+    $result['tag'],
+    $result['rule_count'],
+    $result['file_count'],
+    $result['warnings']
+);
+
+if ($result['warnings'] > 0) {
+    foreach (array_slice($result['parser_warnings'], 0, 20) as $w) {
+        echo "  - {$w}\n";
+    }
+    if ($result['warnings'] > 20) {
+        printf("  ... and %d more (see rules/manifest.json)\n", $result['warnings'] - 20);
+    }
+}
+
+exit(0);

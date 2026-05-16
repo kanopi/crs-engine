@@ -1,0 +1,77 @@
+{
+    "name": "kanopi/crs-engine",
+    "description": "Standalone PHP engine that parses the OWASP Core Rule Set (CRS) and evaluates HTTP requests against it.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sean Dietrich",
+            "email": "sean@kanopi.com"
+        },
+        {
+            "name": "Kanopi Studios Engineers",
+            "homepage": "https://kanopi.com/about-us/"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-pcre": "*"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^10.5 || ^11.5",
+        "rector/rector": "^2.0",
+        "squizlabs/php_codesniffer": "^3.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kanopi\\Crs\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kanopi\\Crs\\Tests\\": "tests/"
+        }
+    },
+    "bin": [
+        "bin/refresh-crs",
+        "bin/crs-explain"
+    ],
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test:unit": "vendor/bin/phpunit --testsuite unit",
+        "test:integration": "vendor/bin/phpunit --testsuite integration",
+        "refresh": "bin/refresh-crs",
+        "refresh:bump": "bin/refresh-crs --bump",
+        "check:code": "vendor/bin/phpcs --standard=phpcs_ruleset.xml src tests",
+        "check:code:circleci": "vendor/bin/phpcs --standard=phpcs_ruleset.xml --report=junit --report-file=phpcs-report.xml src tests",
+        "fix:code": "vendor/bin/phpcbf --standard=phpcs_ruleset.xml src tests",
+        "check:stan": "vendor/bin/phpstan analyse --memory-limit=-1",
+        "check:stan:circleci": "vendor/bin/phpstan analyse --memory-limit=-1 --error-format=junit --no-progress > phpstan-report.xml",
+        "check:rector": "vendor/bin/rector process --dry-run",
+        "check:rector:circleci": "vendor/bin/rector process --dry-run --output-format=junit > rector-report.xml",
+        "fix:rector": "vendor/bin/rector process",
+        "check": [
+            "@check:code",
+            "@check:stan",
+            "@check:rector"
+        ],
+        "fix": [
+            "@fix:rector",
+            "@fix:code"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "stable"
+}

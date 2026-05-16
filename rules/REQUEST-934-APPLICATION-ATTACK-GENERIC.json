@@ -1,0 +1,1281 @@
+{
+    "source_file": "REQUEST-934-APPLICATION-ATTACK-GENERIC.conf",
+    "crs_version": "v4.26.0",
+    "rule_count": 20,
+    "rules": [
+        {
+            "id": 934011,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "generic",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 934012,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "1",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "generic",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 934100,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "_(?:\\$\\$ND_FUNC\\$\\$_|_js_function)|(?:\\beval|new[\\s\\x0b]+Function[\\s\\x0b]*)\\(|(?:String\\.fromCharCod|Module:prototyp)e|function\\(\\)\\{|this\\.constructor|module\\.exports=|\\([\\s\\x0b]*[^0-9A-Z_a-z]child_process[^0-9A-Z_a-z][\\s\\x0b]*\\)|cons(?:tructor:constructor|ole(?:\\.(?:(?:debu|lo)g|error|info|trace|warn)(?:\\.call)?\\(|\\[[\"'`](?:(?:debu|lo)g|error|info|trace|warn)[\"'`]\\]))|process(?:\\.(?:(?:a(?:ccess|ppendfile|rgv|vailability)|c(?:aveats|h(?:mod|own)|(?:los|opyfil)e|p|reate(?:read|write)stream)|ex(?:ec(?:file)?|ists)|f(?:ch(?:mod|own)|data(?:sync)?|s(?:tat|ync)|utimes)|inodes|l(?:chmod|ink|stat|utimes)|mkd(?:ir|temp)|open(?:dir)?|r(?:e(?:ad(?:dir|file|link|v)?|name)|m)|s(?:pawn(?:file)?|tat|ymlink)|truncate|u(?:n(?:link|watchfile)|times)|w(?:atchfile|rite(?:file|v)?))(?:sync)?(?:\\.call)?\\(|binding|constructor|env|global|main(?:Module)?|process|require)|\\[[\"'`](?:(?:a(?:ccess|ppendfile|rgv|vailability)|c(?:aveats|h(?:mod|own)|(?:los|opyfil)e|p|reate(?:read|write)stream)|ex(?:ec(?:file)?|ists)|f(?:ch(?:mod|own)|data(?:sync)?|s(?:tat|ync)|utimes)|inodes|l(?:chmod|ink|stat|utimes)|mkd(?:ir|temp)|open(?:dir)?|r(?:e(?:ad(?:dir|file|link|v)?|name)|m)|s(?:pawn(?:file)?|tat|ymlink)|truncate|u(?:n(?:link|watchfile)|times)|w(?:atchfile|rite(?:file|v)?))(?:sync)?|binding|constructor|env|global|main(?:Module)?|process|require)[\"'`]\\])|(?:binding|constructor|env|global|main(?:Module)?|process|require)\\[|require(?:\\.(?:resolve(?:\\.call)?\\(|main|extensions|cache)|\\[[\"'`](?:(?:resolv|cach)e|main|extensions)[\"'`]\\])",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_FILENAME",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "urlDecodeUni",
+                "jsDecode",
+                "removeWhitespace",
+                "base64Decode",
+                "urlDecodeUni",
+                "jsDecode",
+                "removeWhitespace"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Node.js Injection Attack 1/2",
+            "tags": [
+                "application-multi",
+                "language-javascript",
+                "platform-multi",
+                "platform-nodejs",
+                "attack-rce",
+                "attack-injection-generic",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-GENERIC",
+                "capec/1000/152/242"
+            ],
+            "paranoia": 1,
+            "category": "generic",
+            "setvars": [
+                {
+                    "name": "tx.rce_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": true,
+            "warnings": []
+        },
+        {
+            "id": 934110,
+            "phase": 2,
+            "operator": "pmf",
+            "operator_arg": "http://instance-data/latest/\nhttp://169.254.169.254/latest/\nhttp://2852039166/latest/\nhttp://025177524776/latest/\nhttp://0251.0376.0251.0376/latest/\nhttp://0xA9.0xFE.0xA9.0xFE/latest/\nhttp://0xA9FEA9FE/latest/\nhttp://0251.254.169.254/latest/\nhttp://[::ffff:a9fe:a9fe]/latest/\nhttp://[0:0:0:0:0:ffff:a9fe:a9fe]/latest/\nhttp://[0:0:0:0:0:ffff:169.254.169.254]/latest/\nhttp://169.254.169.254.nip.io/latest/\nhttp://nicob.net/redir-http-169.254.169.254:80-\nhttp://2130706433/\nhttp://3232235521/\nhttp://3232235777/\nhttp://2852039166/\nhttp://[::]:\nhttp://localtest.me\nhttp://127.0.0.1.nip.io\nhttp://127.127.127.127\nhttp://127.0.1.3\nhttp://127.0.0.0\nhttp://127.0.0.1\nhttp://0.0.0.0\nhttp://localhost\nhttp://0177.0.0.1/\nhttp://[::1]\nhttp://[0000::1]\nhttp://[::ffff:127.0.0.1]\nhttp://[0:0:0:0:0:ffff:127.0.0.1]\nhttp://0/\nhttp://127.1\nhttp://127.0.1\nhttp:127.0.0.1\nhttp://169.254.170.2/v2\nhttp://169.254.169.254/computeMetadata/v1/\nhttp://metadata.google.internal/computeMetadata/v1/\nhttp://metadata/computeMetadata/v1/\nhttp://2852039166/computeMetadata/v1/\nhttp://025177524776/computeMetadata/v1/\nhttp://0251.0376.0251.0376/computeMetadata/v1/\nhttp://[::ffff:a9fe:a9fe]/computeMetadata/v1/\nhttp://[0:0:0:0:0:ffff:a9fe:a9fe]/computeMetadata/v1/\nhttp://[0:0:0:0:0:ffff:169.254.169.254]/computeMetadata/v1/\nhttp://169.254.169.254.nip.io/computeMetadata/v1/\nhttp://0xA9.0xFE.0xA9.0xFE/computeMetadata/v1/\nhttp://0xA9FEA9FE/computeMetadata/v1/\nhttp://0251.254.169.254/computeMetadata/v1/\ngopher://metadata.google.internal\nhttp://metadata.google.internal/computeMetadata/v1/instance/disks/?recursive=true\nhttp://metadata.google.internal/computeMetadata/v1beta1/\nhttp://169.254.169.254/metadata/v1.json\nhttps://metadata.packet.net/userdata\nhttp://169.254.169.254/metadata/v1/\nhttp://169.254.169.254/metadata/instance?api-version=2017-04-02\nhttp://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text\nhttp://2852039166/metadata/v1/\nhttp://025177524776/metadata/v1/\nhttp://0251.0376.0251.0376/metadata/v1/\nhttp://[::ffff:a9fe:a9fe]/metadata/v1/\nhttp://[0:0:0:0:0:ffff:a9fe:a9fe]/metadata/v1/\nhttp://[0:0:0:0:0:ffff:169.254.169.254]/metadata/v1/\nhttp://169.254.169.254.nip.io/metadata/v1/\nhttp://0xA9.0xFE.0xA9.0xFE/metadata/v1/\nhttp://0xA9FEA9FE/metadata/v1/\nhttp://0251.254.169.254/metadata/v1/\nhttp://169.254.169.254/openstack\nhttp://169.254.169.254/2009-04-04/meta-data/\nhttp://192.0.0.192/latest/\nhttp://100.100.100.200/latest/meta-data/\nhttp://rancher-metadata/\nhttp://127.0.0.1:2375\nhttp://2130706433:2375/\nhttp://[::]:2375/\nhttp://[0000::1]:2375/\nhttp://[0:0:0:0:0:ffff:127.0.0.1]:2375/\nhttp://2130706433:2375/\nhttp://017700000001:2375/\nhttp://0x7f000001:2375/\nhttp://0xc0a80014:2375/\nhttp://127.0.0.1:2379\nhttp://169\u3002254\u3002169\u3002254\nhttp://169\uff61254\uff61169\uff61254\nhttp://\u246f\u2468\u3002\u2461\u2464\u2463\u3002\u246f\u2468\uff61\u2461\u2464\u2463\nhttp://\u24ea\u24e7\u24d0\u2468\uff61\u24ea\u24e7\u24d5\u24d4\uff61\u24ea\u24e7\u24d0\u2468\uff61\u24ea\u24e7\u24d5\u24d4\nhttp://\u24ea\u24e7\u24d0\u2468\u24d5\u24d4\u24d0\u2468\u24d5\u24d4\nhttp://\u2461\u2467\u2464\u2461\u24ea\u2462\u2468\u2460\u2465\u2465\nhttp://\u2463\u2461\u2464\uff61\u2464\u2460\u24ea\uff61\u2463\u2461\u2464\uff61\u2464\u2460\u24ea\nhttp://\u24ea\u2461\u2464\u2460\u3002\u24ea\u2462\u2466\u2465\u3002\u24ea\u2461\u2464\u2460\u3002\u24ea\u2462\u2466\u2465\nhttp://\u24ea\u24ea\u2461\u2464\u2460\uff61\u24ea\u24ea\u24ea\u2462\u2466\u2465\uff61\u24ea\u24ea\u24ea\u24ea\u2461\u2464\u2460\uff61\u24ea\u24ea\u24ea\u24ea\u24ea\u2462\u2466\u2465\nhttp://[::\u2460\u2465\u2468\uff61\u2461\u2464\u2463\uff61\u246f\u2468\uff61\u2461\u2464\u2463]\nhttp://[::\u24d5\u24d5\u24d5\u24d5:\u2460\u2465\u2468\u3002\u2461\u2464\u2463\u3002\u246f\u2468\u3002\u2461\u2464\u2463]\nhttp://\u24ea\u24e7\u24d0\u2468\u3002\u24ea\u2462\u2466\u2465\u3002\u2463\u2462\u2464\u2460\u2467\nhttp://\u24ea\u24e7\u24d0\u2468\uff61\u246f\u2465\u2467\u2468\u2465\u2465\u2461\nhttp://\u24ea\u24ea\u2461\u2464\u2460\u3002\u246f\u2465\u2467\u2468\u2465\u2465\u2461\nhttp://\u24ea\u24ea\u2461\u2464\u2460\uff61\u24ea\u24e7\u24d5\u24d4\uff61\u2463\u2462\u2464\u2460\u2467\njar:http://127.0.0.1!/\njar:https://127.0.0.1!/\njar:ftp://127.0.0.1!/\ngopher://127.0.0.1\ngopher://localhost\nhttp://localhost:9001/2018-06-01/runtime/",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_FILENAME",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Possible Server Side Request Forgery (SSRF) Attack: Cloud provider metadata URL in Parameter",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-ssrf",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-GENERIC",
+                "capec/1000/225/664"
+            ],
+            "paranoia": 1,
+            "category": "generic",
+            "setvars": [
+                {
+                    "name": "tx.rce_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 934190,
+            "phase": 2,
+            "operator": "pmf",
+            "operator_arg": "localhost/\nlocalhost.localdomain/\nlocalhost4/\nlocalhost4.localdomain4/\nipv6-localhost/\nip6-loopback/\nhost.docker.internal/\ngateway.docker.internal/\nkubernetes.docker.internal/\nhost.containers.internal/\nkubernetes.default.svc.cluster.local/\nlocaltest.me/\nlvh.me/",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_FILENAME",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Possible Server Side Request Forgery (SSRF) Attack: Scheme-less localhost or internal hostname detected",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-ssrf",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-GENERIC",
+                "capec/1000/225/664"
+            ],
+            "paranoia": 1,
+            "category": "generic",
+            "setvars": [
+                {
+                    "name": "tx.rce_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 934130,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "__proto__|constructor[\\s\\x0b]*(?:\\.|\\]?\\[)[\\s\\x0b]*prototype",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "urlDecodeUni",
+                "jsDecode"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "JavaScript Prototype Pollution",
+            "tags": [
+                "application-multi",
+                "language-javascript",
+                "platform-multi",
+                "attack-rce",
+                "attack-injection-generic",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-GENERIC",
+                "capec/1/180/77"
+            ],
+            "paranoia": 1,
+            "category": "generic",
+            "setvars": [
+                {
+                    "name": "tx.rce_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": true,
+            "warnings": []
+        },
+        {
+            "id": 934150,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "Process[\\s\\x0b]*\\.[\\s\\x0b]*spawn[\\s\\x0b]*\\(",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Ruby Injection Attack",
+            "tags": [
+                "application-multi",
+                "language-ruby",
+                "platform-multi",
+                "attack-rce",
+                "attack-injection-generic",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-GENERIC",
+                "capec/1000/152/242"
+            ],
+            "paranoia": 1,
+            "category": "generic",
+            "setvars": [
+                {
+                    "name": "tx.rce_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 934160,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "while[\\s\\x0b]*\\([\\s\\x0b\\(]*(?:!+(?:false|null|undefined|NaN|[\\+\\-]?0|\"{2}|'{2}|`{2})|(?:!!)*(?:(?:t(?:rue|his)|[\\+\\-]?(?:Infinity|[1-9][0-9]*)|new [A-Za-z][0-9A-Z_a-z]*|window|String|(?:Boolea|Functio)n|Object|Array)\\b|\\{[^\\}]*\\}|\\[[^\\]]*\\]|\"[^\"]+\"|'[^']+'|`[^`]+`)).*\\)",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_FILENAME",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "urlDecodeUni",
+                "jsDecode",
+                "base64Decode",
+                "urlDecodeUni",
+                "jsDecode",
+                "replaceComments"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Node.js DoS attack",
+            "tags": [
+                "application-multi",
+                "language-javascript",
+                "platform-nodejs",
+                "attack-rce",
+                "attack-injection-generic",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-GENERIC",
+                "capec/1000/152/242"
+            ],
+            "paranoia": 1,
+            "category": "generic",
+            "setvars": [
+                {
+                    "name": "tx.rce_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": true,
+            "warnings": []
+        },
+        {
+            "id": 934170,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "^data:(?:(?:\\*|[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]+)/(?:\\*|[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]+)|\\*)(?:[\\s\\x0b]*;[\\s\\x0b]*(?:charset[\\s\\x0b]*=[\\s\\x0b]*\"?(?:iso-8859-15?|utf-8|windows-1252)\\b\"?|(?:[^\\s\\x0b-\"\\(\\),/:-\\?\\[-\\]c\\{\\}]|c(?:[^!\"\\(\\),/:-\\?\\[-\\]h\\{\\}]|h(?:[^!\"\\(\\),/:-\\?\\[-\\]a\\{\\}]|a(?:[^!\"\\(\\),/:-\\?\\[-\\]r\\{\\}]|r(?:[^!\"\\(\\),/:-\\?\\[-\\]s\\{\\}]|s(?:[^!\"\\(\\),/:-\\?\\[-\\]e\\{\\}]|e[^!\"\\(\\),/:-\\?\\[-\\]t\\{\\}]))))))[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]*[\\s\\x0b]*=[\\s\\x0b]*[^!\\(\\),/:-\\?\\[-\\]\\{\\}]+);?)*(?:[\\s\\x0b]*,[\\s\\x0b]*(?:(?:\\*|[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]+)/(?:\\*|[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]+)|\\*)(?:[\\s\\x0b]*;[\\s\\x0b]*(?:charset[\\s\\x0b]*=[\\s\\x0b]*\"?(?:iso-8859-15?|utf-8|windows-1252)\\b\"?|(?:[^\\s\\x0b-\"\\(\\),/:-\\?\\[-\\]c\\{\\}]|c(?:[^!\"\\(\\),/:-\\?\\[-\\]h\\{\\}]|h(?:[^!\"\\(\\),/:-\\?\\[-\\]a\\{\\}]|a(?:[^!\"\\(\\),/:-\\?\\[-\\]r\\{\\}]|r(?:[^!\"\\(\\),/:-\\?\\[-\\]s\\{\\}]|s(?:[^!\"\\(\\),/:-\\?\\[-\\]e\\{\\}]|e[^!\"\\(\\),/:-\\?\\[-\\]t\\{\\}]))))))[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]*[\\s\\x0b]*=[\\s\\x0b]*[^!\\(\\),/:-\\?\\[-\\]\\{\\}]+);?)*)*",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_FILENAME",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "urlDecodeUni"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "PHP data scheme attack",
+            "tags": [
+                "application-multi",
+                "language-php",
+                "platform-multi",
+                "attack-ssrf",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-GENERIC",
+                "capec/1000/152/242"
+            ],
+            "paranoia": 1,
+            "category": "generic",
+            "setvars": [
+                {
+                    "name": "tx.rce_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 934200,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "(?:\\{\\{[^\\}]*?(?:[\\(\\*]|__)[^\\}]*?\\}|#\\{[^\\}]*?(?:[\\(\\*]|__)[^\\}]*?)\\}|<%=?[\\s\\x0b]*[^%]*?(?:[\\(\\*]|__)[^%]*?%>",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "urlDecodeUni"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Server-Side Template Injection (SSTI) Attack",
+            "tags": [
+                "application-multi",
+                "platform-multi",
+                "attack-ssti",
+                "attack-injection-generic",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-GENERIC",
+                "capec/1000/152/242"
+            ],
+            "paranoia": 1,
+            "category": "generic",
+            "setvars": [
+                {
+                    "name": "tx.rce_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 934013,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "generic",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 934014,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "generic",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 934101,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "(?:close|exists|fork|(?:ope|spaw)n|re(?:ad|quire)|w(?:atch|rite))[\\s\\x0b]*\\(",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_FILENAME",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "urlDecodeUni",
+                "jsDecode",
+                "base64Decode",
+                "urlDecodeUni",
+                "jsDecode"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Node.js Injection Attack 2/2",
+            "tags": [
+                "application-multi",
+                "language-javascript",
+                "platform-nodejs",
+                "attack-rce",
+                "attack-injection-generic",
+                "paranoia-level/2",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-GENERIC",
+                "capec/1000/152/242"
+            ],
+            "paranoia": 2,
+            "category": "generic",
+            "setvars": [
+                {
+                    "name": "tx.rce_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl2",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": true,
+            "warnings": []
+        },
+        {
+            "id": 934120,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "(?i)(?:a(?:cap|f[ps]|ttachment)|b(?:eshare|itcoin|lob)|c(?:a(?:llto|p)|id|vs|ompress.(?:zlib|bzip2))|d(?:a(?:v|ta)|ict|n(?:s|tp))|e(?:d2k|xpect)|f(?:(?:ee)?d|i(?:le|nger|sh)|tps?)|g(?:it|o(?:pher)?|lob)|h(?:323|ttps?)|i(?:ax|cap|(?:ma|p)ps?|rc[6s]?)|ja(?:bbe)?r|l(?:dap[is]?|ocal_file)|m(?:a(?:ilto|ven)|ms|umble)|n(?:e(?:tdoc|ws)|fs|ntps?)|ogg|p(?:aparazzi|h(?:ar|p)|op(?:2|3s?)|r(?:es|oxy)|syc)|r(?:mi|sync|tm(?:f?p)?|ar)|s(?:3|ftp|ips?|m(?:[bs]|tps?)|n(?:ews|mp)|sh(?:2(?:.(?:s(?:hell|(?:ft|c)p)|exec|tunnel))?)?|vn(?:\\+ssh)?)|t(?:e(?:amspeak|lnet)|ftp|urns?)|u(?:dp|nreal|t2004)|v(?:entrilo|iew-source|nc)|w(?:ebcal|ss?)|x(?:mpp|ri)|zip):/?/?(?:[0-9]{7,10}|(?:0x[0-9a-f]{2}\\.){3}0x[0-9a-f]{2}|0x(?:[0-9a-f]{8}|[0-9a-f]{16})|(?:0{1,4}[0-9]{1,3}\\.){3}0{1,4}[0-9]{1,3}|[0-9]{1,3}\\.(?:[0-9]{1,3}\\.[0-9]{5}|[0-9]{8})|(?:\\x5c\\x5c[\\-0-9a-z]\\.?_?)+|\\[[0-:a-f]+(?:[\\.0-9]+|%[0-9A-Z_a-z]+)?\\]|[a-z][\\-\\.0-9A-Z_a-z]{1,255}:[0-9]{1,5}(?:#?[\\s\\x0b]*&?@(?:(?:[0-9]{1,3}\\.){3}[0-9]{1,3}|[a-z][\\-\\.0-9A-Z_a-z]{1,255}):[0-9]{1,5}/?)+|[\\.0-9]{0,11}(?:\\x{e2}(?:\\x91[\\xa0-\\x{bf}]|\\x92[\\x80-\\x{bf}]|\\x93[\\x80-\\x{a9}\\x{ab}-\\x{bf}])|\\x{e3}\\x80\\x82)+)",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_FILENAME",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Possible Server Side Request Forgery (SSRF) Attack: URL Parameter using IP Address",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-ssrf",
+                "paranoia-level/2",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-GENERIC",
+                "capec/1000/225/664"
+            ],
+            "paranoia": 2,
+            "category": "generic",
+            "setvars": [
+                {
+                    "name": "tx.rce_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl2",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 934140,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "@+\\{[\\s\\x0b]*\\[",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Perl Injection Attack",
+            "tags": [
+                "application-multi",
+                "language-perl",
+                "platform-multi",
+                "attack-rce",
+                "attack-injection-generic",
+                "paranoia-level/2",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-GENERIC",
+                "capec/1000/152/242"
+            ],
+            "paranoia": 2,
+            "category": "generic",
+            "setvars": [
+                {
+                    "name": "tx.rce_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl2",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 934180,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "(?:\\{%[^%}]*%}|<%=?[^%>]*%>)",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "SSTI Attack",
+            "tags": [
+                "application-multi",
+                "platform-multi",
+                "attack-ssti",
+                "attack-injection-generic",
+                "paranoia-level/2",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-GENERIC",
+                "capec/1000/152/242"
+            ],
+            "paranoia": 2,
+            "category": "generic",
+            "setvars": [
+                {
+                    "name": "tx.rce_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl2",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 934015,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "generic",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 934016,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "3",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "generic",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 934017,
+            "phase": 1,
+            "operator": "lt",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "generic",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
+            "multi_match": false,
+            "warnings": []
+        },
+        {
+            "id": 934018,
+            "phase": 2,
+            "operator": "lt",
+            "operator_arg": "4",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "generic",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
+            "multi_match": false,
+            "warnings": []
+        }
+    ]
+}

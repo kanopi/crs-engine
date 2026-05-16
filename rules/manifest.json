@@ -1,0 +1,37 @@
+{
+    "version": "v4.26.0",
+    "generated_at": "2026-05-16T15:46:12+00:00",
+    "rule_count": 532,
+    "files": [
+        "REQUEST-911-METHOD-ENFORCEMENT.json",
+        "REQUEST-913-SCANNER-DETECTION.json",
+        "REQUEST-920-PROTOCOL-ENFORCEMENT.json",
+        "REQUEST-921-PROTOCOL-ATTACK.json",
+        "REQUEST-922-MULTIPART-ATTACK.json",
+        "REQUEST-930-APPLICATION-ATTACK-LFI.json",
+        "REQUEST-931-APPLICATION-ATTACK-RFI.json",
+        "REQUEST-932-APPLICATION-ATTACK-RCE.json",
+        "REQUEST-933-APPLICATION-ATTACK-PHP.json",
+        "REQUEST-934-APPLICATION-ATTACK-GENERIC.json",
+        "REQUEST-941-APPLICATION-ATTACK-XSS.json",
+        "REQUEST-942-APPLICATION-ATTACK-SQLI.json",
+        "REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION.json",
+        "REQUEST-944-APPLICATION-ATTACK-JAVA.json",
+        "REQUEST-949-BLOCKING-EVALUATION.json",
+        "RESPONSE-950-DATA-LEAKAGES.json",
+        "RESPONSE-951-DATA-LEAKAGES-SQL.json",
+        "RESPONSE-952-DATA-LEAKAGES-JAVA.json",
+        "RESPONSE-953-DATA-LEAKAGES-PHP.json",
+        "RESPONSE-954-DATA-LEAKAGES-IIS.json",
+        "RESPONSE-955-WEB-SHELLS.json",
+        "RESPONSE-956-DATA-LEAKAGES-RUBY.json",
+        "RESPONSE-959-BLOCKING-EVALUATION.json",
+        "RESPONSE-980-CORRELATION.json"
+    ],
+    "warnings": [
+        "REQUEST-941-APPLICATION-ATTACK-XSS.conf:83 \u2014 unsupported operator '@detectXSS', skipping rule",
+        "REQUEST-941-APPLICATION-ATTACK-XSS.conf:884 \u2014 unsupported operator '@detectXSS', skipping rule",
+        "REQUEST-942-APPLICATION-ATTACK-SQLI.conf:46 \u2014 unsupported operator '@detectSQLi', skipping rule",
+        "REQUEST-942-APPLICATION-ATTACK-SQLI.conf:1590 \u2014 unsupported operator '@detectSQLi', skipping rule"
+    ]
+}
