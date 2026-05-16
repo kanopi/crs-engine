@@ -111,7 +111,7 @@ jobs:
 
             gh pr create \
               --title "chore(crs): refresh rules to ${CRS_TAG}" \
-              --body "$(cat <<EOF
+              --body "$(cat \<\<EOF
             Automated CRS rule refresh.
 
             - Upstream tag: \`${CRS_TAG}\`
