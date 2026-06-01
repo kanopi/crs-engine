@@ -1,6 +1,6 @@
 {
     "source_file": "RESPONSE-956-DATA-LEAKAGES-RUBY.conf",
-    "crs_version": "v4.26.0",
+    "crs_version": "v4.27.0",
     "rule_count": 11,
     "rules": [
         {

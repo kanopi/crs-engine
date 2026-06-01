@@ -1,6 +1,6 @@
 {
     "source_file": "REQUEST-921-PROTOCOL-ATTACK.conf",
-    "crs_version": "v4.26.0",
+    "crs_version": "v4.27.0",
     "rule_count": 26,
     "rules": [
         {

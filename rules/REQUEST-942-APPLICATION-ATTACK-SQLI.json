@@ -1,6 +1,6 @@
 {
     "source_file": "REQUEST-942-APPLICATION-ATTACK-SQLI.conf",
-    "crs_version": "v4.26.0",
+    "crs_version": "v4.27.0",
     "rule_count": 61,
     "rules": [
         {
