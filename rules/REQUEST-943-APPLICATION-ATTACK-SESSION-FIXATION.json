@@ -1,6 +1,6 @@
 {
     "source_file": "REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION.conf",
-    "crs_version": "v4.26.0",
+    "crs_version": "v4.27.0",
     "rule_count": 9,
     "rules": [
         {

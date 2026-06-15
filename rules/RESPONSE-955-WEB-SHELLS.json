@@ -1,6 +1,6 @@
 {
     "source_file": "RESPONSE-955-WEB-SHELLS.conf",
-    "crs_version": "v4.26.0",
+    "crs_version": "v4.27.0",
     "rule_count": 36,
     "rules": [
         {
