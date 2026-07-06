@@ -1,6 +1,6 @@
 {
     "source_file": "REQUEST-942-APPLICATION-ATTACK-SQLI.conf",
-    "crs_version": "v4.26.0",
+    "crs_version": "v4.28.0",
     "rule_count": 61,
     "rules": [
         {
@@ -106,6 +106,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -183,6 +190,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -273,6 +287,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -351,6 +372,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -434,6 +462,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -478,7 +513,7 @@
             "id": 942220,
             "phase": 2,
             "operator": "rx",
-            "operator_arg": "(?i)^(?:429496729[56]|2(?:14748364[78]|.22507385850720(?:07|11)e-308)|-(?:214748364[89]|0000023456)|00000(?:12345|23456)|1e309)$",
+            "operator_arg": "(?i)^(?:json\\.)?(?:429496729[56]|2(?:14748364[78]|.22507385850720(?:07|11)e-308)|-(?:214748364[89]|0000023456)|00000(?:12345|23456)|1e309)$",
             "operator_negated": false,
             "targets": [
                 {
@@ -512,6 +547,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -595,6 +637,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -672,6 +721,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -755,6 +811,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -832,6 +895,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -929,6 +999,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1006,6 +1083,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -1089,6 +1173,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1169,6 +1260,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1213,7 +1311,7 @@
             "id": 942360,
             "phase": 2,
             "operator": "rx",
-            "operator_arg": "(?i)\\b(?:(?:alter|(?:(?:cre|trunc|upd)at|renam)e|de(?:lete|sc)|(?:inser|selec)t|load)[\\s\\x0b]+(?:char|group_concat|load_file)\\b[\\s\\x0b]*\\(?|end[\\s\\x0b]*?\\);)|[\\s\\x0b\\(]load_file[\\s\\x0b]*?\\(|[\"'`][\\s\\x0b]+regexp[^0-9A-Z_a-z]|[\"'0-9A-Z_-z][\\s\\x0b]+as\\b[\\s\\x0b]*[\"'0-9A-Z_-z]+[\\s\\x0b]*\\bfrom|^[^A-Z_a-z]+[\\s\\x0b]*?(?:(?:(?:(?:cre|trunc)at|renam)e|d(?:e(?:lete|sc)|rop)|(?:inser|selec)t|load)[\\s\\x0b]+[0-9A-Z_a-z]+|u(?:pdate[\\s\\x0b]+[0-9A-Z_a-z]+|nion[\\s\\x0b]*(?:all|(?:sele|distin)ct)\\b)|alter[\\s\\x0b]*(?:a(?:(?:ggregat|pplication[\\s\\x0b]*rol)e|s(?:sembl|ymmetric[\\s\\x0b]*ke)y|u(?:dit|thorization)|vailability[\\s\\x0b]*group)|b(?:roker[\\s\\x0b]*priority|ufferpool)|c(?:ertificate|luster|o(?:l(?:latio|um)|nversio)n|r(?:edential|yptographic[\\s\\x0b]*provider))|d(?:atabase|efault|i(?:mension|skgroup)|omain)|e(?:(?:ndpoi|ve)nt|xte(?:nsion|rnal))|f(?:lashback|oreign|u(?:lltext|nction))|hi(?:erarchy|stogram)|group|in(?:dex(?:type)?|memory|stance)|java|l(?:a(?:ngua|r)ge|ibrary|o(?:ckdown|g(?:file[\\s\\x0b]*group|in)))|m(?:a(?:s(?:k|ter[\\s\\x0b]*key)|terialized)|e(?:ssage[\\s\\x0b]*type|thod)|odule)|(?:nicknam|queu)e|o(?:perator|utline)|p(?:a(?:ckage|rtition)|ermission|ro(?:cedur|fil)e)|r(?:e(?:mot|sourc)e|o(?:l(?:e|lback)|ute))|s(?:chema|e(?:arch|curity|rv(?:er|ice)|quence|ssion)|y(?:mmetric[\\s\\x0b]*key|nonym)|togroup)|t(?:able(?:space)?|ext|hreshold|r(?:igger|usted)|ype)|us(?:age|er)|view|w(?:ork(?:load)?|rapper)|x(?:ml[\\s\\x0b]*schema|srobject))\\b)",
+            "operator_arg": "(?i)\\b(?:(?:alter|(?:(?:cre|trunc|upd)at|renam)e|de(?:lete|sc)|(?:inser|selec)t|load)[\\s\\x0b]+(?:char|group_concat|load_file)\\b[\\s\\x0b]*\\(?|end[\\s\\x0b]*?\\);)|[\\s\\x0b\\(]load_file[\\s\\x0b]*?\\(|[\"'`][\\s\\x0b]+regexp[^0-9A-Z_a-z]|[\"'0-9A-Z_-z][\\s\\x0b]+as\\b[\\s\\x0b]*[\"'0-9A-Z_-z]+[\\s\\x0b]*\\bfrom|^(?:json\\.)?[^A-Z_a-z]+[\\s\\x0b]*?(?:(?:(?:(?:cre|trunc)at|renam)e|d(?:e(?:lete|sc)|rop)|(?:inser|selec)t|load)[\\s\\x0b]+[0-9A-Z_a-z]+|u(?:pdate[\\s\\x0b]+[0-9A-Z_a-z]+|nion[\\s\\x0b]*(?:all|(?:sele|distin)ct)\\b)|alter[\\s\\x0b]*(?:a(?:(?:ggregat|pplication[\\s\\x0b]*rol)e|s(?:sembl|ymmetric[\\s\\x0b]*ke)y|u(?:dit|thorization)|vailability[\\s\\x0b]*group)|b(?:roker[\\s\\x0b]*priority|ufferpool)|c(?:ertificate|luster|o(?:l(?:latio|um)|nversio)n|r(?:edential|yptographic[\\s\\x0b]*provider))|d(?:atabase|efault|i(?:mension|skgroup)|omain)|e(?:(?:ndpoi|ve)nt|xte(?:nsion|rnal))|f(?:lashback|oreign|u(?:lltext|nction))|hi(?:erarchy|stogram)|group|in(?:dex(?:type)?|memory|stance)|java|l(?:a(?:ngua|r)ge|ibrary|o(?:ckdown|g(?:file[\\s\\x0b]*group|in)))|m(?:a(?:s(?:k|ter[\\s\\x0b]*key)|terialized)|e(?:ssage[\\s\\x0b]*type|thod)|odule)|(?:nicknam|queu)e|o(?:perator|utline)|p(?:a(?:ckage|rtition)|ermission|ro(?:cedur|fil)e)|r(?:e(?:mot|sourc)e|o(?:l(?:e|lback)|ute))|s(?:chema|e(?:arch|curity|rv(?:er|ice)|quence|ssion)|y(?:mmetric[\\s\\x0b]*key|nonym)|togroup)|t(?:able(?:space)?|ext|hreshold|r(?:igger|usted)|ype)|us(?:age|er)|view|w(?:ork(?:load)?|rapper)|x(?:ml[\\s\\x0b]*schema|srobject))\\b)",
             "operator_negated": false,
             "targets": [
                 {
@@ -1247,6 +1345,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -1330,6 +1435,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1407,6 +1519,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -1488,6 +1607,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -1576,6 +1702,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -1715,6 +1848,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1782,6 +1922,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1836,6 +1983,13 @@
                         {
                             "collection": "XML",
                             "selector": "/*",
+                            "negated": false,
+                            "count": false,
+                            "regex": false
+                        },
+                        {
+                            "collection": "XML",
+                            "selector": "//@*",
                             "negated": false,
                             "count": false,
                             "regex": false
@@ -1915,6 +2069,13 @@
                             "negated": false,
                             "count": false,
                             "regex": false
+                        },
+                        {
+                            "collection": "XML",
+                            "selector": "//@*",
+                            "negated": false,
+                            "count": false,
+                            "regex": false
                         }
                     ],
                     "transforms": [
@@ -1964,7 +2125,7 @@
             "id": 942180,
             "phase": 2,
             "operator": "rx",
-            "operator_arg": "(?i)(?:/\\*)+[\"'`]+[\\s\\x0b]?(?:--|[#\\{]|/\\*)?|[\"'`](?:[\\s\\x0b]*(?:(?:x?or|and|div|like|between)[\\s\\x0b\\-0-9A-Z_a-z]+[\\(\\)\\+-\\-<->][\\s\\x0b]*[\"'0-9`]|[!=\\|](?:[\\s\\x0b!\\+\\-0-9=]+[^\\[]*[\"'\\(`].*|[\\s\\x0b!0-9=]+[^0-9]*[0-9]+)$|(?:like|print)[^0-9A-Z_a-z]+[\"'\\(0-9A-Z_-z]|;)|(?:[<>~]+|[\\s\\x0b]*[^\\s\\x0b0-9A-Z_a-z]?=[\\s\\x0b]*|[^0-9A-Z_a-z]*?[\\+=]+[^0-9A-Z_a-z]*?)[\"'`])|[0-9][\"'`][\\s\\x0b]+[\"'`][\\s\\x0b]+[0-9]|^admin[\\s\\x0b]*?[\"'`]|[\\s\\x0b\"'\\(`][\\s\\x0b]*?glob[^0-9A-Z_a-z]+[\"'\\(0-9A-Z_-z]|[\\s\\x0b]is[\\s\\x0b]*?0[^0-9A-Z_a-z]|where[\\s\\x0b][\\s\\x0b,-\\.0-9A-Z_a-z]+[\\s\\x0b]=",
+            "operator_arg": "(?i)(?:/\\*)+[\"'`]+[\\s\\x0b]?(?:--|[#\\{]|/\\*)?|[\"'`](?:[\\s\\x0b]*(?:(?:x?or|and|div|like|between)[\\s\\x0b\\-0-9A-Z_a-z]+[\\(\\)\\+-\\-<->][\\s\\x0b]*[\"'0-9`]|[!=\\|](?:[\\s\\x0b!\\+\\-0-9=]+[^\\[]*[\"'\\(`].*|[\\s\\x0b!0-9=]+[^0-9]*[0-9]+)$|(?:like|print)[^0-9A-Z_a-z]+[\"'\\(0-9A-Z_-z]|;)|(?:[<>~]+|[\\s\\x0b]*[^\\s\\x0b0-9A-Z_a-z]?=[\\s\\x0b]*|[^0-9A-Z_a-z]*?[\\+=]+[^0-9A-Z_a-z]*?)[\"'`])|[0-9][\"'`][\\s\\x0b]+[\"'`][\\s\\x0b]+[0-9]|^(?:json\\.)?admin[\\s\\x0b]*?[\"'`]|[\\s\\x0b\"'\\(`][\\s\\x0b]*?glob[^0-9A-Z_a-z]+[\"'\\(0-9A-Z_-z]|[\\s\\x0b]is[\\s\\x0b]*?0[^0-9A-Z_a-z]|where[\\s\\x0b][\\s\\x0b,-\\.0-9A-Z_a-z]+[\\s\\x0b]=",
             "operator_negated": false,
             "targets": [
                 {
@@ -1998,6 +2159,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -2095,6 +2263,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -2156,6 +2331,13 @@
                         {
                             "collection": "XML",
                             "selector": "/*",
+                            "negated": false,
+                            "count": false,
+                            "regex": false
+                        },
+                        {
+                            "collection": "XML",
+                            "selector": "//@*",
                             "negated": false,
                             "count": false,
                             "regex": false
@@ -2245,6 +2427,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -2322,6 +2511,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -2405,6 +2601,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -2482,6 +2685,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -2565,6 +2775,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -2608,7 +2825,7 @@
             "id": 942361,
             "phase": 2,
             "operator": "rx",
-            "operator_arg": "(?i:^[\\W\\d]+\\s*?(?:alter|union)\\b)",
+            "operator_arg": "(?i:^(?:json\\.)?[\\W\\d]+\\s*?(?:alter|union)\\b)",
             "operator_negated": false,
             "targets": [
                 {
@@ -2642,6 +2859,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -2688,7 +2912,7 @@
             "id": 942362,
             "phase": 2,
             "operator": "rx",
-            "operator_arg": "(?i)(?:alter|(?:(?:cre|trunc|upd)at|renam)e|de(?:lete|sc)|(?:inser|selec)t|load)[\\s\\x0b]+(?:char|group_concat|load_file)[\\s\\x0b]?\\(?|end[\\s\\x0b]*?\\);|[\\s\\x0b\\(]load_file[\\s\\x0b]*?\\(|[\"'`][\\s\\x0b]+regexp[^0-9A-Z_a-z]|[^A-Z_a-z][\\s\\x0b]+as\\b[\\s\\x0b]*[\"'0-9A-Z_-z]+[\\s\\x0b]*\\bfrom|^[^A-Z_a-z]+[\\s\\x0b]*?(?:create[\\s\\x0b]+[0-9A-Z_a-z]+|(?:d(?:e(?:lete|sc)|rop)|(?:inser|selec)t|load|(?:renam|truncat)e|u(?:pdate|nion[\\s\\x0b]*(?:all|(?:sele|distin)ct))|alter[\\s\\x0b]*(?:a(?:(?:ggregat|pplication[\\s\\x0b]*rol)e|s(?:sembl|ymmetric[\\s\\x0b]*ke)y|u(?:dit|thorization)|vailability[\\s\\x0b]*group)|b(?:roker[\\s\\x0b]*priority|ufferpool)|c(?:ertificate|luster|o(?:l(?:latio|um)|nversio)n|r(?:edential|yptographic[\\s\\x0b]*provider))|d(?:atabase|efault|i(?:mension|skgroup)|omain)|e(?:(?:ndpoi|ve)nt|xte(?:nsion|rnal))|f(?:lashback|oreign|u(?:lltext|nction))|hi(?:erarchy|stogram)|group|in(?:dex(?:type)?|memory|stance)|java|l(?:a(?:ngua|r)ge|ibrary|o(?:ckdown|g(?:file[\\s\\x0b]*group|in)))|m(?:a(?:s(?:k|ter[\\s\\x0b]*key)|terialized)|e(?:ssage[\\s\\x0b]*type|thod)|odule)|(?:nicknam|queu)e|o(?:perator|utline)|p(?:a(?:ckage|rtition)|ermission|ro(?:cedur|fil)e)|r(?:e(?:mot|sourc)e|o(?:l(?:e|lback)|ute))|s(?:chema|e(?:arch|curity|rv(?:er|ice)|quence|ssion)|y(?:mmetric[\\s\\x0b]*key|nonym)|togroup)|t(?:able(?:space)?|ext|hreshold|r(?:igger|usted)|ype)|us(?:age|er)|view|w(?:ork(?:load)?|rapper)|x(?:ml[\\s\\x0b]*schema|srobject)))\\b)",
+            "operator_arg": "(?i)(?:alter|(?:(?:cre|trunc|upd)at|renam)e|de(?:lete|sc)|(?:inser|selec)t|load)[\\s\\x0b]+(?:char|group_concat|load_file)[\\s\\x0b]?\\(?|end[\\s\\x0b]*?\\);|[\\s\\x0b\\(]load_file[\\s\\x0b]*?\\(|[\"'`][\\s\\x0b]+regexp[^0-9A-Z_a-z]|[^A-Z_a-z][\\s\\x0b]+as\\b[\\s\\x0b]*[\"'0-9A-Z_-z]+[\\s\\x0b]*\\bfrom|^(?:json\\.)?[^A-Z_a-z]+[\\s\\x0b]*?(?:create[\\s\\x0b]+[0-9A-Z_a-z]+|(?:d(?:e(?:lete|sc)|rop)|(?:inser|selec)t|load|(?:renam|truncat)e|u(?:pdate|nion[\\s\\x0b]*(?:all|(?:sele|distin)ct))|alter[\\s\\x0b]*(?:a(?:(?:ggregat|pplication[\\s\\x0b]*rol)e|s(?:sembl|ymmetric[\\s\\x0b]*ke)y|u(?:dit|thorization)|vailability[\\s\\x0b]*group)|b(?:roker[\\s\\x0b]*priority|ufferpool)|c(?:ertificate|luster|o(?:l(?:latio|um)|nversio)n|r(?:edential|yptographic[\\s\\x0b]*provider))|d(?:atabase|efault|i(?:mension|skgroup)|omain)|e(?:(?:ndpoi|ve)nt|xte(?:nsion|rnal))|f(?:lashback|oreign|u(?:lltext|nction))|hi(?:erarchy|stogram)|group|in(?:dex(?:type)?|memory|stance)|java|l(?:a(?:ngua|r)ge|ibrary|o(?:ckdown|g(?:file[\\s\\x0b]*group|in)))|m(?:a(?:s(?:k|ter[\\s\\x0b]*key)|terialized)|e(?:ssage[\\s\\x0b]*type|thod)|odule)|(?:nicknam|queu)e|o(?:perator|utline)|p(?:a(?:ckage|rtition)|ermission|ro(?:cedur|fil)e)|r(?:e(?:mot|sourc)e|o(?:l(?:e|lback)|ute))|s(?:chema|e(?:arch|curity|rv(?:er|ice)|quence|ssion)|y(?:mmetric[\\s\\x0b]*key|nonym)|togroup)|t(?:able(?:space)?|ext|hreshold|r(?:igger|usted)|ype)|us(?:age|er)|view|w(?:ork(?:load)?|rapper)|x(?:ml[\\s\\x0b]*schema|srobject)))\\b)",
             "operator_negated": false,
             "targets": [
                 {
@@ -2722,6 +2946,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -2819,6 +3050,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -2899,6 +3137,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -2942,7 +3187,7 @@
             "id": 942390,
             "phase": 2,
             "operator": "rx",
-            "operator_arg": "(?i)\\b(?:or\\b(?:[\\s\\x0b]?(?:[0-9]{1,10}|[\"'][^=]{1,10}[\"'])[\\s\\x0b]?[<->]+|[\\s\\x0b]+(?:[0-9]{1,10}|'[^=]{1,10}')(?:[\\s\\x0b]*?[<->])?)|xor\\b[\\s\\x0b]+(?:[0-9]{1,10}|'[^=]{1,10}')(?:[\\s\\x0b]*?[<->])?)|'[\\s\\x0b]+x?or[\\s\\x0b]+.{1,20}[!\\+\\-<->]",
+            "operator_arg": "(?i)\\bx?or\\b(?:[\\s\\x0b]+[0-9]{1,10}(?:[\\s\\x0b]*[<->])?|[\\s\\x0b]*[\"'][^=]{1,10}[\"'])|[\"'][\\s\\x0b]+\\bx?or\\b[\\s\\x0b]+[^!\\+\\-<->]{1,20}[!\\+\\-<->]",
             "operator_negated": false,
             "targets": [
                 {
@@ -2979,6 +3224,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -2987,7 +3239,7 @@
             ],
             "action": "block",
             "severity": "critical",
-            "message": "SQL Injection Attack",
+            "message": "SQL Injection Attack using (X)OR",
             "tags": [
                 "application-multi",
                 "language-multi",
@@ -3056,6 +3308,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -3139,6 +3398,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -3216,6 +3482,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -3313,6 +3586,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -3376,6 +3656,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -3459,6 +3746,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -3520,6 +3814,13 @@
                         {
                             "collection": "XML",
                             "selector": "/*",
+                            "negated": false,
+                            "count": false,
+                            "regex": false
+                        },
+                        {
+                            "collection": "XML",
+                            "selector": "//@*",
                             "negated": false,
                             "count": false,
                             "regex": false
@@ -3609,6 +3910,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -3686,6 +3994,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -3769,6 +4084,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -3802,7 +4124,7 @@
                     "id": 942522,
                     "phase": 2,
                     "operator": "rx",
-                    "operator_arg": "^.*?\\x5c['\"`](?:.*?['\"`])?\\s*(?:and|or)\\b",
+                    "operator_arg": "\\x5c['\"`](?:.*?['\"`])?\\s*(?:and|or)\\b",
                     "operator_negated": false,
                     "targets": [
                         {
@@ -3822,6 +4144,13 @@
                         {
                             "collection": "XML",
                             "selector": "/*",
+                            "negated": false,
+                            "count": false,
+                            "regex": false
+                        },
+                        {
+                            "collection": "XML",
+                            "selector": "//@*",
                             "negated": false,
                             "count": false,
                             "regex": false
@@ -4091,6 +4420,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -4168,6 +4504,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -4310,6 +4653,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -4441,6 +4791,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -4518,6 +4875,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -4705,6 +5069,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false

@@ -1,7 +1,7 @@
 {
-    "version": "v4.26.0",
-    "generated_at": "2026-05-16T15:46:12+00:00",
-    "rule_count": 532,
+    "version": "v4.28.0",
+    "generated_at": "2026-07-06T17:05:26+00:00",
+    "rule_count": 535,
     "files": [
         "REQUEST-911-METHOD-ENFORCEMENT.json",
         "REQUEST-913-SCANNER-DETECTION.json",
@@ -30,7 +30,7 @@
     ],
     "warnings": [
         "REQUEST-941-APPLICATION-ATTACK-XSS.conf:83 \u2014 unsupported operator '@detectXSS', skipping rule",
-        "REQUEST-941-APPLICATION-ATTACK-XSS.conf:884 \u2014 unsupported operator '@detectXSS', skipping rule",
+        "REQUEST-941-APPLICATION-ATTACK-XSS.conf:894 \u2014 unsupported operator '@detectXSS', skipping rule",
         "REQUEST-942-APPLICATION-ATTACK-SQLI.conf:46 \u2014 unsupported operator '@detectSQLi', skipping rule",
         "REQUEST-942-APPLICATION-ATTACK-SQLI.conf:1590 \u2014 unsupported operator '@detectSQLi', skipping rule"
     ]

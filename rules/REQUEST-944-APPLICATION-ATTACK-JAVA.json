@@ -1,6 +1,6 @@
 {
     "source_file": "REQUEST-944-APPLICATION-ATTACK-JAVA.conf",
-    "crs_version": "v4.26.0",
+    "crs_version": "v4.28.0",
     "rule_count": 20,
     "rules": [
         {
