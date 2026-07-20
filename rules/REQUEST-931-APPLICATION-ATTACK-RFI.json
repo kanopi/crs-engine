@@ -1,6 +1,6 @@
 {
     "source_file": "REQUEST-931-APPLICATION-ATTACK-RFI.conf",
-    "crs_version": "v4.26.0",
+    "crs_version": "v4.28.0",
     "rule_count": 12,
     "rules": [
         {
@@ -82,6 +82,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false

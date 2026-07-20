@@ -1,6 +1,6 @@
 {
     "source_file": "REQUEST-941-APPLICATION-ATTACK-XSS.conf",
-    "crs_version": "v4.26.0",
+    "crs_version": "v4.28.0",
     "rule_count": 39,
     "rules": [
         {
@@ -161,6 +161,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -268,6 +275,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -368,6 +382,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -417,7 +438,7 @@
             "id": 941140,
             "phase": 2,
             "operator": "rx",
-            "operator_arg": "(?i)[a-z]+=(?:[^:=]+:.+;)*?[^:=]+:url\\(javascript",
+            "operator_arg": "(?i)[a-z]+=(?:[^:=]+:[^;]+;)*?[^:=]+:url\\(javascript",
             "operator_negated": false,
             "targets": [
                 {
@@ -472,6 +493,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -583,6 +611,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -632,7 +667,7 @@
             "id": 941170,
             "phase": 2,
             "operator": "rx",
-            "operator_arg": "(?i)(?:\\W|^)(?:javascript:(?:[\\s\\S]+[=\\x5c\\(\\[\\.<]|[\\s\\S]*?(?:\\bname\\b|\\x5c[ux]\\d))|data:(?:(?:[a-z]\\w+/\\w[\\w+-]+\\w)?[;,]|[\\s\\S]*?;[\\s\\S]*?\\b(?:base64|charset=)|[\\s\\S]*?,[\\s\\S]*?<[\\s\\S]*?\\w[\\s\\S]*?>))|@\\W*?i\\W*?m\\W*?p\\W*?o\\W*?r\\W*?t\\W*?(?:/\\*[\\s\\S]*?)?(?:[\"']|\\W*?u\\W*?r\\W*?l[\\s\\S]*?\\()|[^-]*?-\\W*?m\\W*?o\\W*?z\\W*?-\\W*?b\\W*?i\\W*?n\\W*?d\\W*?i\\W*?n\\W*?g[^:]*?:\\W*?u\\W*?r\\W*?l[\\s\\S]*?\\(",
+            "operator_arg": "(?i)(?:[^0-9A-Z_a-z]|^)(?:javascript:(?:.+[\\(\\.<=\\[\\x5c]|.*?(?:\\bname\\b|\\x5c[ux][0-9]))|data:(?:(?:[a-z][0-9A-Z_a-z]+/[0-9A-Z_a-z][\\+\\-0-9A-Z_a-z]+[0-9A-Z_a-z])?[,;]|.*?(?:;.*?\\b(?:base64|charset=)|,.*?<.*?[0-9A-Z_a-z].*?>)))|@[^0-9A-Z_a-z]*?i[^0-9A-Z_a-z]*?m[^0-9A-Z_a-z]*?p[^0-9A-Z_a-z]*?o[^0-9A-Z_a-z]*?r[^0-9A-Z_a-z]*?t[^0-9A-Z_a-z]*?(?:/\\*.*?)?(?:[\"']|[^0-9A-Z_a-z]*?u[^0-9A-Z_a-z]*?r[^0-9A-Z_a-z]*?l.*?\\()|-[^0-9A-Z_a-z]*?m[^0-9A-Z_a-z]*?o[^0-9A-Z_a-z]*?z[^0-9A-Z_a-z]*?-[^0-9A-Z_a-z]*?b[^0-9A-Z_a-z]*?i[^0-9A-Z_a-z]*?n[^0-9A-Z_a-z]*?d[^0-9A-Z_a-z]*?i[^0-9A-Z_a-z]*?n[^0-9A-Z_a-z]*?g[^:]*?:[^0-9A-Z_a-z]*?u[^0-9A-Z_a-z]*?r[^0-9A-Z_a-z]*?l.*?\\(",
             "operator_negated": false,
             "targets": [
                 {
@@ -687,6 +722,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -783,6 +825,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -873,6 +922,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -969,6 +1025,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1059,6 +1122,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -1155,6 +1225,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1248,6 +1325,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1338,6 +1422,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -1435,6 +1526,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1525,6 +1623,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -1621,6 +1726,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1711,6 +1823,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -1807,6 +1926,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1897,6 +2023,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -1993,6 +2126,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -2065,6 +2205,13 @@
                         {
                             "collection": "XML",
                             "selector": "/*",
+                            "negated": false,
+                            "count": false,
+                            "regex": false
+                        },
+                        {
+                            "collection": "XML",
+                            "selector": "//@*",
                             "negated": false,
                             "count": false,
                             "regex": false
@@ -2164,6 +2311,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -2240,6 +2394,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -2331,6 +2492,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -2417,6 +2585,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -2577,6 +2752,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -2667,6 +2849,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -2764,6 +2953,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -2850,6 +3046,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -2942,6 +3145,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -3028,6 +3238,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
