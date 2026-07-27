@@ -50,11 +50,24 @@ final class CrsConfig
     public const DEFAULT_MAX_ARGS = 255;
 
     /**
-     * Body bytes handed to the ruleset, matching ModSecurity's
+     * Request body bytes handed to the ruleset, matching ModSecurity's
      * SecRequestBodyNoFilesLimit default. Cost is roughly linear in this, and
      * the body is entirely attacker-controlled.
      */
-    public const DEFAULT_MAX_BODY_BYTES = 131072;
+    public const DEFAULT_MAX_REQUEST_BODY_BYTES = 131072;
+
+    /**
+     * Response body bytes handed to the ruleset, matching ModSecurity's
+     * SecResponseBodyLimit default.
+     *
+     * Four times the request figure, because the two directions carry very
+     * different traffic. A 128 KB request body is large; a 128 KB HTML page is
+     * ordinary. Capping responses at the request limit meant the 165
+     * response-phase rules stopped seeing anything past 128 KB of a normal
+     * page — and leaked stack traces, SQL errors and debug dumps cluster in
+     * exactly that tail, appended after the content or emitted in a footer.
+     */
+    public const DEFAULT_MAX_RESPONSE_BODY_BYTES = 524288;
 
     /**
      * Total bytes of argument values a single rule will inspect.
@@ -91,9 +104,16 @@ final class CrsConfig
     /** @var array<string, int> */
     public readonly array $severityScores;
 
+    /** Effective mode for evaluate(); $mode unless overridden. */
+    public readonly string $requestMode;
+
+    /** Effective mode for evaluateResponse(); $mode unless overridden. */
+    public readonly string $responseMode;
+
     /**
      * @param int $paranoia Paranoia level 1-4. Rules tagged with a higher PL are skipped.
-     * @param string $mode block | monitor
+     * @param string $mode block | monitor. The default for both directions;
+     *        $requestMode and $responseMode override it individually.
      * @param array<string, int> $anomalyThresholds Score at which to block, keyed by
      *        direction: `inbound` for requests, `outbound` for responses. The
      *        old `critical`/`error` spellings are accepted as deprecated aliases.
@@ -112,11 +132,26 @@ final class CrsConfig
      * @param int $maxArgs How many argument values to run through the ruleset.
      *        Counting is unaffected, so `&ARGS` rules still see the real total.
      *        CrsConfig::UNLIMITED to inspect every argument.
-     * @param int $maxBodyBytes How much of the request or response body to hand
-     *        to the ruleset. CrsConfig::UNLIMITED to inspect all of it.
+     * @param int $maxRequestBodyBytes How much of the request body to hand to
+     *        the ruleset. CrsConfig::UNLIMITED to inspect all of it.
      * @param int $maxArgBytes Total bytes of argument values a single rule will
      *        inspect. Bounds the work a few very large arguments can buy, which
      *        $maxArgs alone does not. CrsConfig::UNLIMITED to inspect all of it.
+     * @param int $maxResponseBodyBytes How much of the response body to hand to
+     *        the ruleset. Separate from the request limit because the two
+     *        directions carry different traffic — see the constants above.
+     *        CrsConfig::UNLIMITED to inspect all of it.
+     * @param string|null $requestMode Overrides $mode for evaluate(). Null to
+     *        follow $mode.
+     * @param string|null $responseMode Overrides $mode for evaluateResponse().
+     *        Null to follow $mode.
+     *
+     *        Blocking outbound is a much heavier action than blocking inbound:
+     *        the application has already done its work, and rejecting the
+     *        response means serving an error in place of a page that may well
+     *        be fine. A CMS typically wants to reject attacks on the way in
+     *        and only record leakage on the way out, which is
+     *        mode: block + responseMode: monitor.
      */
     public function __construct(
         public readonly int $paranoia = 1,
@@ -128,24 +163,33 @@ final class CrsConfig
         array $severityScores = self::DEFAULT_SEVERITY_SCORES,
         public readonly bool $failClosedOnOperatorError = false,
         public readonly int $maxArgs = self::DEFAULT_MAX_ARGS,
-        public readonly int $maxBodyBytes = self::DEFAULT_MAX_BODY_BYTES,
+        public readonly int $maxRequestBodyBytes = self::DEFAULT_MAX_REQUEST_BODY_BYTES,
         public readonly int $maxArgBytes = self::DEFAULT_MAX_ARG_BYTES,
+        public readonly int $maxResponseBodyBytes = self::DEFAULT_MAX_RESPONSE_BODY_BYTES,
+        ?string $requestMode = null,
+        ?string $responseMode = null,
     ) {
         if ($paranoia < 1 || $paranoia > 4) {
             throw new ConfigurationException('Paranoia level must be between 1 and 4, got ' . $paranoia);
         }
 
-        if (!in_array($mode, [self::MODE_BLOCK, self::MODE_MONITOR], true)) {
-            throw new ConfigurationException(sprintf("Mode must be 'block' or 'monitor', got '%s'", $mode));
+        foreach (['mode' => $mode, 'requestMode' => $requestMode, 'responseMode' => $responseMode] as $name => $candidate) {
+            if ($candidate !== null && !in_array($candidate, [self::MODE_BLOCK, self::MODE_MONITOR], true)) {
+                throw new ConfigurationException(sprintf("%s must be 'block' or 'monitor', got '%s'", $name, $candidate));
+            }
         }
+
+        $this->requestMode  = $requestMode ?? $mode;
+        $this->responseMode = $responseMode ?? $mode;
 
         // Zero would mean "inspect nothing", which is a WAF that does not work.
         // UNLIMITED is spelled -1 so that reading the value cannot be confused
         // with an accidental 0 from an unset config key.
         $inspectionLimits = [
-            'maxArgs'      => $maxArgs,
-            'maxBodyBytes' => $maxBodyBytes,
-            'maxArgBytes'  => $maxArgBytes,
+            'maxArgs'              => $maxArgs,
+            'maxRequestBodyBytes'  => $maxRequestBodyBytes,
+            'maxArgBytes'          => $maxArgBytes,
+            'maxResponseBodyBytes' => $maxResponseBodyBytes,
         ];
         foreach ($inspectionLimits as $name => $limit) {
             if ($limit !== self::UNLIMITED && $limit < 1) {
@@ -244,6 +288,12 @@ final class CrsConfig
         return $this->anomalyThresholds[self::THRESHOLD_OUTBOUND];
     }
 
+    /** Inbound and outbound can run in different modes — see the constructor. */
+    public function modeFor(bool $requestPhase): string
+    {
+        return $requestPhase ? $this->requestMode : $this->responseMode;
+    }
+
     public function severityScore(string $severity): int
     {
         return $this->severityScores[strtolower($severity)] ?? 0;
@@ -260,12 +310,29 @@ final class CrsConfig
      *     severity_scores?: array<string, int>,
      *     fail_closed_on_operator_error?: bool,
      *     max_args?: int,
+     *     max_request_body_bytes?: int,
+     *     max_arg_bytes?: int,
+     *     max_response_body_bytes?: int,
      *     max_body_bytes?: int,
-     *     max_arg_bytes?: int
+     *     request_mode?: ?string,
+     *     response_mode?: ?string
      * } $config
      */
     public static function fromArray(array $config): self
     {
+        // `max_body_bytes` governed both directions, using a limit sized for
+        // requests — see the constants. Honoured so existing config keeps
+        // working, but it sets both, which is the shape that was wrong.
+        $legacyBodyBytes = null;
+        if (isset($config['max_body_bytes'])) {
+            @trigger_error(
+                "CrsConfig: 'max_body_bytes' is deprecated; it caps requests and responses together at a "
+                . "request-sized limit. Use 'max_request_body_bytes' and 'max_response_body_bytes'.",
+                E_USER_DEPRECATED,
+            );
+            $legacyBodyBytes = $config['max_body_bytes'];
+        }
+
         return new self(
             paranoia:           $config['paranoia'] ?? 1,
             mode:               $config['mode'] ?? self::MODE_BLOCK,
@@ -276,8 +343,11 @@ final class CrsConfig
             severityScores:     $config['severity_scores'] ?? self::DEFAULT_SEVERITY_SCORES,
             failClosedOnOperatorError: $config['fail_closed_on_operator_error'] ?? false,
             maxArgs:            $config['max_args'] ?? self::DEFAULT_MAX_ARGS,
-            maxBodyBytes:       $config['max_body_bytes'] ?? self::DEFAULT_MAX_BODY_BYTES,
-            maxArgBytes:        $config['max_arg_bytes'] ?? self::DEFAULT_MAX_ARG_BYTES,
+            maxRequestBodyBytes:  $config['max_request_body_bytes'] ?? $legacyBodyBytes ?? self::DEFAULT_MAX_REQUEST_BODY_BYTES,
+            maxArgBytes:          $config['max_arg_bytes'] ?? self::DEFAULT_MAX_ARG_BYTES,
+            maxResponseBodyBytes: $config['max_response_body_bytes'] ?? $legacyBodyBytes ?? self::DEFAULT_MAX_RESPONSE_BODY_BYTES,
+            requestMode:          $config['request_mode'] ?? null,
+            responseMode:         $config['response_mode'] ?? null,
         );
     }
 

@@ -178,6 +178,11 @@ new CrsConfig(
         'warning'  => 3,
         'notice'   => 2,
     ],
+    maxRequestBodyBytes:  131072,       // request body bytes handed to the ruleset
+    maxResponseBodyBytes: 524288,       // response body bytes — larger, see below
+    maxArgs:              255,          // argument values inspected (counting is uncapped)
+    maxArgBytes:          131072,       // total argument bytes inspected per rule
+    responseMode:         null,         // overrides `mode` outbound only
 );
 ```
 
@@ -190,6 +195,46 @@ new CrsConfig(
 | `disabledCategories` | `[]` | Skip an entire category for targeted tuning — see [Rule categories](#rule-categories). |
 | `rulesPath` | bundled `rules/` | Point at a custom rule directory (used for testing and custom rulesets). |
 | `severityScores` | CRS defaults | Anomaly contribution per severity. Upstream exposes these in `crs-setup.conf`. |
+| `requestMode` / `responseMode` | follow `mode` | Run the two directions in different modes — see [Request and response are configured separately](#request-and-response-are-configured-separately). |
+| `maxRequestBodyBytes` | `131072` | Request body bytes inspected. `CrsConfig::UNLIMITED` to disable. |
+| `maxResponseBodyBytes` | `524288` | Response body bytes inspected. Deliberately larger than the request limit. |
+| `maxArgs` | `255` | Argument *values* inspected. Counting is never capped, so `&ARGS` rules still see the true total. |
+| `maxArgBytes` | `131072` | Total argument bytes a single rule inspects. Bounds what a few very large arguments cost. |
+| `failClosedOnOperatorError` | `false` | Treat a request whose evaluation hit an operator error as blocked. |
+
+### Request and response are configured separately
+
+The two directions do not carry the same traffic and do not warrant the same
+handling, so the knobs that can differ, do:
+
+```php
+new CrsConfig(
+    mode:         CrsConfig::MODE_BLOCK,    // reject attacks on the way in
+    responseMode: CrsConfig::MODE_MONITOR,  // only record leakage on the way out
+);
+```
+
+That pairing is the usual posture for a CMS. Blocking outbound is a far heavier
+action than blocking inbound: the application has already done its work, and
+rejecting the response means serving an error in place of a page that is very
+likely fine. `monitor` outbound still evaluates every `RESPONSE-*` rule and
+still populates `matchedRules` and `totalScore` — it just never returns
+`block`.
+
+The body limits are split for the same reason. `maxRequestBodyBytes` defaults
+to 131072, matching ModSecurity's `SecRequestBodyNoFilesLimit`;
+`maxResponseBodyBytes` defaults to 524288, matching `SecResponseBodyLimit`. A
+128 KB request body is large, whereas a 128 KB HTML page is ordinary — and
+leaked stack traces and SQL errors tend to appear in the *tail* of a page, so a
+request-sized cap applied outbound hid exactly the evidence the response rules
+exist to find.
+
+Whenever a limit does engage, `CrsVerdict::$truncations` records what was
+inspected against what arrived, so reduced coverage is visible rather than
+inferred.
+
+`anomalyThresholds` was already directional and is unchanged. `maxArgs` and
+`maxArgBytes` are request-only concepts, since a response has no arguments.
 
 ### Thresholds vs. severity scores
 
