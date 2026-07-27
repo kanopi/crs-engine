@@ -1,7 +1,7 @@
 {
     "source_file": "REQUEST-933-APPLICATION-ATTACK-PHP.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 29,
+    "rule_count": 30,
     "rules": [
         {
             "id": 933011,
@@ -728,50 +728,15 @@
             "setvars": [],
             "chain": [
                 {
-                    "id": 933160,
+                    "id": 0,
                     "phase": 2,
-                    "operator": "rx",
-                    "operator_arg": "(?i)\\b\\(?[\"']*(?:assert(?:_options)?|c(?:hr|reate_function)|e(?:val|x(?:ec|p))|f(?:ile(?:group)?|open|puts)|glob|i(?:mage(?:gif|(?:jpe|pn)g|wbmp|xbm)|s_a|ntval)|m(?:d5|kdir)|o(?:pendir|rd)|p(?:assthru|hpinfo|open|r(?:intf|ev))|r(?:eadfile|trim)|s(?:t(?:rip_tags|at)|ubstr|ystem)|tmpfile|u(?:n(?:(?:pac|lin)k|serialize)|sort))(?:/(?:\\*.*?\\*/|/[^\\n\\r]*)|#[^\\n\\r]*|[\\s\\x0b\"])*[\"']*\\)?[\\s\\x0b]*\\([^\\)]*\\)",
+                    "operator": "pm",
+                    "operator_arg": "( )",
                     "operator_negated": false,
                     "targets": [
                         {
-                            "collection": "REQUEST_COOKIES",
+                            "collection": "MATCHED_VARS",
                             "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "REQUEST_COOKIES_NAMES",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "REQUEST_FILENAME",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "ARGS_NAMES",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "ARGS",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "XML",
-                            "selector": "/*",
                             "negated": false,
                             "count": false,
                             "regex": false
@@ -780,19 +745,10 @@
                     "transforms": [
                         "none"
                     ],
-                    "action": "block",
-                    "severity": "critical",
-                    "message": "PHP Injection Attack: High-Risk PHP Function Call Found",
-                    "tags": [
-                        "application-multi",
-                        "language-php",
-                        "platform-multi",
-                        "attack-injection-php",
-                        "paranoia-level/1",
-                        "OWASP_CRS",
-                        "OWASP_CRS/ATTACK-PHP",
-                        "capec/1000/152/242"
-                    ],
+                    "action": "pass",
+                    "severity": "notice",
+                    "message": "",
+                    "tags": [],
                     "paranoia": 1,
                     "category": "php",
                     "setvars": [
@@ -808,13 +764,100 @@
                         }
                     ],
                     "chain": [],
-                    "capture": true,
+                    "capture": false,
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
                     "marker": null
                 }
             ],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 933160,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "(?i)\\b\\(?[\"']*(?:assert(?:_options)?|c(?:hr|reate_function)|e(?:val|x(?:ec|p))|f(?:ile(?:group)?|open|puts)|glob|i(?:mage(?:gif|(?:jpe|pn)g|wbmp|xbm)|s_a|ntval)|m(?:d5|kdir)|o(?:pendir|rd)|p(?:assthru|hpinfo|open|r(?:intf|ev))|r(?:eadfile|trim)|s(?:t(?:rip_tags|at)|ubstr|ystem)|tmpfile|u(?:n(?:(?:pac|lin)k|serialize)|sort))(?:/(?:\\*.*?\\*/|/[^\\n\\r]*)|#[^\\n\\r]*|[\\s\\x0b\"])*[\"']*\\)?[\\s\\x0b]*\\([^\\)]*\\)",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_FILENAME",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "PHP Injection Attack: High-Risk PHP Function Call Found",
+            "tags": [
+                "application-multi",
+                "language-php",
+                "platform-multi",
+                "attack-injection-php",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-PHP",
+                "capec/1000/152/242"
+            ],
+            "paranoia": 1,
+            "category": "php",
+            "setvars": [
+                {
+                    "name": "tx.php_injection_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
             "capture": true,
             "skip_after": null,
             "multi_match": false,

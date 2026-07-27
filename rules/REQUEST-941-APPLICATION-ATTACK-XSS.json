@@ -1,7 +1,7 @@
 {
     "source_file": "REQUEST-941-APPLICATION-ATTACK-XSS.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 40,
+    "rule_count": 41,
     "rules": [
         {
             "id": 941011,
@@ -2043,75 +2043,25 @@
             "setvars": [],
             "chain": [
                 {
-                    "id": 941350,
+                    "id": 0,
                     "phase": 2,
                     "operator": "rx",
-                    "operator_arg": "\\+ADw-.*(?:\\+AD4-|>)|<.*\\+AD4-",
+                    "operator_arg": "\\x{bc}[\\s\\x0b]*/[\\s\\x0b]*[^>\\x{be}]*[>\\x{be}]|<[\\s\\x0b]*/[\\s\\x0b]*[^\\x{be}]*\\x{be}",
                     "operator_negated": false,
                     "targets": [
                         {
-                            "collection": "REQUEST_COOKIES",
+                            "collection": "MATCHED_VARS",
                             "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "REQUEST_COOKIES_NAMES",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "ARGS_NAMES",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "ARGS",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "REQUEST_FILENAME",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "XML",
-                            "selector": "/*",
                             "negated": false,
                             "count": false,
                             "regex": false
                         }
                     ],
-                    "transforms": [
-                        "none",
-                        "urlDecodeUni",
-                        "htmlEntityDecode",
-                        "jsDecode"
-                    ],
-                    "action": "block",
-                    "severity": "critical",
-                    "message": "UTF-7 Encoding IE XSS - Attack Detected",
-                    "tags": [
-                        "application-multi",
-                        "language-multi",
-                        "platform-internet-explorer",
-                        "attack-xss",
-                        "xss-perf-disable",
-                        "paranoia-level/1",
-                        "OWASP_CRS",
-                        "OWASP_CRS/ATTACK-XSS",
-                        "capec/1000/152/242"
-                    ],
+                    "transforms": [],
+                    "action": "pass",
+                    "severity": "notice",
+                    "message": "",
+                    "tags": [],
                     "paranoia": 1,
                     "category": "xss",
                     "setvars": [
@@ -2127,13 +2077,104 @@
                         }
                     ],
                     "chain": [],
-                    "capture": true,
+                    "capture": false,
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
                     "marker": null
                 }
             ],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 941350,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "\\+ADw-.*(?:\\+AD4-|>)|<.*\\+AD4-",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_FILENAME",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "urlDecodeUni",
+                "htmlEntityDecode",
+                "jsDecode"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "UTF-7 Encoding IE XSS - Attack Detected",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-internet-explorer",
+                "attack-xss",
+                "xss-perf-disable",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-XSS",
+                "capec/1000/152/242"
+            ],
+            "paranoia": 1,
+            "category": "xss",
+            "setvars": [
+                {
+                    "name": "tx.xss_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
             "capture": true,
             "skip_after": null,
             "multi_match": false,
