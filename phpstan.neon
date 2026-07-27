@@ -1,9 +1,20 @@
+includes:
+    - phpstan-baseline.neon
+
 parameters:
     level: max
     paths:
         - src
     tips:
         treatPhpDocTypesAsCertain: false
-    ignoreErrors:
-        - identifier: argument.type
-        - identifier: cast.string
+
+# There were two unscoped ignoreErrors entries here — `argument.type` and
+# `cast.string` — which muted those identifiers across the whole of src/ and hid
+# 24 real errors while CI reported "level max, no errors" on five PHP versions.
+# Most are now fixed; the remainder are pinned in phpstan-baseline.neon so they
+# stay visible as debt while any *new* error of the same kind fails the build.
+#
+# Regenerate the baseline with:
+#   vendor/bin/phpstan analyse --generate-baseline
+# and ideally only when it shrinks. Growing it should be a deliberate act with a
+# reason attached, not a reflex when something goes red.

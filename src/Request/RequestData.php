@@ -59,16 +59,17 @@ final class RequestData
      */
     public static function fromGlobals(): self
     {
-        $method   = $_SERVER['REQUEST_METHOD'] ?? 'GET';
-        $uri      = $_SERVER['REQUEST_URI'] ?? '/';
-        $query    = $_SERVER['QUERY_STRING'] ?? '';
-        $protocol = $_SERVER['SERVER_PROTOCOL'] ?? 'HTTP/1.1';
-        $remote   = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+        $method   = self::serverString('REQUEST_METHOD', 'GET');
+        $uri      = self::serverString('REQUEST_URI', '/');
+        $query    = self::serverString('QUERY_STRING', '');
+        $protocol = self::serverString('SERVER_PROTOCOL', 'HTTP/1.1');
+        $remote   = self::serverString('REMOTE_ADDR', '0.0.0.0');
 
         $headers = [];
         foreach ($_SERVER as $key => $value) {
-            if (str_starts_with((string) $key, 'HTTP_')) {
-                $name = strtolower(str_replace('_', '-', substr((string) $key, 5)));
+            $key = (string) $key;
+            if (str_starts_with($key, 'HTTP_') && (is_scalar($value) || $value instanceof \Stringable)) {
+                $name = strtolower(str_replace('_', '-', substr($key, 5)));
                 $headers[$name] = (string) $value;
             }
         }
@@ -78,8 +79,9 @@ final class RequestData
         // a request-smuggling attempt; without Content-Type, the 920 body
         // processor rules cannot evaluate at all.
         foreach (['CONTENT_TYPE' => 'content-type', 'CONTENT_LENGTH' => 'content-length'] as $serverKey => $headerName) {
-            if (isset($_SERVER[$serverKey]) && $_SERVER[$serverKey] !== '') {
-                $headers[$headerName] ??= (string) $_SERVER[$serverKey];
+            $value = self::serverString($serverKey, '');
+            if ($value !== '') {
+                $headers[$headerName] ??= $value;
             }
         }
 
@@ -96,12 +98,21 @@ final class RequestData
 
             $files[] = [
                 'name'     => (string) $name,
-                'filename' => (string) ($info['name']     ?? ''),
-                'mime'     => (string) ($info['type']     ?? ''),
-                'size'     => (int) (string) ($info['size'] ?? 0),
-                'tmp_name' => (string) ($info['tmp_name'] ?? ''),
+                'filename' => self::scalarString($info['name']     ?? null),
+                'mime'     => self::scalarString($info['type']     ?? null),
+                'size'     => (int) self::scalarString($info['size'] ?? null),
+                'tmp_name' => self::scalarString($info['tmp_name'] ?? null),
             ];
         }
+
+        $uniqueId = self::serverString('UNIQUE_ID', '');
+
+        /** @var array<string, string|array<int|string, mixed>> $queryArgs */
+        $queryArgs = $_GET;
+        /** @var array<string, string|array<int|string, mixed>> $postArgs */
+        $postArgs = $_POST;
+        /** @var array<string, string|array<int|string, mixed>> $cookies */
+        $cookies = $_COOKIE;
 
         return new self(
             method: $method,
@@ -110,14 +121,40 @@ final class RequestData
             queryString: $query,
             protocol: $protocol,
             remoteAddr: $remote,
-            queryArgs: $_GET,
-            postArgs: $_POST,
-            cookies: $_COOKIE,
+            queryArgs: $queryArgs,
+            postArgs: $postArgs,
+            cookies: $cookies,
             headers: $headers,
             body: $body,
             files: $files,
-            uniqueId: $_SERVER['UNIQUE_ID'] ?? null,
+            uniqueId: $uniqueId === '' ? null : $uniqueId,
         );
+    }
+
+    /**
+     * Read a $_SERVER entry as a string.
+     *
+     * $_SERVER is typed as mixed because anything can write to it — a SAPI, an
+     * extension, the application itself. Casting blind fatals on an array or a
+     * plain object, and a fatal in the request adapter is a request the WAF
+     * never got to see.
+     */
+    private static function serverString(string $key, string $default): string
+    {
+        return isset($_SERVER[$key]) ? self::scalarString($_SERVER[$key], $default) : $default;
+    }
+
+    private static function scalarString(mixed $value, string $default = ''): string
+    {
+        if (is_string($value)) {
+            return $value;
+        }
+
+        if (is_scalar($value) || $value instanceof \Stringable) {
+            return (string) $value;
+        }
+
+        return $default;
     }
 
     public function header(string $name): ?string

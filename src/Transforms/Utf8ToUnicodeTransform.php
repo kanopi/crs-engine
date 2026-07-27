@@ -35,9 +35,13 @@ final class Utf8ToUnicodeTransform implements TransformInterface
                     return $m[0];
                 }
 
+                // unpack('N*', ...) yields ints, but its return type is only
+                // array<mixed>, so narrow rather than cast blindly.
                 $out = '';
                 foreach ($codePoints as $codePoint) {
-                    $out .= sprintf('%%u%04x', $codePoint);
+                    if (is_int($codePoint)) {
+                        $out .= sprintf('%%u%04x', $codePoint);
+                    }
                 }
 
                 return $out;

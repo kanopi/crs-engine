@@ -345,11 +345,37 @@ final class VariableResolver
                     $out[] = new ResolvedValue(sprintf('%s:%s.%s', $collection, $strKey, $subKey), $subValue);
                 }
             } else {
-                $out[] = new ResolvedValue(sprintf('%s:%s', $collection, $strKey), (string) $value);
+                $out[] = new ResolvedValue(sprintf('%s:%s', $collection, $strKey), $this->stringify($value));
             }
         }
 
         return $out;
+    }
+
+    /**
+     * Coerce a resolved value to the string an operator will see.
+     *
+     * The bags arrive from an integrator's framework, so their leaf types are
+     * whatever that framework produced — string, int, bool, null, or an object
+     * with __toString(). A bare (string) cast fatals on anything else, and a
+     * fatal here is a request the WAF failed open on, so the unrepresentable
+     * cases serialise instead of throwing.
+     */
+    private function stringify(mixed $value): string
+    {
+        if (is_string($value)) {
+            return $value;
+        }
+
+        if ($value === null) {
+            return '';
+        }
+
+        if (is_scalar($value) || $value instanceof \Stringable) {
+            return (string) $value;
+        }
+
+        return json_encode($value) ?: '';
     }
 
     /**
@@ -367,10 +393,10 @@ final class VariableResolver
 
             if (is_array($value)) {
                 foreach ($value as $sub) {
-                    $out[] = new ResolvedValue(sprintf('%s:%s', $collection, $strKey), (string) $sub);
+                    $out[] = new ResolvedValue(sprintf('%s:%s', $collection, $strKey), $this->stringify($sub));
                 }
             } else {
-                $out[] = new ResolvedValue(sprintf('%s:%s', $collection, $strKey), (string) $value);
+                $out[] = new ResolvedValue(sprintf('%s:%s', $collection, $strKey), $this->stringify($value));
             }
         }
 
@@ -597,7 +623,7 @@ final class VariableResolver
     {
         $out = [];
         foreach ($array as $k => $v) {
-            $out[(string) $k] = is_scalar($v) ? (string) $v : (json_encode($v) ?: '');
+            $out[(string) $k] = $this->stringify($v);
         }
 
         return $out;

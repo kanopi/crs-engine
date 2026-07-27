@@ -99,11 +99,11 @@ final class CrsFetcher implements CrsSource
         }
 
         $data = json_decode($body, true);
-        if (!is_array($data) || !isset($data['tag_name'])) {
+        if (!is_array($data) || !isset($data['tag_name']) || !is_string($data['tag_name'])) {
             throw new CrsEngineException('Malformed GitHub release payload');
         }
 
-        return (string) $data['tag_name'];
+        return $data['tag_name'];
     }
 
     private function download(string $url, string $destination): void
