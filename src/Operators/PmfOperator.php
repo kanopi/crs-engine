@@ -5,16 +5,17 @@ declare(strict_types=1);
 namespace Kanopi\Crs\Operators;
 
 /**
- * @pmf — phrase match from file. Same case-insensitive substring search
- * as @pm but splits the argument on newlines (not whitespace), preserving
- * phrases that contain spaces such as "Mozilla/5.0 (compatible; Panoptic".
+ * @pmf — phrase match from file. Same case-insensitive substring search as
+ * @pm but the list is newline-separated, which preserves phrases containing
+ * spaces such as "Mozilla/5.0 (compatible; Panoptic".
  *
- * The parser inlines @pmFromFile's .data file contents as a newline-
- * separated phrase list, then routes the rule to this operator.
+ * The parser inlines @pmFromFile's .data file contents and routes the rule
+ * here. Some CRS lists are large — 953100 carries about 10,600 phrases — so
+ * see PhraseSet for how they are filtered before the substring search.
  */
 final class PmfOperator implements OperatorInterface
 {
-    /** @var array<string, array<int, string>> */
+    /** @var array<string, PhraseSet> */
     private static array $phraseCache = [];
 
     public function name(): string
@@ -24,26 +25,11 @@ final class PmfOperator implements OperatorInterface
 
     public function evaluate(string $argument, string $value): OperatorMatch
     {
-        $phrases = self::$phraseCache[$argument] ?? null;
-        if ($phrases === null) {
-            $phrases = [];
-            foreach (preg_split('/\r\n|\n|\r/', $argument) ?: [] as $line) {
-                $line = trim($line);
-                if ($line !== '') {
-                    $phrases[] = strtolower($line);
-                }
-            }
+        $phrases = self::$phraseCache[$argument]
+            ??= PhraseSet::fromLines($argument);
 
-            self::$phraseCache[$argument] = $phrases;
-        }
+        $hit = $phrases->firstMatch($value);
 
-        $haystack = strtolower($value);
-        foreach ($phrases as $phrase) {
-            if (str_contains($haystack, $phrase)) {
-                return OperatorMatch::hit($phrase);
-            }
-        }
-
-        return OperatorMatch::miss();
+        return $hit === null ? OperatorMatch::miss() : OperatorMatch::hit($hit);
     }
 }

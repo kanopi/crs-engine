@@ -22,6 +22,21 @@ final class VariableResolver
 {
     private ?XmlBody $xmlBody = null;
 
+    /**
+     * Resolved collections for this request.
+     *
+     * resolve() runs once per rule — 237 times for a ten-argument request
+     * against the shipped ruleset — and each call re-walked the same argument
+     * bags from scratch. The request cannot change mid-run, so a collection
+     * only has to be built once.
+     *
+     * TX is deliberately excluded: setvar mutates it as rules fire, so its
+     * values must be read live.
+     *
+     * @var array<string, array<int, ResolvedValue>>
+     */
+    private array $collectionCache = [];
+
     public function __construct(
         private readonly TxStore $txStore,
         private readonly ?ResponseData $responseData = null,
@@ -44,7 +59,7 @@ final class VariableResolver
             $count      = $target['count'] ?? false;
             $regex      = $target['regex'] ?? false;
 
-            $values = $this->resolveOne($collection, $selector, $regex, $requestData);
+            $values = $this->resolveCached($collection, $selector, $regex, $requestData);
 
             if ($negated) {
                 foreach ($values as $value) {
@@ -72,6 +87,21 @@ final class VariableResolver
             $resolved,
             static fn (ResolvedValue $resolvedValue): bool => !isset($excluded[$resolvedValue->location])
         ));
+    }
+
+    /**
+     * @return array<int, ResolvedValue>
+     */
+    private function resolveCached(string $collection, ?string $selector, bool $selectorIsRegex, RequestData $requestData): array
+    {
+        if (strtoupper($collection) === 'TX') {
+            return $this->resolveOne($collection, $selector, $selectorIsRegex, $requestData);
+        }
+
+        $key = $collection . '|' . ($selector ?? '') . '|' . ($selectorIsRegex ? '1' : '0');
+
+        return $this->collectionCache[$key]
+            ??= $this->resolveOne($collection, $selector, $selectorIsRegex, $requestData);
     }
 
     /**
