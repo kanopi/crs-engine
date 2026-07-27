@@ -57,14 +57,14 @@ final class CrsTxDefaults
 
             // Anomaly score constants (also inlined at parse time, but
             // some rules dereference them at runtime via %{tx.*}).
-            'tx.critical_anomaly_score' => '5',
-            'tx.error_anomaly_score'    => '4',
-            'tx.warning_anomaly_score'  => '3',
-            'tx.notice_anomaly_score'   => '2',
+            'tx.critical_anomaly_score' => (string) $crsConfig->severityScore('critical'),
+            'tx.error_anomaly_score'    => (string) $crsConfig->severityScore('error'),
+            'tx.warning_anomaly_score'  => (string) $crsConfig->severityScore('warning'),
+            'tx.notice_anomaly_score'   => (string) $crsConfig->severityScore('notice'),
 
             // Thresholds.
-            'tx.inbound_anomaly_score_threshold'  => (string) ($crsConfig->anomalyThresholds['critical'] ?? 5),
-            'tx.outbound_anomaly_score_threshold' => (string) ($crsConfig->anomalyThresholds['error'] ?? 4),
+            'tx.inbound_anomaly_score_threshold'  => (string) $crsConfig->inboundThreshold(),
+            'tx.outbound_anomaly_score_threshold' => (string) $crsConfig->outboundThreshold(),
 
             // Protocol enforcement defaults.
             'tx.allowed_methods'                        => 'GET HEAD POST OPTIONS',

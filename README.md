@@ -149,14 +149,18 @@ new CrsConfig(
     paranoia: 1,                        // 1 (default) - 4. Higher = more strict, more false positives.
     mode: CrsConfig::MODE_BLOCK,        // or MODE_MONITOR (records matches, never blocks)
     anomalyThresholds: [
-        'critical' => 5,                // total score >= threshold triggers block
+        'inbound'  => 5,                // request score >= this blocks the request
+        'outbound' => 4,                // response score >= this blocks the response
+    ],
+    disabledRules:      [920300, 942130],     // skip these rule IDs
+    disabledCategories: ['session_fixation'], // skip whole categories
+    rulesPath:          null,                 // override location of compiled.php
+    severityScores: [
+        'critical' => 5,                // what each severity *adds* to the score
         'error'    => 4,
         'warning'  => 3,
         'notice'   => 2,
     ],
-    disabledRules:      [920300, 942130],   // skip these rule IDs
-    disabledCategories: ['session_fixation'], // skip whole categories
-    rulesPath:          null,                // override location of compiled.php
 );
 ```
 
@@ -164,10 +168,30 @@ new CrsConfig(
 |---|---|---|
 | `paranoia` | `1` | Rules tagged with `paranoia-level/N` above this are skipped. |
 | `mode` | `block` | `monitor` evaluates and records matches but never returns `block`. |
-| `anomalyThresholds` | severity-keyed | The `critical` value is compared against accumulated `inbound_anomaly_score_plN` totals. |
+| `anomalyThresholds` | `['inbound' => 5, 'outbound' => 4]` | Score at which to block, per direction. There are exactly two thresholds. |
 | `disabledRules` | `[]` | List of CRS rule IDs to skip — useful for known false positives. |
 | `disabledCategories` | `[]` | Skip an entire category (`sqli`, `xss`, `lfi`, etc.) for targeted tuning. |
 | `rulesPath` | bundled `rules/` | Point at a custom rule directory (used for testing and custom rulesets). |
+| `severityScores` | CRS defaults | Anomaly contribution per severity. Upstream exposes these in `crs-setup.conf`. |
+
+### Thresholds vs. severity scores
+
+These are the two halves of the anomaly model and are easy to confuse:
+
+- **`severityScores`** is what a matching rule *adds*. A `severity:CRITICAL`
+  rule contributes 5 by default.
+- **`anomalyThresholds`** is what the running total is *compared against*.
+  Cross the inbound threshold and CRS rule 949110 blocks the request; cross
+  the outbound one and 959100 blocks the response.
+
+So the defaults mean "block a request once it accumulates one critical-severity
+detection". Raise `inbound` to 10 to require two.
+
+> **Deprecated:** `anomalyThresholds` previously took severity keys, where
+> `critical` silently meant *inbound* and `error` meant *outbound*, while
+> `warning` and `notice` did nothing at all. Those spellings still work and
+> emit `E_USER_DEPRECATED`; `warning`/`notice` are ignored. Unrecognised keys
+> now throw `ConfigurationException` instead of being silently accepted.
 
 ---
 
