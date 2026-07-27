@@ -13,18 +13,38 @@ final class OperatorMatch
      * @param string|null $matchedName Where the matching value came from, e.g.
      *        `ARGS:id`. Backs %{MATCHED_VAR_NAME}. Attached by the evaluator,
      *        which knows the target; operators only ever see the value.
+     * @param string|null $error Set when the operator could not reach a verdict
+     *        on this value — a PCRE resource limit, say. Distinct from a miss:
+     *        a miss means "no attack here", an error means "did not look".
+     *        Never both; an error is always reported with matched = false.
      */
     public function __construct(
         public readonly bool $matched,
         public readonly string $matchedData = '',
         public readonly array $captures = [],
         public readonly ?string $matchedName = null,
+        public readonly ?string $error = null,
     ) {
     }
 
     public static function miss(): self
     {
         return new self(false);
+    }
+
+    /**
+     * The operator aborted rather than deciding. Reported as not-matched so
+     * existing callers behave as before, but the reason travels with it so the
+     * evaluator can record that this rule did not actually get to run.
+     */
+    public static function error(string $reason): self
+    {
+        return new self(false, error: $reason);
+    }
+
+    public function isError(): bool
+    {
+        return $this->error !== null;
     }
 
     /**
@@ -40,6 +60,6 @@ final class OperatorMatch
      */
     public function withMatchedName(?string $matchedName): self
     {
-        return new self($this->matched, $this->matchedData, $this->captures, $matchedName);
+        return new self($this->matched, $this->matchedData, $this->captures, $matchedName, $this->error);
     }
 }

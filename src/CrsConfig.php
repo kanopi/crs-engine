@@ -74,6 +74,12 @@ final class CrsConfig
      * @param array<string, int> $severityScores Anomaly contribution per severity
      *        (critical/error/warning/notice). These are what rules *add*; the
      *        thresholds above are what the total is compared against.
+     * @param bool $failClosedOnOperatorError Whether a request whose evaluation
+     *        hit an operator error — a rule that could not run rather than one
+     *        that found nothing — should be treated as blocked. Off by default
+     *        because turning it on can reject traffic that previously passed;
+     *        CrsVerdict::$operatorErrors is populated either way, so the
+     *        condition is observable before anyone acts on it.
      */
     public function __construct(
         public readonly int $paranoia = 1,
@@ -83,6 +89,7 @@ final class CrsConfig
         public readonly array $disabledCategories = [],
         public readonly ?string $rulesPath = null,
         array $severityScores = self::DEFAULT_SEVERITY_SCORES,
+        public readonly bool $failClosedOnOperatorError = false,
     ) {
         if ($paranoia < 1 || $paranoia > 4) {
             throw new ConfigurationException('Paranoia level must be between 1 and 4, got ' . $paranoia);
@@ -191,7 +198,8 @@ final class CrsConfig
      *     disabled_rules?: array<int, int|string>,
      *     disabled_categories?: array<int, string>,
      *     rules_path?: ?string,
-     *     severity_scores?: array<string, int>
+     *     severity_scores?: array<string, int>,
+     *     fail_closed_on_operator_error?: bool
      * } $config
      */
     public static function fromArray(array $config): self
@@ -204,6 +212,7 @@ final class CrsConfig
             disabledCategories: $config['disabled_categories'] ?? [],
             rulesPath:          $config['rules_path'] ?? null,
             severityScores:     $config['severity_scores'] ?? self::DEFAULT_SEVERITY_SCORES,
+            failClosedOnOperatorError: $config['fail_closed_on_operator_error'] ?? false,
         );
     }
 
