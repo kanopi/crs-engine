@@ -55,6 +55,17 @@ final class RuleEvaluator
         $blockingId  = null;
 
         foreach ($ruleSet->all() as $compiledRule) {
+            // Markers are phase-agnostic and never evaluated — they exist only
+            // to terminate a skip. Checked before the phase filter so a skip
+            // started by a phase-1 rule can still land on the marker.
+            if ($compiledRule->isMarker()) {
+                if ($skipUntil !== null && $compiledRule->marker === $skipUntil) {
+                    $skipUntil = null;
+                }
+
+                continue;
+            }
+
             if ($requestPhase && $compiledRule->phase >= 3) {
                 continue;
             }
