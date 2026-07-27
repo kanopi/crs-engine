@@ -47,6 +47,7 @@ return array (
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     1 => 
     array (
@@ -91,6 +92,7 @@ return array (
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     2 => 
     array (
@@ -135,7 +137,7 @@ return array (
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -148,6 +150,7 @@ return array (
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     3 => 
     array (
@@ -192,6 +195,7 @@ return array (
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     4 => 
     array (
@@ -236,6 +240,7 @@ return array (
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     5 => 
     array (
@@ -280,6 +285,7 @@ return array (
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     6 => 
     array (
@@ -324,6 +330,7 @@ return array (
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     7 => 
     array (
@@ -368,6 +375,7 @@ return array (
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     8 => 
     array (
@@ -412,6 +420,7 @@ return array (
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     9 => 
     array (
@@ -447,6 +456,7 @@ return array (
       array (
       ),
       'marker' => 'END-REQUEST-911-METHOD-ENFORCEMENT',
+      'unconditional' => false,
     ),
     10 => 
     array (
@@ -491,6 +501,7 @@ return array (
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     11 => 
     array (
@@ -535,6 +546,7 @@ return array (
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     12 => 
     array (
@@ -657,7 +669,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -670,6 +682,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     13 => 
     array (
@@ -714,6 +727,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     14 => 
     array (
@@ -758,6 +772,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     15 => 
     array (
@@ -802,6 +817,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     16 => 
     array (
@@ -846,6 +862,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     17 => 
     array (
@@ -890,6 +907,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     18 => 
     array (
@@ -934,6 +952,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     19 => 
     array (
@@ -969,6 +988,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => 'END-REQUEST-913-SCANNER-DETECTION',
+      'unconditional' => false,
     ),
     20 => 
     array (
@@ -1013,6 +1033,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     21 => 
     array (
@@ -1057,6 +1078,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     22 => 
     array (
@@ -1102,7 +1124,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '3',
+          'value' => '%{tx.warning_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -1115,6 +1137,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     23 => 
     array (
@@ -1169,7 +1192,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -1182,6 +1205,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     24 => 
     array (
@@ -1227,7 +1251,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -1240,6 +1264,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     25 => 
     array (
@@ -1320,7 +1345,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -1333,6 +1358,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -1342,6 +1368,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     26 => 
     array (
@@ -1422,7 +1449,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -1435,6 +1462,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -1444,6 +1472,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     27 => 
     array (
@@ -1530,6 +1559,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
         1 => 
         array (
@@ -1573,6 +1603,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
         2 => 
         array (
@@ -1609,7 +1640,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '3',
+              'value' => '%{tx.warning_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -1622,6 +1653,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -1631,6 +1663,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     28 => 
     array (
@@ -1711,7 +1744,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '3',
+              'value' => '%{tx.warning_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -1724,6 +1757,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -1733,6 +1767,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     29 => 
     array (
@@ -1812,7 +1847,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '3',
+              'value' => '%{tx.warning_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -1825,6 +1860,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -1834,6 +1870,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     30 => 
     array (
@@ -1879,7 +1916,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '3',
+          'value' => '%{tx.warning_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -1892,6 +1929,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     31 => 
     array (
@@ -1937,7 +1975,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '3',
+          'value' => '%{tx.warning_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -1950,6 +1988,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     32 => 
     array (
@@ -2045,7 +2084,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '3',
+              'value' => '%{tx.warning_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -2058,6 +2097,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -2067,6 +2107,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     33 => 
     array (
@@ -2121,7 +2162,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '3',
+          'value' => '%{tx.warning_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -2134,6 +2175,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     34 => 
     array (
@@ -2204,7 +2246,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -2217,6 +2259,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     35 => 
     array (
@@ -2262,7 +2305,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -2275,6 +2318,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     36 => 
     array (
@@ -2320,7 +2364,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -2333,6 +2377,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     37 => 
     array (
@@ -2368,6 +2413,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => 'END-HOST-CHECK',
+      'unconditional' => false,
     ),
     38 => 
     array (
@@ -2454,6 +2500,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
         1 => 
         array (
@@ -2491,7 +2538,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '2',
+              'value' => '%{tx.notice_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -2504,6 +2551,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -2513,6 +2561,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     39 => 
     array (
@@ -2599,6 +2648,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
         1 => 
         array (
@@ -2636,7 +2686,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '2',
+              'value' => '%{tx.notice_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -2649,6 +2699,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -2658,6 +2709,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     40 => 
     array (
@@ -2703,7 +2755,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '2',
+          'value' => '%{tx.notice_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -2716,6 +2768,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     41 => 
     array (
@@ -2796,7 +2849,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -2809,6 +2862,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -2818,6 +2872,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     42 => 
     array (
@@ -2863,7 +2918,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '3',
+          'value' => '%{tx.warning_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -2876,6 +2931,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     43 => 
     array (
@@ -2956,7 +3012,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -2969,6 +3025,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -2978,6 +3035,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     44 => 
     array (
@@ -3059,7 +3117,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -3072,6 +3130,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -3081,6 +3140,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     45 => 
     array (
@@ -3162,7 +3222,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -3175,6 +3235,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -3184,6 +3245,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     46 => 
     array (
@@ -3264,7 +3326,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -3277,6 +3339,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -3286,6 +3349,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     47 => 
     array (
@@ -3372,6 +3436,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
         1 => 
         array (
@@ -3409,7 +3474,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -3422,6 +3487,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -3431,6 +3497,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     48 => 
     array (
@@ -3511,7 +3578,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -3524,6 +3591,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -3533,6 +3601,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     49 => 
     array (
@@ -3579,7 +3648,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -3592,6 +3661,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     50 => 
     array (
@@ -3637,7 +3707,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.content_type',
           'op' => '=',
-          'value' => '|0|',
+          'value' => '|%{tx.0}|',
         ),
       ),
       'chain' => 
@@ -3678,7 +3748,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -3691,6 +3761,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -3700,6 +3771,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     51 => 
     array (
@@ -3745,7 +3817,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.content_type_charset',
           'op' => '=',
-          'value' => '|0|',
+          'value' => '|%{tx.1}|',
         ),
       ),
       'chain' => 
@@ -3786,7 +3858,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -3799,6 +3871,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -3808,6 +3881,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     52 => 
     array (
@@ -3854,7 +3928,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -3867,6 +3941,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     53 => 
     array (
@@ -3947,7 +4022,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -3960,6 +4035,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -3969,6 +4045,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     54 => 
     array (
@@ -4014,7 +4091,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -4027,6 +4104,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     55 => 
     array (
@@ -4073,7 +4151,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.extension',
           'op' => '=',
-          'value' => '.0/',
+          'value' => '.%{tx.1}/',
         ),
       ),
       'chain' => 
@@ -4115,7 +4193,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -4128,6 +4206,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -4137,6 +4216,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     56 => 
     array (
@@ -4183,7 +4263,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -4196,6 +4276,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     57 => 
     array (
@@ -4242,7 +4323,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.header_name_920450_%{tx.0}',
           'op' => '=',
-          'value' => '/0/',
+          'value' => '/%{tx.0}/',
         ),
       ),
       'chain' => 
@@ -4282,7 +4363,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -4295,6 +4376,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -4304,6 +4386,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     58 => 
     array (
@@ -4351,7 +4434,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -4364,6 +4447,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     59 => 
     array (
@@ -4409,7 +4493,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -4422,6 +4506,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     60 => 
     array (
@@ -4468,6 +4553,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     61 => 
     array (
@@ -4537,7 +4623,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -4550,6 +4636,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     62 => 
     array (
@@ -4594,7 +4681,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -4607,6 +4694,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     63 => 
     array (
@@ -4651,7 +4739,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -4664,6 +4752,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     64 => 
     array (
@@ -4708,6 +4797,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     65 => 
     array (
@@ -4752,6 +4842,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     66 => 
     array (
@@ -4831,7 +4922,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl2',
               'op' => '+',
-              'value' => '3',
+              'value' => '%{tx.warning_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -4844,6 +4935,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -4853,6 +4945,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     67 => 
     array (
@@ -4933,7 +5026,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl2',
               'op' => '+',
-              'value' => '3',
+              'value' => '%{tx.warning_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -4946,6 +5039,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -4955,6 +5049,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     68 => 
     array (
@@ -5000,7 +5095,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '3',
+          'value' => '%{tx.warning_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -5013,6 +5108,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     69 => 
     array (
@@ -5083,7 +5179,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -5096,6 +5192,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     70 => 
     array (
@@ -5141,7 +5238,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '2',
+          'value' => '%{tx.notice_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -5154,6 +5251,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     71 => 
     array (
@@ -5208,7 +5306,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -5221,6 +5319,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     72 => 
     array (
@@ -5267,7 +5366,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.header_name_920451_%{tx.0}',
           'op' => '=',
-          'value' => '/0/',
+          'value' => '/%{tx.0}/',
         ),
       ),
       'chain' => 
@@ -5307,7 +5406,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl2',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -5320,6 +5419,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -5329,6 +5429,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     73 => 
     array (
@@ -5415,6 +5516,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
         1 => 
         array (
@@ -5451,7 +5553,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl2',
               'op' => '+',
-              'value' => '3',
+              'value' => '%{tx.warning_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -5464,6 +5566,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -5473,6 +5576,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     74 => 
     array (
@@ -5561,6 +5665,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
         1 => 
         array (
@@ -5600,7 +5705,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl2',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -5613,6 +5718,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -5622,6 +5728,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     75 => 
     array (
@@ -5666,6 +5773,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     76 => 
     array (
@@ -5710,6 +5818,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     77 => 
     array (
@@ -5788,7 +5897,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -5801,6 +5910,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     78 => 
     array (
@@ -5887,6 +5997,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
         1 => 
         array (
@@ -5924,7 +6035,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl3',
               'op' => '+',
-              'value' => '2',
+              'value' => '%{tx.notice_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -5937,6 +6048,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -5946,6 +6058,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     79 => 
     array (
@@ -6025,7 +6138,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl3',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -6038,6 +6151,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -6047,6 +6161,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     80 => 
     array (
@@ -6127,7 +6242,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl3',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -6140,6 +6255,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -6149,6 +6265,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     81 => 
     array (
@@ -6195,7 +6312,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -6208,6 +6325,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     82 => 
     array (
@@ -6252,6 +6370,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     83 => 
     array (
@@ -6296,6 +6415,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     84 => 
     array (
@@ -6376,7 +6496,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl4',
               'op' => '+',
-              'value' => '3',
+              'value' => '%{tx.warning_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -6389,6 +6509,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -6398,6 +6519,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     85 => 
     array (
@@ -6460,7 +6582,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl4',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -6473,6 +6595,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     86 => 
     array (
@@ -6567,7 +6690,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl4',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -6580,6 +6703,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     87 => 
     array (
@@ -6634,7 +6758,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl4',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -6647,6 +6771,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     88 => 
     array (
@@ -6718,13 +6843,13 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.http_violation_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl4',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -6737,6 +6862,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     89 => 
     array (
@@ -6772,6 +6898,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => 'END-REQUEST-920-PROTOCOL-ENFORCEMENT',
+      'unconditional' => false,
     ),
     90 => 
     array (
@@ -6816,6 +6943,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     91 => 
     array (
@@ -6860,6 +6988,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     92 => 
     array (
@@ -6931,13 +7060,13 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.http_violation_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -6950,6 +7079,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     93 => 
     array (
@@ -7028,13 +7158,13 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.http_violation_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -7047,6 +7177,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     94 => 
     array (
@@ -7126,13 +7257,13 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.http_violation_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -7145,6 +7276,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     95 => 
     array (
@@ -7199,13 +7331,13 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.http_violation_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -7218,6 +7350,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     96 => 
     array (
@@ -7263,13 +7396,13 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.http_violation_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -7282,6 +7415,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     97 => 
     array (
@@ -7336,13 +7470,13 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.http_violation_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -7355,6 +7489,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     98 => 
     array (
@@ -7401,13 +7536,13 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.http_violation_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -7420,6 +7555,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     99 => 
     array (
@@ -7497,7 +7633,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -7510,6 +7646,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     100 => 
     array (
@@ -7556,7 +7693,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -7569,6 +7706,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     101 => 
     array (
@@ -7616,7 +7754,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -7629,6 +7767,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     102 => 
     array (
@@ -7674,7 +7813,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -7687,6 +7826,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     103 => 
     array (
@@ -7731,6 +7871,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     104 => 
     array (
@@ -7775,6 +7916,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     105 => 
     array (
@@ -7820,13 +7962,13 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.http_violation_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -7839,6 +7981,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     106 => 
     array (
@@ -7885,7 +8028,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -7898,6 +8041,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     107 => 
     array (
@@ -7942,6 +8086,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     108 => 
     array (
@@ -7986,6 +8131,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     109 => 
     array (
@@ -8031,7 +8177,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -8044,6 +8190,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     110 => 
     array (
@@ -8100,6 +8247,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     111 => 
     array (
@@ -8144,13 +8292,13 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.http_violation_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -8163,6 +8311,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     112 => 
     array (
@@ -8207,13 +8356,13 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.http_violation_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -8226,6 +8375,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     113 => 
     array (
@@ -8270,6 +8420,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     114 => 
     array (
@@ -8314,6 +8465,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     115 => 
     array (
@@ -8358,13 +8510,13 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.http_violation_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl4',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -8377,6 +8529,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     116 => 
     array (
@@ -8412,6 +8565,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => 'END-REQUEST-921-PROTOCOL-ATTACK',
+      'unconditional' => false,
     ),
     117 => 
     array (
@@ -8457,7 +8611,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.922100_charset',
           'op' => '=',
-          'value' => '|0|',
+          'value' => '|%{ARGS._charset_}|',
         ),
       ),
       'chain' => 
@@ -8498,7 +8652,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -8511,6 +8665,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -8520,6 +8675,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     118 => 
     array (
@@ -8573,6 +8729,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     119 => 
     array (
@@ -8614,7 +8771,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.multipart_headers_content_types_%{tx.multipart_headers_content_counter}',
           'op' => '=',
-          'value' => '0',
+          'value' => '%{tx.1}',
         ),
         1 => 
         array (
@@ -8633,6 +8790,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     120 => 
     array (
@@ -8680,7 +8838,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -8693,6 +8851,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     121 => 
     array (
@@ -8740,7 +8899,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -8753,6 +8912,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     122 => 
     array (
@@ -8799,7 +8959,7 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -8812,6 +8972,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     123 => 
     array (
@@ -8856,6 +9017,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     124 => 
     array (
@@ -8900,6 +9062,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     125 => 
     array (
@@ -8985,13 +9148,13 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.lfi_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -9004,6 +9167,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     126 => 
     array (
@@ -9093,13 +9257,13 @@ Mozilla/5.0 (compatible; AppScan;',
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.lfi_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -9112,6 +9276,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     127 => 
     array (
@@ -10272,13 +10437,13 @@ login.sql
         array (
           'name' => 'tx.lfi_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -10291,6 +10456,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     128 => 
     array (
@@ -10960,13 +11126,13 @@ login.sql
         array (
           'name' => 'tx.lfi_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -10979,6 +11145,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     129 => 
     array (
@@ -11051,13 +11218,13 @@ login.sql
         array (
           'name' => 'tx.lfi_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -11070,6 +11237,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     130 => 
     array (
@@ -11114,6 +11282,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     131 => 
     array (
@@ -11158,6 +11327,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     132 => 
     array (
@@ -12294,13 +12464,13 @@ login.sql
         array (
           'name' => 'tx.lfi_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -12313,6 +12483,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     133 => 
     array (
@@ -12357,6 +12528,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     134 => 
     array (
@@ -12401,6 +12573,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     135 => 
     array (
@@ -12445,6 +12618,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     136 => 
     array (
@@ -12489,6 +12663,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     137 => 
     array (
@@ -12524,6 +12699,7 @@ login.sql
       array (
       ),
       'marker' => 'END-REQUEST-930-APPLICATION-ATTACK-LFI',
+      'unconditional' => false,
     ),
     138 => 
     array (
@@ -12568,6 +12744,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     139 => 
     array (
@@ -12612,6 +12789,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     140 => 
     array (
@@ -12666,13 +12844,13 @@ login.sql
         array (
           'name' => 'tx.rfi_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -12685,6 +12863,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     141 => 
     array (
@@ -12739,13 +12918,13 @@ login.sql
         array (
           'name' => 'tx.rfi_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -12758,6 +12937,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     142 => 
     array (
@@ -12803,13 +12983,13 @@ login.sql
         array (
           'name' => 'tx.rfi_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -12822,6 +13002,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     143 => 
     array (
@@ -12866,6 +13047,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     144 => 
     array (
@@ -12910,6 +13092,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     145 => 
     array (
@@ -12955,13 +13138,13 @@ login.sql
         array (
           'name' => 'tx.rfi_parameter_%{MATCHED_VAR_NAME}',
           'op' => '=',
-          'value' => '.0',
+          'value' => '.%{tx.1}',
         ),
         1 => 
         array (
           'name' => 'tx.original_target',
           'op' => '=',
-          'value' => '0',
+          'value' => '%{MATCHED_VAR_NAME}',
         ),
       ),
       'chain' => 
@@ -13001,13 +13184,13 @@ login.sql
             array (
               'name' => 'tx.rfi_score',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
             1 => 
             array (
               'name' => 'tx.inbound_anomaly_score_pl2',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -13020,6 +13203,7 @@ login.sql
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -13029,6 +13213,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     146 => 
     array (
@@ -13075,7 +13260,7 @@ login.sql
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -13088,6 +13273,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     147 => 
     array (
@@ -13132,6 +13318,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     148 => 
     array (
@@ -13176,6 +13363,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     149 => 
     array (
@@ -13220,6 +13408,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     150 => 
     array (
@@ -13264,6 +13453,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     151 => 
     array (
@@ -13299,6 +13489,7 @@ login.sql
       array (
       ),
       'marker' => 'END-REQUEST-931-APPLICATION-ATTACK-RFI',
+      'unconditional' => false,
     ),
     152 => 
     array (
@@ -13343,6 +13534,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     153 => 
     array (
@@ -13387,6 +13579,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     154 => 
     array (
@@ -13464,13 +13657,13 @@ login.sql
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -13483,6 +13676,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     155 => 
     array (
@@ -13560,13 +13754,13 @@ login.sql
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -13579,6 +13773,7 @@ login.sql
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     156 => 
     array (
@@ -14078,13 +14273,13 @@ Write-Warning',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -14097,6 +14292,7 @@ Write-Warning',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     157 => 
     array (
@@ -14174,13 +14370,13 @@ Write-Warning',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -14193,6 +14389,7 @@ Write-Warning',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     158 => 
     array (
@@ -14271,13 +14468,13 @@ Write-Warning',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -14290,6 +14487,7 @@ Write-Warning',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     159 => 
     array (
@@ -14368,13 +14566,13 @@ Write-Warning',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -14387,6 +14585,7 @@ Write-Warning',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     160 => 
     array (
@@ -14465,13 +14664,13 @@ Write-Warning',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -14484,6 +14683,7 @@ Write-Warning',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     161 => 
     array (
@@ -14561,13 +14761,13 @@ Write-Warning',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -14580,6 +14780,7 @@ Write-Warning',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     162 => 
     array (
@@ -14657,13 +14858,13 @@ Write-Warning',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -14676,6 +14877,7 @@ Write-Warning',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     163 => 
     array (
@@ -14753,13 +14955,13 @@ Write-Warning',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -14772,6 +14974,7 @@ Write-Warning',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     164 => 
     array (
@@ -14865,13 +15068,13 @@ Write-Warning',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -14884,6 +15087,7 @@ Write-Warning',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     165 => 
     array (
@@ -14961,13 +15165,13 @@ Write-Warning',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -14980,6 +15184,7 @@ Write-Warning',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     166 => 
     array (
@@ -15767,13 +15972,13 @@ sbin/start-stop-daemon',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -15786,6 +15991,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     167 => 
     array (
@@ -15840,13 +16046,13 @@ sbin/start-stop-daemon',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -15859,6 +16065,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     168 => 
     array (
@@ -15921,13 +16128,13 @@ sbin/start-stop-daemon',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -15940,6 +16147,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     169 => 
     array (
@@ -16017,13 +16225,13 @@ sbin/start-stop-daemon',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -16036,6 +16244,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     170 => 
     array (
@@ -16634,13 +16843,13 @@ zoneinfo',
             array (
               'name' => 'tx.rce_score',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
             1 => 
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -16653,6 +16862,7 @@ zoneinfo',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -16662,6 +16872,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     171 => 
     array (
@@ -16739,13 +16950,13 @@ zoneinfo',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -16758,6 +16969,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     172 => 
     array (
@@ -16835,13 +17047,13 @@ zoneinfo',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -16854,6 +17066,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     173 => 
     array (
@@ -16898,6 +17111,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     174 => 
     array (
@@ -16942,6 +17156,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     175 => 
     array (
@@ -17019,13 +17234,13 @@ zoneinfo',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -17038,6 +17253,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     176 => 
     array (
@@ -17115,13 +17331,13 @@ zoneinfo',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -17134,6 +17350,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     177 => 
     array (
@@ -17188,13 +17405,13 @@ zoneinfo',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -17207,6 +17424,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     178 => 
     array (
@@ -17286,7 +17504,7 @@ zoneinfo',
         array (
           'name' => 'tx.932200_matched_var_name',
           'op' => '=',
-          'value' => '0',
+          'value' => '%{matched_var_name}',
         ),
       ),
       'chain' => 
@@ -17334,6 +17552,7 @@ zoneinfo',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
         1 => 
         array (
@@ -17371,13 +17590,13 @@ zoneinfo',
             array (
               'name' => 'tx.rce_score',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
             1 => 
             array (
               'name' => 'tx.inbound_anomaly_score_pl2',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -17390,6 +17609,7 @@ zoneinfo',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -17399,6 +17619,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     179 => 
     array (
@@ -17446,7 +17667,7 @@ zoneinfo',
         array (
           'name' => 'tx.932205_matched_var_name',
           'op' => '=',
-          'value' => '0',
+          'value' => '%{matched_var_name}',
         ),
       ),
       'chain' => 
@@ -17494,6 +17715,7 @@ zoneinfo',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
         1 => 
         array (
@@ -17538,6 +17760,7 @@ zoneinfo',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
         2 => 
         array (
@@ -17575,13 +17798,13 @@ zoneinfo',
             array (
               'name' => 'tx.rce_score',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
             1 => 
             array (
               'name' => 'tx.inbound_anomaly_score_pl2',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -17594,6 +17817,7 @@ zoneinfo',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -17603,6 +17827,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     180 => 
     array (
@@ -17650,7 +17875,7 @@ zoneinfo',
         array (
           'name' => 'tx.932206_matched_var_name',
           'op' => '=',
-          'value' => '0',
+          'value' => '%{matched_var_name}',
         ),
       ),
       'chain' => 
@@ -17698,6 +17923,7 @@ zoneinfo',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
         1 => 
         array (
@@ -17735,13 +17961,13 @@ zoneinfo',
             array (
               'name' => 'tx.rce_score',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
             1 => 
             array (
               'name' => 'tx.inbound_anomaly_score_pl2',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -17754,6 +17980,7 @@ zoneinfo',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -17763,6 +17990,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     181 => 
     array (
@@ -17810,7 +18038,7 @@ zoneinfo',
         array (
           'name' => 'tx.932207_matched_var_name',
           'op' => '=',
-          'value' => '0',
+          'value' => '%{matched_var_name}',
         ),
       ),
       'chain' => 
@@ -17858,6 +18086,7 @@ zoneinfo',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
         1 => 
         array (
@@ -17902,6 +18131,7 @@ zoneinfo',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
         2 => 
         array (
@@ -17946,6 +18176,7 @@ zoneinfo',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
         3 => 
         array (
@@ -17983,13 +18214,13 @@ zoneinfo',
             array (
               'name' => 'tx.rce_score',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
             1 => 
             array (
               'name' => 'tx.inbound_anomaly_score_pl2',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -18002,6 +18233,7 @@ zoneinfo',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -18011,6 +18243,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     182 => 
     array (
@@ -18088,13 +18321,13 @@ zoneinfo',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -18107,6 +18340,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     183 => 
     array (
@@ -18176,7 +18410,7 @@ zoneinfo',
         array (
           'name' => 'tx.932240_matched_var_name',
           'op' => '=',
-          'value' => '0',
+          'value' => '%{matched_var_name}',
         ),
       ),
       'chain' => 
@@ -18217,13 +18451,13 @@ zoneinfo',
             array (
               'name' => 'tx.rce_score',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
             1 => 
             array (
               'name' => 'tx.inbound_anomaly_score_pl2',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -18236,6 +18470,7 @@ zoneinfo',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -18245,6 +18480,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     184 => 
     array (
@@ -18322,13 +18558,13 @@ zoneinfo',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -18341,6 +18577,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     185 => 
     array (
@@ -18420,13 +18657,13 @@ zoneinfo',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -18439,6 +18676,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     186 => 
     array (
@@ -18517,13 +18755,13 @@ zoneinfo',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -18536,6 +18774,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     187 => 
     array (
@@ -18613,13 +18852,13 @@ zoneinfo',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -18632,6 +18871,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     188 => 
     array (
@@ -18709,13 +18949,13 @@ zoneinfo',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -18728,6 +18968,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     189 => 
     array (
@@ -18805,13 +19046,13 @@ zoneinfo',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -18824,6 +19065,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     190 => 
     array (
@@ -18901,13 +19143,13 @@ zoneinfo',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -18920,6 +19162,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     191 => 
     array (
@@ -18973,13 +19216,13 @@ zoneinfo',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -18992,6 +19235,7 @@ zoneinfo',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     192 => 
     array (
@@ -19755,13 +19999,13 @@ sbin/start-stop-daemon',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -19774,6 +20018,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     193 => 
     array (
@@ -19868,13 +20113,13 @@ sbin/start-stop-daemon',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -19887,6 +20132,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     194 => 
     array (
@@ -19931,6 +20177,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     195 => 
     array (
@@ -19975,6 +20222,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     196 => 
     array (
@@ -20052,13 +20300,13 @@ sbin/start-stop-daemon',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -20071,6 +20319,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     197 => 
     array (
@@ -20126,13 +20375,13 @@ sbin/start-stop-daemon',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -20145,6 +20394,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     198 => 
     array (
@@ -20240,13 +20490,13 @@ sbin/start-stop-daemon',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -20259,6 +20509,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     199 => 
     array (
@@ -20306,13 +20557,13 @@ sbin/start-stop-daemon',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -20325,6 +20576,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     200 => 
     array (
@@ -20418,13 +20670,13 @@ sbin/start-stop-daemon',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -20437,6 +20689,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     201 => 
     array (
@@ -20514,13 +20767,13 @@ sbin/start-stop-daemon',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -20533,6 +20786,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     202 => 
     array (
@@ -20610,13 +20864,13 @@ sbin/start-stop-daemon',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -20629,6 +20883,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     203 => 
     array (
@@ -20706,13 +20961,13 @@ sbin/start-stop-daemon',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -20725,6 +20980,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     204 => 
     array (
@@ -20802,13 +21058,13 @@ sbin/start-stop-daemon',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -20821,6 +21077,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     205 => 
     array (
@@ -20865,6 +21122,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     206 => 
     array (
@@ -20909,6 +21167,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     207 => 
     array (
@@ -20944,6 +21203,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => 'END-REQUEST-932-APPLICATION-ATTACK-RCE',
+      'unconditional' => false,
     ),
     208 => 
     array (
@@ -20988,6 +21248,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     209 => 
     array (
@@ -21032,6 +21293,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     210 => 
     array (
@@ -21125,13 +21387,13 @@ sbin/start-stop-daemon',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -21144,6 +21406,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     211 => 
     array (
@@ -21223,13 +21486,13 @@ sbin/start-stop-daemon',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -21242,6 +21505,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     212 => 
     array (
@@ -21320,13 +21584,13 @@ sbin/start-stop-daemon',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -21339,6 +21603,7 @@ sbin/start-stop-daemon',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     213 => 
     array (
@@ -21438,13 +21703,13 @@ $HTTP_SERVER_VARS',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -21457,6 +21722,7 @@ $HTTP_SERVER_VARS',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     214 => 
     array (
@@ -21542,13 +21808,13 @@ $HTTP_SERVER_VARS',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -21561,6 +21827,7 @@ $HTTP_SERVER_VARS',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     215 => 
     array (
@@ -21638,13 +21905,13 @@ $HTTP_SERVER_VARS',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -21657,6 +21924,7 @@ $HTTP_SERVER_VARS',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     216 => 
     array (
@@ -21738,13 +22006,13 @@ $HTTP_SERVER_VARS',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -21757,6 +22025,7 @@ $HTTP_SERVER_VARS',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     217 => 
     array (
@@ -22109,13 +22378,13 @@ zlib_decode',
             array (
               'name' => 'tx.php_injection_score',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
             1 => 
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -22128,6 +22397,7 @@ zlib_decode',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -22137,6 +22407,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     218 => 
     array (
@@ -22222,13 +22493,13 @@ zlib_decode',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -22241,6 +22512,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     219 => 
     array (
@@ -22326,13 +22598,13 @@ zlib_decode',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -22345,6 +22617,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     220 => 
     array (
@@ -22430,13 +22703,13 @@ zlib_decode',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -22449,6 +22722,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     221 => 
     array (
@@ -22537,13 +22811,13 @@ zlib_decode',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -22556,6 +22830,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     222 => 
     array (
@@ -22642,13 +22917,13 @@ zlib_decode',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -22661,6 +22936,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     223 => 
     array (
@@ -22705,6 +22981,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     224 => 
     array (
@@ -22749,6 +23026,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     225 => 
     array (
@@ -22834,13 +23112,13 @@ zlib_decode',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -22853,6 +23131,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     226 => 
     array (
@@ -22938,13 +23217,13 @@ zlib_decode',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -22957,6 +23236,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     227 => 
     array (
@@ -23042,13 +23322,13 @@ zlib_decode',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -23061,6 +23341,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     228 => 
     array (
@@ -23105,6 +23386,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     229 => 
     array (
@@ -23149,6 +23431,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     230 => 
     array (
@@ -23228,13 +23511,13 @@ zlib_decode',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -23247,6 +23530,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     231 => 
     array (
@@ -23332,13 +23616,13 @@ zlib_decode',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -23351,6 +23635,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     232 => 
     array (
@@ -23430,13 +23715,13 @@ zlib_decode',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -23449,6 +23734,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     233 => 
     array (
@@ -23527,13 +23813,13 @@ zlib_decode',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -23546,6 +23832,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     234 => 
     array (
@@ -23634,13 +23921,13 @@ zlib_decode',
         array (
           'name' => 'tx.php_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -23653,6 +23940,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     235 => 
     array (
@@ -23697,6 +23985,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     236 => 
     array (
@@ -23741,6 +24030,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     237 => 
     array (
@@ -23776,6 +24066,7 @@ zlib_decode',
       array (
       ),
       'marker' => 'END-REQUEST-933-APPLICATION-ATTACK-PHP',
+      'unconditional' => false,
     ),
     238 => 
     array (
@@ -23820,6 +24111,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     239 => 
     array (
@@ -23864,6 +24156,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     240 => 
     array (
@@ -23958,13 +24251,13 @@ zlib_decode',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -23977,6 +24270,7 @@ zlib_decode',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     241 => 
     array (
@@ -24164,13 +24458,13 @@ http://localhost:9001/2018-06-01/runtime/',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -24183,6 +24477,7 @@ http://localhost:9001/2018-06-01/runtime/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     242 => 
     array (
@@ -24280,13 +24575,13 @@ lvh.me/',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -24299,6 +24594,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     243 => 
     array (
@@ -24379,13 +24675,13 @@ lvh.me/',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -24398,6 +24694,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     244 => 
     array (
@@ -24476,13 +24773,13 @@ lvh.me/',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -24495,6 +24792,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     245 => 
     array (
@@ -24587,13 +24885,13 @@ lvh.me/',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -24606,6 +24904,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     246 => 
     array (
@@ -24692,13 +24991,13 @@ lvh.me/',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -24711,6 +25010,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     247 => 
     array (
@@ -24789,13 +25089,13 @@ lvh.me/',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -24808,6 +25108,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     248 => 
     array (
@@ -24852,6 +25153,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     249 => 
     array (
@@ -24896,6 +25198,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     250 => 
     array (
@@ -24987,13 +25290,13 @@ lvh.me/',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -25006,6 +25309,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     251 => 
     array (
@@ -25091,13 +25395,13 @@ lvh.me/',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -25110,6 +25414,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     252 => 
     array (
@@ -25188,13 +25493,13 @@ lvh.me/',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -25207,6 +25512,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     253 => 
     array (
@@ -25284,13 +25590,13 @@ lvh.me/',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -25303,6 +25609,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     254 => 
     array (
@@ -25347,6 +25654,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     255 => 
     array (
@@ -25391,6 +25699,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     256 => 
     array (
@@ -25435,6 +25744,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     257 => 
     array (
@@ -25479,6 +25789,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     258 => 
     array (
@@ -25514,6 +25825,7 @@ lvh.me/',
       array (
       ),
       'marker' => 'END-REQUEST-934-APPLICATION-ATTACK-GENERIC',
+      'unconditional' => false,
     ),
     259 => 
     array (
@@ -25558,6 +25870,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     260 => 
     array (
@@ -25602,6 +25915,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     261 => 
     array (
@@ -25648,6 +25962,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     262 => 
     array (
@@ -25756,13 +26071,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -25775,6 +26090,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     263 => 
     array (
@@ -25883,13 +26199,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -25902,6 +26218,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     264 => 
     array (
@@ -26002,13 +26319,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -26021,6 +26338,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     265 => 
     array (
@@ -26130,13 +26448,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -26149,6 +26467,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     266 => 
     array (
@@ -26257,13 +26576,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -26276,6 +26595,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     267 => 
     array (
@@ -26384,13 +26704,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -26403,6 +26723,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     268 => 
     array (
@@ -26495,13 +26816,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -26514,6 +26835,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     269 => 
     array (
@@ -26606,13 +26928,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -26625,6 +26947,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     270 => 
     array (
@@ -26717,13 +27040,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -26736,6 +27059,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     271 => 
     array (
@@ -26828,13 +27152,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -26847,6 +27171,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     272 => 
     array (
@@ -26939,13 +27264,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -26958,6 +27283,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     273 => 
     array (
@@ -27050,13 +27376,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -27069,6 +27395,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     274 => 
     array (
@@ -27162,13 +27489,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -27181,6 +27508,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     275 => 
     array (
@@ -27273,13 +27601,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -27292,6 +27620,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     276 => 
     array (
@@ -27384,13 +27713,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -27403,6 +27732,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     277 => 
     array (
@@ -27495,13 +27825,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -27514,6 +27844,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     278 => 
     array (
@@ -27606,13 +27937,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -27625,6 +27956,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     279 => 
     array (
@@ -27717,13 +28049,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -27736,6 +28068,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     280 => 
     array (
@@ -27828,13 +28161,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -27847,6 +28180,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     281 => 
     array (
@@ -27971,13 +28305,13 @@ lvh.me/',
             array (
               'name' => 'tx.xss_score',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
             1 => 
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -27990,6 +28324,7 @@ lvh.me/',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -27999,6 +28334,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     282 => 
     array (
@@ -28088,13 +28424,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -28107,6 +28443,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     283 => 
     array (
@@ -28192,13 +28529,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -28211,6 +28548,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     284 => 
     array (
@@ -28290,13 +28628,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -28309,6 +28647,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     285 => 
     array (
@@ -28397,13 +28736,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -28416,6 +28755,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     286 => 
     array (
@@ -28503,13 +28843,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -28522,6 +28862,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     287 => 
     array (
@@ -28566,6 +28907,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     288 => 
     array (
@@ -28610,6 +28952,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     289 => 
     array (
@@ -28710,13 +29053,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -28729,6 +29072,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     290 => 
     array (
@@ -28822,13 +29166,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -28841,6 +29185,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     291 => 
     array (
@@ -28929,13 +29274,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -28948,6 +29293,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     292 => 
     array (
@@ -29036,13 +29382,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -29055,6 +29401,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     293 => 
     array (
@@ -29143,13 +29490,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -29162,6 +29509,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     294 => 
     array (
@@ -29247,13 +29595,13 @@ lvh.me/',
         array (
           'name' => 'tx.xss_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -29266,6 +29614,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     295 => 
     array (
@@ -29310,6 +29659,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     296 => 
     array (
@@ -29354,6 +29704,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     297 => 
     array (
@@ -29398,6 +29749,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     298 => 
     array (
@@ -29442,6 +29794,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     299 => 
     array (
@@ -29477,6 +29830,7 @@ lvh.me/',
       array (
       ),
       'marker' => 'END-REQUEST-941-APPLICATION-ATTACK-XSS',
+      'unconditional' => false,
     ),
     300 => 
     array (
@@ -29521,6 +29875,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     301 => 
     array (
@@ -29565,6 +29920,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     302 => 
     array (
@@ -29643,13 +29999,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -29662,6 +30018,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     303 => 
     array (
@@ -29740,13 +30097,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -29759,6 +30116,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     304 => 
     array (
@@ -29846,13 +30204,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -29865,6 +30223,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     305 => 
     array (
@@ -29943,13 +30302,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -29962,6 +30321,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     306 => 
     array (
@@ -30041,13 +30401,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -30060,6 +30420,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     307 => 
     array (
@@ -30138,13 +30499,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -30157,6 +30518,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     308 => 
     array (
@@ -30235,13 +30597,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -30254,6 +30616,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     309 => 
     array (
@@ -30332,13 +30695,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -30351,6 +30714,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     310 => 
     array (
@@ -30429,13 +30793,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -30448,6 +30812,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     311 => 
     array (
@@ -30526,13 +30891,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -30545,6 +30910,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     312 => 
     array (
@@ -30639,13 +31005,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -30658,6 +31024,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     313 => 
     array (
@@ -30736,13 +31103,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -30755,6 +31122,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     314 => 
     array (
@@ -30833,13 +31201,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -30852,6 +31220,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     315 => 
     array (
@@ -30931,13 +31300,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -30950,6 +31319,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     316 => 
     array (
@@ -31028,13 +31398,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -31047,6 +31417,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     317 => 
     array (
@@ -31125,13 +31496,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -31144,6 +31515,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     318 => 
     array (
@@ -31223,13 +31595,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -31242,6 +31614,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     319 => 
     array (
@@ -31321,13 +31694,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -31340,6 +31713,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     320 => 
     array (
@@ -31427,13 +31801,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -31446,6 +31820,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     321 => 
     array (
@@ -31490,6 +31865,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     322 => 
     array (
@@ -31534,6 +31910,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     323 => 
     array (
@@ -31605,13 +31982,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -31624,6 +32001,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     324 => 
     array (
@@ -31687,7 +32065,7 @@ lvh.me/',
         array (
           'name' => 'tx.942130_matched_var_name',
           'op' => '=',
-          'value' => '0',
+          'value' => '%{matched_var_name}',
         ),
       ),
       'chain' => 
@@ -31728,13 +32106,13 @@ lvh.me/',
             array (
               'name' => 'tx.sql_injection_score',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
             1 => 
             array (
               'name' => 'tx.inbound_anomaly_score_pl2',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -31747,6 +32125,7 @@ lvh.me/',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -31756,6 +32135,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     325 => 
     array (
@@ -31819,7 +32199,7 @@ lvh.me/',
         array (
           'name' => 'tx.942131_matched_var_name',
           'op' => '=',
-          'value' => '0',
+          'value' => '%{matched_var_name}',
         ),
       ),
       'chain' => 
@@ -31860,13 +32240,13 @@ lvh.me/',
             array (
               'name' => 'tx.sql_injection_score',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
             1 => 
             array (
               'name' => 'tx.inbound_anomaly_score_pl2',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -31879,6 +32259,7 @@ lvh.me/',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -31888,6 +32269,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     326 => 
     array (
@@ -31966,13 +32348,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -31985,6 +32367,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     327 => 
     array (
@@ -32063,13 +32446,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -32082,6 +32465,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     328 => 
     array (
@@ -32211,13 +32595,13 @@ lvh.me/',
             array (
               'name' => 'tx.sql_injection_score',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
             1 => 
             array (
               'name' => 'tx.inbound_anomaly_score_pl2',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -32230,6 +32614,7 @@ lvh.me/',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -32239,6 +32624,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     329 => 
     array (
@@ -32317,13 +32703,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -32336,6 +32722,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     330 => 
     array (
@@ -32414,13 +32801,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -32433,6 +32820,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     331 => 
     array (
@@ -32511,13 +32899,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -32530,6 +32918,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     332 => 
     array (
@@ -32608,13 +32997,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -32627,6 +33016,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     333 => 
     array (
@@ -32705,13 +33095,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -32724,6 +33114,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     334 => 
     array (
@@ -32802,13 +33193,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -32821,6 +33212,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     335 => 
     array (
@@ -32899,13 +33291,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -32918,6 +33310,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     336 => 
     array (
@@ -32996,13 +33389,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -33015,6 +33408,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     337 => 
     array (
@@ -33109,13 +33503,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -33128,6 +33522,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     338 => 
     array (
@@ -33206,13 +33601,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -33225,6 +33620,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     339 => 
     array (
@@ -33303,13 +33699,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -33322,6 +33718,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     340 => 
     array (
@@ -33400,13 +33797,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -33419,6 +33816,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     341 => 
     array (
@@ -33497,13 +33895,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -33516,6 +33914,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     342 => 
     array (
@@ -33594,13 +33993,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -33613,6 +34012,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     343 => 
     array (
@@ -33707,13 +34107,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -33726,6 +34126,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     344 => 
     array (
@@ -33788,13 +34189,13 @@ lvh.me/',
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '3',
+          'value' => '%{tx.warning_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '3',
+          'value' => '%{tx.warning_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -33807,6 +34208,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     345 => 
     array (
@@ -33920,13 +34322,13 @@ lvh.me/',
             array (
               'name' => 'tx.inbound_anomaly_score_pl2',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
             1 => 
             array (
               'name' => 'tx.sql_injection_score',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -33939,6 +34341,7 @@ lvh.me/',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -33948,6 +34351,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     346 => 
     array (
@@ -34026,13 +34430,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -34045,6 +34449,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     347 => 
     array (
@@ -34123,13 +34528,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -34142,6 +34547,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     348 => 
     array (
@@ -34220,13 +34626,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -34239,6 +34645,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     349 => 
     array (
@@ -34317,7 +34724,7 @@ lvh.me/',
         array (
           'name' => 'tx.942521_matched_var_name',
           'op' => '=',
-          'value' => '0',
+          'value' => '%{matched_var_name}',
         ),
       ),
       'chain' => 
@@ -34358,13 +34765,13 @@ lvh.me/',
             array (
               'name' => 'tx.sql_injection_score',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
             1 => 
             array (
               'name' => 'tx.inbound_anomaly_score_pl2',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -34377,6 +34784,7 @@ lvh.me/',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -34386,6 +34794,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     350 => 
     array (
@@ -34448,13 +34857,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -34467,6 +34876,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     351 => 
     array (
@@ -34521,13 +34931,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -34540,6 +34950,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     352 => 
     array (
@@ -34594,13 +35005,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -34613,6 +35024,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     353 => 
     array (
@@ -34657,6 +35069,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     354 => 
     array (
@@ -34701,6 +35114,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     355 => 
     array (
@@ -34779,13 +35193,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -34798,6 +35212,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     356 => 
     array (
@@ -34876,13 +35291,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -34895,6 +35310,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     357 => 
     array (
@@ -34949,13 +35365,13 @@ lvh.me/',
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '3',
+          'value' => '%{tx.warning_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '3',
+          'value' => '%{tx.warning_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -34968,6 +35384,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     358 => 
     array (
@@ -35046,13 +35463,13 @@ lvh.me/',
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '3',
+          'value' => '%{tx.warning_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '3',
+          'value' => '%{tx.warning_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -35065,6 +35482,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     359 => 
     array (
@@ -35110,13 +35528,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '3',
+          'value' => '%{tx.warning_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '3',
+          'value' => '%{tx.warning_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -35129,6 +35547,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     360 => 
     array (
@@ -35207,13 +35626,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -35226,6 +35645,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     361 => 
     array (
@@ -35304,13 +35724,13 @@ lvh.me/',
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -35323,6 +35743,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     362 => 
     array (
@@ -35367,6 +35788,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     363 => 
     array (
@@ -35411,6 +35833,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     364 => 
     array (
@@ -35465,13 +35888,13 @@ lvh.me/',
         array (
           'name' => 'tx.inbound_anomaly_score_pl4',
           'op' => '+',
-          'value' => '3',
+          'value' => '%{tx.warning_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '3',
+          'value' => '%{tx.warning_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -35484,6 +35907,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     365 => 
     array (
@@ -35546,13 +35970,13 @@ lvh.me/',
         array (
           'name' => 'tx.inbound_anomaly_score_pl4',
           'op' => '+',
-          'value' => '3',
+          'value' => '%{tx.warning_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '3',
+          'value' => '%{tx.warning_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -35565,6 +35989,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     366 => 
     array (
@@ -35600,6 +36025,7 @@ lvh.me/',
       array (
       ),
       'marker' => 'END-REQUEST-942-APPLICATION-ATTACK-SQLI',
+      'unconditional' => false,
     ),
     367 => 
     array (
@@ -35644,6 +36070,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     368 => 
     array (
@@ -35688,6 +36115,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     369 => 
     array (
@@ -35766,13 +36194,13 @@ lvh.me/',
         array (
           'name' => 'tx.session_fixation_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -35785,6 +36213,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     370 => 
     array (
@@ -35831,7 +36260,7 @@ lvh.me/',
         array (
           'name' => 'tx.943110_matched_var_name',
           'op' => '=',
-          'value' => '0',
+          'value' => '%{matched_var_name}',
         ),
       ),
       'chain' => 
@@ -35878,6 +36307,7 @@ lvh.me/',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
         1 => 
         array (
@@ -35914,13 +36344,13 @@ lvh.me/',
             array (
               'name' => 'tx.session_fixation_score',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
             1 => 
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -35933,6 +36363,7 @@ lvh.me/',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -35942,6 +36373,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     371 => 
     array (
@@ -35988,7 +36420,7 @@ lvh.me/',
         array (
           'name' => 'tx.943120_matched_var_name',
           'op' => '=',
-          'value' => '0',
+          'value' => '%{matched_var_name}',
         ),
       ),
       'chain' => 
@@ -36028,13 +36460,13 @@ lvh.me/',
             array (
               'name' => 'tx.session_fixation_score',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
             1 => 
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -36047,6 +36479,7 @@ lvh.me/',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -36056,6 +36489,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     372 => 
     array (
@@ -36100,6 +36534,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     373 => 
     array (
@@ -36144,6 +36579,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     374 => 
     array (
@@ -36188,6 +36624,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     375 => 
     array (
@@ -36232,6 +36669,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     376 => 
     array (
@@ -36276,6 +36714,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     377 => 
     array (
@@ -36320,6 +36759,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     378 => 
     array (
@@ -36355,6 +36795,7 @@ lvh.me/',
       array (
       ),
       'marker' => 'END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION',
+      'unconditional' => false,
     ),
     379 => 
     array (
@@ -36399,6 +36840,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     380 => 
     array (
@@ -36443,6 +36885,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     381 => 
     array (
@@ -36553,13 +36996,13 @@ lvh.me/',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -36572,6 +37015,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     382 => 
     array (
@@ -36732,13 +37176,13 @@ lvh.me/',
             array (
               'name' => 'tx.rce_score',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
             1 => 
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -36751,6 +37195,7 @@ lvh.me/',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -36760,6 +37205,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     383 => 
     array (
@@ -36904,13 +37350,13 @@ lvh.me/',
             array (
               'name' => 'tx.rce_score',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
             1 => 
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '5',
+              'value' => '%{tx.critical_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -36923,6 +37369,7 @@ lvh.me/',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -36932,6 +37379,7 @@ lvh.me/',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     384 => 
     array (
@@ -37116,13 +37564,13 @@ sun.reflect',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -37135,6 +37583,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     385 => 
     array (
@@ -37214,13 +37663,13 @@ sun.reflect',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -37233,6 +37682,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     386 => 
     array (
@@ -37345,13 +37795,13 @@ sun.reflect',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -37364,6 +37814,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     387 => 
     array (
@@ -37408,6 +37859,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     388 => 
     array (
@@ -37452,6 +37904,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     389 => 
     array (
@@ -37564,13 +38017,13 @@ sun.reflect',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -37583,6 +38036,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     390 => 
     array (
@@ -37691,13 +38145,13 @@ sun.reflect',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -37710,6 +38164,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     391 => 
     array (
@@ -37818,13 +38273,13 @@ sun.reflect',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -37837,6 +38292,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     392 => 
     array (
@@ -37947,13 +38403,13 @@ sun.reflect',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -37966,6 +38422,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     393 => 
     array (
@@ -38075,13 +38532,13 @@ sun.reflect',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -38094,6 +38551,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     394 => 
     array (
@@ -38203,13 +38661,13 @@ sun.reflect',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -38222,6 +38680,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     395 => 
     array (
@@ -38266,6 +38725,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     396 => 
     array (
@@ -38310,6 +38770,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     397 => 
     array (
@@ -38419,13 +38880,13 @@ sun.reflect',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl3',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -38438,6 +38899,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     398 => 
     array (
@@ -38482,6 +38944,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     399 => 
     array (
@@ -38526,6 +38989,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     400 => 
     array (
@@ -38638,13 +39102,13 @@ sun.reflect',
         array (
           'name' => 'tx.rce_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.inbound_anomaly_score_pl4',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -38657,6 +39121,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     401 => 
     array (
@@ -38692,6 +39157,7 @@ sun.reflect',
       array (
       ),
       'marker' => 'END-REQUEST-944-APPLICATION-ATTACK-JAVA',
+      'unconditional' => false,
     ),
     402 => 
     array (
@@ -38730,7 +39196,7 @@ sun.reflect',
         array (
           'name' => 'tx.blocking_inbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.inbound_anomaly_score_pl1}',
         ),
       ),
       'chain' => 
@@ -38743,6 +39209,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     403 => 
     array (
@@ -38781,7 +39248,7 @@ sun.reflect',
         array (
           'name' => 'tx.detection_inbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.inbound_anomaly_score_pl1}',
         ),
       ),
       'chain' => 
@@ -38794,6 +39261,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     404 => 
     array (
@@ -38832,7 +39300,7 @@ sun.reflect',
         array (
           'name' => 'tx.blocking_inbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.inbound_anomaly_score_pl2}',
         ),
       ),
       'chain' => 
@@ -38845,6 +39313,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     405 => 
     array (
@@ -38883,7 +39352,7 @@ sun.reflect',
         array (
           'name' => 'tx.detection_inbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.inbound_anomaly_score_pl2}',
         ),
       ),
       'chain' => 
@@ -38896,6 +39365,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     406 => 
     array (
@@ -38934,7 +39404,7 @@ sun.reflect',
         array (
           'name' => 'tx.blocking_inbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.inbound_anomaly_score_pl3}',
         ),
       ),
       'chain' => 
@@ -38947,6 +39417,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     407 => 
     array (
@@ -38985,7 +39456,7 @@ sun.reflect',
         array (
           'name' => 'tx.detection_inbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.inbound_anomaly_score_pl3}',
         ),
       ),
       'chain' => 
@@ -38998,6 +39469,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     408 => 
     array (
@@ -39036,7 +39508,7 @@ sun.reflect',
         array (
           'name' => 'tx.blocking_inbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.inbound_anomaly_score_pl4}',
         ),
       ),
       'chain' => 
@@ -39049,6 +39521,7 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
     409 => 
     array (
@@ -39087,6 +39560,49 @@ sun.reflect',
         array (
           'name' => 'tx.detection_inbound_anomaly_score',
           'op' => '+',
+          'value' => '%{tx.inbound_anomaly_score_pl4}',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+      'unconditional' => false,
+    ),
+    410 => 
+    array (
+      'id' => 949059,
+      'phase' => 2,
+      'operator' => '',
+      'operator_arg' => '',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+      ),
+      'transforms' => 
+      array (
+      ),
+      'action' => 'pass',
+      'severity' => 'notice',
+      'message' => '',
+      'tags' => 
+      array (
+        0 => 'OWASP_CRS',
+      ),
+      'paranoia' => 1,
+      'category' => 'misc',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.blocking_inbound_anomaly_score',
+          'op' => '=',
           'value' => '0',
         ),
       ),
@@ -39100,8 +39616,52 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => true,
     ),
-    410 => 
+    411 => 
+    array (
+      'id' => 949159,
+      'phase' => 2,
+      'operator' => '',
+      'operator_arg' => '',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+      ),
+      'transforms' => 
+      array (
+      ),
+      'action' => 'pass',
+      'severity' => 'notice',
+      'message' => '',
+      'tags' => 
+      array (
+        0 => 'OWASP_CRS',
+      ),
+      'paranoia' => 1,
+      'category' => 'misc',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.detection_inbound_anomaly_score',
+          'op' => '=',
+          'value' => '0',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+      'unconditional' => true,
+    ),
+    412 => 
     array (
       'id' => 949060,
       'phase' => 2,
@@ -39138,7 +39698,7 @@ sun.reflect',
         array (
           'name' => 'tx.blocking_inbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.inbound_anomaly_score_pl1}',
         ),
       ),
       'chain' => 
@@ -39151,8 +39711,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    411 => 
+    413 => 
     array (
       'id' => 949160,
       'phase' => 2,
@@ -39189,7 +39750,7 @@ sun.reflect',
         array (
           'name' => 'tx.detection_inbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.inbound_anomaly_score_pl1}',
         ),
       ),
       'chain' => 
@@ -39202,8 +39763,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    412 => 
+    414 => 
     array (
       'id' => 949061,
       'phase' => 2,
@@ -39240,7 +39802,7 @@ sun.reflect',
         array (
           'name' => 'tx.blocking_inbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.inbound_anomaly_score_pl2}',
         ),
       ),
       'chain' => 
@@ -39253,8 +39815,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    413 => 
+    415 => 
     array (
       'id' => 949161,
       'phase' => 2,
@@ -39291,7 +39854,7 @@ sun.reflect',
         array (
           'name' => 'tx.detection_inbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.inbound_anomaly_score_pl2}',
         ),
       ),
       'chain' => 
@@ -39304,8 +39867,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    414 => 
+    416 => 
     array (
       'id' => 949062,
       'phase' => 2,
@@ -39342,7 +39906,7 @@ sun.reflect',
         array (
           'name' => 'tx.blocking_inbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.inbound_anomaly_score_pl3}',
         ),
       ),
       'chain' => 
@@ -39355,8 +39919,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    415 => 
+    417 => 
     array (
       'id' => 949162,
       'phase' => 2,
@@ -39393,7 +39958,7 @@ sun.reflect',
         array (
           'name' => 'tx.detection_inbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.inbound_anomaly_score_pl3}',
         ),
       ),
       'chain' => 
@@ -39406,8 +39971,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    416 => 
+    418 => 
     array (
       'id' => 949063,
       'phase' => 2,
@@ -39444,7 +40010,7 @@ sun.reflect',
         array (
           'name' => 'tx.blocking_inbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.inbound_anomaly_score_pl4}',
         ),
       ),
       'chain' => 
@@ -39457,8 +40023,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    417 => 
+    419 => 
     array (
       'id' => 949163,
       'phase' => 2,
@@ -39495,7 +40062,7 @@ sun.reflect',
         array (
           'name' => 'tx.detection_inbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.inbound_anomaly_score_pl4}',
         ),
       ),
       'chain' => 
@@ -39508,8 +40075,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    418 => 
+    420 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -39543,8 +40111,9 @@ sun.reflect',
       array (
       ),
       'marker' => 'BEGIN-REQUEST-BLOCKING-EVAL',
+      'unconditional' => false,
     ),
-    419 => 
+    421 => 
     array (
       'id' => 949111,
       'phase' => 1,
@@ -39623,6 +40192,7 @@ sun.reflect',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -39632,8 +40202,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    420 => 
+    422 => 
     array (
       'id' => 949110,
       'phase' => 2,
@@ -39678,8 +40249,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    421 => 
+    423 => 
     array (
       'id' => 949011,
       'phase' => 1,
@@ -39722,8 +40294,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    422 => 
+    424 => 
     array (
       'id' => 949012,
       'phase' => 2,
@@ -39766,8 +40339,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    423 => 
+    425 => 
     array (
       'id' => 949013,
       'phase' => 1,
@@ -39810,8 +40384,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    424 => 
+    426 => 
     array (
       'id' => 949014,
       'phase' => 2,
@@ -39854,8 +40429,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    425 => 
+    427 => 
     array (
       'id' => 949015,
       'phase' => 1,
@@ -39898,8 +40474,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    426 => 
+    428 => 
     array (
       'id' => 949016,
       'phase' => 2,
@@ -39942,8 +40519,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    427 => 
+    429 => 
     array (
       'id' => 949017,
       'phase' => 1,
@@ -39986,8 +40564,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    428 => 
+    430 => 
     array (
       'id' => 949018,
       'phase' => 2,
@@ -40030,8 +40609,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    429 => 
+    431 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -40065,8 +40645,9 @@ sun.reflect',
       array (
       ),
       'marker' => 'END-REQUEST-949-BLOCKING-EVALUATION',
+      'unconditional' => false,
     ),
-    430 => 
+    432 => 
     array (
       'id' => 950021,
       'phase' => 3,
@@ -40110,8 +40691,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    431 => 
+    433 => 
     array (
       'id' => 950010,
       'phase' => 4,
@@ -40155,8 +40737,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    432 => 
+    434 => 
     array (
       'id' => 950011,
       'phase' => 3,
@@ -40199,8 +40782,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    433 => 
+    435 => 
     array (
       'id' => 950012,
       'phase' => 4,
@@ -40243,8 +40827,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    434 => 
+    436 => 
     array (
       'id' => 950130,
       'phase' => 4,
@@ -40288,7 +40873,7 @@ sun.reflect',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '4',
+          'value' => '%{tx.error_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -40301,8 +40886,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    435 => 
+    437 => 
     array (
       'id' => 950140,
       'phase' => 4,
@@ -40346,7 +40932,7 @@ sun.reflect',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '4',
+          'value' => '%{tx.error_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -40359,8 +40945,9 @@ sun.reflect',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    436 => 
+    438 => 
     array (
       'id' => 950150,
       'phase' => 4,
@@ -40460,7 +41047,7 @@ System.Web.Http.HttpRouteCollection',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '4',
+          'value' => '%{tx.error_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -40473,8 +41060,9 @@ System.Web.Http.HttpRouteCollection',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    437 => 
+    439 => 
     array (
       'id' => 950013,
       'phase' => 3,
@@ -40517,8 +41105,9 @@ System.Web.Http.HttpRouteCollection',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    438 => 
+    440 => 
     array (
       'id' => 950014,
       'phase' => 4,
@@ -40561,8 +41150,9 @@ System.Web.Http.HttpRouteCollection',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    439 => 
+    441 => 
     array (
       'id' => 950100,
       'phase' => 3,
@@ -40606,7 +41196,7 @@ System.Web.Http.HttpRouteCollection',
         array (
           'name' => 'tx.outbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '4',
+          'value' => '%{tx.error_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -40619,8 +41209,9 @@ System.Web.Http.HttpRouteCollection',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    440 => 
+    442 => 
     array (
       'id' => 950015,
       'phase' => 3,
@@ -40663,8 +41254,9 @@ System.Web.Http.HttpRouteCollection',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    441 => 
+    443 => 
     array (
       'id' => 950016,
       'phase' => 4,
@@ -40707,8 +41299,9 @@ System.Web.Http.HttpRouteCollection',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    442 => 
+    444 => 
     array (
       'id' => 950017,
       'phase' => 3,
@@ -40751,8 +41344,9 @@ System.Web.Http.HttpRouteCollection',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    443 => 
+    445 => 
     array (
       'id' => 950018,
       'phase' => 4,
@@ -40795,8 +41389,9 @@ System.Web.Http.HttpRouteCollection',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    444 => 
+    446 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -40830,8 +41425,9 @@ System.Web.Http.HttpRouteCollection',
       array (
       ),
       'marker' => 'END-RESPONSE-950-DATA-LEAKAGES',
+      'unconditional' => false,
     ),
-    445 => 
+    447 => 
     array (
       'id' => 951010,
       'phase' => 4,
@@ -40875,8 +41471,9 @@ System.Web.Http.HttpRouteCollection',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    446 => 
+    448 => 
     array (
       'id' => 951011,
       'phase' => 3,
@@ -40919,8 +41516,9 @@ System.Web.Http.HttpRouteCollection',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    447 => 
+    449 => 
     array (
       'id' => 951012,
       'phase' => 4,
@@ -40963,8 +41561,9 @@ System.Web.Http.HttpRouteCollection',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    448 => 
+    450 => 
     array (
       'id' => 951100,
       'phase' => 4,
@@ -41184,8 +41783,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    449 => 
+    451 => 
     array (
       'id' => 951110,
       'phase' => 4,
@@ -41229,13 +41829,13 @@ XPATH syntax error:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -41248,8 +41848,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    450 => 
+    452 => 
     array (
       'id' => 951120,
       'phase' => 4,
@@ -41293,13 +41894,13 @@ XPATH syntax error:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -41312,8 +41913,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    451 => 
+    453 => 
     array (
       'id' => 951130,
       'phase' => 4,
@@ -41357,13 +41959,13 @@ XPATH syntax error:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -41376,8 +41978,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    452 => 
+    454 => 
     array (
       'id' => 951140,
       'phase' => 4,
@@ -41421,13 +42024,13 @@ XPATH syntax error:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -41440,8 +42043,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    453 => 
+    455 => 
     array (
       'id' => 951150,
       'phase' => 4,
@@ -41485,13 +42089,13 @@ XPATH syntax error:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -41504,8 +42108,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    454 => 
+    456 => 
     array (
       'id' => 951160,
       'phase' => 4,
@@ -41549,13 +42154,13 @@ XPATH syntax error:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -41568,8 +42173,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    455 => 
+    457 => 
     array (
       'id' => 951170,
       'phase' => 4,
@@ -41613,13 +42219,13 @@ XPATH syntax error:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -41632,8 +42238,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    456 => 
+    458 => 
     array (
       'id' => 951180,
       'phase' => 4,
@@ -41677,13 +42284,13 @@ XPATH syntax error:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -41696,8 +42303,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    457 => 
+    459 => 
     array (
       'id' => 951190,
       'phase' => 4,
@@ -41741,13 +42349,13 @@ XPATH syntax error:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -41760,8 +42368,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    458 => 
+    460 => 
     array (
       'id' => 951200,
       'phase' => 4,
@@ -41805,13 +42414,13 @@ XPATH syntax error:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -41824,8 +42433,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    459 => 
+    461 => 
     array (
       'id' => 951210,
       'phase' => 4,
@@ -41869,13 +42479,13 @@ XPATH syntax error:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -41888,8 +42498,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    460 => 
+    462 => 
     array (
       'id' => 951220,
       'phase' => 4,
@@ -41933,13 +42544,13 @@ XPATH syntax error:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -41952,8 +42563,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    461 => 
+    463 => 
     array (
       'id' => 951230,
       'phase' => 4,
@@ -41997,13 +42609,13 @@ XPATH syntax error:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -42016,8 +42628,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    462 => 
+    464 => 
     array (
       'id' => 951240,
       'phase' => 4,
@@ -42061,13 +42674,13 @@ XPATH syntax error:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -42080,8 +42693,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    463 => 
+    465 => 
     array (
       'id' => 951250,
       'phase' => 4,
@@ -42125,13 +42739,13 @@ XPATH syntax error:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -42144,8 +42758,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    464 => 
+    466 => 
     array (
       'id' => 951260,
       'phase' => 4,
@@ -42189,13 +42804,13 @@ XPATH syntax error:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
         1 => 
         array (
           'name' => 'tx.sql_injection_score',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -42208,8 +42823,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    465 => 
+    467 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -42243,8 +42859,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => 'END-SQL-ERROR-MATCH-PL1',
+      'unconditional' => false,
     ),
-    466 => 
+    468 => 
     array (
       'id' => 951013,
       'phase' => 3,
@@ -42287,8 +42904,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    467 => 
+    469 => 
     array (
       'id' => 951014,
       'phase' => 4,
@@ -42331,8 +42949,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    468 => 
+    470 => 
     array (
       'id' => 951015,
       'phase' => 3,
@@ -42375,8 +42994,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    469 => 
+    471 => 
     array (
       'id' => 951016,
       'phase' => 4,
@@ -42419,8 +43039,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    470 => 
+    472 => 
     array (
       'id' => 951017,
       'phase' => 3,
@@ -42463,8 +43084,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    471 => 
+    473 => 
     array (
       'id' => 951018,
       'phase' => 4,
@@ -42507,8 +43129,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    472 => 
+    474 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -42542,8 +43165,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => 'END-RESPONSE-951-DATA-LEAKAGES-SQL',
+      'unconditional' => false,
     ),
-    473 => 
+    475 => 
     array (
       'id' => 952010,
       'phase' => 4,
@@ -42587,8 +43211,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    474 => 
+    476 => 
     array (
       'id' => 952011,
       'phase' => 3,
@@ -42631,8 +43256,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    475 => 
+    477 => 
     array (
       'id' => 952012,
       'phase' => 4,
@@ -42675,8 +43301,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    476 => 
+    478 => 
     array (
       'id' => 952110,
       'phase' => 4,
@@ -42720,7 +43347,7 @@ XPATH syntax error:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '4',
+          'value' => '%{tx.error_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -42733,8 +43360,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    477 => 
+    479 => 
     array (
       'id' => 952013,
       'phase' => 3,
@@ -42777,8 +43405,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    478 => 
+    480 => 
     array (
       'id' => 952014,
       'phase' => 4,
@@ -42821,8 +43450,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    479 => 
+    481 => 
     array (
       'id' => 952015,
       'phase' => 3,
@@ -42865,8 +43495,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    480 => 
+    482 => 
     array (
       'id' => 952016,
       'phase' => 4,
@@ -42909,8 +43540,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    481 => 
+    483 => 
     array (
       'id' => 952017,
       'phase' => 3,
@@ -42953,8 +43585,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    482 => 
+    484 => 
     array (
       'id' => 952018,
       'phase' => 4,
@@ -42997,8 +43630,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    483 => 
+    485 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -43032,8 +43666,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => 'END-RESPONSE-952-DATA-LEAKAGES-JAVA',
+      'unconditional' => false,
     ),
-    484 => 
+    486 => 
     array (
       'id' => 953010,
       'phase' => 4,
@@ -43077,8 +43712,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    485 => 
+    487 => 
     array (
       'id' => 953011,
       'phase' => 3,
@@ -43121,8 +43757,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    486 => 
+    488 => 
     array (
       'id' => 953012,
       'phase' => 4,
@@ -43165,8 +43802,9 @@ XPATH syntax error:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    487 => 
+    489 => 
     array (
       'id' => 953100,
       'phase' => 4,
@@ -45042,7 +45680,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '4',
+          'value' => '%{tx.error_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -45055,8 +45693,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    488 => 
+    490 => 
     array (
       'id' => 953110,
       'phase' => 4,
@@ -45100,7 +45739,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '4',
+          'value' => '%{tx.error_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -45113,8 +45752,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    489 => 
+    491 => 
     array (
       'id' => 953120,
       'phase' => 4,
@@ -45158,7 +45798,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '4',
+          'value' => '%{tx.error_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -45171,8 +45811,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    490 => 
+    492 => 
     array (
       'id' => 953013,
       'phase' => 3,
@@ -45215,8 +45856,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    491 => 
+    493 => 
     array (
       'id' => 953014,
       'phase' => 4,
@@ -45259,8 +45901,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    492 => 
+    494 => 
     array (
       'id' => 953101,
       'phase' => 4,
@@ -45304,7 +45947,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '4',
+          'value' => '%{tx.error_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -45317,8 +45960,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    493 => 
+    495 => 
     array (
       'id' => 953015,
       'phase' => 3,
@@ -45361,8 +46005,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    494 => 
+    496 => 
     array (
       'id' => 953016,
       'phase' => 4,
@@ -45405,8 +46050,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    495 => 
+    497 => 
     array (
       'id' => 953017,
       'phase' => 3,
@@ -45449,8 +46095,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    496 => 
+    498 => 
     array (
       'id' => 953018,
       'phase' => 4,
@@ -45493,8 +46140,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    497 => 
+    499 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -45528,8 +46176,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => 'END-RESPONSE-953-DATA-LEAKAGES-PHP',
+      'unconditional' => false,
     ),
-    498 => 
+    500 => 
     array (
       'id' => 954010,
       'phase' => 4,
@@ -45573,8 +46222,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    499 => 
+    501 => 
     array (
       'id' => 954011,
       'phase' => 3,
@@ -45617,8 +46267,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    500 => 
+    502 => 
     array (
       'id' => 954012,
       'phase' => 4,
@@ -45661,8 +46312,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    501 => 
+    503 => 
     array (
       'id' => 954100,
       'phase' => 4,
@@ -45707,7 +46359,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '4',
+          'value' => '%{tx.error_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -45720,8 +46372,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    502 => 
+    504 => 
     array (
       'id' => 954110,
       'phase' => 4,
@@ -45766,7 +46419,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '4',
+          'value' => '%{tx.error_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -45779,8 +46432,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    503 => 
+    505 => 
     array (
       'id' => 954120,
       'phase' => 4,
@@ -45879,7 +46533,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '4',
+          'value' => '%{tx.error_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -45892,8 +46546,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    504 => 
+    506 => 
     array (
       'id' => 954130,
       'phase' => 4,
@@ -45973,7 +46628,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
             array (
               'name' => 'tx.outbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '4',
+              'value' => '%{tx.error_anomaly_score}',
             ),
           ),
           'chain' => 
@@ -45986,6 +46641,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => true,
@@ -45995,8 +46651,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    505 => 
+    507 => 
     array (
       'id' => 954013,
       'phase' => 3,
@@ -46039,8 +46696,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    506 => 
+    508 => 
     array (
       'id' => 954014,
       'phase' => 4,
@@ -46083,8 +46741,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    507 => 
+    509 => 
     array (
       'id' => 954101,
       'phase' => 4,
@@ -46129,7 +46788,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
         array (
           'name' => 'tx.outbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '4',
+          'value' => '%{tx.error_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -46142,8 +46801,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    508 => 
+    510 => 
     array (
       'id' => 954015,
       'phase' => 3,
@@ -46186,8 +46846,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    509 => 
+    511 => 
     array (
       'id' => 954016,
       'phase' => 4,
@@ -46230,8 +46891,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    510 => 
+    512 => 
     array (
       'id' => 954017,
       'phase' => 3,
@@ -46274,8 +46936,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    511 => 
+    513 => 
     array (
       'id' => 954018,
       'phase' => 4,
@@ -46318,8 +46981,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    512 => 
+    514 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -46353,8 +47017,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => 'END-RESPONSE-954-DATA-LEAKAGES-IIS',
+      'unconditional' => false,
     ),
-    513 => 
+    515 => 
     array (
       'id' => 955010,
       'phase' => 4,
@@ -46398,8 +47063,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    514 => 
+    516 => 
     array (
       'id' => 955011,
       'phase' => 3,
@@ -46442,8 +47108,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    515 => 
+    517 => 
     array (
       'id' => 955012,
       'phase' => 4,
@@ -46486,8 +47153,9 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    516 => 
+    518 => 
     array (
       'id' => 955100,
       'phase' => 4,
@@ -46603,7 +47271,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -46616,8 +47284,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    517 => 
+    519 => 
     array (
       'id' => 955110,
       'phase' => 4,
@@ -46660,7 +47329,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -46673,8 +47342,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    518 => 
+    520 => 
     array (
       'id' => 955120,
       'phase' => 4,
@@ -46717,7 +47387,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -46730,8 +47400,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    519 => 
+    521 => 
     array (
       'id' => 955130,
       'phase' => 4,
@@ -46774,7 +47445,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -46787,8 +47458,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    520 => 
+    522 => 
     array (
       'id' => 955140,
       'phase' => 4,
@@ -46831,7 +47503,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -46844,8 +47516,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    521 => 
+    523 => 
     array (
       'id' => 955150,
       'phase' => 4,
@@ -46888,7 +47561,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -46901,8 +47574,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    522 => 
+    524 => 
     array (
       'id' => 955160,
       'phase' => 4,
@@ -46945,7 +47619,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -46958,8 +47632,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    523 => 
+    525 => 
     array (
       'id' => 955170,
       'phase' => 4,
@@ -47002,7 +47677,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -47015,8 +47690,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    524 => 
+    526 => 
     array (
       'id' => 955180,
       'phase' => 4,
@@ -47059,7 +47735,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -47072,8 +47748,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    525 => 
+    527 => 
     array (
       'id' => 955190,
       'phase' => 4,
@@ -47116,7 +47793,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -47129,8 +47806,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    526 => 
+    528 => 
     array (
       'id' => 955200,
       'phase' => 4,
@@ -47173,7 +47851,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -47186,8 +47864,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    527 => 
+    529 => 
     array (
       'id' => 955210,
       'phase' => 4,
@@ -47230,7 +47909,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -47243,8 +47922,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    528 => 
+    530 => 
     array (
       'id' => 955220,
       'phase' => 4,
@@ -47287,7 +47967,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -47300,8 +47980,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    529 => 
+    531 => 
     array (
       'id' => 955230,
       'phase' => 4,
@@ -47344,7 +48025,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -47357,8 +48038,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    530 => 
+    532 => 
     array (
       'id' => 955240,
       'phase' => 4,
@@ -47401,7 +48083,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -47414,8 +48096,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    531 => 
+    533 => 
     array (
       'id' => 955250,
       'phase' => 4,
@@ -47458,7 +48141,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -47471,8 +48154,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    532 => 
+    534 => 
     array (
       'id' => 955260,
       'phase' => 4,
@@ -47515,7 +48199,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -47528,8 +48212,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    533 => 
+    535 => 
     array (
       'id' => 955270,
       'phase' => 4,
@@ -47572,7 +48257,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -47585,8 +48270,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    534 => 
+    536 => 
     array (
       'id' => 955280,
       'phase' => 4,
@@ -47629,7 +48315,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -47642,8 +48328,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    535 => 
+    537 => 
     array (
       'id' => 955290,
       'phase' => 4,
@@ -47686,7 +48373,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -47699,8 +48386,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    536 => 
+    538 => 
     array (
       'id' => 955300,
       'phase' => 4,
@@ -47745,7 +48433,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -47758,8 +48446,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    537 => 
+    539 => 
     array (
       'id' => 955310,
       'phase' => 4,
@@ -47802,7 +48491,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -47815,8 +48504,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    538 => 
+    540 => 
     array (
       'id' => 955320,
       'phase' => 4,
@@ -47859,7 +48549,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -47872,8 +48562,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    539 => 
+    541 => 
     array (
       'id' => 955330,
       'phase' => 4,
@@ -47916,7 +48607,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -47929,8 +48620,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    540 => 
+    542 => 
     array (
       'id' => 955340,
       'phase' => 4,
@@ -47973,7 +48665,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -47986,8 +48678,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    541 => 
+    543 => 
     array (
       'id' => 955400,
       'phase' => 4,
@@ -48032,7 +48725,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -48045,8 +48738,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    542 => 
+    544 => 
     array (
       'id' => 955013,
       'phase' => 3,
@@ -48089,8 +48783,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    543 => 
+    545 => 
     array (
       'id' => 955014,
       'phase' => 4,
@@ -48133,8 +48828,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    544 => 
+    546 => 
     array (
       'id' => 955350,
       'phase' => 4,
@@ -48177,7 +48873,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         array (
           'name' => 'tx.outbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '5',
+          'value' => '%{tx.critical_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -48190,8 +48886,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    545 => 
+    547 => 
     array (
       'id' => 955015,
       'phase' => 3,
@@ -48234,8 +48931,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    546 => 
+    548 => 
     array (
       'id' => 955016,
       'phase' => 4,
@@ -48278,8 +48976,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    547 => 
+    549 => 
     array (
       'id' => 955017,
       'phase' => 3,
@@ -48322,8 +49021,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    548 => 
+    550 => 
     array (
       'id' => 955018,
       'phase' => 4,
@@ -48366,8 +49066,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    549 => 
+    551 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -48401,8 +49102,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => 'END-RESPONSE-955-WEB-SHELLS',
+      'unconditional' => false,
     ),
-    550 => 
+    552 => 
     array (
       'id' => 956010,
       'phase' => 4,
@@ -48446,8 +49148,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    551 => 
+    553 => 
     array (
       'id' => 956011,
       'phase' => 3,
@@ -48490,8 +49193,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    552 => 
+    554 => 
     array (
       'id' => 956012,
       'phase' => 4,
@@ -48534,8 +49238,9 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    553 => 
+    555 => 
     array (
       'id' => 956100,
       'phase' => 4,
@@ -48684,7 +49389,7 @@ ActionView::TemplateError',
         array (
           'name' => 'tx.outbound_anomaly_score_pl1',
           'op' => '+',
-          'value' => '4',
+          'value' => '%{tx.error_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -48697,8 +49402,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    554 => 
+    556 => 
     array (
       'id' => 956013,
       'phase' => 3,
@@ -48741,8 +49447,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    555 => 
+    557 => 
     array (
       'id' => 956014,
       'phase' => 4,
@@ -48785,8 +49492,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    556 => 
+    558 => 
     array (
       'id' => 956110,
       'phase' => 4,
@@ -48830,7 +49538,7 @@ ActionView::TemplateError',
         array (
           'name' => 'tx.outbound_anomaly_score_pl2',
           'op' => '+',
-          'value' => '4',
+          'value' => '%{tx.error_anomaly_score}',
         ),
       ),
       'chain' => 
@@ -48843,8 +49551,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    557 => 
+    559 => 
     array (
       'id' => 956015,
       'phase' => 3,
@@ -48887,8 +49596,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    558 => 
+    560 => 
     array (
       'id' => 956016,
       'phase' => 4,
@@ -48931,8 +49641,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    559 => 
+    561 => 
     array (
       'id' => 956017,
       'phase' => 3,
@@ -48975,8 +49686,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    560 => 
+    562 => 
     array (
       'id' => 956018,
       'phase' => 4,
@@ -49019,8 +49731,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    561 => 
+    563 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -49054,8 +49767,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => 'END-RESPONSE-956-DATA-LEAKAGES-RUBY',
+      'unconditional' => false,
     ),
-    562 => 
+    564 => 
     array (
       'id' => 959052,
       'phase' => 3,
@@ -49092,7 +49806,7 @@ ActionView::TemplateError',
         array (
           'name' => 'tx.blocking_outbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.outbound_anomaly_score_pl1}',
         ),
       ),
       'chain' => 
@@ -49105,8 +49819,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    563 => 
+    565 => 
     array (
       'id' => 959152,
       'phase' => 3,
@@ -49143,7 +49858,7 @@ ActionView::TemplateError',
         array (
           'name' => 'tx.detection_outbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.outbound_anomaly_score_pl1}',
         ),
       ),
       'chain' => 
@@ -49156,8 +49871,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    564 => 
+    566 => 
     array (
       'id' => 959053,
       'phase' => 3,
@@ -49194,7 +49910,7 @@ ActionView::TemplateError',
         array (
           'name' => 'tx.blocking_outbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.outbound_anomaly_score_pl2}',
         ),
       ),
       'chain' => 
@@ -49207,8 +49923,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    565 => 
+    567 => 
     array (
       'id' => 959153,
       'phase' => 3,
@@ -49245,7 +49962,7 @@ ActionView::TemplateError',
         array (
           'name' => 'tx.detection_outbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.outbound_anomaly_score_pl2}',
         ),
       ),
       'chain' => 
@@ -49258,8 +49975,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    566 => 
+    568 => 
     array (
       'id' => 959054,
       'phase' => 3,
@@ -49296,7 +50014,7 @@ ActionView::TemplateError',
         array (
           'name' => 'tx.blocking_outbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.outbound_anomaly_score_pl3}',
         ),
       ),
       'chain' => 
@@ -49309,8 +50027,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    567 => 
+    569 => 
     array (
       'id' => 959154,
       'phase' => 3,
@@ -49347,7 +50066,7 @@ ActionView::TemplateError',
         array (
           'name' => 'tx.detection_outbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.outbound_anomaly_score_pl3}',
         ),
       ),
       'chain' => 
@@ -49360,8 +50079,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    568 => 
+    570 => 
     array (
       'id' => 959055,
       'phase' => 3,
@@ -49398,7 +50118,7 @@ ActionView::TemplateError',
         array (
           'name' => 'tx.blocking_outbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.outbound_anomaly_score_pl4}',
         ),
       ),
       'chain' => 
@@ -49411,8 +50131,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    569 => 
+    571 => 
     array (
       'id' => 959155,
       'phase' => 3,
@@ -49449,6 +50170,49 @@ ActionView::TemplateError',
         array (
           'name' => 'tx.detection_outbound_anomaly_score',
           'op' => '+',
+          'value' => '%{tx.outbound_anomaly_score_pl4}',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+      'unconditional' => false,
+    ),
+    572 => 
+    array (
+      'id' => 959059,
+      'phase' => 4,
+      'operator' => '',
+      'operator_arg' => '',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+      ),
+      'transforms' => 
+      array (
+      ),
+      'action' => 'pass',
+      'severity' => 'notice',
+      'message' => '',
+      'tags' => 
+      array (
+        0 => 'OWASP_CRS',
+      ),
+      'paranoia' => 1,
+      'category' => 'misc',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.blocking_outbound_anomaly_score',
+          'op' => '=',
           'value' => '0',
         ),
       ),
@@ -49462,8 +50226,52 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => true,
     ),
-    570 => 
+    573 => 
+    array (
+      'id' => 959159,
+      'phase' => 4,
+      'operator' => '',
+      'operator_arg' => '',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+      ),
+      'transforms' => 
+      array (
+      ),
+      'action' => 'pass',
+      'severity' => 'notice',
+      'message' => '',
+      'tags' => 
+      array (
+        0 => 'OWASP_CRS',
+      ),
+      'paranoia' => 1,
+      'category' => 'misc',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.detection_outbound_anomaly_score',
+          'op' => '=',
+          'value' => '0',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+      'unconditional' => true,
+    ),
+    574 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -49497,8 +50305,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => 'EARLY_BLOCKING_ANOMALY_SCORING',
+      'unconditional' => false,
     ),
-    571 => 
+    575 => 
     array (
       'id' => 959060,
       'phase' => 4,
@@ -49535,7 +50344,7 @@ ActionView::TemplateError',
         array (
           'name' => 'tx.blocking_outbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.outbound_anomaly_score_pl1}',
         ),
       ),
       'chain' => 
@@ -49548,8 +50357,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    572 => 
+    576 => 
     array (
       'id' => 959160,
       'phase' => 4,
@@ -49586,7 +50396,7 @@ ActionView::TemplateError',
         array (
           'name' => 'tx.detection_outbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.outbound_anomaly_score_pl1}',
         ),
       ),
       'chain' => 
@@ -49599,8 +50409,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    573 => 
+    577 => 
     array (
       'id' => 959061,
       'phase' => 4,
@@ -49637,7 +50448,7 @@ ActionView::TemplateError',
         array (
           'name' => 'tx.blocking_outbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.outbound_anomaly_score_pl2}',
         ),
       ),
       'chain' => 
@@ -49650,8 +50461,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    574 => 
+    578 => 
     array (
       'id' => 959161,
       'phase' => 4,
@@ -49688,7 +50500,7 @@ ActionView::TemplateError',
         array (
           'name' => 'tx.detection_outbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.outbound_anomaly_score_pl2}',
         ),
       ),
       'chain' => 
@@ -49701,8 +50513,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    575 => 
+    579 => 
     array (
       'id' => 959062,
       'phase' => 4,
@@ -49739,7 +50552,7 @@ ActionView::TemplateError',
         array (
           'name' => 'tx.blocking_outbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.outbound_anomaly_score_pl3}',
         ),
       ),
       'chain' => 
@@ -49752,8 +50565,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    576 => 
+    580 => 
     array (
       'id' => 959162,
       'phase' => 4,
@@ -49790,7 +50604,7 @@ ActionView::TemplateError',
         array (
           'name' => 'tx.detection_outbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.outbound_anomaly_score_pl3}',
         ),
       ),
       'chain' => 
@@ -49803,8 +50617,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    577 => 
+    581 => 
     array (
       'id' => 959063,
       'phase' => 4,
@@ -49841,7 +50656,7 @@ ActionView::TemplateError',
         array (
           'name' => 'tx.blocking_outbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.outbound_anomaly_score_pl4}',
         ),
       ),
       'chain' => 
@@ -49854,8 +50669,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    578 => 
+    582 => 
     array (
       'id' => 959163,
       'phase' => 4,
@@ -49892,7 +50708,7 @@ ActionView::TemplateError',
         array (
           'name' => 'tx.detection_outbound_anomaly_score',
           'op' => '+',
-          'value' => '0',
+          'value' => '%{tx.outbound_anomaly_score_pl4}',
         ),
       ),
       'chain' => 
@@ -49905,8 +50721,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    579 => 
+    583 => 
     array (
       'id' => 959101,
       'phase' => 3,
@@ -49985,6 +50802,7 @@ ActionView::TemplateError',
           array (
           ),
           'marker' => NULL,
+          'unconditional' => false,
         ),
       ),
       'capture' => false,
@@ -49994,8 +50812,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    580 => 
+    584 => 
     array (
       'id' => 959100,
       'phase' => 4,
@@ -50040,8 +50859,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    581 => 
+    585 => 
     array (
       'id' => 959011,
       'phase' => 3,
@@ -50084,8 +50904,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    582 => 
+    586 => 
     array (
       'id' => 959012,
       'phase' => 4,
@@ -50128,8 +50949,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    583 => 
+    587 => 
     array (
       'id' => 959013,
       'phase' => 3,
@@ -50172,8 +50994,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    584 => 
+    588 => 
     array (
       'id' => 959014,
       'phase' => 4,
@@ -50216,8 +51039,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    585 => 
+    589 => 
     array (
       'id' => 959015,
       'phase' => 3,
@@ -50260,8 +51084,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    586 => 
+    590 => 
     array (
       'id' => 959016,
       'phase' => 4,
@@ -50304,8 +51129,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    587 => 
+    591 => 
     array (
       'id' => 959017,
       'phase' => 3,
@@ -50348,8 +51174,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    588 => 
+    592 => 
     array (
       'id' => 959018,
       'phase' => 4,
@@ -50392,8 +51219,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    589 => 
+    593 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -50427,8 +51255,82 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => 'END-RESPONSE-959-BLOCKING-EVALUATION',
+      'unconditional' => false,
     ),
-    590 => 
+    594 => 
+    array (
+      'id' => 980099,
+      'phase' => 5,
+      'operator' => '',
+      'operator_arg' => '',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+      ),
+      'transforms' => 
+      array (
+      ),
+      'action' => 'pass',
+      'severity' => 'notice',
+      'message' => '',
+      'tags' => 
+      array (
+        0 => 'OWASP_CRS',
+      ),
+      'paranoia' => 1,
+      'category' => 'correlation',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.blocking_anomaly_score',
+          'op' => '=',
+          'value' => '%{tx.blocking_inbound_anomaly_score}',
+        ),
+        1 => 
+        array (
+          'name' => 'tx.blocking_anomaly_score',
+          'op' => '+',
+          'value' => '%{tx.blocking_outbound_anomaly_score}',
+        ),
+        2 => 
+        array (
+          'name' => 'tx.detection_anomaly_score',
+          'op' => '=',
+          'value' => '%{tx.detection_inbound_anomaly_score}',
+        ),
+        3 => 
+        array (
+          'name' => 'tx.detection_anomaly_score',
+          'op' => '+',
+          'value' => '%{tx.detection_outbound_anomaly_score}',
+        ),
+        4 => 
+        array (
+          'name' => 'tx.anomaly_score',
+          'op' => '=',
+          'value' => '%{tx.blocking_inbound_anomaly_score}',
+        ),
+        5 => 
+        array (
+          'name' => 'tx.anomaly_score',
+          'op' => '+',
+          'value' => '%{tx.blocking_outbound_anomaly_score}',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+      'unconditional' => true,
+    ),
+    595 => 
     array (
       'id' => 980041,
       'phase' => 5,
@@ -50471,8 +51373,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    591 => 
+    596 => 
     array (
       'id' => 980042,
       'phase' => 5,
@@ -50515,8 +51418,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    592 => 
+    597 => 
     array (
       'id' => 980043,
       'phase' => 5,
@@ -50559,8 +51463,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    593 => 
+    598 => 
     array (
       'id' => 980044,
       'phase' => 5,
@@ -50603,8 +51508,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    594 => 
+    599 => 
     array (
       'id' => 980045,
       'phase' => 5,
@@ -50647,8 +51553,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    595 => 
+    600 => 
     array (
       'id' => 980046,
       'phase' => 5,
@@ -50691,8 +51598,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    596 => 
+    601 => 
     array (
       'id' => 980047,
       'phase' => 5,
@@ -50735,8 +51643,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    597 => 
+    602 => 
     array (
       'id' => 980048,
       'phase' => 5,
@@ -50779,8 +51688,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    598 => 
+    603 => 
     array (
       'id' => 980049,
       'phase' => 5,
@@ -50823,8 +51733,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    599 => 
+    604 => 
     array (
       'id' => 980050,
       'phase' => 5,
@@ -50867,8 +51778,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    600 => 
+    605 => 
     array (
       'id' => 980051,
       'phase' => 5,
@@ -50911,8 +51823,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    601 => 
+    606 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -50946,8 +51859,47 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => 'LOG-REPORTING',
+      'unconditional' => false,
     ),
-    602 => 
+    607 => 
+    array (
+      'id' => 980170,
+      'phase' => 5,
+      'operator' => '',
+      'operator_arg' => '',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+      ),
+      'transforms' => 
+      array (
+      ),
+      'action' => 'pass',
+      'severity' => 'notice',
+      'message' => '',
+      'tags' => 
+      array (
+        0 => 'reporting',
+        1 => 'OWASP_CRS',
+      ),
+      'paranoia' => 1,
+      'category' => 'correlation',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+      'unconditional' => true,
+    ),
+    608 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -50981,8 +51933,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => 'END-REPORTING',
+      'unconditional' => false,
     ),
-    603 => 
+    609 => 
     array (
       'id' => 980011,
       'phase' => 1,
@@ -51025,8 +51978,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    604 => 
+    610 => 
     array (
       'id' => 980012,
       'phase' => 2,
@@ -51069,8 +52023,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    605 => 
+    611 => 
     array (
       'id' => 980013,
       'phase' => 1,
@@ -51113,8 +52068,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    606 => 
+    612 => 
     array (
       'id' => 980014,
       'phase' => 2,
@@ -51157,8 +52113,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    607 => 
+    613 => 
     array (
       'id' => 980015,
       'phase' => 1,
@@ -51201,8 +52158,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    608 => 
+    614 => 
     array (
       'id' => 980016,
       'phase' => 2,
@@ -51245,8 +52203,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    609 => 
+    615 => 
     array (
       'id' => 980017,
       'phase' => 1,
@@ -51289,8 +52248,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    610 => 
+    616 => 
     array (
       'id' => 980018,
       'phase' => 2,
@@ -51333,8 +52293,9 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => NULL,
+      'unconditional' => false,
     ),
-    611 => 
+    617 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -51368,6 +52329,7 @@ ActionView::TemplateError',
       array (
       ),
       'marker' => 'END-RESPONSE-980-CORRELATION',
+      'unconditional' => false,
     ),
   ),
 );

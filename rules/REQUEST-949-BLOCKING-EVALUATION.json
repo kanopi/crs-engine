@@ -1,7 +1,7 @@
 {
     "source_file": "REQUEST-949-BLOCKING-EVALUATION.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 28,
+    "rule_count": 30,
     "rules": [
         {
             "id": 949052,
@@ -33,7 +33,7 @@
                 {
                     "name": "tx.blocking_inbound_anomaly_score",
                     "op": "+",
-                    "value": "0"
+                    "value": "%{tx.inbound_anomaly_score_pl1}"
                 }
             ],
             "chain": [],
@@ -41,7 +41,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949152,
@@ -73,7 +74,7 @@
                 {
                     "name": "tx.detection_inbound_anomaly_score",
                     "op": "+",
-                    "value": "0"
+                    "value": "%{tx.inbound_anomaly_score_pl1}"
                 }
             ],
             "chain": [],
@@ -81,7 +82,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949053,
@@ -113,7 +115,7 @@
                 {
                     "name": "tx.blocking_inbound_anomaly_score",
                     "op": "+",
-                    "value": "0"
+                    "value": "%{tx.inbound_anomaly_score_pl2}"
                 }
             ],
             "chain": [],
@@ -121,7 +123,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949153,
@@ -153,7 +156,7 @@
                 {
                     "name": "tx.detection_inbound_anomaly_score",
                     "op": "+",
-                    "value": "0"
+                    "value": "%{tx.inbound_anomaly_score_pl2}"
                 }
             ],
             "chain": [],
@@ -161,7 +164,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949054,
@@ -193,7 +197,7 @@
                 {
                     "name": "tx.blocking_inbound_anomaly_score",
                     "op": "+",
-                    "value": "0"
+                    "value": "%{tx.inbound_anomaly_score_pl3}"
                 }
             ],
             "chain": [],
@@ -201,7 +205,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949154,
@@ -233,7 +238,7 @@
                 {
                     "name": "tx.detection_inbound_anomaly_score",
                     "op": "+",
-                    "value": "0"
+                    "value": "%{tx.inbound_anomaly_score_pl3}"
                 }
             ],
             "chain": [],
@@ -241,7 +246,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949055,
@@ -273,7 +279,7 @@
                 {
                     "name": "tx.blocking_inbound_anomaly_score",
                     "op": "+",
-                    "value": "0"
+                    "value": "%{tx.inbound_anomaly_score_pl4}"
                 }
             ],
             "chain": [],
@@ -281,7 +287,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949155,
@@ -313,6 +320,37 @@
                 {
                     "name": "tx.detection_inbound_anomaly_score",
                     "op": "+",
+                    "value": "%{tx.inbound_anomaly_score_pl4}"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": null,
+            "unconditional": false
+        },
+        {
+            "id": 949059,
+            "phase": 2,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [
+                {
+                    "name": "tx.blocking_inbound_anomaly_score",
+                    "op": "=",
                     "value": "0"
                 }
             ],
@@ -321,7 +359,39 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": true
+        },
+        {
+            "id": 949159,
+            "phase": 2,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [
+                {
+                    "name": "tx.detection_inbound_anomaly_score",
+                    "op": "=",
+                    "value": "0"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": null,
+            "unconditional": true
         },
         {
             "id": 949060,
@@ -353,7 +423,7 @@
                 {
                     "name": "tx.blocking_inbound_anomaly_score",
                     "op": "+",
-                    "value": "0"
+                    "value": "%{tx.inbound_anomaly_score_pl1}"
                 }
             ],
             "chain": [],
@@ -361,7 +431,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949160,
@@ -393,7 +464,7 @@
                 {
                     "name": "tx.detection_inbound_anomaly_score",
                     "op": "+",
-                    "value": "0"
+                    "value": "%{tx.inbound_anomaly_score_pl1}"
                 }
             ],
             "chain": [],
@@ -401,7 +472,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949061,
@@ -433,7 +505,7 @@
                 {
                     "name": "tx.blocking_inbound_anomaly_score",
                     "op": "+",
-                    "value": "0"
+                    "value": "%{tx.inbound_anomaly_score_pl2}"
                 }
             ],
             "chain": [],
@@ -441,7 +513,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949161,
@@ -473,7 +546,7 @@
                 {
                     "name": "tx.detection_inbound_anomaly_score",
                     "op": "+",
-                    "value": "0"
+                    "value": "%{tx.inbound_anomaly_score_pl2}"
                 }
             ],
             "chain": [],
@@ -481,7 +554,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949062,
@@ -513,7 +587,7 @@
                 {
                     "name": "tx.blocking_inbound_anomaly_score",
                     "op": "+",
-                    "value": "0"
+                    "value": "%{tx.inbound_anomaly_score_pl3}"
                 }
             ],
             "chain": [],
@@ -521,7 +595,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949162,
@@ -553,7 +628,7 @@
                 {
                     "name": "tx.detection_inbound_anomaly_score",
                     "op": "+",
-                    "value": "0"
+                    "value": "%{tx.inbound_anomaly_score_pl3}"
                 }
             ],
             "chain": [],
@@ -561,7 +636,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949063,
@@ -593,7 +669,7 @@
                 {
                     "name": "tx.blocking_inbound_anomaly_score",
                     "op": "+",
-                    "value": "0"
+                    "value": "%{tx.inbound_anomaly_score_pl4}"
                 }
             ],
             "chain": [],
@@ -601,7 +677,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949163,
@@ -633,7 +710,7 @@
                 {
                     "name": "tx.detection_inbound_anomaly_score",
                     "op": "+",
-                    "value": "0"
+                    "value": "%{tx.inbound_anomaly_score_pl4}"
                 }
             ],
             "chain": [],
@@ -641,7 +718,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 0,
@@ -663,7 +741,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": "BEGIN-REQUEST-BLOCKING-EVAL"
+            "marker": "BEGIN-REQUEST-BLOCKING-EVAL",
+            "unconditional": false
         },
         {
             "id": 949111,
@@ -722,14 +801,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949110,
@@ -764,7 +845,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949011,
@@ -796,7 +878,8 @@
             "skip_after": "END-REQUEST-949-BLOCKING-EVALUATION",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949012,
@@ -828,7 +911,8 @@
             "skip_after": "END-REQUEST-949-BLOCKING-EVALUATION",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949013,
@@ -860,7 +944,8 @@
             "skip_after": "END-REQUEST-949-BLOCKING-EVALUATION",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949014,
@@ -892,7 +977,8 @@
             "skip_after": "END-REQUEST-949-BLOCKING-EVALUATION",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949015,
@@ -924,7 +1010,8 @@
             "skip_after": "END-REQUEST-949-BLOCKING-EVALUATION",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949016,
@@ -956,7 +1043,8 @@
             "skip_after": "END-REQUEST-949-BLOCKING-EVALUATION",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949017,
@@ -988,7 +1076,8 @@
             "skip_after": "END-REQUEST-949-BLOCKING-EVALUATION",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 949018,
@@ -1020,7 +1109,8 @@
             "skip_after": "END-REQUEST-949-BLOCKING-EVALUATION",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 0,
@@ -1042,7 +1132,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": "END-REQUEST-949-BLOCKING-EVALUATION"
+            "marker": "END-REQUEST-949-BLOCKING-EVALUATION",
+            "unconditional": false
         }
     ]
 }

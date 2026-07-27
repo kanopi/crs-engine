@@ -1,8 +1,64 @@
 {
     "source_file": "RESPONSE-980-CORRELATION.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 22,
+    "rule_count": 24,
     "rules": [
+        {
+            "id": 980099,
+            "phase": 5,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "correlation",
+            "setvars": [
+                {
+                    "name": "tx.blocking_anomaly_score",
+                    "op": "=",
+                    "value": "%{tx.blocking_inbound_anomaly_score}"
+                },
+                {
+                    "name": "tx.blocking_anomaly_score",
+                    "op": "+",
+                    "value": "%{tx.blocking_outbound_anomaly_score}"
+                },
+                {
+                    "name": "tx.detection_anomaly_score",
+                    "op": "=",
+                    "value": "%{tx.detection_inbound_anomaly_score}"
+                },
+                {
+                    "name": "tx.detection_anomaly_score",
+                    "op": "+",
+                    "value": "%{tx.detection_outbound_anomaly_score}"
+                },
+                {
+                    "name": "tx.anomaly_score",
+                    "op": "=",
+                    "value": "%{tx.blocking_inbound_anomaly_score}"
+                },
+                {
+                    "name": "tx.anomaly_score",
+                    "op": "+",
+                    "value": "%{tx.blocking_outbound_anomaly_score}"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": null,
+            "unconditional": true
+        },
         {
             "id": 980041,
             "phase": 5,
@@ -33,7 +89,8 @@
             "skip_after": "END-REPORTING",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 980042,
@@ -65,7 +122,8 @@
             "skip_after": "LOG-REPORTING",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 980043,
@@ -97,7 +155,8 @@
             "skip_after": "END-REPORTING",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 980044,
@@ -129,7 +188,8 @@
             "skip_after": "LOG-REPORTING",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 980045,
@@ -161,7 +221,8 @@
             "skip_after": "LOG-REPORTING",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 980046,
@@ -193,7 +254,8 @@
             "skip_after": "END-REPORTING",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 980047,
@@ -225,7 +287,8 @@
             "skip_after": "LOG-REPORTING",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 980048,
@@ -257,7 +320,8 @@
             "skip_after": "LOG-REPORTING",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 980049,
@@ -289,7 +353,8 @@
             "skip_after": "END-REPORTING",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 980050,
@@ -321,7 +386,8 @@
             "skip_after": "LOG-REPORTING",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 980051,
@@ -353,7 +419,8 @@
             "skip_after": "END-REPORTING",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 0,
@@ -375,7 +442,34 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": "LOG-REPORTING"
+            "marker": "LOG-REPORTING",
+            "unconditional": false
+        },
+        {
+            "id": 980170,
+            "phase": 5,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "reporting",
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "correlation",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": null,
+            "unconditional": true
         },
         {
             "id": 0,
@@ -397,7 +491,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": "END-REPORTING"
+            "marker": "END-REPORTING",
+            "unconditional": false
         },
         {
             "id": 980011,
@@ -429,7 +524,8 @@
             "skip_after": "END-RESPONSE-980-CORRELATION",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 980012,
@@ -461,7 +557,8 @@
             "skip_after": "END-RESPONSE-980-CORRELATION",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 980013,
@@ -493,7 +590,8 @@
             "skip_after": "END-RESPONSE-980-CORRELATION",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 980014,
@@ -525,7 +623,8 @@
             "skip_after": "END-RESPONSE-980-CORRELATION",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 980015,
@@ -557,7 +656,8 @@
             "skip_after": "END-RESPONSE-980-CORRELATION",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 980016,
@@ -589,7 +689,8 @@
             "skip_after": "END-RESPONSE-980-CORRELATION",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 980017,
@@ -621,7 +722,8 @@
             "skip_after": "END-RESPONSE-980-CORRELATION",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 980018,
@@ -653,7 +755,8 @@
             "skip_after": "END-RESPONSE-980-CORRELATION",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 0,
@@ -675,7 +778,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": "END-RESPONSE-980-CORRELATION"
+            "marker": "END-RESPONSE-980-CORRELATION",
+            "unconditional": false
         }
     ]
 }

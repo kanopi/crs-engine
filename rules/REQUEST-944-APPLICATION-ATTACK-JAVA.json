@@ -33,7 +33,8 @@
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944012,
@@ -65,7 +66,8 @@
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944100,
@@ -161,12 +163,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -174,7 +176,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944110,
@@ -308,12 +311,12 @@
                         {
                             "name": "tx.rce_score",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         },
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -321,14 +324,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944120,
@@ -448,12 +453,12 @@
                         {
                             "name": "tx.rce_score",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         },
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -461,14 +466,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944130,
@@ -570,12 +577,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -583,7 +590,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944140,
@@ -652,12 +660,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -665,7 +673,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944150,
@@ -763,12 +772,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -776,7 +785,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944013,
@@ -808,7 +818,8 @@
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944014,
@@ -840,7 +851,8 @@
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944151,
@@ -938,12 +950,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl2",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -951,7 +963,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944200,
@@ -1044,12 +1057,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl2",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -1057,7 +1070,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944210,
@@ -1150,12 +1164,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl2",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -1163,7 +1177,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944240,
@@ -1259,12 +1274,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl2",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -1272,7 +1287,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944250,
@@ -1367,12 +1383,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl2",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -1380,7 +1396,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944260,
@@ -1475,12 +1492,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl2",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -1488,7 +1505,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944015,
@@ -1520,7 +1538,8 @@
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944016,
@@ -1552,7 +1571,8 @@
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944300,
@@ -1647,12 +1667,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl3",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -1660,7 +1680,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944017,
@@ -1692,7 +1713,8 @@
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944018,
@@ -1724,7 +1746,8 @@
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 944152,
@@ -1822,12 +1845,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl4",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -1835,7 +1858,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 0,
@@ -1857,7 +1881,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": "END-REQUEST-944-APPLICATION-ATTACK-JAVA"
+            "marker": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
+            "unconditional": false
         }
     ]
 }

@@ -33,7 +33,8 @@
             "skip_after": "END-REQUEST-920-PROTOCOL-ENFORCEMENT",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920012,
@@ -65,7 +66,8 @@
             "skip_after": "END-REQUEST-920-PROTOCOL-ENFORCEMENT",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920100,
@@ -104,7 +106,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "3"
+                    "value": "%{tx.warning_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -112,7 +114,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920120,
@@ -159,7 +162,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -167,7 +170,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920160,
@@ -206,7 +210,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -214,7 +218,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920170,
@@ -279,7 +284,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -287,14 +292,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920171,
@@ -359,7 +366,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -367,14 +374,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920180,
@@ -439,7 +448,8 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 },
                 {
                     "id": 0,
@@ -469,7 +479,8 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 },
                 {
                     "id": 0,
@@ -497,7 +508,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "3"
+                            "value": "%{tx.warning_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -505,14 +516,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920181,
@@ -577,7 +590,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "3"
+                            "value": "%{tx.warning_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -585,14 +598,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920190,
@@ -655,7 +670,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "3"
+                            "value": "%{tx.warning_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -663,14 +678,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": true,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920660,
@@ -709,7 +726,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "3"
+                    "value": "%{tx.warning_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -717,7 +734,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920210,
@@ -756,7 +774,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "3"
+                    "value": "%{tx.warning_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -764,7 +782,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920250,
@@ -841,7 +860,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "3"
+                            "value": "%{tx.warning_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -849,14 +868,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920260,
@@ -903,7 +924,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "3"
+                    "value": "%{tx.warning_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -911,7 +932,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920270,
@@ -972,7 +994,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -980,7 +1002,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920280,
@@ -1019,7 +1042,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -1027,7 +1050,8 @@
             "skip_after": "END-HOST-CHECK",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920290,
@@ -1066,7 +1090,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -1074,7 +1098,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 0,
@@ -1096,7 +1121,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": "END-HOST-CHECK"
+            "marker": "END-HOST-CHECK",
+            "unconditional": false
         },
         {
             "id": 920310,
@@ -1161,7 +1187,8 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 },
                 {
                     "id": 0,
@@ -1191,7 +1218,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "2"
+                            "value": "%{tx.notice_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -1199,14 +1226,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920311,
@@ -1271,7 +1300,8 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 },
                 {
                     "id": 0,
@@ -1301,7 +1331,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "2"
+                            "value": "%{tx.notice_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -1309,14 +1339,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920330,
@@ -1355,7 +1387,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "2"
+                    "value": "%{tx.notice_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -1363,7 +1395,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920340,
@@ -1428,7 +1461,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -1436,14 +1469,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920350,
@@ -1482,7 +1517,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "3"
+                    "value": "%{tx.warning_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -1490,7 +1525,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920380,
@@ -1555,7 +1591,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -1563,14 +1599,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920360,
@@ -1636,7 +1674,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -1644,14 +1682,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920370,
@@ -1717,7 +1757,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -1725,14 +1765,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920390,
@@ -1797,7 +1839,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -1805,14 +1847,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920400,
@@ -1877,7 +1921,8 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 },
                 {
                     "id": 0,
@@ -1907,7 +1952,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -1915,14 +1960,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920410,
@@ -1987,7 +2034,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -1995,14 +2042,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920470,
@@ -2042,7 +2091,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -2050,7 +2099,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920420,
@@ -2089,7 +2139,7 @@
                 {
                     "name": "tx.content_type",
                     "op": "=",
-                    "value": "|0|"
+                    "value": "|%{tx.0}|"
                 }
             ],
             "chain": [
@@ -2121,7 +2171,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -2129,14 +2179,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": true,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920480,
@@ -2175,7 +2227,7 @@
                 {
                     "name": "tx.content_type_charset",
                     "op": "=",
-                    "value": "|0|"
+                    "value": "|%{tx.1}|"
                 }
             ],
             "chain": [
@@ -2207,7 +2259,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -2215,14 +2267,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": true,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920530,
@@ -2262,7 +2316,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -2270,7 +2324,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920640,
@@ -2335,7 +2390,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -2343,14 +2398,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920430,
@@ -2389,7 +2446,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -2397,7 +2454,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920440,
@@ -2437,7 +2495,7 @@
                 {
                     "name": "tx.extension",
                     "op": "=",
-                    "value": ".0/"
+                    "value": ".%{tx.1}/"
                 }
             ],
             "chain": [
@@ -2470,7 +2528,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -2478,14 +2536,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": true,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920500,
@@ -2525,7 +2585,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -2533,7 +2593,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920450,
@@ -2573,7 +2634,7 @@
                 {
                     "name": "tx.header_name_920450_%{tx.0}",
                     "op": "=",
-                    "value": "/0/"
+                    "value": "/%{tx.0}/"
                 }
             ],
             "chain": [
@@ -2603,7 +2664,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -2611,14 +2672,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": true,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920520,
@@ -2659,7 +2722,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -2667,7 +2730,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920600,
@@ -2706,7 +2770,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -2714,7 +2778,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920539,
@@ -2749,7 +2814,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920540,
@@ -2809,7 +2875,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -2817,7 +2883,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920610,
@@ -2855,7 +2922,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -2863,7 +2930,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920620,
@@ -2901,7 +2969,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -2909,7 +2977,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920013,
@@ -2941,7 +3010,8 @@
             "skip_after": "END-REQUEST-920-PROTOCOL-ENFORCEMENT",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920014,
@@ -2973,7 +3043,8 @@
             "skip_after": "END-REQUEST-920-PROTOCOL-ENFORCEMENT",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920200,
@@ -3036,7 +3107,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl2",
                             "op": "+",
-                            "value": "3"
+                            "value": "%{tx.warning_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -3044,14 +3115,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920201,
@@ -3115,7 +3188,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl2",
                             "op": "+",
-                            "value": "3"
+                            "value": "%{tx.warning_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -3123,14 +3196,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920230,
@@ -3169,7 +3244,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl2",
                     "op": "+",
-                    "value": "3"
+                    "value": "%{tx.warning_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -3177,7 +3252,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920271,
@@ -3238,7 +3314,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl2",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -3246,7 +3322,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920320,
@@ -3285,7 +3362,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl2",
                     "op": "+",
-                    "value": "2"
+                    "value": "%{tx.notice_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -3293,7 +3370,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920121,
@@ -3340,7 +3418,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl2",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -3348,7 +3426,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920451,
@@ -3388,7 +3467,7 @@
                 {
                     "name": "tx.header_name_920451_%{tx.0}",
                     "op": "=",
-                    "value": "/0/"
+                    "value": "/%{tx.0}/"
                 }
             ],
             "chain": [
@@ -3418,7 +3497,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl2",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -3426,14 +3505,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": true,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920240,
@@ -3498,7 +3579,8 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 },
                 {
                     "id": 0,
@@ -3526,7 +3608,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl2",
                             "op": "+",
-                            "value": "3"
+                            "value": "%{tx.warning_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -3534,14 +3616,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920650,
@@ -3609,7 +3693,8 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 },
                 {
                     "id": 0,
@@ -3641,7 +3726,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl2",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -3649,14 +3734,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920015,
@@ -3688,7 +3775,8 @@
             "skip_after": "END-REQUEST-920-PROTOCOL-ENFORCEMENT",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920016,
@@ -3720,7 +3808,8 @@
             "skip_after": "END-REQUEST-920-PROTOCOL-ENFORCEMENT",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920272,
@@ -3788,7 +3877,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl3",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -3796,7 +3885,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920300,
@@ -3861,7 +3951,8 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 },
                 {
                     "id": 0,
@@ -3891,7 +3982,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl3",
                             "op": "+",
-                            "value": "2"
+                            "value": "%{tx.notice_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -3899,14 +3990,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920490,
@@ -3970,7 +4063,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl3",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -3978,14 +4071,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920510,
@@ -4049,7 +4144,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl3",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -4057,14 +4152,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920521,
@@ -4104,7 +4201,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl3",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -4112,7 +4209,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920017,
@@ -4144,7 +4242,8 @@
             "skip_after": "END-REQUEST-920-PROTOCOL-ENFORCEMENT",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920018,
@@ -4176,7 +4275,8 @@
             "skip_after": "END-REQUEST-920-PROTOCOL-ENFORCEMENT",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920202,
@@ -4240,7 +4340,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl4",
                             "op": "+",
-                            "value": "3"
+                            "value": "%{tx.warning_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -4248,14 +4348,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920273,
@@ -4309,7 +4411,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl4",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -4317,7 +4419,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920274,
@@ -4399,7 +4502,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl4",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -4407,7 +4510,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920275,
@@ -4454,7 +4558,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl4",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -4462,7 +4566,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 920460,
@@ -4524,12 +4629,12 @@
                 {
                     "name": "tx.http_violation_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl4",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -4537,7 +4642,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 0,
@@ -4559,7 +4665,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": "END-REQUEST-920-PROTOCOL-ENFORCEMENT"
+            "marker": "END-REQUEST-920-PROTOCOL-ENFORCEMENT",
+            "unconditional": false
         }
     ]
 }
