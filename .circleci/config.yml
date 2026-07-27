@@ -69,12 +69,30 @@ jobs:
     steps:
       - checkout
       - run:
+          # cimg/php ships no coverage driver at all — neither xdebug nor pcov
+          # is present on disk, so PHPUnit reports "No code coverage driver
+          # available" and exits non-zero. pecl auto-enables the extension it
+          # installs, so docker-php-ext-enable afterwards would only produce a
+          # "module already loaded" warning.
+          name: Install xdebug
+          command: |
+            set -e
+            if php -m | grep -qi '^xdebug$'; then
+              echo "xdebug already present."
+              exit 0
+            fi
+            sudo pecl install xdebug
+            php -m | grep -qi '^xdebug$'
+      - run:
           name: Install dependencies
           command: composer install --optimize-autoloader --no-progress --no-interaction
       - run:
           # Runs on one PHP version only. Coverage is a property of the tests,
           # not of the runtime, so measuring it five times would cost five times
           # as long to say the same thing.
+          #
+          # xdebug defaults to mode=develop, which collects nothing; the
+          # test:coverage script sets XDEBUG_MODE=coverage via @putenv.
           name: Coverage floor on the detection-critical directories
           command: composer run-script test:coverage
       - store_artifacts:
