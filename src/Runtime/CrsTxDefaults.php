@@ -27,9 +27,33 @@ final class CrsTxDefaults
             // Version sentinel — 901001 denies if this is missing.
             'tx.crs_setup_version' => '400',
 
-            // Paranoia.
+            // Paranoia. CRS 4 reads blocking_/detection_ and keeps the older
+            // spellings for compatibility. The PL gate rules (911011 and the
+            // 9xx011-9xx018 series) test detection_paranoia_level and skip a
+            // whole file's block when the level is below theirs, so leaving it
+            // unset silently disables the gating.
             'tx.paranoia_level'           => (string) $crsConfig->paranoia,
             'tx.executing_paranoia_level' => (string) $crsConfig->paranoia,
+            'tx.blocking_paranoia_level'  => (string) $crsConfig->paranoia,
+            'tx.detection_paranoia_level' => (string) $crsConfig->paranoia,
+
+            // Anomaly accumulators, normally zero-initialised by
+            // REQUEST-901-INITIALIZATION which we deliberately do not parse.
+            'tx.anomaly_score'                    => '0',
+            'tx.blocking_anomaly_score'           => '0',
+            'tx.detection_anomaly_score'          => '0',
+            'tx.inbound_anomaly_score'            => '0',
+            'tx.outbound_anomaly_score'           => '0',
+            'tx.blocking_inbound_anomaly_score'   => '0',
+            'tx.detection_inbound_anomaly_score'  => '0',
+            'tx.blocking_outbound_anomaly_score'  => '0',
+            'tx.detection_outbound_anomaly_score' => '0',
+
+            // Log verbosity, read by the 980 correlation rules.
+            'tx.reporting_level' => '4',
+
+            // Early blocking is opt-in upstream (crs-setup rule 900120).
+            'tx.early_blocking' => '0',
 
             // Anomaly score constants (also inlined at parse time, but
             // some rules dereference them at runtime via %{tx.*}).
@@ -59,10 +83,14 @@ final class CrsTxDefaults
             'tx.max_file_size'      => '1048576',
             'tx.combined_file_sizes' => '1048576',
 
+            // UTF-8 validation is on by default, matching crs-setup.
+            'tx.crs_validate_utf8_encoding' => '1',
+
             // Feature toggles — default off (most CRS deployments enable
             // them explicitly when reputation data is available).
-            'tx.crs_validate_utf8_encoding' => '1',
             'tx.enforce_bodyproc_urlencoded' => '0',
+            'tx.allow_method_override_parameter' => '0',
+            'tx.crs_skip_response_analysis'  => '0',
             'tx.block_search_ip'    => '0',
             'tx.block_suspicious_ip' => '0',
             'tx.block_harvester_ip' => '0',

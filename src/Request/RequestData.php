@@ -73,6 +73,16 @@ final class RequestData
             }
         }
 
+        // PHP exposes these two without the HTTP_ prefix, so the loop above
+        // misses them. Without Content-Length, CRS 920180 flags every POST as
+        // a request-smuggling attempt; without Content-Type, the 920 body
+        // processor rules cannot evaluate at all.
+        foreach (['CONTENT_TYPE' => 'content-type', 'CONTENT_LENGTH' => 'content-length'] as $serverKey => $headerName) {
+            if (isset($_SERVER[$serverKey]) && $_SERVER[$serverKey] !== '') {
+                $headers[$headerName] ??= (string) $_SERVER[$serverKey];
+            }
+        }
+
         $body = '';
         if (in_array($method, ['POST', 'PUT', 'PATCH'], true)) {
             $body = (string) file_get_contents('php://input');
