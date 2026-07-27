@@ -25,6 +25,7 @@ Drupal, WordPress, raw PHP).
 - [The request DTO](#the-request-dto)
 - [The verdict](#the-verdict)
 - [Supported SecLang subset](#supported-seclang-subset)
+- [Rule categories](#rule-categories)
 - [Detection coverage](#detection-coverage)
 - [Rule scope](#rule-scope)
 - [Refreshing CRS rules](#refreshing-crs-rules)
@@ -171,7 +172,7 @@ new CrsConfig(
 | `mode` | `block` | `monitor` evaluates and records matches but never returns `block`. |
 | `anomalyThresholds` | `['inbound' => 5, 'outbound' => 4]` | Score at which to block, per direction. There are exactly two thresholds. |
 | `disabledRules` | `[]` | List of CRS rule IDs to skip — useful for known false positives. |
-| `disabledCategories` | `[]` | Skip an entire category (`sqli`, `xss`, `lfi`, etc.) for targeted tuning. |
+| `disabledCategories` | `[]` | Skip an entire category for targeted tuning — see [Rule categories](#rule-categories). |
 | `rulesPath` | bundled `rules/` | Point at a custom rule directory (used for testing and custom rulesets). |
 | `severityScores` | CRS defaults | Anomaly contribution per severity. Upstream exposes these in `crs-setup.conf`. |
 
@@ -288,6 +289,58 @@ Target modifiers `!collection:selector` (exclude), `&collection`
 `ver`/`rev`/`maturity`/`accuracy` (recorded but unused at runtime),
 `setvar`, `skipAfter`. `ctl:*`, `expirevar`, `deprecatevar`, and similar
 state-management actions are accepted by the parser and silently ignored.
+
+---
+
+## Rule categories
+
+Each rule takes its category from the CRS file it came from. Categories drive
+`disabledCategories` and the per-category breakdown in `CrsVerdict::$scores`.
+
+**Request side**
+
+| Category | Source | Rules |
+|---|---|---|
+| `method_enforcement` | REQUEST-911 | 9 |
+| `scanner` | REQUEST-913 | 9 |
+| `protocol_enforcement` | REQUEST-920 | 68 |
+| `protocol_attack` | REQUEST-921 | 26 |
+| `multipart` | REQUEST-922 | 6 |
+| `lfi` | REQUEST-930 | 14 |
+| `rfi` | REQUEST-931 | 13 |
+| `rce` | REQUEST-932 | 55 |
+| `php` | REQUEST-933 | 29 |
+| `generic` | REQUEST-934 | 20 |
+| `xss` | REQUEST-941 | 40 |
+| `sqli` | REQUEST-942 + `supplemental/` | 67 |
+| `session_fixation` | REQUEST-943 | 11 |
+| `java` | REQUEST-944 | 22 |
+
+**Response side**
+
+| Category | Source | Rules |
+|---|---|---|
+| `response_leak` | RESPONSE-950 | 14 |
+| `response_leak_sql` | RESPONSE-951 | 26 |
+| `response_leak_java` | RESPONSE-952 | 10 |
+| `response_leak_php` | RESPONSE-953 | 13 |
+| `response_leak_iis` | RESPONSE-954 | 14 |
+| `web_shell` | RESPONSE-955 | 36 |
+| `response_leak_ruby` | RESPONSE-956 | 11 |
+
+**Both directions** — `blocking_evaluation` (REQUEST-949 + RESPONSE-959, 56)
+applies the anomaly threshold; disabling it turns off score-based blocking
+entirely. `correlation` (RESPONSE-980, 21) is logging only.
+
+> **Changed:** categories used to be derived by matching words in the
+> filename, which collided. `rce` also covered method and protocol
+> enforcement, because "enfo**rce**ment" contains "rce"; `php` and `java` also
+> covered their response-leak counterparts; and everything unrecognised fell
+> into a `misc` bucket. If you disable categories, re-check your list:
+> `misc` no longer exists, `rce` is now REQUEST-932 only, and
+> `protocol_enforcement`, `method_enforcement`, `blocking_evaluation`,
+> `response_leak_java`, `response_leak_php` and `response_leak_ruby` are new
+> names for rules that were previously filed elsewhere.
 
 ---
 

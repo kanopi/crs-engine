@@ -759,32 +759,93 @@ final class SecLangParser
         return 1;
     }
 
+    /**
+     * CRS numbers its rule files, and the number is the only unambiguous part
+     * of the name. Matching on words in the filename collides badly: "rce"
+     * appears inside "enfoRCEment", so both METHOD-ENFORCEMENT and
+     * PROTOCOL-ENFORCEMENT were filed as remote code execution, and "php" and
+     * "java" match the RESPONSE data-leakage files as well as the REQUEST
+     * attack files.
+     *
+     * 948 is this engine's own supplemental file, not CRS — see supplemental/.
+     *
+     * @var array<int, string>
+     */
+    private const FILE_CATEGORIES = [
+        911 => 'method_enforcement',
+        913 => 'scanner',
+        920 => 'protocol_enforcement',
+        921 => 'protocol_attack',
+        922 => 'multipart',
+        930 => 'lfi',
+        931 => 'rfi',
+        932 => 'rce',
+        933 => 'php',
+        934 => 'generic',
+        941 => 'xss',
+        942 => 'sqli',
+        943 => 'session_fixation',
+        944 => 'java',
+        948 => 'sqli',
+        949 => 'blocking_evaluation',
+        950 => 'response_leak',
+        951 => 'response_leak_sql',
+        952 => 'response_leak_java',
+        953 => 'response_leak_php',
+        954 => 'response_leak_iis',
+        955 => 'web_shell',
+        956 => 'response_leak_ruby',
+        959 => 'blocking_evaluation',
+        980 => 'correlation',
+    ];
+
     private function categoryFromFilename(string $filename): string
     {
         $base = strtolower(basename($filename, '.conf'));
+
+        if (preg_match('/^(?:request|response)-(\d{3})-/', $base, $m) === 1) {
+            $known = self::FILE_CATEGORIES[(int) $m[1]] ?? null;
+            if ($known !== null) {
+                return $known;
+            }
+        }
+
+        return $this->categoryFromKeywords($base);
+    }
+
+    /**
+     * Fallback for a file CRS has added since this map was written, or for a
+     * custom ruleset that does not follow the numbering. Ordered most-specific
+     * first, and response-side leakage names are checked before the bare
+     * attack-type names they contain.
+     */
+    private function categoryFromKeywords(string $base): string
+    {
         return match (true) {
-            str_contains($base, 'sqli')             => 'sqli',
-            str_contains($base, 'xss')              => 'xss',
-            str_contains($base, 'lfi')              => 'lfi',
-            str_contains($base, 'rfi')              => 'rfi',
-            str_contains($base, 'rce')              => 'rce',
-            str_contains($base, 'php')              => 'php',
-            str_contains($base, 'java')             => 'java',
-            str_contains($base, 'session-fixation') => 'session_fixation',
-            str_contains($base, 'protocol-attack')  => 'protocol_attack',
+            str_contains($base, 'data-leakages-sql')    => 'response_leak_sql',
+            str_contains($base, 'data-leakages-java')   => 'response_leak_java',
+            str_contains($base, 'data-leakages-php')    => 'response_leak_php',
+            str_contains($base, 'data-leakages-iis')    => 'response_leak_iis',
+            str_contains($base, 'data-leakages-ruby')   => 'response_leak_ruby',
+            str_contains($base, 'data-leakages')        => 'response_leak',
+            str_contains($base, 'web-shells')           => 'web_shell',
+            str_contains($base, 'correlation')          => 'correlation',
+            str_contains($base, 'blocking-evaluation')  => 'blocking_evaluation',
+            str_contains($base, 'session-fixation')     => 'session_fixation',
             str_contains($base, 'protocol-enforcement') => 'protocol_enforcement',
-            str_contains($base, 'method-enforcement')    => 'method_enforcement',
-            str_contains($base, 'scanner')          => 'scanner',
-            str_contains($base, 'multipart')        => 'multipart',
-            str_contains($base, 'generic')          => 'generic',
-            str_contains($base, 'data-leakages-sql')  => 'response_leak_sql',
-            str_contains($base, 'data-leakages-java') => 'response_leak_java',
-            str_contains($base, 'data-leakages-php')  => 'response_leak_php',
-            str_contains($base, 'data-leakages-iis')  => 'response_leak_iis',
-            str_contains($base, 'data-leakages')      => 'response_leak',
-            str_contains($base, 'web-shells')         => 'web_shell',
-            str_contains($base, 'correlation')        => 'correlation',
-            default                                  => 'misc',
+            str_contains($base, 'protocol-attack')      => 'protocol_attack',
+            str_contains($base, 'method-enforcement')   => 'method_enforcement',
+            str_contains($base, 'scanner')              => 'scanner',
+            str_contains($base, 'multipart')            => 'multipart',
+            str_contains($base, 'sqli')                 => 'sqli',
+            str_contains($base, 'xss')                  => 'xss',
+            str_contains($base, 'lfi')                  => 'lfi',
+            str_contains($base, 'rfi')                  => 'rfi',
+            str_contains($base, 'attack-rce')           => 'rce',
+            str_contains($base, 'attack-php')           => 'php',
+            str_contains($base, 'attack-java')          => 'java',
+            str_contains($base, 'generic')              => 'generic',
+            default                                     => 'misc',
         };
     }
 }

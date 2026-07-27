@@ -26,7 +26,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "rce",
+            "category": "method_enforcement",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -59,7 +59,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "rce",
+            "category": "method_enforcement",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -99,7 +99,7 @@
                 "capec/1000/210/272/220/274"
             ],
             "paranoia": 1,
-            "category": "rce",
+            "category": "method_enforcement",
             "setvars": [
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
@@ -138,7 +138,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "rce",
+            "category": "method_enforcement",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -171,7 +171,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "rce",
+            "category": "method_enforcement",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -204,7 +204,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "rce",
+            "category": "method_enforcement",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -237,7 +237,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "rce",
+            "category": "method_enforcement",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -270,7 +270,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "rce",
+            "category": "method_enforcement",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -303,7 +303,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "rce",
+            "category": "method_enforcement",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -326,7 +326,7 @@
             "message": "",
             "tags": [],
             "paranoia": 1,
-            "category": "rce",
+            "category": "method_enforcement",
             "setvars": [],
             "chain": [],
             "capture": false,

@@ -27,7 +27,7 @@
                 "OWASP_CRS/DATA-LEAKAGES-PHP"
             ],
             "paranoia": 1,
-            "category": "php",
+            "category": "response_leak_php",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -60,7 +60,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "php",
+            "category": "response_leak_php",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -93,7 +93,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "php",
+            "category": "response_leak_php",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -135,7 +135,7 @@
                 "capec/1000/118/116"
             ],
             "paranoia": 1,
-            "category": "php",
+            "category": "response_leak_php",
             "setvars": [
                 {
                     "name": "tx.outbound_anomaly_score_pl1",
@@ -183,7 +183,7 @@
                 "capec/1000/118/116"
             ],
             "paranoia": 1,
-            "category": "php",
+            "category": "response_leak_php",
             "setvars": [
                 {
                     "name": "tx.outbound_anomaly_score_pl1",
@@ -231,7 +231,7 @@
                 "capec/1000/118/116"
             ],
             "paranoia": 1,
-            "category": "php",
+            "category": "response_leak_php",
             "setvars": [
                 {
                     "name": "tx.outbound_anomaly_score_pl1",
@@ -270,7 +270,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "php",
+            "category": "response_leak_php",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -303,7 +303,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "php",
+            "category": "response_leak_php",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -345,7 +345,7 @@
                 "capec/1000/118/116"
             ],
             "paranoia": 2,
-            "category": "php",
+            "category": "response_leak_php",
             "setvars": [
                 {
                     "name": "tx.outbound_anomaly_score_pl2",
@@ -384,7 +384,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "php",
+            "category": "response_leak_php",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -417,7 +417,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "php",
+            "category": "response_leak_php",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -450,7 +450,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "php",
+            "category": "response_leak_php",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -483,7 +483,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "php",
+            "category": "response_leak_php",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -506,7 +506,7 @@
             "message": "",
             "tags": [],
             "paranoia": 1,
-            "category": "php",
+            "category": "response_leak_php",
             "setvars": [],
             "chain": [],
             "capture": false,
