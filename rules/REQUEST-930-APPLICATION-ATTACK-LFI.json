@@ -1,7 +1,7 @@
 {
     "source_file": "REQUEST-930-APPLICATION-ATTACK-LFI.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 14,
+    "rule_count": 15,
     "rules": [
         {
             "id": 930011,
@@ -32,7 +32,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-930-APPLICATION-ATTACK-LFI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 930012,
@@ -63,7 +64,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-930-APPLICATION-ATTACK-LFI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 930100,
@@ -149,7 +151,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 930110,
@@ -239,7 +242,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": true,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 930120,
@@ -321,7 +325,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 930130,
@@ -375,7 +380,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 930140,
@@ -429,7 +435,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 930013,
@@ -460,7 +467,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-930-APPLICATION-ATTACK-LFI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 930014,
@@ -491,7 +499,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-930-APPLICATION-ATTACK-LFI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 930121,
@@ -552,7 +561,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 930015,
@@ -583,7 +593,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-930-APPLICATION-ATTACK-LFI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 930016,
@@ -614,7 +625,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-930-APPLICATION-ATTACK-LFI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 930017,
@@ -645,7 +657,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-930-APPLICATION-ATTACK-LFI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 930018,
@@ -676,7 +689,30 @@
             "capture": false,
             "skip_after": "END-REQUEST-930-APPLICATION-ATTACK-LFI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "lfi",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-REQUEST-930-APPLICATION-ATTACK-LFI"
         }
     ]
 }

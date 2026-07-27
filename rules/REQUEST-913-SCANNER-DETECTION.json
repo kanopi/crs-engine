@@ -1,7 +1,7 @@
 {
     "source_file": "REQUEST-913-SCANNER-DETECTION.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 9,
+    "rule_count": 10,
     "rules": [
         {
             "id": 913011,
@@ -32,7 +32,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-913-SCANNER-DETECTION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 913012,
@@ -63,7 +64,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-913-SCANNER-DETECTION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 913100,
@@ -109,7 +111,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 913013,
@@ -140,7 +143,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-913-SCANNER-DETECTION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 913014,
@@ -171,7 +175,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-913-SCANNER-DETECTION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 913015,
@@ -202,7 +207,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-913-SCANNER-DETECTION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 913016,
@@ -233,7 +239,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-913-SCANNER-DETECTION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 913017,
@@ -264,7 +271,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-913-SCANNER-DETECTION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 913018,
@@ -295,7 +303,30 @@
             "capture": false,
             "skip_after": "END-REQUEST-913-SCANNER-DETECTION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "scanner",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-REQUEST-913-SCANNER-DETECTION"
         }
     ]
 }

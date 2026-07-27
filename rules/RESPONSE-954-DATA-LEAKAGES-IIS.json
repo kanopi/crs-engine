@@ -1,7 +1,7 @@
 {
     "source_file": "RESPONSE-954-DATA-LEAKAGES-IIS.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 13,
+    "rule_count": 14,
     "rules": [
         {
             "id": 954010,
@@ -33,7 +33,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-954-DATA-LEAKAGES-IIS",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 954011,
@@ -64,7 +65,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-954-DATA-LEAKAGES-IIS",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 954012,
@@ -95,7 +97,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-954-DATA-LEAKAGES-IIS",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 954100,
@@ -142,7 +145,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 954110,
@@ -189,7 +193,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 954120,
@@ -236,7 +241,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 954130,
@@ -303,13 +309,15 @@
                     "capture": false,
                     "skip_after": "END-RESPONSE-954-DATA-LEAKAGES-IIS",
                     "multi_match": false,
-                    "warnings": []
+                    "warnings": [],
+                    "marker": null
                 }
             ],
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 954014,
@@ -340,7 +348,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-954-DATA-LEAKAGES-IIS",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 954101,
@@ -387,7 +396,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 954015,
@@ -418,7 +428,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-954-DATA-LEAKAGES-IIS",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 954016,
@@ -449,7 +460,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-954-DATA-LEAKAGES-IIS",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 954017,
@@ -480,7 +492,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-954-DATA-LEAKAGES-IIS",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 954018,
@@ -511,7 +524,30 @@
             "capture": false,
             "skip_after": "END-RESPONSE-954-DATA-LEAKAGES-IIS",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "response_leak_iis",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-RESPONSE-954-DATA-LEAKAGES-IIS"
         }
     ]
 }

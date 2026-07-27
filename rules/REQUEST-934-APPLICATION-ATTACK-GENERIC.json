@@ -1,7 +1,7 @@
 {
     "source_file": "REQUEST-934-APPLICATION-ATTACK-GENERIC.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 20,
+    "rule_count": 21,
     "rules": [
         {
             "id": 934011,
@@ -32,7 +32,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 934012,
@@ -63,7 +64,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 934100,
@@ -158,7 +160,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": true,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 934110,
@@ -244,7 +247,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 934190,
@@ -330,7 +334,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 934130,
@@ -412,7 +417,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": true,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 934150,
@@ -492,7 +498,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 934160,
@@ -585,7 +592,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": true,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 934170,
@@ -672,7 +680,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 934200,
@@ -752,7 +761,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 934013,
@@ -783,7 +793,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 934014,
@@ -814,7 +825,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 934101,
@@ -906,7 +918,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": true,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 934120,
@@ -992,7 +1005,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 934140,
@@ -1072,7 +1086,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 934180,
@@ -1151,7 +1166,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 934015,
@@ -1182,7 +1198,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 934016,
@@ -1213,7 +1230,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 934017,
@@ -1244,7 +1262,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 934018,
@@ -1275,7 +1294,30 @@
             "capture": false,
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "generic",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC"
         }
     ]
 }

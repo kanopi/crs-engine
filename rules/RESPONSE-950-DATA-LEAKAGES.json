@@ -1,7 +1,7 @@
 {
     "source_file": "RESPONSE-950-DATA-LEAKAGES.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 14,
+    "rule_count": 15,
     "rules": [
         {
             "id": 950021,
@@ -33,7 +33,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-959-BLOCKING-EVALUATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 950010,
@@ -65,7 +66,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-950-DATA-LEAKAGES",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 950011,
@@ -96,7 +98,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-950-DATA-LEAKAGES",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 950012,
@@ -127,7 +130,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-950-DATA-LEAKAGES",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 950130,
@@ -173,7 +177,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 950140,
@@ -219,7 +224,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 950150,
@@ -265,7 +271,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 950013,
@@ -296,7 +303,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-950-DATA-LEAKAGES",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 950014,
@@ -327,7 +335,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-950-DATA-LEAKAGES",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 950100,
@@ -373,7 +382,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 950015,
@@ -404,7 +414,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-950-DATA-LEAKAGES",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 950016,
@@ -435,7 +446,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-950-DATA-LEAKAGES",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 950017,
@@ -466,7 +478,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-950-DATA-LEAKAGES",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 950018,
@@ -497,7 +510,30 @@
             "capture": false,
             "skip_after": "END-RESPONSE-950-DATA-LEAKAGES",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-RESPONSE-950-DATA-LEAKAGES"
         }
     ]
 }
