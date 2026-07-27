@@ -67,7 +67,15 @@ final class RulesetInvariantsTest extends TestCase
                 continue;
             }
 
-            if (isset($markers[$target]) || isset($ids[$target]) || isset($tags[$target])) {
+            if (isset($markers[$target])) {
+                continue;
+            }
+
+            if (isset($ids[$target])) {
+                continue;
+            }
+
+            if (isset($tags[$target])) {
                 continue;
             }
 
@@ -83,7 +91,7 @@ final class RulesetInvariantsTest extends TestCase
 
     public function testRulesetContainsMarkers(): void
     {
-        $markers = array_filter(self::$flat, static fn (CompiledRule $r): bool => $r->isMarker());
+        $markers = array_filter(self::$flat, static fn (CompiledRule $compiledRule): bool => $compiledRule->isMarker());
 
         $this->assertNotEmpty(
             $markers,
@@ -142,7 +150,7 @@ final class RulesetInvariantsTest extends TestCase
         }
 
         // Seeded by CrsTxDefaults rather than by any rule.
-        foreach (\Kanopi\Crs\Runtime\CrsTxDefaults::forConfig(new \Kanopi\Crs\CrsConfig()) as $name => $_) {
+        foreach (array_keys(\Kanopi\Crs\Runtime\CrsTxDefaults::forConfig(new \Kanopi\Crs\CrsConfig())) as $name) {
             $name = strtolower($name);
             $written[$name] = true;
             $written[preg_replace('/^tx\./', '', $name) ?? $name] = true;
@@ -157,7 +165,11 @@ final class RulesetInvariantsTest extends TestCase
 
                 $selector = $target['selector'] ?? null;
                 // Regex selectors match a family of names, not one key.
-                if ($selector === null || ($target['regex'] ?? false)) {
+                if ($selector === null) {
+                    continue;
+                }
+
+                if ($target['regex'] ?? false) {
                     continue;
                 }
 
@@ -184,7 +196,7 @@ final class RulesetInvariantsTest extends TestCase
     public function testUnseededAllowlistIsStillAccurate(): void
     {
         $seeded = [];
-        foreach (\Kanopi\Crs\Runtime\CrsTxDefaults::forConfig(new \Kanopi\Crs\CrsConfig()) as $name => $_) {
+        foreach (array_keys(\Kanopi\Crs\Runtime\CrsTxDefaults::forConfig(new \Kanopi\Crs\CrsConfig())) as $name) {
             $seeded[strtolower(preg_replace('/^tx\./', '', $name) ?? $name)] = true;
         }
 

@@ -19,7 +19,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class TxTargetResolutionTest extends TestCase
 {
-    private VariableResolver $resolver;
+    private VariableResolver $variableResolver;
 
     private TxStore $txStore;
 
@@ -28,7 +28,7 @@ final class TxTargetResolutionTest extends TestCase
     protected function setUp(): void
     {
         $this->txStore = new TxStore();
-        $this->resolver = new VariableResolver($this->txStore);
+        $this->variableResolver = new VariableResolver($this->txStore);
         $this->requestData = new RequestData(
             method: 'GET',
             uri: '/',
@@ -44,12 +44,12 @@ final class TxTargetResolutionTest extends TestCase
      */
     private function resolveTx(string $selector): array
     {
-        $values = $this->resolver->resolve(
+        $values = $this->variableResolver->resolve(
             [['collection' => 'TX', 'selector' => $selector]],
             $this->requestData,
         );
 
-        return array_map(static fn ($v): string => $v->value, $values);
+        return array_map(static fn (\Kanopi\Crs\Variables\ResolvedValue $resolvedValue): string => $resolvedValue->value, $values);
     }
 
     public function testPrefixedSetvarIsReadableByUnprefixedTarget(): void

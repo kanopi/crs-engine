@@ -23,7 +23,7 @@ final class SkipAfterMarkerTest extends TestCase
     /**
      * @param array<string, mixed> $overrides
      */
-    private static function rule(int $id, array $overrides = []): CompiledRule
+    private function rule(int $id, array $overrides = []): CompiledRule
     {
         return CompiledRule::fromArray(array_merge([
             'id'           => $id,
@@ -36,12 +36,12 @@ final class SkipAfterMarkerTest extends TestCase
         ], $overrides));
     }
 
-    private static function marker(string $name): CompiledRule
+    private function marker(string $name): CompiledRule
     {
         return CompiledRule::fromArray(['id' => 0, 'phase' => 0, 'marker' => $name]);
     }
 
-    private static function request(string $value = 'attack'): RequestData
+    private function request(string $value = 'attack'): RequestData
     {
         return new RequestData(
             method: 'GET',
@@ -60,21 +60,21 @@ final class SkipAfterMarkerTest extends TestCase
      */
     private function matchedIds(array $rules): array
     {
-        $engine = new CrsEngine(
+        $crsEngine = new CrsEngine(
             new CrsConfig(paranoia: 1, mode: CrsConfig::MODE_MONITOR),
             new RuleSet($rules, 'test'),
         );
 
-        return array_column($engine->evaluate(self::request())->matchedRules, 'id');
+        return array_column($crsEngine->evaluate($this->request())->matchedRules, 'id');
     }
 
     public function testMarkerTerminatesTheSkip(): void
     {
         $matched = $this->matchedIds([
-            self::rule(100, ['skip_after' => 'END-BLOCK']),
-            self::rule(101),
-            self::marker('END-BLOCK'),
-            self::rule(102),
+            $this->rule(100, ['skip_after' => 'END-BLOCK']),
+            $this->rule(101),
+            $this->marker('END-BLOCK'),
+            $this->rule(102),
         ]);
 
         // 100 fires and skips to the marker; 101 is skipped; 102 must survive.
@@ -86,11 +86,11 @@ final class SkipAfterMarkerTest extends TestCase
         // A phase-1 rule starting a skip must still land on the marker even
         // though the marker itself carries no phase.
         $matched = $this->matchedIds([
-            self::rule(200, ['phase' => 1, 'skip_after' => 'END-BLOCK']),
-            self::rule(201, ['phase' => 1]),
-            self::rule(202, ['phase' => 2]),
-            self::marker('END-BLOCK'),
-            self::rule(203, ['phase' => 2]),
+            $this->rule(200, ['phase' => 1, 'skip_after' => 'END-BLOCK']),
+            $this->rule(201, ['phase' => 1]),
+            $this->rule(202, ['phase' => 2]),
+            $this->marker('END-BLOCK'),
+            $this->rule(203, ['phase' => 2]),
         ]);
 
         $this->assertSame([200, 203], $matched);
@@ -99,10 +99,10 @@ final class SkipAfterMarkerTest extends TestCase
     public function testNonMatchingRuleDoesNotStartASkip(): void
     {
         $matched = $this->matchedIds([
-            self::rule(300, ['operator_arg' => 'no-such-payload', 'skip_after' => 'END-BLOCK']),
-            self::rule(301),
-            self::marker('END-BLOCK'),
-            self::rule(302),
+            $this->rule(300, ['operator_arg' => 'no-such-payload', 'skip_after' => 'END-BLOCK']),
+            $this->rule(301),
+            $this->marker('END-BLOCK'),
+            $this->rule(302),
         ]);
 
         $this->assertSame([301, 302], $matched);
@@ -111,11 +111,11 @@ final class SkipAfterMarkerTest extends TestCase
     public function testUnrelatedMarkerDoesNotTerminateTheSkip(): void
     {
         $matched = $this->matchedIds([
-            self::rule(400, ['skip_after' => 'END-BLOCK']),
-            self::marker('SOME-OTHER-MARKER'),
-            self::rule(401),
-            self::marker('END-BLOCK'),
-            self::rule(402),
+            $this->rule(400, ['skip_after' => 'END-BLOCK']),
+            $this->marker('SOME-OTHER-MARKER'),
+            $this->rule(401),
+            $this->marker('END-BLOCK'),
+            $this->rule(402),
         ]);
 
         $this->assertSame([400, 402], $matched);
@@ -124,8 +124,8 @@ final class SkipAfterMarkerTest extends TestCase
     public function testMarkersAreNeverEvaluatedAsRules(): void
     {
         $matched = $this->matchedIds([
-            self::marker('LEADING-MARKER'),
-            self::rule(500),
+            $this->marker('LEADING-MARKER'),
+            $this->rule(500),
         ]);
 
         $this->assertSame([500], $matched);
@@ -135,10 +135,10 @@ final class SkipAfterMarkerTest extends TestCase
     {
         // The pre-existing id/tag fallback must keep working.
         $matched = $this->matchedIds([
-            self::rule(600, ['skip_after' => '602']),
-            self::rule(601),
-            self::rule(602),
-            self::rule(603),
+            $this->rule(600, ['skip_after' => '602']),
+            $this->rule(601),
+            $this->rule(602),
+            $this->rule(603),
         ]);
 
         $this->assertSame([600, 603], $matched);
