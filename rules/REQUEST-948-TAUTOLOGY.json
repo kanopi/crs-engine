@@ -68,6 +68,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         }

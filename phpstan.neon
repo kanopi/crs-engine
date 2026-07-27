@@ -6,5 +6,4 @@ parameters:
         treatPhpDocTypesAsCertain: false
     ignoreErrors:
         - identifier: argument.type
-        - identifier: missingType.iterableValue
         - identifier: cast.string

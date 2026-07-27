@@ -18,6 +18,7 @@ final class CompiledRule
      * @param array<int, string> $tags
      * @param array<int, SetVarOp> $setvars
      * @param array<int, CompiledRule> $chain
+     * @param string|null $logdata Diagnostic template from the rule, surfaced on the verdict.
      * @param string|null $marker Non-null only for SecMarker placeholders, which
      *        carry no operator and exist purely as skipAfter landing points.
      */
@@ -40,7 +41,7 @@ final class CompiledRule
         public readonly bool $capture,
         public readonly ?string $skipAfter,
         public readonly bool $multiMatch,
-        public readonly array $rawWarnings = [],
+        public readonly ?string $logdata = null,
         public readonly ?string $marker = null,
         public readonly bool $unconditional = false,
     ) {
@@ -84,7 +85,7 @@ final class CompiledRule
      *     capture?: bool,
      *     skip_after?: ?string,
      *     multi_match?: bool,
-     *     warnings?: array<int, string>,
+     *     logdata?: ?string,
      *     marker?: ?string,
      *     unconditional?: bool
      * } $data
@@ -116,7 +117,7 @@ final class CompiledRule
             capture:          $data['capture'] ?? false,
             skipAfter:        $data['skip_after'] ?? null,
             multiMatch:       $data['multi_match'] ?? false,
-            rawWarnings:      $data['warnings'] ?? [],
+            logdata:          $data['logdata'] ?? null,
             marker:           $data['marker'] ?? null,
             unconditional:    $data['unconditional'] ?? false,
         );

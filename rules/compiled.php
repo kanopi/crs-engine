@@ -46,6 +46,7 @@ return array (
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -91,6 +92,7 @@ return array (
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -149,6 +151,7 @@ return array (
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -194,6 +197,7 @@ return array (
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -239,6 +243,7 @@ return array (
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -284,6 +289,7 @@ return array (
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -329,6 +335,7 @@ return array (
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -374,6 +381,7 @@ return array (
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -419,6 +427,7 @@ return array (
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -455,6 +464,7 @@ return array (
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-REQUEST-911-METHOD-ENFORCEMENT',
       'unconditional' => false,
     ),
@@ -500,6 +510,7 @@ return array (
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -545,6 +556,7 @@ return array (
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -681,6 +693,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -726,6 +739,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -771,6 +785,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -816,6 +831,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -861,6 +877,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -906,6 +923,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -951,6 +969,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -987,6 +1006,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-REQUEST-913-SCANNER-DETECTION',
       'unconditional' => false,
     ),
@@ -1032,6 +1052,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -1077,6 +1098,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -1136,6 +1158,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{request_line}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -1204,6 +1227,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -1263,6 +1287,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -1357,6 +1382,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -1367,6 +1393,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -1461,6 +1488,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -1471,6 +1499,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -1558,6 +1587,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -1602,6 +1632,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -1652,6 +1683,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -1662,6 +1694,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -1756,6 +1789,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -1766,6 +1800,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -1859,6 +1894,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -1869,6 +1905,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -1928,6 +1965,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -1987,6 +2025,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -2096,6 +2135,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -2106,6 +2146,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -2174,6 +2215,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -2258,6 +2300,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -2317,6 +2360,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -2376,6 +2420,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -2412,6 +2457,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-HOST-CHECK',
       'unconditional' => false,
     ),
@@ -2499,6 +2545,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -2550,6 +2597,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -2560,6 +2608,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -2647,6 +2696,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -2698,6 +2748,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -2708,6 +2759,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -2767,6 +2819,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -2861,6 +2914,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -2871,6 +2925,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -2930,6 +2985,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -3024,6 +3080,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -3034,6 +3091,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -3129,6 +3187,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -3139,6 +3198,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -3234,6 +3294,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -3244,6 +3305,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -3338,6 +3400,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -3348,6 +3411,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -3435,6 +3499,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -3486,6 +3551,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -3496,6 +3562,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -3590,6 +3657,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -3600,6 +3668,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -3660,6 +3729,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -3760,6 +3830,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -3770,6 +3841,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -3870,6 +3942,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -3880,6 +3953,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -3940,6 +4014,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -4034,6 +4109,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -4044,6 +4120,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -4103,6 +4180,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -4205,6 +4283,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -4215,6 +4294,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{TX.0}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -4275,6 +4355,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{TX.0}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -4375,6 +4456,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -4385,6 +4467,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Restricted header detected: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -4446,6 +4529,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -4505,6 +4589,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -4552,6 +4637,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -4635,6 +4721,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -4693,6 +4780,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -4751,6 +4839,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -4796,6 +4885,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -4841,6 +4931,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -4934,6 +5025,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -4944,6 +5036,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -5038,6 +5131,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -5048,6 +5142,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -5107,6 +5202,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -5191,6 +5287,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -5250,6 +5347,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -5318,6 +5416,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -5418,6 +5517,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -5428,6 +5528,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Restricted header detected: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -5515,6 +5616,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -5565,6 +5667,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -5575,6 +5678,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -5664,6 +5768,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -5717,6 +5822,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -5727,6 +5833,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Requested method override: %{ARGS._method}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -5772,6 +5879,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -5817,6 +5925,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -5909,6 +6018,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -5996,6 +6106,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -6047,6 +6158,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -6057,6 +6169,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -6150,6 +6263,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -6160,6 +6274,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -6254,6 +6369,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -6264,6 +6380,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Invalid Cache-Control value in request found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -6324,6 +6441,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -6369,6 +6487,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -6414,6 +6533,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -6508,6 +6628,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -6518,6 +6639,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -6594,6 +6716,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -6702,6 +6825,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -6770,6 +6894,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -6861,6 +6986,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -6897,6 +7023,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-REQUEST-920-PROTOCOL-ENFORCEMENT',
       'unconditional' => false,
     ),
@@ -6942,6 +7069,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -6987,6 +7115,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -7078,6 +7207,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -7176,6 +7306,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -7275,6 +7406,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -7349,6 +7481,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -7414,6 +7547,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -7488,6 +7622,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -7554,6 +7689,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -7645,6 +7781,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -7705,6 +7842,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -7766,6 +7904,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -7825,6 +7964,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -7870,6 +8010,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -7915,6 +8056,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -7980,6 +8122,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -8040,6 +8183,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -8085,6 +8229,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -8130,6 +8275,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -8189,6 +8335,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: Header %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -8246,6 +8393,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -8310,6 +8458,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -8374,6 +8523,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -8419,6 +8569,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -8464,6 +8615,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -8528,6 +8680,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -8564,6 +8717,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-REQUEST-921-PROTOCOL-ATTACK',
       'unconditional' => false,
     ),
@@ -8664,6 +8818,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -8674,6 +8829,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{ARGS._charset_}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -8728,6 +8884,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -8789,6 +8946,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -8850,6 +9008,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{MATCHED_VAR} found within Content-Type multipart form',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -8911,6 +9070,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -8971,6 +9131,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -9016,6 +9177,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -9061,6 +9223,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -9166,6 +9329,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -9275,6 +9439,7 @@ Mozilla/5.0 (compatible; AppScan;',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -10455,6 +10620,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -11144,6 +11310,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -11236,6 +11403,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -11281,6 +11449,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -11326,6 +11495,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -12482,6 +12652,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -12527,6 +12698,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -12572,6 +12744,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -12617,6 +12790,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -12662,6 +12836,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -12698,6 +12873,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-REQUEST-930-APPLICATION-ATTACK-LFI',
       'unconditional' => false,
     ),
@@ -12743,6 +12919,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -12788,6 +12965,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -12862,6 +13040,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -12936,6 +13115,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -13001,6 +13181,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -13046,6 +13227,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -13091,6 +13273,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -13202,6 +13385,7 @@ login.sql
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -13212,6 +13396,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{tx.original_target}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -13272,6 +13457,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -13317,6 +13503,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -13362,6 +13549,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -13407,6 +13595,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -13452,6 +13641,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -13488,6 +13678,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-REQUEST-931-APPLICATION-ATTACK-RFI',
       'unconditional' => false,
     ),
@@ -13533,6 +13724,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -13578,6 +13770,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -13675,6 +13868,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -13772,6 +13966,7 @@ login.sql
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -14291,6 +14486,7 @@ Write-Warning',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -14388,6 +14584,7 @@ Write-Warning',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -14486,6 +14683,7 @@ Write-Warning',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -14584,6 +14782,7 @@ Write-Warning',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -14682,6 +14881,7 @@ Write-Warning',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -14779,6 +14979,7 @@ Write-Warning',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -14876,6 +15077,7 @@ Write-Warning',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -14973,6 +15175,7 @@ Write-Warning',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -15086,6 +15289,7 @@ Write-Warning',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -15183,6 +15387,7 @@ Write-Warning',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -15990,6 +16195,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -16064,6 +16270,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -16146,6 +16353,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -16243,6 +16451,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -16861,6 +17070,7 @@ zoneinfo',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -16871,6 +17081,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -16968,6 +17179,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -17065,6 +17277,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -17110,6 +17323,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -17155,6 +17369,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -17252,6 +17467,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -17349,6 +17565,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -17423,6 +17640,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -17551,6 +17769,7 @@ zoneinfo',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -17608,6 +17827,7 @@ zoneinfo',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -17618,6 +17838,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{TX.932200_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -17714,6 +17935,7 @@ zoneinfo',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -17759,6 +17981,7 @@ zoneinfo',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -17816,6 +18039,7 @@ zoneinfo',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -17826,6 +18050,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.2} found within %{TX.932205_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -17922,6 +18147,7 @@ zoneinfo',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -17979,6 +18205,7 @@ zoneinfo',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -17989,6 +18216,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{TX.932206_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -18085,6 +18313,7 @@ zoneinfo',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -18130,6 +18359,7 @@ zoneinfo',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -18175,6 +18405,7 @@ zoneinfo',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -18232,6 +18463,7 @@ zoneinfo',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -18242,6 +18474,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{TX.932207_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -18339,6 +18572,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -18469,6 +18703,7 @@ zoneinfo',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -18479,6 +18714,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{TX.932240_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -18576,6 +18812,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -18675,6 +18912,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -18773,6 +19011,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -18870,6 +19109,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -18967,6 +19207,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -19064,6 +19305,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -19161,6 +19403,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -19234,6 +19477,7 @@ zoneinfo',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -20017,6 +20261,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -20131,6 +20376,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -20176,6 +20422,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -20221,6 +20468,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -20318,6 +20566,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -20393,6 +20642,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -20508,6 +20758,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -20575,6 +20826,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -20688,6 +20940,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -20785,6 +21038,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -20882,6 +21136,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -20979,6 +21234,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -21076,6 +21332,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -21121,6 +21378,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -21166,6 +21424,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -21202,6 +21461,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-REQUEST-932-APPLICATION-ATTACK-RCE',
       'unconditional' => false,
     ),
@@ -21247,6 +21507,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -21292,6 +21553,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -21405,6 +21667,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -21504,6 +21767,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -21602,6 +21866,7 @@ sbin/start-stop-daemon',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -21721,6 +21986,7 @@ $HTTP_SERVER_VARS',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -21826,6 +22092,7 @@ $HTTP_SERVER_VARS',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -21923,6 +22190,7 @@ $HTTP_SERVER_VARS',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -22024,6 +22292,7 @@ $HTTP_SERVER_VARS',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -22396,6 +22665,7 @@ zlib_decode',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -22406,6 +22676,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -22511,6 +22782,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -22616,6 +22888,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -22721,6 +22994,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -22829,6 +23103,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -22935,6 +23210,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -22980,6 +23256,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -23025,6 +23302,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -23130,6 +23408,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -23235,6 +23514,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -23340,6 +23620,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -23385,6 +23666,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -23430,6 +23712,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -23529,6 +23812,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -23634,6 +23918,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -23733,6 +24018,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -23831,6 +24117,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -23939,6 +24226,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -23984,6 +24272,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -24029,6 +24318,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -24065,6 +24355,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-REQUEST-933-APPLICATION-ATTACK-PHP',
       'unconditional' => false,
     ),
@@ -24110,6 +24401,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -24155,6 +24447,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -24269,6 +24562,7 @@ zlib_decode',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -24476,6 +24770,7 @@ http://localhost:9001/2018-06-01/runtime/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -24593,6 +24888,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -24693,6 +24989,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -24791,6 +25088,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -24903,6 +25201,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -25009,6 +25308,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -25107,6 +25407,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -25152,6 +25453,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -25197,6 +25499,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -25308,6 +25611,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -25413,6 +25717,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -25511,6 +25816,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -25608,6 +25914,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -25653,6 +25960,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -25698,6 +26006,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -25743,6 +26052,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -25788,6 +26098,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -25824,6 +26135,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-REQUEST-934-APPLICATION-ATTACK-GENERIC',
       'unconditional' => false,
     ),
@@ -25869,6 +26181,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -25914,6 +26227,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -25961,6 +26275,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -26089,6 +26404,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -26217,6 +26533,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -26337,6 +26654,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -26466,6 +26784,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -26594,6 +26913,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -26722,6 +27042,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -26834,6 +27155,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -26946,6 +27268,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -27058,6 +27381,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -27170,6 +27494,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -27282,6 +27607,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -27394,6 +27720,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -27507,6 +27834,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -27619,6 +27947,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -27731,6 +28060,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -27843,6 +28173,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -27955,6 +28286,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -28067,6 +28399,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -28179,6 +28512,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -28323,6 +28657,7 @@ lvh.me/',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -28333,6 +28668,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -28442,6 +28778,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -28547,6 +28884,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: Suspicious payload found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -28646,6 +28984,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: Suspicious JS global variable found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -28754,6 +29093,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -28861,6 +29201,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -28906,6 +29247,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -28951,6 +29293,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -29071,6 +29414,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -29184,6 +29528,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -29292,6 +29637,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -29400,6 +29746,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -29508,6 +29855,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -29613,6 +29961,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: Suspicious payload found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -29658,6 +30007,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -29703,6 +30053,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -29748,6 +30099,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -29793,6 +30145,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -29829,6 +30182,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-REQUEST-941-APPLICATION-ATTACK-XSS',
       'unconditional' => false,
     ),
@@ -29874,6 +30228,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -29919,6 +30274,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -30017,6 +30373,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -30115,6 +30472,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -30222,6 +30580,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -30320,6 +30679,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -30419,6 +30779,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -30517,6 +30878,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -30615,6 +30977,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -30713,6 +31076,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -30811,6 +31175,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -30909,6 +31274,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -31023,6 +31389,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -31121,6 +31488,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -31219,6 +31587,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -31318,6 +31687,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -31416,6 +31786,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -31514,6 +31885,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -31613,6 +31985,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -31712,6 +32085,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -31819,6 +32193,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -31864,6 +32239,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -31909,6 +32285,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -32000,6 +32377,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -32124,6 +32502,7 @@ lvh.me/',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -32134,6 +32513,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{TX.942130_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -32258,6 +32638,7 @@ lvh.me/',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -32268,6 +32649,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{TX.942131_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -32366,6 +32748,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -32464,6 +32847,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -32613,6 +32997,7 @@ lvh.me/',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -32623,6 +33008,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -32721,6 +33107,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -32819,6 +33206,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -32917,6 +33305,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -33015,6 +33404,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -33113,6 +33503,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -33211,6 +33602,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -33309,6 +33701,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -33407,6 +33800,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -33521,6 +33915,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -33619,6 +34014,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -33717,6 +34113,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -33815,6 +34212,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -33913,6 +34311,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -34011,6 +34410,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -34125,6 +34525,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -34207,6 +34608,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.1} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -34340,6 +34742,7 @@ lvh.me/',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -34350,6 +34753,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -34448,6 +34852,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -34546,6 +34951,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -34644,6 +35050,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -34783,6 +35190,7 @@ lvh.me/',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -34793,6 +35201,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{TX.942521_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -34875,6 +35284,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -34949,6 +35359,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -35023,6 +35434,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -35068,6 +35480,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -35113,6 +35526,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -35211,6 +35625,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -35309,6 +35724,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -35383,6 +35799,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.1} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -35481,6 +35898,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.1} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -35546,6 +35964,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -35644,6 +36063,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -35742,6 +36162,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -35787,6 +36208,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -35832,6 +36254,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -35906,6 +36329,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.1} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -35988,6 +36412,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.1} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -36024,6 +36449,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-REQUEST-942-APPLICATION-ATTACK-SQLI',
       'unconditional' => false,
     ),
@@ -36069,6 +36495,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -36114,6 +36541,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -36212,6 +36640,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -36306,6 +36735,7 @@ lvh.me/',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -36362,6 +36792,7 @@ lvh.me/',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -36372,6 +36803,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{TX.943110_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -36478,6 +36910,7 @@ lvh.me/',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -36488,6 +36921,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{TX.943120_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -36533,6 +36967,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -36578,6 +37013,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -36623,6 +37059,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -36668,6 +37105,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -36713,6 +37151,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -36758,6 +37197,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -36794,6 +37234,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION',
       'unconditional' => false,
     ),
@@ -36839,6 +37280,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -36884,6 +37326,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -37014,6 +37457,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -37194,6 +37638,7 @@ lvh.me/',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -37204,6 +37649,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -37368,6 +37814,7 @@ lvh.me/',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -37378,6 +37825,7 @@ lvh.me/',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -37582,6 +38030,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -37681,6 +38130,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -37813,6 +38263,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -37858,6 +38309,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -37903,6 +38355,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -38035,6 +38488,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -38163,6 +38617,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -38291,6 +38746,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -38421,6 +38877,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -38550,6 +39007,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -38679,6 +39137,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -38724,6 +39183,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -38769,6 +39229,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -38898,6 +39359,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -38943,6 +39405,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -38988,6 +39451,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -39120,6 +39584,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -39156,6 +39621,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-REQUEST-944-APPLICATION-ATTACK-JAVA',
       'unconditional' => false,
     ),
@@ -39238,6 +39704,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -39290,6 +39757,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -39342,6 +39810,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -39394,6 +39863,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -39446,6 +39916,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -39498,6 +39969,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -39550,6 +40022,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -39602,6 +40075,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -39654,6 +40128,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -39697,6 +40172,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => true,
     ),
@@ -39740,6 +40216,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => true,
     ),
@@ -39792,6 +40269,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -39844,6 +40322,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -39896,6 +40375,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -39948,6 +40428,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -40000,6 +40481,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -40052,6 +40534,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -40104,6 +40587,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -40156,6 +40640,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -40192,6 +40677,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'BEGIN-REQUEST-BLOCKING-EVAL',
       'unconditional' => false,
     ),
@@ -40273,6 +40759,7 @@ sun.reflect',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -40283,6 +40770,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -40330,6 +40818,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -40375,6 +40864,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -40420,6 +40910,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -40465,6 +40956,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -40510,6 +41002,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -40555,6 +41048,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -40600,6 +41094,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -40645,6 +41140,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -40690,6 +41186,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -40726,6 +41223,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-REQUEST-949-BLOCKING-EVALUATION',
       'unconditional' => false,
     ),
@@ -40772,6 +41270,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -40818,6 +41317,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -40863,6 +41363,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -40908,6 +41409,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -40967,6 +41469,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -41026,6 +41529,7 @@ sun.reflect',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -41141,6 +41645,7 @@ System.Web.Http.HttpRouteCollection',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -41186,6 +41691,7 @@ System.Web.Http.HttpRouteCollection',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -41231,6 +41737,7 @@ System.Web.Http.HttpRouteCollection',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -41290,6 +41797,7 @@ System.Web.Http.HttpRouteCollection',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -41335,6 +41843,7 @@ System.Web.Http.HttpRouteCollection',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -41380,6 +41889,7 @@ System.Web.Http.HttpRouteCollection',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -41425,6 +41935,7 @@ System.Web.Http.HttpRouteCollection',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -41470,6 +41981,7 @@ System.Web.Http.HttpRouteCollection',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -41506,6 +42018,7 @@ System.Web.Http.HttpRouteCollection',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-RESPONSE-950-DATA-LEAKAGES',
       'unconditional' => false,
     ),
@@ -41552,6 +42065,7 @@ System.Web.Http.HttpRouteCollection',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -41597,6 +42111,7 @@ System.Web.Http.HttpRouteCollection',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -41642,6 +42157,7 @@ System.Web.Http.HttpRouteCollection',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -41864,6 +42380,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -41929,6 +42446,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -41994,6 +42512,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -42059,6 +42578,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -42124,6 +42644,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -42189,6 +42710,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -42254,6 +42776,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -42319,6 +42842,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -42384,6 +42908,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -42449,6 +42974,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -42514,6 +43040,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -42579,6 +43106,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -42644,6 +43172,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -42709,6 +43238,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -42774,6 +43304,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -42839,6 +43370,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -42904,6 +43436,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -42940,6 +43473,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-SQL-ERROR-MATCH-PL1',
       'unconditional' => false,
     ),
@@ -42985,6 +43519,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -43030,6 +43565,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -43075,6 +43611,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -43120,6 +43657,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -43165,6 +43703,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -43210,6 +43749,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -43246,6 +43786,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-RESPONSE-951-DATA-LEAKAGES-SQL',
       'unconditional' => false,
     ),
@@ -43292,6 +43833,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -43337,6 +43879,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -43382,6 +43925,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -43441,6 +43985,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -43486,6 +44031,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -43531,6 +44077,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -43576,6 +44123,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -43621,6 +44169,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -43666,6 +44215,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -43711,6 +44261,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -43747,6 +44298,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-RESPONSE-952-DATA-LEAKAGES-JAVA',
       'unconditional' => false,
     ),
@@ -43793,6 +44345,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -43838,6 +44391,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -43883,6 +44437,7 @@ XPATH syntax error:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -45774,6 +46329,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -45833,6 +46389,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -45892,6 +46449,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -45937,6 +46495,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -45982,6 +46541,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -46041,6 +46601,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -46086,6 +46647,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -46131,6 +46693,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -46176,6 +46739,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -46221,6 +46785,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -46257,6 +46822,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-RESPONSE-953-DATA-LEAKAGES-PHP',
       'unconditional' => false,
     ),
@@ -46303,6 +46869,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -46348,6 +46915,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -46393,6 +46961,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -46453,6 +47022,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -46513,6 +47083,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -46627,6 +47198,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -46722,6 +47294,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -46732,6 +47305,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -46777,6 +47351,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -46822,6 +47397,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -46882,6 +47458,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -46927,6 +47504,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -46972,6 +47550,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -47017,6 +47596,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -47062,6 +47642,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -47098,6 +47679,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-RESPONSE-954-DATA-LEAKAGES-IIS',
       'unconditional' => false,
     ),
@@ -47144,6 +47726,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -47189,6 +47772,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -47234,6 +47818,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -47365,6 +47950,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -47423,6 +48009,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -47481,6 +48068,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -47539,6 +48127,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -47597,6 +48186,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -47655,6 +48245,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -47713,6 +48304,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -47771,6 +48363,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -47829,6 +48422,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -47887,6 +48481,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -47945,6 +48540,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -48003,6 +48599,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -48061,6 +48658,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -48119,6 +48717,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -48177,6 +48776,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -48235,6 +48835,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -48293,6 +48894,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -48351,6 +48953,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -48409,6 +49012,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -48467,6 +49071,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -48527,6 +49132,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -48585,6 +49191,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -48643,6 +49250,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -48701,6 +49309,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -48759,6 +49368,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -48819,6 +49429,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -48864,6 +49475,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -48909,6 +49521,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -48967,6 +49580,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -49012,6 +49626,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -49057,6 +49672,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -49102,6 +49718,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -49147,6 +49764,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -49183,6 +49801,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-RESPONSE-955-WEB-SHELLS',
       'unconditional' => false,
     ),
@@ -49229,6 +49848,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -49274,6 +49894,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -49319,6 +49940,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -49483,6 +50105,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -49528,6 +50151,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -49573,6 +50197,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -49632,6 +50257,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -49677,6 +50303,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -49722,6 +50349,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -49767,6 +50395,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -49812,6 +50441,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -49848,6 +50478,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-RESPONSE-956-DATA-LEAKAGES-RUBY',
       'unconditional' => false,
     ),
@@ -49900,6 +50531,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -49952,6 +50584,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -50004,6 +50637,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -50056,6 +50690,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -50108,6 +50743,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -50160,6 +50796,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -50212,6 +50849,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -50264,6 +50902,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -50307,6 +50946,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => true,
     ),
@@ -50350,6 +50990,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => true,
     ),
@@ -50386,6 +51027,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'EARLY_BLOCKING_ANOMALY_SCORING',
       'unconditional' => false,
     ),
@@ -50438,6 +51080,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -50490,6 +51133,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -50542,6 +51186,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -50594,6 +51239,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -50646,6 +51292,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -50698,6 +51345,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -50750,6 +51398,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -50802,6 +51451,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -50883,6 +51533,7 @@ ActionView::TemplateError',
           'warnings' => 
           array (
           ),
+          'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
         ),
@@ -50893,6 +51544,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -50940,6 +51592,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -50985,6 +51638,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -51030,6 +51684,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -51075,6 +51730,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -51120,6 +51776,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -51165,6 +51822,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -51210,6 +51868,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -51255,6 +51914,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -51300,6 +51960,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -51336,6 +51997,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-RESPONSE-959-BLOCKING-EVALUATION',
       'unconditional' => false,
     ),
@@ -51409,6 +52071,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => true,
     ),
@@ -51454,6 +52117,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -51499,6 +52163,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -51544,6 +52209,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -51589,6 +52255,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -51634,6 +52301,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -51679,6 +52347,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -51724,6 +52393,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -51769,6 +52439,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -51814,6 +52485,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -51859,6 +52531,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -51904,6 +52577,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -51940,6 +52614,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'LOG-REPORTING',
       'unconditional' => false,
     ),
@@ -51978,6 +52653,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => true,
     ),
@@ -52014,6 +52690,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-REPORTING',
       'unconditional' => false,
     ),
@@ -52059,6 +52736,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -52104,6 +52782,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -52149,6 +52828,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -52194,6 +52874,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -52239,6 +52920,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -52284,6 +52966,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -52329,6 +53012,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -52374,6 +53058,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
     ),
@@ -52410,6 +53095,7 @@ ActionView::TemplateError',
       'warnings' => 
       array (
       ),
+      'logdata' => NULL,
       'marker' => 'END-RESPONSE-980-CORRELATION',
       'unconditional' => false,
     ),

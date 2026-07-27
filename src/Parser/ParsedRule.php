@@ -40,6 +40,7 @@ final class ParsedRule
         public readonly ?string $skipAfter,
         public readonly bool $multiMatch,
         public readonly array $warnings,
+        public readonly ?string $logdata = null,
         public readonly ?string $marker = null,
         public readonly bool $unconditional = false,
     ) {
@@ -141,6 +142,7 @@ final class ParsedRule
             'skip_after'        => $this->skipAfter,
             'multi_match'       => $this->multiMatch,
             'warnings'          => $this->warnings,
+            'logdata'           => $this->logdata,
             'marker'            => $this->marker,
             'unconditional'     => $this->unconditional,
         ];

@@ -34,6 +34,7 @@
             "skip_after": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -67,6 +68,7 @@
             "skip_after": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -100,6 +102,7 @@
             "skip_after": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -148,6 +151,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
             "unconditional": false
         },
@@ -196,6 +200,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
             "unconditional": false
         },
@@ -244,6 +249,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
             "unconditional": false
         },
@@ -277,6 +283,7 @@
             "skip_after": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -310,6 +317,7 @@
             "skip_after": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -358,6 +366,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
             "unconditional": false
         },
@@ -391,6 +400,7 @@
             "skip_after": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -424,6 +434,7 @@
             "skip_after": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -457,6 +468,7 @@
             "skip_after": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -490,6 +502,7 @@
             "skip_after": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -513,6 +526,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
             "unconditional": false
         }

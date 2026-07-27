@@ -80,6 +80,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -88,6 +89,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{ARGS._charset_}",
             "marker": null,
             "unconditional": false
         },
@@ -131,6 +133,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -180,6 +183,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -230,6 +234,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{MATCHED_VAR} found within Content-Type multipart form",
             "marker": null,
             "unconditional": false
         },
@@ -280,6 +285,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0}",
             "marker": null,
             "unconditional": false
         },
@@ -329,6 +335,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0}",
             "marker": null,
             "unconditional": false
         }

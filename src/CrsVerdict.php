@@ -14,7 +14,7 @@ final class CrsVerdict
 
     /**
      * @param array<string, int> $scores Category => accumulated anomaly score
-     * @param array<int, array{id: int, msg: string, severity: string, score: int, tags: array<int, string>, category: string, matched_data: string}> $matchedRules
+     * @param array<int, array{id: int, msg: string, severity: string, score: int, tags: array<int, string>, category: string, matched_data: string, logdata: ?string}> $matchedRules
      */
     public function __construct(
         public readonly string $action,

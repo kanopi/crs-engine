@@ -353,8 +353,8 @@ detectors, and those are the PL1 backbone for SQL injection. Measured against
 | Paranoia | Attacks blocked | False positives |
 |---|---|---|
 | **1** (default) | 30/34 (88%) | **0/32 (0%)** |
-| 2 | 32/34 (94%) | 4/32 (12.5%) |
-| 3 | 32/34 (94%) | 10/32 (31%) |
+| 2 | 34/34 (100%) | 5/32 (15.6%) |
+| 3 | 34/34 (100%) | 10/32 (31%) |
 | 4 | 34/34 (100%) | 27/32 (84%) |
 
 **Raising the default to PL2 is not recommended.** The rules that come in at
@@ -388,7 +388,6 @@ because every pattern that catches them also catches ordinary content:
 |---|---|---|
 | `admin'--` | collides with quoted prose using `--` | PL2 |
 | `` `id` `` | collides with inline code in comment fields | PL2 |
-| RFI by hostname | needs `TX:` regex selectors (unimplemented) | PL4 |
 
 If you need these at PL1, run PL2 with an exclusion list, or open an issue
 about porting libinjection.
