@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kanopi\Crs\Refresh;
 
+use Kanopi\Crs\Exception\CrsEngineException;
 use Kanopi\Crs\Parser\SecLangParser;
 
 /**
@@ -19,7 +20,7 @@ final class RefreshRunner
      */
     public function __construct(
         private readonly VersionPin $versionPin,
-        private readonly CrsFetcher $crsFetcher,
+        private readonly CrsSource $crsSource,
         private readonly RuleWriter $ruleWriter,
         private readonly string $workDir,
         private readonly ?string $supplementalDir = null,
@@ -35,13 +36,20 @@ final class RefreshRunner
         $tag = $tagOverride ?? $pinData['tag'];
 
         if ($bump) {
-            $latest = $this->crsFetcher->latestTag();
+            $latest = $this->crsSource->latestTag();
             if ($latest !== $tag) {
                 $tag = $latest;
             }
         }
 
-        $rulesPath = $this->crsFetcher->fetchTag($tag, $this->workDir);
+        $rulesPath = $this->crsSource->fetchTag($tag, $this->workDir);
+
+        // Verify before parsing, so a substituted ruleset never reaches the
+        // writer and rules/ is left exactly as it was.
+        $digest = RulesetDigest::forDirectory($rulesPath);
+        $expected = $bump ? '' : $pinData['sha'];
+        $digestState = $this->verifyDigest($expected, $digest, $tag);
+
         $secLangParser    = new SecLangParser();
 
         $rulesBySource = [];
@@ -82,7 +90,7 @@ final class RefreshRunner
         }
 
         $stats = $this->ruleWriter->write($rulesBySource, $tag, $secLangParser->warnings);
-        $this->versionPin->write(['tag' => $tag]);
+        $this->versionPin->write(['tag' => $tag, 'sha' => $digest]);
 
         return [
             'tag'             => $tag,
@@ -90,7 +98,34 @@ final class RefreshRunner
             'file_count'      => $stats['file_count'],
             'warnings'        => $stats['warnings'],
             'parser_warnings' => $secLangParser->warnings,
+            'digest'          => $digest,
+            'digest_state'    => $digestState,
         ];
+    }
+
+    /**
+     * @return 'verified'|'recorded' What happened to the content pin.
+     */
+    private function verifyDigest(string $expected, string $actual, string $tag): string
+    {
+        if ($expected === '') {
+            // No pin recorded yet, or --bump deliberately moving to new
+            // content. Record what we fetched so the next run can verify it.
+            return 'recorded';
+        }
+
+        if (!hash_equals($expected, $actual)) {
+            throw new CrsEngineException(sprintf(
+                "CRS content digest mismatch for %s.\n  expected %s\n  got      %s\n"
+                . "The rules published under this tag are not the rules that were pinned. "
+                . "rules/ has been left untouched. Re-pin deliberately with --bump if this change is expected.",
+                $tag,
+                $expected,
+                $actual,
+            ));
+        }
+
+        return 'verified';
     }
 
     /**

@@ -10,7 +10,7 @@ use Kanopi\Crs\Exception\CrsEngineException;
  * Fetches an OWASP CRS release from GitHub and extracts it to a working
  * directory. Uses only PHP core (streams + PharData) to avoid composer deps.
  */
-final class CrsFetcher
+final class CrsFetcher implements CrsSource
 {
     public function __construct(
         private readonly string $source = 'https://github.com/coreruleset/coreruleset',
