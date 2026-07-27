@@ -1,7 +1,7 @@
 {
     "version": "v4.26.0",
-    "generated_at": "2026-07-27T05:07:35+00:00",
-    "rule_count": 618,
+    "generated_at": "2026-07-27T06:07:34+00:00",
+    "rule_count": 619,
     "files": [
         "REQUEST-911-METHOD-ENFORCEMENT.json",
         "REQUEST-913-SCANNER-DETECTION.json",
@@ -17,6 +17,7 @@
         "REQUEST-942-APPLICATION-ATTACK-SQLI.json",
         "REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION.json",
         "REQUEST-944-APPLICATION-ATTACK-JAVA.json",
+        "REQUEST-948-TAUTOLOGY.json",
         "REQUEST-949-BLOCKING-EVALUATION.json",
         "RESPONSE-950-DATA-LEAKAGES.json",
         "RESPONSE-951-DATA-LEAKAGES-SQL.json",

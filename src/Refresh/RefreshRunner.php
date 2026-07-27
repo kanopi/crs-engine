@@ -12,11 +12,17 @@ use Kanopi\Crs\Parser\SecLangParser;
  */
 final class RefreshRunner
 {
+    /**
+     * @param string|null $supplementalDir Engine-owned SecLang files parsed
+     *        alongside CRS. They live outside rules/, which the refresh
+     *        regenerates, so they survive CRS version bumps.
+     */
     public function __construct(
         private readonly VersionPin $versionPin,
         private readonly CrsFetcher $crsFetcher,
         private readonly RuleWriter $ruleWriter,
         private readonly string $workDir,
+        private readonly ?string $supplementalDir = null,
     ) {
     }
 
@@ -64,6 +70,17 @@ final class RefreshRunner
             }
         }
 
+        // Supplemental files are keyed by filename like any other source, so
+        // RuleWriter's ksort drops them into position. REQUEST-948-* lands
+        // between the last CRS detection file and REQUEST-949 blocking
+        // evaluation, which is where a scoring rule has to sit to be counted.
+        foreach ($this->supplementalFiles() as $confFile) {
+            $rules = $secLangParser->parseFile($confFile);
+            if ($rules !== []) {
+                $rulesBySource[basename($confFile)] = $rules;
+            }
+        }
+
         $stats = $this->ruleWriter->write($rulesBySource, $tag, $secLangParser->warnings);
         $this->versionPin->write(['tag' => $tag]);
 
@@ -74,5 +91,20 @@ final class RefreshRunner
             'warnings'        => $stats['warnings'],
             'parser_warnings' => $secLangParser->warnings,
         ];
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    private function supplementalFiles(): array
+    {
+        if ($this->supplementalDir === null || !is_dir($this->supplementalDir)) {
+            return [];
+        }
+
+        $files = glob(rtrim($this->supplementalDir, '/') . '/*.conf') ?: [];
+        sort($files);
+
+        return $files;
     }
 }

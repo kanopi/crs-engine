@@ -124,8 +124,9 @@ final class RulesetInvariantsTest extends TestCase
             flags: JSON_THROW_ON_ERROR,
         );
 
-        $secRules   = 0;
-        $secActions = 0;
+        $secRules     = 0;
+        $secActions   = 0;
+        $supplemental = 0;
         foreach (self::$top as $rule) {
             if ($rule->isMarker()) {
                 continue;
@@ -133,6 +134,12 @@ final class RulesetInvariantsTest extends TestCase
 
             if ($rule->isUnconditional()) {
                 $secActions++;
+                continue;
+            }
+
+            // Engine-owned rules from supplemental/, not part of CRS.
+            if (in_array('kanopi-crs-engine', $rule->tags, true)) {
+                $supplemental++;
                 continue;
             }
 
@@ -145,10 +152,12 @@ final class RulesetInvariantsTest extends TestCase
             583,
             $secRules,
             sprintf(
-                'Expected 583 top-level SecRules (587 upstream - 4 unsupported); manifest reports %s total entries. A shortfall means the parser is dropping or swallowing rules.',
+                'Expected 583 CRS SecRules (587 upstream - 4 unsupported); manifest reports %s total entries. A shortfall means the parser is dropping or swallowing rules.',
                 (string) ($manifest['rule_count'] ?? '?'),
             ),
         );
+
+        $this->assertSame(1, $supplemental, 'supplemental/ should contribute exactly the 948100 tautology rule.');
 
         // The 6 SecAction directives are load-bearing: two reset the inbound
         // aggregate at the start of phase 2, two do the same for outbound, and
