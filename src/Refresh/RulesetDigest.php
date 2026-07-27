@@ -36,6 +36,21 @@ final class RulesetDigest
 
         $lines = [];
         foreach ($files as $file) {
+            // The digest only covers the top level, which is all CRS has ever
+            // shipped. Rather than skip a subdirectory silently — leaving its
+            // contents outside the pin while the digest still looked complete —
+            // refuse to produce a digest we know is partial. If upstream ever
+            // nests rule files, this fails the refresh and gets looked at
+            // instead of quietly under-hashing.
+            if (is_dir($file)) {
+                throw new CrsEngineException(sprintf(
+                    'Unexpected subdirectory in the CRS rules tree: %s. The content digest covers '
+                    . 'top-level files only, so it would not describe this. Extend RulesetDigest '
+                    . 'to walk it and re-pin deliberately with --bump.',
+                    $file,
+                ));
+            }
+
             if (!is_file($file)) {
                 continue;
             }

@@ -62,11 +62,19 @@ final class RuleEvaluator
             $txStore->set($name, $value);
         }
 
-        $variableResolver    = new VariableResolver($txStore, $responseData);
+        $variableResolver    = new VariableResolver(
+            $txStore,
+            $responseData,
+            $this->crsConfig->maxArgs,
+            $this->crsConfig->maxBodyBytes,
+            $this->crsConfig->maxArgBytes,
+        );
         $transformPipeline    = new TransformPipeline($this->transformRegistry);
         $matched     = [];
         $skipUntil   = null;
         $blockingId  = null;
+        /** @var array<int, array{rule_id: int, operator: string, error: string}> $operatorErrors */
+        $operatorErrors = [];
 
         foreach ($ruleSet->all() as $compiledRule) {
             // Markers are phase-agnostic and never evaluated — they exist only
@@ -120,7 +128,7 @@ final class RuleEvaluator
                 continue;
             }
 
-            $hit = $this->evaluateRule($compiledRule, $requestData, $variableResolver, $transformPipeline, $txStore);
+            $hit = $this->evaluateRule($compiledRule, $requestData, $variableResolver, $transformPipeline, $txStore, $operatorErrors);
             if (!$hit instanceof \Kanopi\Crs\Operators\OperatorMatch) {
                 continue;
             }
@@ -165,12 +173,23 @@ final class RuleEvaluator
 
         $scores     = $this->scoresByCategory($txStore);
         $totalScore = $this->totalScore($txStore, $requestPhase);
-        $action     = $this->decideAction($blockingId, $totalScore, $requestPhase);
+        $action     = $this->decideAction($blockingId, $totalScore, $requestPhase, $operatorErrors);
 
-        return new CrsVerdict($action, $scores, $matched, $totalScore, $blockingId);
+        return new CrsVerdict(
+            $action,
+            $scores,
+            $matched,
+            $totalScore,
+            $blockingId,
+            $operatorErrors,
+            $variableResolver->truncations(),
+        );
     }
 
-    private function evaluateRule(CompiledRule $compiledRule, RequestData $requestData, VariableResolver $variableResolver, TransformPipeline $transformPipeline, TxStore $txStore): ?OperatorMatch
+    /**
+     * @param array<int, array{rule_id: int, operator: string, error: string}> $operatorErrors
+     */
+    private function evaluateRule(CompiledRule $compiledRule, RequestData $requestData, VariableResolver $variableResolver, TransformPipeline $transformPipeline, TxStore $txStore, array &$operatorErrors): ?OperatorMatch
     {
         $operator = $this->operatorRegistry->get($compiledRule->operator);
         $values   = $variableResolver->resolve($compiledRule->targets, $requestData);
@@ -180,6 +199,20 @@ final class RuleEvaluator
 
         foreach ($values as $value) {
             $match = $this->evaluateOperatorAgainstValue($compiledRule, $operator, $operatorArg, $value->value, $transformPipeline, $transforms);
+
+            // The operator abandoned this value rather than deciding on it, so
+            // the rule did not get to run. Record the gap and keep going: the
+            // remaining values may still be decidable, and one awkward argument
+            // should not stop the rest of the request being inspected.
+            if ($match->isError()) {
+                $operatorErrors[] = [
+                    'rule_id'  => $compiledRule->id,
+                    'operator' => $compiledRule->operator,
+                    'error'    => (string) $match->error,
+                ];
+                continue;
+            }
+
             if (!$match->matched) {
                 continue;
             }
@@ -199,7 +232,7 @@ final class RuleEvaluator
             }
 
             foreach ($compiledRule->chain as $sub) {
-                $subHit = $this->evaluateRule($sub, $requestData, $variableResolver, $transformPipeline, $txStore);
+                $subHit = $this->evaluateRule($sub, $requestData, $variableResolver, $transformPipeline, $txStore, $operatorErrors);
                 if (!$subHit instanceof OperatorMatch) {
                     return null;
                 }
@@ -296,8 +329,20 @@ final class RuleEvaluator
     private function evaluateOperatorAgainstValue(CompiledRule $compiledRule, OperatorInterface $operator, string $operatorArg, string $value, TransformPipeline $transformPipeline, array $transforms): OperatorMatch
     {
         if ($compiledRule->multiMatch) {
+            $firstError = null;
+
             foreach ($transformPipeline->eachResolved($transforms, $value) as $candidate) {
                 $match = $operator->evaluate($operatorArg, $candidate);
+
+                // One pipeline step being undecidable does not make the others
+                // so — a payload that blows the backtrack limit before
+                // t:removeComments may well be decidable after it. Keep the
+                // first failure in case nothing later matches.
+                if ($match->isError()) {
+                    $firstError ??= $match;
+                    continue;
+                }
+
                 if ($compiledRule->operatorNegated) {
                     $match = $match->matched ? OperatorMatch::miss() : OperatorMatch::hit($candidate);
                 }
@@ -307,11 +352,20 @@ final class RuleEvaluator
                 }
             }
 
-            return OperatorMatch::miss();
+            return $firstError ?? OperatorMatch::miss();
         }
 
         $transformed = $transformPipeline->applyResolved($transforms, $value);
         $match = $operator->evaluate($operatorArg, $transformed);
+
+        // Negation must not be applied to an error. "Could not look" inverted
+        // becomes "definitely matched", which on a `!@rx` rule would turn an
+        // abandoned regex into a positive detection carrying anomaly score —
+        // trading a silent false negative for a loud false positive.
+        if ($match->isError()) {
+            return $match;
+        }
+
         if ($compiledRule->operatorNegated) {
             return $match->matched ? OperatorMatch::miss() : OperatorMatch::hit($transformed);
         }
@@ -456,10 +510,24 @@ final class RuleEvaluator
             : $this->crsConfig->outboundThreshold();
     }
 
-    private function decideAction(?int $blockingId, int $totalScore, bool $requestPhase): string
+    /**
+     * @param array<int, array{rule_id: int, operator: string, error: string}> $operatorErrors
+     */
+    private function decideAction(?int $blockingId, int $totalScore, bool $requestPhase, array $operatorErrors): string
     {
         if ($blockingId !== null && $this->crsConfig->mode === CrsConfig::MODE_BLOCK) {
             return CrsVerdict::ACTION_BLOCK;
+        }
+
+        // Opt-in: a request that could not be fully inspected is not one we can
+        // call clean. Off by default because enabling it can reject traffic
+        // that previously passed, and the operator errors are on the verdict
+        // either way — so an integrator can measure how often this fires before
+        // deciding to act on it.
+        if ($operatorErrors !== [] && $this->crsConfig->failClosedOnOperatorError) {
+            return $this->crsConfig->mode === CrsConfig::MODE_BLOCK
+                ? CrsVerdict::ACTION_BLOCK
+                : CrsVerdict::ACTION_LOG;
         }
 
         if ($totalScore >= $this->thresholdFor($requestPhase)) {

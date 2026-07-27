@@ -42,6 +42,35 @@ final class CrsConfig
     ];
 
     /**
+     * Arguments whose values are run through the ruleset. Matches CRS's own
+     * tx.max_num_args, so a request carrying more is already anomalous by
+     * upstream's reckoning — 920380 flags it, and that rule still sees the true
+     * count because only value inspection is capped, not counting.
+     */
+    public const DEFAULT_MAX_ARGS = 255;
+
+    /**
+     * Body bytes handed to the ruleset, matching ModSecurity's
+     * SecRequestBodyNoFilesLimit default. Cost is roughly linear in this, and
+     * the body is entirely attacker-controlled.
+     */
+    public const DEFAULT_MAX_BODY_BYTES = 131072;
+
+    /**
+     * Total bytes of argument values a single rule will inspect.
+     *
+     * Capping the argument *count* alone does not bound the work: one 2.5 MB
+     * argument costs as much as ten thousand small ones. Cost is the product of
+     * rules and bytes, so bytes need their own ceiling. CRS 920390 already
+     * flags a request whose total argument length exceeds tx.total_arg_length
+     * (64000), so a request above this is anomalous upstream too.
+     */
+    public const DEFAULT_MAX_ARG_BYTES = 131072;
+
+    /** Disables a cap. Inspect everything, whatever it costs. */
+    public const UNLIMITED = -1;
+
+    /**
      * How much each severity contributes to the anomaly score. Upstream CRS
      * exposes these in crs-setup.conf and operators do tune them.
      */
@@ -74,6 +103,20 @@ final class CrsConfig
      * @param array<string, int> $severityScores Anomaly contribution per severity
      *        (critical/error/warning/notice). These are what rules *add*; the
      *        thresholds above are what the total is compared against.
+     * @param bool $failClosedOnOperatorError Whether a request whose evaluation
+     *        hit an operator error — a rule that could not run rather than one
+     *        that found nothing — should be treated as blocked. Off by default
+     *        because turning it on can reject traffic that previously passed;
+     *        CrsVerdict::$operatorErrors is populated either way, so the
+     *        condition is observable before anyone acts on it.
+     * @param int $maxArgs How many argument values to run through the ruleset.
+     *        Counting is unaffected, so `&ARGS` rules still see the real total.
+     *        CrsConfig::UNLIMITED to inspect every argument.
+     * @param int $maxBodyBytes How much of the request or response body to hand
+     *        to the ruleset. CrsConfig::UNLIMITED to inspect all of it.
+     * @param int $maxArgBytes Total bytes of argument values a single rule will
+     *        inspect. Bounds the work a few very large arguments can buy, which
+     *        $maxArgs alone does not. CrsConfig::UNLIMITED to inspect all of it.
      */
     public function __construct(
         public readonly int $paranoia = 1,
@@ -83,6 +126,10 @@ final class CrsConfig
         public readonly array $disabledCategories = [],
         public readonly ?string $rulesPath = null,
         array $severityScores = self::DEFAULT_SEVERITY_SCORES,
+        public readonly bool $failClosedOnOperatorError = false,
+        public readonly int $maxArgs = self::DEFAULT_MAX_ARGS,
+        public readonly int $maxBodyBytes = self::DEFAULT_MAX_BODY_BYTES,
+        public readonly int $maxArgBytes = self::DEFAULT_MAX_ARG_BYTES,
     ) {
         if ($paranoia < 1 || $paranoia > 4) {
             throw new ConfigurationException('Paranoia level must be between 1 and 4, got ' . $paranoia);
@@ -90,6 +137,25 @@ final class CrsConfig
 
         if (!in_array($mode, [self::MODE_BLOCK, self::MODE_MONITOR], true)) {
             throw new ConfigurationException(sprintf("Mode must be 'block' or 'monitor', got '%s'", $mode));
+        }
+
+        // Zero would mean "inspect nothing", which is a WAF that does not work.
+        // UNLIMITED is spelled -1 so that reading the value cannot be confused
+        // with an accidental 0 from an unset config key.
+        $inspectionLimits = [
+            'maxArgs'      => $maxArgs,
+            'maxBodyBytes' => $maxBodyBytes,
+            'maxArgBytes'  => $maxArgBytes,
+        ];
+        foreach ($inspectionLimits as $name => $limit) {
+            if ($limit !== self::UNLIMITED && $limit < 1) {
+                throw new ConfigurationException(sprintf(
+                    '%s must be a positive integer or CrsConfig::UNLIMITED (%d), got %d.',
+                    $name,
+                    self::UNLIMITED,
+                    $limit,
+                ));
+            }
         }
 
         $this->anomalyThresholds = $this->normaliseThresholds($anomalyThresholds);
@@ -191,7 +257,11 @@ final class CrsConfig
      *     disabled_rules?: array<int, int|string>,
      *     disabled_categories?: array<int, string>,
      *     rules_path?: ?string,
-     *     severity_scores?: array<string, int>
+     *     severity_scores?: array<string, int>,
+     *     fail_closed_on_operator_error?: bool,
+     *     max_args?: int,
+     *     max_body_bytes?: int,
+     *     max_arg_bytes?: int
      * } $config
      */
     public static function fromArray(array $config): self
@@ -204,6 +274,10 @@ final class CrsConfig
             disabledCategories: $config['disabled_categories'] ?? [],
             rulesPath:          $config['rules_path'] ?? null,
             severityScores:     $config['severity_scores'] ?? self::DEFAULT_SEVERITY_SCORES,
+            failClosedOnOperatorError: $config['fail_closed_on_operator_error'] ?? false,
+            maxArgs:            $config['max_args'] ?? self::DEFAULT_MAX_ARGS,
+            maxBodyBytes:       $config['max_body_bytes'] ?? self::DEFAULT_MAX_BODY_BYTES,
+            maxArgBytes:        $config['max_arg_bytes'] ?? self::DEFAULT_MAX_ARG_BYTES,
         );
     }
 

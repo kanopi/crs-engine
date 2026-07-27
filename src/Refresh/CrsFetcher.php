@@ -12,10 +12,32 @@ use Kanopi\Crs\Exception\CrsEngineException;
  */
 final class CrsFetcher implements CrsSource
 {
+    /**
+     * Redirect hops to follow. GitHub bounces the archive URL to codeload, so
+     * some redirection is required; an unbounded chain is not. PHP's default is
+     * 20, which is 19 more than this needs.
+     */
+    private const MAX_REDIRECTS = 5;
+
+    /**
+     * @param string $source Repository URL to fetch releases from. Must be
+     *        https: this is the only channel authenticating the ruleset — the
+     *        content digest detects substitution between two fetches but cannot
+     *        establish the publisher, and there is no signature check. Fetching
+     *        rules over a channel anyone can rewrite would leave nothing at all
+     *        standing behind them.
+     */
     public function __construct(
         private readonly string $source = 'https://github.com/coreruleset/coreruleset',
         private readonly int $timeoutSeconds = 60,
     ) {
+        if (!str_starts_with(strtolower($source), 'https://')) {
+            throw new CrsEngineException(sprintf(
+                'CRS source must be an https URL, got %s. To use a ruleset from elsewhere, '
+                . 'extract it yourself and point CrsConfig::$rulesPath at the result.',
+                $source,
+            ));
+        }
     }
 
     /**
@@ -92,6 +114,7 @@ final class CrsFetcher implements CrsSource
                 'header'  => ['User-Agent: kanopi-crs-engine'],
                 'timeout' => $this->timeoutSeconds,
                 'follow_location' => 1,
+                'max_redirects'   => self::MAX_REDIRECTS,
             ],
         ]);
         $data = @file_get_contents($url, false, $context);

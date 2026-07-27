@@ -523,8 +523,9 @@ What it does:
 1. Reads `.crs-version` (or applies the override flag).
 2. Downloads `https://github.com/coreruleset/coreruleset/archive/refs/tags/<tag>.tar.gz`.
 3. Extracts to a temp directory with `PharData`.
-4. **Verifies the content digest against the pin.** A mismatch aborts before
-   anything is parsed or written, leaving `rules/` untouched.
+4. **Verifies the content digest against the pin** — *unless* `--bump` was
+   passed, which re-pins instead. A mismatch aborts before anything is parsed
+   or written, leaving `rules/` untouched.
 5. Parses every supported `REQUEST-*.conf` with the bundled `SecLangParser`,
    plus anything in `supplemental/`.
 6. Builds the output in a staging directory and swaps it into place only once
@@ -537,6 +538,17 @@ production projects is a scheduled CI job that runs `--bump` weekly, opens a
 PR with the regenerated rules, and lets a maintainer review the diff before
 merging. CircleCI's `weekly-refresh` workflow in this repo demonstrates that
 pattern.
+
+> **The automated path performs no verification.** Because that job runs
+> `--bump`, and `--bump` re-pins rather than checks, the weekly refresh is
+> trust-on-first-use *every week* — it downloads whatever the source serves,
+> hashes it, records the hash as the new pin, and compares against nothing.
+> That is unavoidable for a version bump, but it means **human review of the
+> `rules/` diff is the only control on what enters the ruleset.** The PR the
+> workflow opens says so explicitly rather than leaving a reviewer to assume
+> the green checkmarks covered it; they cover parsing and tests, not
+> provenance. See [Version pin format](#version-pin-format) for what the
+> digest does and does not establish.
 
 ### Version pin format
 
@@ -552,8 +564,10 @@ The `source` field can point at a fork or mirror.
 
 `sha` is a **content digest of the CRS rule files** — a sha256 over
 `filename:sha256` for every file in the release's `rules/` directory, sorted.
-It is enforced: if the rules published under the pinned tag stop matching it,
-the refresh fails and `rules/` is left alone.
+It is enforced on a plain `bin/refresh-crs`: if the rules published under the
+pinned tag stop matching it, the refresh fails and `rules/` is left alone. It
+covers top-level files only, and a subdirectory in the upstream tree aborts the
+refresh rather than being silently left outside the digest.
 
 It hashes the extracted files rather than the tarball on purpose. GitHub's
 `/archive/refs/tags/` tarballs are generated on demand and are not guaranteed

@@ -339,7 +339,7 @@ final class SecLangParser
         $targets = $this->parseTargets($tokens[0]);
         $operatorRaw = $tokens[1];
 
-        [$operator, $operatorArgument, $operatorNegated, $supported] = $this->parseOperator($operatorRaw);
+        [$operator, $operatorArgument, $operatorNegated, $supported] = $this->parseOperator($operatorRaw, $sourceFile, $line);
         if (!$supported) {
             $this->warnings[] = sprintf(
                 "%s:%d — unsupported operator '@%s', skipping %s",
@@ -508,7 +508,7 @@ final class SecLangParser
     /**
      * @return array{0:string,1:string,2:bool,3:bool} [name, argument, negated, supported]
      */
-    private function parseOperator(string $raw): array
+    private function parseOperator(string $raw, string $sourceFile, int $line): array
     {
         $raw = trim($raw);
         $negated = false;
@@ -529,7 +529,7 @@ final class SecLangParser
         // phrase list newline-separated and route to the @pmf operator
         // (preserves phrases that contain spaces; @pm splits on whitespace).
         if (strcasecmp($name, 'pmFromFile') === 0 || strcasecmp($name, 'pmf') === 0) {
-            $phrases = $this->loadPmFile($arg);
+            $phrases = $this->loadPmFile($arg, $sourceFile, $line);
             if ($phrases !== null) {
                 return ['pmf', $phrases, $negated, true];
             }
@@ -540,19 +540,62 @@ final class SecLangParser
     }
 
     /**
-     * Read a @pmFromFile data file and return its phrases as a single
-     * space-separated string ready to feed @pm. Returns null if the file
-     * is not findable so the caller records a parser warning.
+     * Read a @pmFromFile data file and return its phrases newline-separated,
+     * ready to feed @pmf. Returns null if the file is not readable or not
+     * inside the data-file directory, so the caller records a parser warning
+     * and the rule is skipped.
+     *
+     * The filename is rule text, and bin/refresh-crs parses a freshly
+     * downloaded CRS release, so it is not trusted input. Two ways it can
+     * point outside the ruleset, both closed here:
+     *
+     *   - a path in the rule (`@pmFromFile ../../../../etc/passwd`). CRS keeps
+     *     .data files as siblings of the .conf referencing them, so no
+     *     legitimate rule needs a path at all. Anything that is not a bare
+     *     filename is refused rather than normalised: passing it through
+     *     basename() would silently redirect the read onto a sibling that
+     *     happens to share the last segment, which is a different surprise
+     *     rather than none.
+     *   - a symlink inside the directory pointing out of it. The archive is
+     *     attacker-controlled in the threat model that makes the first case
+     *     interesting, and tar carries symlinks, so a bare filename is not on
+     *     its own proof the read stays inside. realpath() settles it.
+     *
+     * Either way the contents would otherwise be inlined into rules/*.json and
+     * rules/compiled.php, which the weekly workflow commits and opens a PR for
+     * against a public repository.
      */
-    private function loadPmFile(string $filename): ?string
+    private function loadPmFile(string $filename, string $sourceFile, int $line): ?string
     {
         $filename = trim($filename);
         if ($filename === '' || $this->dataFileDir === null) {
             return null;
         }
 
+        if ($filename !== basename($filename)) {
+            $this->warnings[] = sprintf(
+                "%s:%d — @pmFromFile '%s' is not a bare filename; refusing to read outside %s",
+                $sourceFile,
+                $line,
+                $filename,
+                $this->dataFileDir,
+            );
+            return null;
+        }
+
         $path = $this->dataFileDir . '/' . $filename;
         if (!is_file($path)) {
+            return null;
+        }
+
+        if (!$this->isInsideDataFileDir($path)) {
+            $this->warnings[] = sprintf(
+                "%s:%d — @pmFromFile '%s' resolves outside %s (symlink?); refusing to read it",
+                $sourceFile,
+                $line,
+                $filename,
+                $this->dataFileDir,
+            );
             return null;
         }
 
@@ -571,6 +614,22 @@ final class SecLangParser
         }
 
         return $phrases === [] ? null : implode("\n", $phrases);
+    }
+
+    /**
+     * Whether $path resolves to a file genuinely inside $dataFileDir, after
+     * symlinks are followed on both sides.
+     */
+    private function isInsideDataFileDir(string $path): bool
+    {
+        $realPath = realpath($path);
+        $realDir  = realpath((string) $this->dataFileDir);
+
+        if ($realPath === false || $realDir === false) {
+            return false;
+        }
+
+        return str_starts_with($realPath, rtrim($realDir, '/') . '/');
     }
 
     private function parseActions(string $raw): ParsedActions
