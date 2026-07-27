@@ -1,7 +1,7 @@
 {
     "source_file": "REQUEST-941-APPLICATION-ATTACK-XSS.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 39,
+    "rule_count": 40,
     "rules": [
         {
             "id": 941011,
@@ -32,7 +32,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-941-APPLICATION-ATTACK-XSS",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941012,
@@ -63,7 +64,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-941-APPLICATION-ATTACK-XSS",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941010,
@@ -97,7 +99,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941110,
@@ -204,7 +207,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941120,
@@ -311,7 +315,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941130,
@@ -411,7 +416,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941140,
@@ -519,7 +525,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941160,
@@ -626,7 +633,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941170,
@@ -733,7 +741,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941180,
@@ -826,7 +835,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941190,
@@ -919,7 +929,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941200,
@@ -1012,7 +1023,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941210,
@@ -1105,7 +1117,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941220,
@@ -1198,7 +1211,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941230,
@@ -1291,7 +1305,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941240,
@@ -1385,7 +1400,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941250,
@@ -1478,7 +1494,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941260,
@@ -1571,7 +1588,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941270,
@@ -1664,7 +1682,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941280,
@@ -1757,7 +1776,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941290,
@@ -1850,7 +1870,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941300,
@@ -1943,7 +1964,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941310,
@@ -2108,13 +2130,15 @@
                     "capture": true,
                     "skip_after": null,
                     "multi_match": false,
-                    "warnings": []
+                    "warnings": [],
+                    "marker": null
                 }
             ],
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941360,
@@ -2200,7 +2224,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941370,
@@ -2281,7 +2306,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941390,
@@ -2370,7 +2396,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941400,
@@ -2458,7 +2485,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941013,
@@ -2489,7 +2517,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-941-APPLICATION-ATTACK-XSS",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941014,
@@ -2520,7 +2549,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-941-APPLICATION-ATTACK-XSS",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941150,
@@ -2620,7 +2650,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941181,
@@ -2714,7 +2745,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941320,
@@ -2803,7 +2835,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941330,
@@ -2892,7 +2925,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941340,
@@ -2981,7 +3015,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941380,
@@ -3067,7 +3102,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941015,
@@ -3098,7 +3134,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-941-APPLICATION-ATTACK-XSS",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941016,
@@ -3129,7 +3166,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-941-APPLICATION-ATTACK-XSS",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941017,
@@ -3160,7 +3198,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-941-APPLICATION-ATTACK-XSS",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 941018,
@@ -3191,7 +3230,30 @@
             "capture": false,
             "skip_after": "END-REQUEST-941-APPLICATION-ATTACK-XSS",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "xss",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-REQUEST-941-APPLICATION-ATTACK-XSS"
         }
     ]
 }

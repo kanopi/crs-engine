@@ -1,7 +1,7 @@
 {
     "source_file": "REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 9,
+    "rule_count": 10,
     "rules": [
         {
             "id": 943011,
@@ -32,7 +32,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 943012,
@@ -63,7 +64,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 943100,
@@ -143,7 +145,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 943110,
@@ -232,7 +235,8 @@
                     "capture": true,
                     "skip_after": null,
                     "multi_match": false,
-                    "warnings": []
+                    "warnings": [],
+                    "marker": null
                 },
                 {
                     "id": 943013,
@@ -263,13 +267,15 @@
                     "capture": false,
                     "skip_after": "END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION",
                     "multi_match": false,
-                    "warnings": []
+                    "warnings": [],
+                    "marker": null
                 }
             ],
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 943014,
@@ -300,7 +306,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 943015,
@@ -331,7 +338,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 943016,
@@ -362,7 +370,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 943017,
@@ -393,7 +402,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 943018,
@@ -424,7 +434,30 @@
             "capture": false,
             "skip_after": "END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "session_fixation",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION"
         }
     ]
 }

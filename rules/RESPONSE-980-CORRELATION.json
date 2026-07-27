@@ -1,7 +1,7 @@
 {
     "source_file": "RESPONSE-980-CORRELATION.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 19,
+    "rule_count": 22,
     "rules": [
         {
             "id": 980041,
@@ -32,7 +32,8 @@
             "capture": false,
             "skip_after": "END-REPORTING",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 980042,
@@ -63,7 +64,8 @@
             "capture": false,
             "skip_after": "LOG-REPORTING",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 980043,
@@ -94,7 +96,8 @@
             "capture": false,
             "skip_after": "END-REPORTING",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 980044,
@@ -125,7 +128,8 @@
             "capture": false,
             "skip_after": "LOG-REPORTING",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 980045,
@@ -156,7 +160,8 @@
             "capture": false,
             "skip_after": "LOG-REPORTING",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 980046,
@@ -187,7 +192,8 @@
             "capture": false,
             "skip_after": "END-REPORTING",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 980047,
@@ -218,7 +224,8 @@
             "capture": false,
             "skip_after": "LOG-REPORTING",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 980048,
@@ -249,7 +256,8 @@
             "capture": false,
             "skip_after": "LOG-REPORTING",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 980049,
@@ -280,7 +288,8 @@
             "capture": false,
             "skip_after": "END-REPORTING",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 980050,
@@ -311,7 +320,8 @@
             "capture": false,
             "skip_after": "LOG-REPORTING",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 980051,
@@ -342,7 +352,52 @@
             "capture": false,
             "skip_after": "END-REPORTING",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "correlation",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "LOG-REPORTING"
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "correlation",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-REPORTING"
         },
         {
             "id": 980011,
@@ -373,7 +428,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-980-CORRELATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 980012,
@@ -404,7 +460,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-980-CORRELATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 980013,
@@ -435,7 +492,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-980-CORRELATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 980014,
@@ -466,7 +524,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-980-CORRELATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 980015,
@@ -497,7 +556,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-980-CORRELATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 980016,
@@ -528,7 +588,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-980-CORRELATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 980017,
@@ -559,7 +620,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-980-CORRELATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 980018,
@@ -590,7 +652,30 @@
             "capture": false,
             "skip_after": "END-RESPONSE-980-CORRELATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "correlation",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-RESPONSE-980-CORRELATION"
         }
     ]
 }

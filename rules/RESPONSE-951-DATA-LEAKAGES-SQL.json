@@ -1,7 +1,7 @@
 {
     "source_file": "RESPONSE-951-DATA-LEAKAGES-SQL.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 26,
+    "rule_count": 28,
     "rules": [
         {
             "id": 951010,
@@ -33,7 +33,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-951-DATA-LEAKAGES-SQL",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951011,
@@ -64,7 +65,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-951-DATA-LEAKAGES-SQL",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951012,
@@ -95,7 +97,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-951-DATA-LEAKAGES-SQL",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951100,
@@ -134,7 +137,8 @@
             "capture": false,
             "skip_after": "END-SQL-ERROR-MATCH-PL1",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951110,
@@ -185,7 +189,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951120,
@@ -236,7 +241,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951130,
@@ -287,7 +293,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951140,
@@ -338,7 +345,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951150,
@@ -389,7 +397,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951160,
@@ -440,7 +449,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951170,
@@ -491,7 +501,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951180,
@@ -542,7 +553,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951190,
@@ -593,7 +605,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951200,
@@ -644,7 +657,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951210,
@@ -695,7 +709,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951220,
@@ -746,7 +761,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951230,
@@ -797,7 +813,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951240,
@@ -848,7 +865,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951250,
@@ -899,7 +917,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951260,
@@ -950,7 +969,30 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "response_leak_sql",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-SQL-ERROR-MATCH-PL1"
         },
         {
             "id": 951013,
@@ -981,7 +1023,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-951-DATA-LEAKAGES-SQL",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951014,
@@ -1012,7 +1055,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-951-DATA-LEAKAGES-SQL",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951015,
@@ -1043,7 +1087,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-951-DATA-LEAKAGES-SQL",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951016,
@@ -1074,7 +1119,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-951-DATA-LEAKAGES-SQL",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951017,
@@ -1105,7 +1151,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-951-DATA-LEAKAGES-SQL",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 951018,
@@ -1136,7 +1183,30 @@
             "capture": false,
             "skip_after": "END-RESPONSE-951-DATA-LEAKAGES-SQL",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "response_leak_sql",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-RESPONSE-951-DATA-LEAKAGES-SQL"
         }
     ]
 }

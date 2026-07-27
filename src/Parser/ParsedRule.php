@@ -17,6 +17,8 @@ final class ParsedRule
      * @param array<int, array{name: string, op: string, value: string}> $setvars
      * @param array<int, ParsedRule> $chain
      * @param array<int, string> $warnings
+     * @param string|null $marker Non-null only for SecMarker placeholders, which
+     *        carry no operator and exist purely as skipAfter landing points.
      */
     public function __construct(
         public readonly int $id,
@@ -38,7 +40,38 @@ final class ParsedRule
         public readonly ?string $skipAfter,
         public readonly bool $multiMatch,
         public readonly array $warnings,
+        public readonly ?string $marker = null,
     ) {
+    }
+
+    /**
+     * A SecMarker placeholder. Holds position in the rule list so that a
+     * preceding skipAfter has somewhere to land; never evaluated.
+     */
+    public static function marker(string $name, string $category): self
+    {
+        return new self(
+            id:               0,
+            phase:            0,
+            operator:         '',
+            operatorArgument: '',
+            operatorNegated:  false,
+            targets:          [],
+            transforms:       [],
+            action:           'pass',
+            severity:         'notice',
+            message:          '',
+            tags:             [],
+            paranoia:         1,
+            category:         $category,
+            setvars:          [],
+            chain:            [],
+            capture:          false,
+            skipAfter:        null,
+            multiMatch:       false,
+            warnings:         [],
+            marker:           $name,
+        );
     }
 
     /**
@@ -71,6 +104,7 @@ final class ParsedRule
             'skip_after'        => $this->skipAfter,
             'multi_match'       => $this->multiMatch,
             'warnings'          => $this->warnings,
+            'marker'            => $this->marker,
         ];
     }
 }

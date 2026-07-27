@@ -1,7 +1,7 @@
 {
     "source_file": "RESPONSE-952-DATA-LEAKAGES-JAVA.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 10,
+    "rule_count": 11,
     "rules": [
         {
             "id": 952010,
@@ -33,7 +33,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 952011,
@@ -64,7 +65,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 952012,
@@ -95,7 +97,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 952110,
@@ -141,7 +144,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 952013,
@@ -172,7 +176,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 952014,
@@ -203,7 +208,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 952015,
@@ -234,7 +240,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 952016,
@@ -265,7 +272,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 952017,
@@ -296,7 +304,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 952018,
@@ -327,7 +336,30 @@
             "capture": false,
             "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "java",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-RESPONSE-952-DATA-LEAKAGES-JAVA"
         }
     ]
 }

@@ -18,6 +18,8 @@ final class CompiledRule
      * @param array<int, string> $tags
      * @param array<int, SetVarOp> $setvars
      * @param array<int, CompiledRule> $chain
+     * @param string|null $marker Non-null only for SecMarker placeholders, which
+     *        carry no operator and exist purely as skipAfter landing points.
      */
     public function __construct(
         public readonly int $id,
@@ -39,7 +41,17 @@ final class CompiledRule
         public readonly ?string $skipAfter,
         public readonly bool $multiMatch,
         public readonly array $rawWarnings = [],
+        public readonly ?string $marker = null,
     ) {
+    }
+
+    /**
+     * True for SecMarker placeholders — no operator to evaluate, present only
+     * so a preceding skipAfter has a landing point.
+     */
+    public function isMarker(): bool
+    {
+        return $this->marker !== null;
     }
 
     /**
@@ -62,7 +74,8 @@ final class CompiledRule
      *     capture?: bool,
      *     skip_after?: ?string,
      *     multi_match?: bool,
-     *     warnings?: array<int, string>
+     *     warnings?: array<int, string>,
+     *     marker?: ?string
      * } $data
      */
     public static function fromArray(array $data): self
@@ -93,6 +106,7 @@ final class CompiledRule
             skipAfter:        $data['skip_after'] ?? null,
             multiMatch:       $data['multi_match'] ?? false,
             rawWarnings:      $data['warnings'] ?? [],
+            marker:           $data['marker'] ?? null,
         );
     }
 }

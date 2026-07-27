@@ -329,6 +329,13 @@ final class VariableResolver
     }
 
     /**
+     * TX:<name> lookup.
+     *
+     * Rules address TX variables unprefixed (`TX:ANOMALY_SCORE`) while setvar
+     * writes them prefixed (`setvar:'tx.anomaly_score=...'`), so a bare lookup
+     * misses every variable the ruleset sets. Fall back to the `tx.` prefix,
+     * mirroring RuleEvaluator::expandVariableRefs().
+     *
      * @return array<int, ResolvedValue>
      */
     private function txValue(?string $selector): array
@@ -338,6 +345,10 @@ final class VariableResolver
         }
 
         $value = $this->txStore->get($selector);
+        if ($value === null && !str_contains($selector, '.')) {
+            $value = $this->txStore->get('tx.' . $selector);
+        }
+
         return $value === null ? [] : [new ResolvedValue('TX:' . $selector, $value)];
     }
 

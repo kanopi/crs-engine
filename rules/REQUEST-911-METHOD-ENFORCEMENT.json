@@ -1,7 +1,7 @@
 {
     "source_file": "REQUEST-911-METHOD-ENFORCEMENT.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 9,
+    "rule_count": 10,
     "rules": [
         {
             "id": 911011,
@@ -32,7 +32,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-911-METHOD-ENFORCEMENT",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 911012,
@@ -63,7 +64,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-911-METHOD-ENFORCEMENT",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 911100,
@@ -107,7 +109,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 911013,
@@ -138,7 +141,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-911-METHOD-ENFORCEMENT",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 911014,
@@ -169,7 +173,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-911-METHOD-ENFORCEMENT",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 911015,
@@ -200,7 +205,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-911-METHOD-ENFORCEMENT",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 911016,
@@ -231,7 +237,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-911-METHOD-ENFORCEMENT",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 911017,
@@ -262,7 +269,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-911-METHOD-ENFORCEMENT",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 911018,
@@ -293,7 +301,30 @@
             "capture": false,
             "skip_after": "END-REQUEST-911-METHOD-ENFORCEMENT",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "rce",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-REQUEST-911-METHOD-ENFORCEMENT"
         }
     ]
 }

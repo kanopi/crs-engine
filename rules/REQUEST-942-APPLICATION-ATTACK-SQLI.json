@@ -1,7 +1,7 @@
 {
     "source_file": "REQUEST-942-APPLICATION-ATTACK-SQLI.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 61,
+    "rule_count": 62,
     "rules": [
         {
             "id": 942011,
@@ -32,7 +32,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-942-APPLICATION-ATTACK-SQLI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942012,
@@ -63,7 +64,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-942-APPLICATION-ATTACK-SQLI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942140,
@@ -143,7 +145,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942151,
@@ -223,7 +226,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942160,
@@ -311,7 +315,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942170,
@@ -391,7 +396,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942190,
@@ -472,7 +478,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942220,
@@ -552,7 +559,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942230,
@@ -632,7 +640,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942240,
@@ -712,7 +721,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942250,
@@ -792,7 +802,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942270,
@@ -872,7 +883,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942280,
@@ -966,7 +978,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942290,
@@ -1046,7 +1059,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942320,
@@ -1126,7 +1140,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942350,
@@ -1207,7 +1222,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942360,
@@ -1287,7 +1303,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942500,
@@ -1367,7 +1384,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": true,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942540,
@@ -1448,7 +1466,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942560,
@@ -1529,7 +1548,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942550,
@@ -1617,7 +1637,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942013,
@@ -1648,7 +1669,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-942-APPLICATION-ATTACK-SQLI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942014,
@@ -1679,7 +1701,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-942-APPLICATION-ATTACK-SQLI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942120,
@@ -1753,7 +1776,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942130,
@@ -1872,7 +1896,8 @@
                     "capture": true,
                     "skip_after": null,
                     "multi_match": true,
-                    "warnings": []
+                    "warnings": [],
+                    "marker": null
                 },
                 {
                     "id": 942150,
@@ -1952,13 +1977,15 @@
                     "capture": true,
                     "skip_after": null,
                     "multi_match": false,
-                    "warnings": []
+                    "warnings": [],
+                    "marker": null
                 }
             ],
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942180,
@@ -2038,7 +2065,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942200,
@@ -2196,13 +2224,15 @@
                     "capture": true,
                     "skip_after": null,
                     "multi_match": false,
-                    "warnings": []
+                    "warnings": [],
+                    "marker": null
                 }
             ],
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942260,
@@ -2282,7 +2312,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942300,
@@ -2362,7 +2393,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942310,
@@ -2442,7 +2474,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942330,
@@ -2522,7 +2555,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942340,
@@ -2602,7 +2636,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942361,
@@ -2682,7 +2717,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942362,
@@ -2762,7 +2798,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942370,
@@ -2856,7 +2893,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942380,
@@ -2936,7 +2974,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942390,
@@ -3016,7 +3055,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942400,
@@ -3096,7 +3136,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942410,
@@ -3176,7 +3217,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942470,
@@ -3256,7 +3298,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942480,
@@ -3350,7 +3393,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942430,
@@ -3416,7 +3460,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942440,
@@ -3560,13 +3605,15 @@
                     "capture": true,
                     "skip_after": null,
                     "multi_match": false,
-                    "warnings": []
+                    "warnings": [],
+                    "marker": null
                 }
             ],
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942510,
@@ -3646,7 +3693,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942520,
@@ -3726,7 +3774,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942521,
@@ -3862,13 +3911,15 @@
                     "capture": true,
                     "skip_after": null,
                     "multi_match": false,
-                    "warnings": []
+                    "warnings": [],
+                    "marker": null
                 }
             ],
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942152,
@@ -3927,7 +3978,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942321,
@@ -3986,7 +4038,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942015,
@@ -4017,7 +4070,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-942-APPLICATION-ATTACK-SQLI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942016,
@@ -4048,7 +4102,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-942-APPLICATION-ATTACK-SQLI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942251,
@@ -4128,7 +4183,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942490,
@@ -4208,7 +4264,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942420,
@@ -4267,7 +4324,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942431,
@@ -4347,7 +4405,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942460,
@@ -4398,7 +4457,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942511,
@@ -4478,7 +4538,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942530,
@@ -4558,7 +4619,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942017,
@@ -4589,7 +4651,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-942-APPLICATION-ATTACK-SQLI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942018,
@@ -4620,7 +4683,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-942-APPLICATION-ATTACK-SQLI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942421,
@@ -4679,7 +4743,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 942432,
@@ -4745,7 +4810,30 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "sqli",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-REQUEST-942-APPLICATION-ATTACK-SQLI"
         }
     ]
 }

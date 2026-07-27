@@ -1,7 +1,7 @@
 {
     "source_file": "REQUEST-921-PROTOCOL-ATTACK.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 26,
+    "rule_count": 27,
     "rules": [
         {
             "id": 921011,
@@ -32,7 +32,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921012,
@@ -63,7 +64,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921110,
@@ -137,7 +139,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921120,
@@ -217,7 +220,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921130,
@@ -298,7 +302,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921140,
@@ -357,7 +362,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921150,
@@ -408,7 +414,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921160,
@@ -467,7 +474,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921190,
@@ -519,7 +527,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921200,
@@ -593,7 +602,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921421,
@@ -640,7 +650,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921240,
@@ -688,7 +699,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921250,
@@ -734,7 +746,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921013,
@@ -765,7 +778,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921014,
@@ -796,7 +810,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921151,
@@ -847,7 +862,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921422,
@@ -894,7 +910,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921015,
@@ -925,7 +942,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921016,
@@ -956,7 +974,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921230,
@@ -1002,7 +1021,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921170,
@@ -1045,7 +1065,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921180,
@@ -1094,7 +1115,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921210,
@@ -1143,7 +1165,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921017,
@@ -1174,7 +1197,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921018,
@@ -1205,7 +1229,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 921220,
@@ -1254,7 +1279,30 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "protocol_attack",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-REQUEST-921-PROTOCOL-ATTACK"
         }
     ]
 }

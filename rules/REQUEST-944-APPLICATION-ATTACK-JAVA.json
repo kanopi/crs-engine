@@ -1,7 +1,7 @@
 {
     "source_file": "REQUEST-944-APPLICATION-ATTACK-JAVA.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 20,
+    "rule_count": 21,
     "rules": [
         {
             "id": 944011,
@@ -32,7 +32,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 944012,
@@ -63,7 +64,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 944100,
@@ -171,7 +173,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 944110,
@@ -360,7 +363,8 @@
                     "capture": false,
                     "skip_after": null,
                     "multi_match": false,
-                    "warnings": []
+                    "warnings": [],
+                    "marker": null
                 },
                 {
                     "id": 944130,
@@ -474,13 +478,15 @@
                     "capture": false,
                     "skip_after": null,
                     "multi_match": false,
-                    "warnings": []
+                    "warnings": [],
+                    "marker": null
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 944140,
@@ -561,7 +567,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 944150,
@@ -671,7 +678,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 944013,
@@ -702,7 +710,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 944014,
@@ -733,7 +742,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 944151,
@@ -843,7 +853,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 944200,
@@ -948,7 +959,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 944210,
@@ -1053,7 +1065,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 944240,
@@ -1161,7 +1174,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 944250,
@@ -1268,7 +1282,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 944260,
@@ -1375,7 +1390,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 944015,
@@ -1406,7 +1422,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 944016,
@@ -1437,7 +1454,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 944300,
@@ -1544,7 +1562,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 944017,
@@ -1575,7 +1594,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 944018,
@@ -1606,7 +1626,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 944152,
@@ -1716,7 +1737,30 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "java",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-REQUEST-944-APPLICATION-ATTACK-JAVA"
         }
     ]
 }

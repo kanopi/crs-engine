@@ -1,7 +1,7 @@
 {
     "source_file": "RESPONSE-953-DATA-LEAKAGES-PHP.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 13,
+    "rule_count": 14,
     "rules": [
         {
             "id": 953010,
@@ -33,7 +33,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 953011,
@@ -64,7 +65,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 953012,
@@ -95,7 +97,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 953100,
@@ -141,7 +144,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 953110,
@@ -187,7 +191,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 953120,
@@ -233,7 +238,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 953013,
@@ -264,7 +270,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 953014,
@@ -295,7 +302,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 953101,
@@ -341,7 +349,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 953015,
@@ -372,7 +381,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 953016,
@@ -403,7 +413,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 953017,
@@ -434,7 +445,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 953018,
@@ -465,7 +477,30 @@
             "capture": false,
             "skip_after": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "php",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-RESPONSE-953-DATA-LEAKAGES-PHP"
         }
     ]
 }

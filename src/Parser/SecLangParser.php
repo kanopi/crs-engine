@@ -89,7 +89,24 @@ final class SecLangParser
             $directive = $this->readWord($stmt);
             $rest = trim(substr($stmt, strlen($directive)));
 
+            // SecMarker is the landing point for skipAfter. It has to keep its
+            // position in the rule list, otherwise a skip started earlier in
+            // the file never terminates and the rest of the ruleset is
+            // silently discarded.
             if (strcasecmp($directive, 'SecMarker') === 0) {
+                // An unterminated chain must be flushed first so the marker
+                // keeps its position relative to the rules around it.
+                if ($pendingChainParent instanceof RuleParseState) {
+                    $rules[] = $this->attachChain($pendingChainParent, $pendingChain);
+                    $pendingChainParent = null;
+                    $pendingChain = [];
+                }
+
+                $name = $this->markerName($rest);
+                if ($name !== '') {
+                    $rules[] = ParsedRule::marker($name, $category);
+                }
+
                 continue;
             }
 
@@ -203,6 +220,16 @@ final class SecLangParser
         }
 
         return $out;
+    }
+
+    /**
+     * Extract the marker name from a SecMarker directive body, which may be
+     * bare (`SecMarker END-FOO`) or quoted (`SecMarker "END-FOO"`).
+     */
+    private function markerName(string $rest): string
+    {
+        $tokens = $this->tokenize(trim($rest));
+        return $tokens[0] ?? '';
     }
 
     private function readWord(string $s): string

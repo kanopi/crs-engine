@@ -1,7 +1,7 @@
 {
     "source_file": "REQUEST-931-APPLICATION-ATTACK-RFI.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 12,
+    "rule_count": 13,
     "rules": [
         {
             "id": 931011,
@@ -32,7 +32,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-931-APPLICATION-ATTACK-RFI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 931012,
@@ -63,7 +64,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-931-APPLICATION-ATTACK-RFI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 931100,
@@ -122,7 +124,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 931110,
@@ -181,7 +184,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 931120,
@@ -232,7 +236,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 931013,
@@ -263,7 +268,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-931-APPLICATION-ATTACK-RFI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 931014,
@@ -294,7 +300,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-931-APPLICATION-ATTACK-RFI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 931130,
@@ -387,13 +394,15 @@
                     "capture": true,
                     "skip_after": null,
                     "multi_match": false,
-                    "warnings": []
+                    "warnings": [],
+                    "marker": null
                 }
             ],
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 931015,
@@ -424,7 +433,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-931-APPLICATION-ATTACK-RFI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 931016,
@@ -455,7 +465,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-931-APPLICATION-ATTACK-RFI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 931017,
@@ -486,7 +497,8 @@
             "capture": false,
             "skip_after": "END-REQUEST-931-APPLICATION-ATTACK-RFI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 931018,
@@ -517,7 +529,30 @@
             "capture": false,
             "skip_after": "END-REQUEST-931-APPLICATION-ATTACK-RFI",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "rfi",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-REQUEST-931-APPLICATION-ATTACK-RFI"
         }
     ]
 }

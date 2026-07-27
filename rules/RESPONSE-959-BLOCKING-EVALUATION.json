@@ -1,7 +1,7 @@
 {
     "source_file": "RESPONSE-959-BLOCKING-EVALUATION.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 25,
+    "rule_count": 27,
     "rules": [
         {
             "id": 959052,
@@ -40,7 +40,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959152,
@@ -79,7 +80,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959053,
@@ -118,7 +120,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959153,
@@ -157,7 +160,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959054,
@@ -196,7 +200,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959154,
@@ -235,7 +240,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959055,
@@ -274,7 +280,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959155,
@@ -313,7 +320,30 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "EARLY_BLOCKING_ANOMALY_SCORING"
         },
         {
             "id": 959060,
@@ -352,7 +382,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959160,
@@ -391,7 +422,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959061,
@@ -430,7 +462,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959161,
@@ -469,7 +502,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959062,
@@ -508,7 +542,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959162,
@@ -547,7 +582,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959063,
@@ -586,7 +622,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959163,
@@ -625,7 +662,8 @@
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959101,
@@ -688,13 +726,15 @@
                     "capture": false,
                     "skip_after": null,
                     "multi_match": false,
-                    "warnings": []
+                    "warnings": [],
+                    "marker": null
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959011,
@@ -725,7 +765,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-959-BLOCKING-EVALUATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959012,
@@ -756,7 +797,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-959-BLOCKING-EVALUATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959013,
@@ -787,7 +829,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-959-BLOCKING-EVALUATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959014,
@@ -818,7 +861,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-959-BLOCKING-EVALUATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959015,
@@ -849,7 +893,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-959-BLOCKING-EVALUATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959016,
@@ -880,7 +925,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-959-BLOCKING-EVALUATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959017,
@@ -911,7 +957,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-959-BLOCKING-EVALUATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 959018,
@@ -942,7 +989,30 @@
             "capture": false,
             "skip_after": "END-RESPONSE-959-BLOCKING-EVALUATION",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-RESPONSE-959-BLOCKING-EVALUATION"
         }
     ]
 }

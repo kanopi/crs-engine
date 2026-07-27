@@ -1,7 +1,7 @@
 {
     "source_file": "RESPONSE-956-DATA-LEAKAGES-RUBY.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 11,
+    "rule_count": 12,
     "rules": [
         {
             "id": 956010,
@@ -33,7 +33,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 956011,
@@ -64,7 +65,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 956012,
@@ -95,7 +97,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 956100,
@@ -141,7 +144,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 956013,
@@ -172,7 +176,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 956014,
@@ -203,7 +208,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 956110,
@@ -249,7 +255,8 @@
             "capture": true,
             "skip_after": null,
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 956015,
@@ -280,7 +287,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 956016,
@@ -311,7 +319,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 956017,
@@ -342,7 +351,8 @@
             "capture": false,
             "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
         },
         {
             "id": 956018,
@@ -373,7 +383,30 @@
             "capture": false,
             "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
             "multi_match": false,
-            "warnings": []
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 0,
+            "phase": 0,
+            "operator": "",
+            "operator_arg": "",
+            "operator_negated": false,
+            "targets": [],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": "END-RESPONSE-956-DATA-LEAKAGES-RUBY"
         }
     ]
 }
