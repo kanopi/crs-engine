@@ -24,14 +24,6 @@ final class SecLangParser
         'validateByteRange', 'validateUrlEncoding', 'validateUtf8Encoding',
     ];
 
-    /** Default CRS anomaly-score constants used when a rule references them. */
-    private const ANOMALY_DEFAULTS = [
-        'tx.critical_anomaly_score' => 5,
-        'tx.error_anomaly_score'    => 4,
-        'tx.warning_anomaly_score'  => 3,
-        'tx.notice_anomaly_score'   => 2,
-    ];
-
     /** @var array<int, string> */
     public array $warnings = [];
 
@@ -104,8 +96,28 @@ final class SecLangParser
                 continue;
             }
 
+            // SecAction is unconditional. CRS relies on it to reset the
+            // aggregate anomaly scores at the start of phase 2 — without that
+            // reset the per-paranoia-level buckets are counted twice, once by
+            // the phase-1 aggregation and again by the phase-2 one.
             if (strcasecmp($directive, 'SecAction') === 0) {
                 $this->dropUnterminatedChain($pendingChainParent, $pendingChain, $sourceFile, $line, 'SecAction');
+
+                $tokens = $this->tokenize($rest);
+                $parsedActions = $this->parseActions($tokens[0] ?? '');
+                if ($parsedActions->id === 0) {
+                    $this->warnings[] = sprintf('%s:%d — SecAction has no id, skipping', $sourceFile, $line);
+                    continue;
+                }
+
+                $rules[] = ParsedRule::unconditional(
+                    $parsedActions->id,
+                    $parsedActions->phase,
+                    $parsedActions->setvars,
+                    $parsedActions->tags,
+                    $category,
+                );
+
                 continue;
             }
 
@@ -726,20 +738,11 @@ final class SecLangParser
             $rhs = substr($rhs, 1);
         }
 
-        $rhs = $this->resolveVarRefs($rhs);
+        // %{...} on the right-hand side is left intact for the evaluator to
+        // expand per request. Resolving it here collapsed every reference the
+        // parser did not recognise to a literal 0, which is what made the 949
+        // aggregation rules add nothing and left anomaly blocking dead.
         return ['name' => $name, 'op' => $op, 'value' => $rhs];
-    }
-
-    private function resolveVarRefs(string $value): string
-    {
-        return (string) preg_replace_callback(
-            '/%\{([^}]+)\}/',
-            static function (array $m): string {
-                $key = strtolower($m[1]);
-                return (string) (self::ANOMALY_DEFAULTS[$key] ?? 0);
-            },
-            $value
-        );
     }
 
     /**

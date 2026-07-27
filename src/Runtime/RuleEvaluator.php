@@ -16,6 +16,20 @@ use Kanopi\Crs\Variables\VariableResolver;
 
 final class RuleEvaluator
 {
+    /**
+     * Actions that stop evaluation and block. `block` is deliberately absent:
+     * in CRS it defers to SecDefaultAction, which is `pass` for detection
+     * rules. Only the 949/959 blocking-evaluation rules carry `deny`.
+     */
+    private const DISRUPTIVE_ACTIONS = ['deny', 'drop'];
+
+    /**
+     * Engine-level accumulators and constants. They live in the same tx.*_score
+     * namespace as the per-category counters but are not categories, so they
+     * must not surface in CrsVerdict::$scores.
+     */
+    private const ANOMALY_ACCUMULATOR_MARKER = 'anomaly_score';
+
     public function __construct(
         private readonly OperatorRegistry $operatorRegistry,
         private readonly TransformRegistry $transformRegistry,
@@ -94,6 +108,14 @@ final class RuleEvaluator
                 continue;
             }
 
+            // SecAction: no operator to test, applies to every request. Used by
+            // CRS for score bookkeeping, so it must run — but it is not a
+            // detection and does not belong in the matched-rule report.
+            if ($compiledRule->isUnconditional()) {
+                $this->applySetvars($compiledRule, $txStore);
+                continue;
+            }
+
             if (!$this->operatorRegistry->has($compiledRule->operator)) {
                 continue;
             }
@@ -105,17 +127,32 @@ final class RuleEvaluator
 
             $this->applySetvars($compiledRule, $txStore);
 
-            $matched[] = [
-                'id'           => $compiledRule->id,
-                'msg'          => $compiledRule->message,
-                'severity'     => $compiledRule->severity,
-                'score'        => $this->scoreFromSetvars($compiledRule),
-                'tags'         => $compiledRule->tags,
-                'category'     => $compiledRule->category,
-                'matched_data' => $hit->matchedData,
-            ];
+            // Report detections, not control flow. CRS's paranoia gates, skip
+            // rules and score aggregators match constantly and carry neither a
+            // message nor an anomaly contribution; listing them buries the two
+            // findings that matter under twenty that don't. Every rule in the
+            // shipped ruleset that contributes score also has a message, so
+            // this drops nothing real.
+            $score = $this->scoreFromSetvars($compiledRule, $txStore);
+            if ($compiledRule->message !== '' || $score !== 0) {
+                $matched[] = [
+                    'id'           => $compiledRule->id,
+                    'msg'          => $compiledRule->message,
+                    'severity'     => $compiledRule->severity,
+                    'score'        => $score,
+                    'tags'         => $compiledRule->tags,
+                    'category'     => $compiledRule->category,
+                    'matched_data' => $hit->matchedData,
+                ];
+            }
 
-            if ((in_array($compiledRule->action, ['deny', 'block', 'drop'], true)) && $this->crsConfig->mode === CrsConfig::MODE_BLOCK) {
+            // Only `deny` and `drop` are disruptive. In CRS, `block` defers to
+            // SecDefaultAction, which for the detection rules is `pass` — they
+            // contribute anomaly score and nothing else. Treating `block` as
+            // disruptive short-circuited on the first match, which bypassed
+            // anomaly scoring entirely and made anomalyThresholds inert.
+            // The 949/959 blocking-evaluation rules carry the real `deny`.
+            if (in_array($compiledRule->action, self::DISRUPTIVE_ACTIONS, true) && $this->crsConfig->mode === CrsConfig::MODE_BLOCK) {
                 $blockingId = $compiledRule->id;
                 break;
             }
@@ -126,8 +163,8 @@ final class RuleEvaluator
         }
 
         $scores     = $this->scoresByCategory($txStore);
-        $totalScore = $this->totalScore($txStore);
-        $action     = $this->decideAction($blockingId, $totalScore);
+        $totalScore = $this->totalScore($txStore, $requestPhase);
+        $action     = $this->decideAction($blockingId, $totalScore, $requestPhase);
 
         return new CrsVerdict($action, $scores, $matched, $totalScore, $blockingId);
     }
@@ -225,7 +262,10 @@ final class RuleEvaluator
         foreach ($compiledRule->setvars as $sv) {
             $name  = $sv['name'];
             $op    = $sv['op'];
-            $value = $sv['value'];
+            // Right-hand sides carry live references — CRS aggregates with
+            // setvar:'tx.blocking_inbound_anomaly_score=+%{tx.inbound_anomaly_score_pl1}'
+            // — so they have to be expanded per request, not at parse time.
+            $value = $this->expandVariableRefs($sv['value'], $txStore);
             switch ($op) {
                 case '=':
                     $txStore->set($name, $value);
@@ -243,7 +283,15 @@ final class RuleEvaluator
         }
     }
 
-    private function scoreFromSetvars(CompiledRule $compiledRule): int
+    /**
+     * What this rule contributed to the anomaly total.
+     *
+     * A CRS rule increments two counters with the same value — its category
+     * counter and the paranoia-level anomaly bucket — so summing everything
+     * matching `_score` reported double the real contribution. Count the
+     * anomaly bucket only; the category counters are reported via $scores.
+     */
+    private function scoreFromSetvars(CompiledRule $compiledRule, TxStore $txStore): int
     {
         $score = 0;
         foreach ($compiledRule->setvars as $sv) {
@@ -251,17 +299,24 @@ final class RuleEvaluator
                 continue;
             }
 
-            if (!str_contains($sv['name'], '_score')) {
+            // Only the per-paranoia-level bucket. The 949/959 rules aggregate
+            // those buckets into blocking_*/detection_* totals; counting those
+            // too would report the running total as if the rule contributed it.
+            if (!preg_match('/_anomaly_score_pl\d+$/', strtolower($sv['name']))) {
                 continue;
             }
 
-            $score += (int) $sv['value'];
+            $score += (int) $this->expandVariableRefs($sv['value'], $txStore);
         }
 
         return $score;
     }
 
     /**
+     * Per-attack-category scores (sql_injection, xss, rce, ...). Everything in
+     * the tx.*anomaly_score* family is an engine accumulator or a severity
+     * constant, not a category, and is reported via $totalScore instead.
+     *
      * @return array<string, int>
      */
     private function scoresByCategory(TxStore $txStore): array
@@ -269,16 +324,7 @@ final class RuleEvaluator
         $out = [];
         foreach ($txStore->all() as $key => $value) {
             $clean = preg_replace('/^tx\./', '', $key) ?? $key;
-            // Skip CRS seed defaults so they don't masquerade as categories.
-            if (in_array($clean, ['critical_anomaly_score', 'error_anomaly_score', 'warning_anomaly_score', 'notice_anomaly_score', 'inbound_anomaly_score_threshold', 'outbound_anomaly_score_threshold'], true)) {
-                continue;
-            }
-
-            if (preg_match('/^inbound_anomaly_score(?:_pl\d+)?$/', $clean)) {
-                continue;
-            }
-
-            if (preg_match('/^outbound_anomaly_score$/', $clean)) {
+            if (str_contains($clean, self::ANOMALY_ACCUMULATOR_MARKER)) {
                 continue;
             }
 
@@ -290,27 +336,61 @@ final class RuleEvaluator
         return $out;
     }
 
-    private function totalScore(TxStore $txStore): int
+    /**
+     * The anomaly total for the phase just evaluated.
+     *
+     * CRS aggregates the per-paranoia-level buckets into
+     * tx.blocking_{inbound,outbound}_anomaly_score in its 949/959 rules. Prefer
+     * that, and fall back to summing the buckets directly so a custom ruleset
+     * without the 949/959 series still reports a total.
+     */
+    private function totalScore(TxStore $txStore, bool $requestPhase): int
     {
-        $total = 0;
+        $direction = $requestPhase ? 'inbound' : 'outbound';
+
+        // 1. What CRS 4 produces: the 949/959 rules aggregate the buckets into
+        //    tx.blocking_<direction>_anomaly_score.
+        $aggregate = (int) ($txStore->get('tx.blocking_' . $direction . '_anomaly_score') ?? '0');
+        if ($aggregate > 0) {
+            return $aggregate;
+        }
+
+        // 2. A ruleset carrying the per-paranoia-level buckets but not the
+        //    949/959 aggregation rules.
+        $buckets = 0;
         foreach ($txStore->all() as $key => $value) {
             $clean = preg_replace('/^tx\./', '', $key) ?? $key;
-            if (preg_match('/^inbound_anomaly_score_pl\d+$/', $clean)) {
-                $total += (int) $value;
+            if (preg_match('/^' . $direction . '_anomaly_score_pl\d+$/', $clean)) {
+                $buckets += (int) $value;
             }
         }
 
-        return $total;
+        if ($buckets > 0) {
+            return $buckets;
+        }
+
+        // 3. A ruleset that accumulates straight into the undivided counter.
+        return (int) ($txStore->get('tx.' . $direction . '_anomaly_score') ?? '0');
     }
 
-    private function decideAction(?int $blockingId, int $totalScore): string
+    /**
+     * Inbound and outbound have separate thresholds in CRS. The config keys are
+     * still named by severity — see #14 — so map them here rather than at the
+     * call site.
+     */
+    private function thresholdFor(bool $requestPhase): int
+    {
+        $key = $requestPhase ? 'critical' : 'error';
+        return $this->crsConfig->anomalyThresholds[$key] ?? PHP_INT_MAX;
+    }
+
+    private function decideAction(?int $blockingId, int $totalScore, bool $requestPhase): string
     {
         if ($blockingId !== null && $this->crsConfig->mode === CrsConfig::MODE_BLOCK) {
             return CrsVerdict::ACTION_BLOCK;
         }
 
-        $threshold = $this->crsConfig->anomalyThresholds['critical'] ?? PHP_INT_MAX;
-        if ($totalScore >= $threshold) {
+        if ($totalScore >= $this->thresholdFor($requestPhase)) {
             return $this->crsConfig->mode === CrsConfig::MODE_BLOCK
                 ? CrsVerdict::ACTION_BLOCK
                 : CrsVerdict::ACTION_LOG;

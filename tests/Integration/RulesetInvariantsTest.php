@@ -124,18 +124,36 @@ final class RulesetInvariantsTest extends TestCase
             flags: JSON_THROW_ON_ERROR,
         );
 
-        $topLevel = count(array_filter(self::$top, static fn (CompiledRule $compiledRule): bool => !$compiledRule->isMarker()));
+        $secRules   = 0;
+        $secActions = 0;
+        foreach (self::$top as $rule) {
+            if ($rule->isMarker()) {
+                continue;
+            }
+
+            if ($rule->isUnconditional()) {
+                $secActions++;
+                continue;
+            }
+
+            $secRules++;
+        }
 
         // 587 upstream SecRule directives across the 24 parsed files, less the
         // 4 that use libinjection operators we do not implement.
         $this->assertSame(
             583,
-            $topLevel,
+            $secRules,
             sprintf(
-                'Expected 583 top-level rules (587 upstream - 4 unsupported); manifest reports %s total entries. A shortfall means the parser is dropping or swallowing rules.',
+                'Expected 583 top-level SecRules (587 upstream - 4 unsupported); manifest reports %s total entries. A shortfall means the parser is dropping or swallowing rules.',
                 (string) ($manifest['rule_count'] ?? '?'),
             ),
         );
+
+        // The 6 SecAction directives are load-bearing: two reset the inbound
+        // aggregate at the start of phase 2, two do the same for outbound, and
+        // 980099/980170 roll the totals up for correlation.
+        $this->assertSame(6, $secActions, 'Missing SecAction directives double-count per-paranoia-level scores across phases.');
     }
 
     public function testRulesetContainsMarkers(): void

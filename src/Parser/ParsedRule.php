@@ -41,7 +41,43 @@ final class ParsedRule
         public readonly bool $multiMatch,
         public readonly array $warnings,
         public readonly ?string $marker = null,
+        public readonly bool $unconditional = false,
     ) {
+    }
+
+    /**
+     * A SecAction — an unconditional directive that applies its actions to
+     * every request. CRS uses them for bookkeeping, most importantly to reset
+     * the aggregate anomaly scores at the start of phase 2 so per-paranoia-level
+     * scores are not counted twice across phases.
+     *
+     * @param array<int, array{name: string, op: string, value: string}> $setvars
+     * @param array<int, string> $tags
+     */
+    public static function unconditional(int $id, int $phase, array $setvars, array $tags, string $category): self
+    {
+        return new self(
+            id:               $id,
+            phase:            $phase,
+            operator:         '',
+            operatorArgument: '',
+            operatorNegated:  false,
+            targets:          [],
+            transforms:       [],
+            action:           'pass',
+            severity:         'notice',
+            message:          '',
+            tags:             $tags,
+            paranoia:         1,
+            category:         $category,
+            setvars:          $setvars,
+            chain:            [],
+            capture:          false,
+            skipAfter:        null,
+            multiMatch:       false,
+            warnings:         [],
+            unconditional:    true,
+        );
     }
 
     /**
@@ -71,6 +107,7 @@ final class ParsedRule
             multiMatch:       false,
             warnings:         [],
             marker:           $name,
+            unconditional:    false,
         );
     }
 
@@ -105,6 +142,7 @@ final class ParsedRule
             'multi_match'       => $this->multiMatch,
             'warnings'          => $this->warnings,
             'marker'            => $this->marker,
+            'unconditional'     => $this->unconditional,
         ];
     }
 }
