@@ -114,8 +114,12 @@ final class TransformPipeline
 
         $out = [];
         foreach ($names as $name) {
+            // Skipping an unknown transform is the right call mid-request —
+            // the rest of the pipeline still normalises something — but it is
+            // not something to discover here. SecLangParser reports unknown
+            // names into manifest.json at parse time, where they can be acted
+            // on rather than absorbed 619 rules at a time.
             if (!$this->transformRegistry->has($name)) {
-                $this->transformRegistry->recordUnknown($name);
                 continue;
             }
 

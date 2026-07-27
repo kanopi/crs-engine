@@ -14,6 +14,15 @@ use Kanopi\Crs\Parser\ParsedRule;
  */
 final class RuleWriter
 {
+    /**
+     * The only file the runtime reads when it is present — see
+     * RuleSet::loadFromDirectory(). Everything else in rules/ is a review
+     * artifact, which is what makes an atomic swap achievable: replacing one
+     * file with rename() is a single atomic operation, replacing a directory
+     * is not.
+     */
+    private const COMPILED = 'compiled.php';
+
     public function __construct(private readonly string $rulesDir)
     {
         if (!is_dir($rulesDir) && !@mkdir($rulesDir, 0755, true) && !is_dir($rulesDir)) {
@@ -47,6 +56,13 @@ final class RuleWriter
             $this->removeDirectory($staging);
             throw $throwable;
         }
+
+        // swapIntoPlace() moves files out of staging one at a time rather than
+        // renaming the directory wholesale, so the empty shell is still here and
+        // has to be cleared explicitly. Left behind, the next run finds it
+        // already present, skips past its own mkdir guard, and builds into a
+        // directory it did not create.
+        $this->removeDirectory($staging);
 
         return $stats;
     }
@@ -126,29 +142,140 @@ final class RuleWriter
     }
 
     /**
-     * Swap staging in for the live directory. The old directory is moved
-     * aside rather than deleted, so a failed swap can be rolled back and the
-     * previous ruleset survives.
+     * Swap staging in for the live ruleset without rules/ ever being absent.
+     *
+     * The previous implementation renamed rules/ aside and then renamed staging
+     * into its place. Two renames means a window — short, but a real one — in
+     * which rules/ does not exist, and a worker calling
+     * RuleSet::loadFromDirectory() during it got a hard ConfigurationException
+     * rather than a stale-but-valid ruleset. A directory cannot be replaced
+     * atomically; rename() over an existing *file* can be.
+     *
+     * So the order is inverted. rules/ stays where it is, the review artifacts
+     * are moved in first, and compiled.php — the only file the runtime reads —
+     * goes last in a single rename(). A reader therefore sees either the whole
+     * old ruleset or the whole new one, and never nothing.
+     *
+     * A copy of the previous contents is kept until the swap completes so a
+     * failure part-way through can be undone. It is a copy rather than a
+     * rename precisely because rules/ has to stay readable throughout.
      */
     private function swapIntoPlace(string $staging): void
     {
+        if (!is_dir($this->rulesDir) && !@mkdir($this->rulesDir, 0755, true) && !is_dir($this->rulesDir)) {
+            throw new \RuntimeException('Could not create rules directory: ' . $this->rulesDir);
+        }
+
         $backup = $this->rulesDir . '.backup-' . getmypid();
         $this->removeDirectory($backup);
+        $this->copyDirectory($this->rulesDir, $backup);
 
-        $hadPrevious = is_dir($this->rulesDir);
-        if ($hadPrevious && !@rename($this->rulesDir, $backup)) {
-            throw new \RuntimeException('Could not move the existing ruleset aside: ' . $this->rulesDir);
-        }
-
-        if (!@rename($staging, $this->rulesDir)) {
-            if ($hadPrevious) {
-                @rename($backup, $this->rulesDir);
+        try {
+            $staged = [];
+            foreach (glob($staging . '/*') ?: [] as $file) {
+                $staged[basename($file)] = $file;
             }
 
-            throw new \RuntimeException('Could not move the new ruleset into place: ' . $this->rulesDir);
+            // Artifacts first. Each rename() is atomic on its own, and none of
+            // them is what the runtime loads, so a reader during this stretch
+            // still gets the old compiled.php in full.
+            foreach ($staged as $name => $file) {
+                if ($name === self::COMPILED) {
+                    continue;
+                }
+
+                if (!@rename($file, $this->rulesDir . '/' . $name)) {
+                    throw new \RuntimeException('Could not move ' . $name . ' into ' . $this->rulesDir);
+                }
+            }
+
+            // Anything the new ruleset no longer has — a CRS release that
+            // dropped a rule file. Removed before the flip so the new
+            // compiled.php never coexists with artifacts it does not describe.
+            foreach (glob($this->rulesDir . '/*') ?: [] as $existing) {
+                $name = basename($existing);
+                if ($name === self::COMPILED) {
+                    continue;
+                }
+
+                if (isset($staged[$name])) {
+                    continue;
+                }
+
+                if (is_dir($existing)) {
+                    $this->removeDirectory($existing);
+                    continue;
+                }
+
+                @unlink($existing);
+            }
+
+            // The flip.
+            if (isset($staged[self::COMPILED]) && !@rename($staged[self::COMPILED], $this->rulesDir . '/' . self::COMPILED)) {
+                throw new \RuntimeException('Could not move the compiled ruleset into place: ' . $this->rulesDir);
+            }
+        } catch (\Throwable $throwable) {
+            $this->restoreFrom($backup);
+            throw $throwable;
         }
 
         $this->removeDirectory($backup);
+    }
+
+    /**
+     * Put the previous contents back after a failed swap. compiled.php is
+     * restored last for the same reason it is written last.
+     */
+    private function restoreFrom(string $backup): void
+    {
+        if (!is_dir($backup)) {
+            return;
+        }
+
+        foreach (glob($this->rulesDir . '/*') ?: [] as $existing) {
+            if (basename($existing) === self::COMPILED) {
+                continue;
+            }
+
+            if (is_dir($existing)) {
+                $this->removeDirectory($existing);
+                continue;
+            }
+
+            @unlink($existing);
+        }
+
+        $compiled = null;
+        foreach (glob($backup . '/*') ?: [] as $file) {
+            if (basename($file) === self::COMPILED) {
+                $compiled = $file;
+                continue;
+            }
+
+            @copy($file, $this->rulesDir . '/' . basename($file));
+        }
+
+        if ($compiled !== null) {
+            @copy($compiled, $this->rulesDir . '/' . self::COMPILED);
+        }
+    }
+
+    private function copyDirectory(string $from, string $to): void
+    {
+        if (!is_dir($to) && !@mkdir($to, 0755, true) && !is_dir($to)) {
+            throw new \RuntimeException('Could not create backup directory: ' . $to);
+        }
+
+        foreach (glob($from . '/*') ?: [] as $file) {
+            if (is_dir($file)) {
+                $this->copyDirectory($file, $to . '/' . basename($file));
+                continue;
+            }
+
+            if (!@copy($file, $to . '/' . basename($file))) {
+                throw new \RuntimeException('Could not back up ' . $file);
+            }
+        }
     }
 
     private function removeDirectory(string $dir): void

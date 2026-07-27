@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Kanopi\Crs\Parser;
 
 use Kanopi\Crs\Exception\ParseException;
+use Kanopi\Crs\Transforms\TransformRegistry;
 
 /**
  * Parses ModSecurity SecLang .conf files into ParsedRule objects.
@@ -16,11 +17,27 @@ use Kanopi\Crs\Exception\ParseException;
  * reset aggregate scores between phases) and SecMarker (a placeholder that
  * holds its position so skipAfter has a landing point).
  *
- * Out of scope, skipped with a warning recorded in manifest.json:
+ * Out of scope. Two different treatments, because they fail differently:
+ *
+ * Rule dropped, warning recorded in manifest.json — the detection itself
+ * cannot be evaluated, so keeping the rule would be worse than losing it:
  *   - @detectSQLi / @detectXSS  (need libinjection; see supplemental/ for
  *                                what the engine does about the PL1 gap)
- *   - ctl:*, expirevar, deprecatevar, initcol and similar state management
- *   - audit log directives
+ *
+ * Rule kept, warning recorded in manifest.json — the detection still works,
+ * but an action that would have shaped it is ignored, so the rule behaves
+ * differently here than under ModSecurity:
+ *   - ctl:* (notably ctl:requestBodyProcessor, which changes what is parsed,
+ *     and ctl:ruleRemoveTargetById, which changes what rules apply to)
+ *   - expirevar, deprecatevar, initcol, setsid, setuid, setrsc — all imply
+ *     cross-request state this engine does not model
+ *
+ * Ignored in silence, because they are inert rather than unimplemented and
+ * warning on them would bury the two lists above:
+ *   - ver, rev, maturity, accuracy — metadata
+ *   - sanitiseArg, sanitiseRequestHeader, nolog, log, auditlog, noauditlog —
+ *     audit-log hints, and this engine writes no audit log
+ *   - SecAuditLog and friends as directives, which are not SecRule at all
  */
 final class SecLangParser
 {
@@ -33,6 +50,14 @@ final class SecLangParser
     /** @var array<int, string> */
     public array $warnings = [];
 
+    /**
+     * Used only to tell a transform this engine implements from one it does
+     * not, so unknown names can be reported at parse time. Injectable so a
+     * caller that has registered its own transforms is not told they are
+     * missing.
+     */
+    private readonly TransformRegistry $transformRegistry;
+
     /** @var array<int, int> */
     public array $skippedRules = [];
 
@@ -41,6 +66,11 @@ final class SecLangParser
      * Auto-populated from the .conf file's directory in parseFile().
      */
     private ?string $dataFileDir = null;
+
+    public function __construct(?TransformRegistry $transformRegistry = null)
+    {
+        $this->transformRegistry = $transformRegistry ?? new TransformRegistry();
+    }
 
     /**
      * @return array<int, ParsedRule>
@@ -116,6 +146,8 @@ final class SecLangParser
                     continue;
                 }
 
+                $this->warnUnsupportedActions($parsedActions, $sourceFile, $line);
+
                 $rules[] = ParsedRule::unconditional(
                     $parsedActions->id,
                     $parsedActions->phase,
@@ -176,8 +208,67 @@ final class SecLangParser
         }
 
         $this->dropUnterminatedChain($pendingChainParent, $pendingChain, $sourceFile, 0, 'end of file');
+        $this->warnUnknownTransforms($rules, $sourceFile);
 
         return $rules;
+    }
+
+    /**
+     * Report transforms the rules ask for that this engine does not implement.
+     *
+     * TransformPipeline skips an unknown transform at runtime and carries on,
+     * which is the right call mid-request but means the rule quietly runs on
+     * less-normalised input than its author assumed — exactly the difference
+     * anti-evasion transforms exist to remove. Nothing surfaced that: the
+     * registry recorded unknown names into a property no production code ever
+     * read, on an object CrsEngine rebuilds for every evaluate() call.
+     *
+     * Summarised per name rather than per occurrence. CRS v4.26.0 asks for six
+     * transforms this engine lacks across 76 occurrences, and 76 lines would
+     * bury the six facts worth knowing.
+     *
+     * @param array<int, ParsedRule> $rules
+     */
+    private function warnUnknownTransforms(array $rules, string $sourceFile): void
+    {
+        $counts = [];
+        $this->countUnknownTransforms($rules, $counts);
+
+        ksort($counts);
+        foreach ($counts as $name => $occurrences) {
+            $this->warnings[] = sprintf(
+                '%s — transform `t:%s` is not implemented; skipped on %d rule%s, which will '
+                . 'therefore match against less-normalised input than upstream intends',
+                $sourceFile,
+                $name,
+                $occurrences,
+                $occurrences === 1 ? '' : 's',
+            );
+        }
+    }
+
+    /**
+     * @param array<int, ParsedRule> $rules
+     * @param array<string, int> $counts
+     */
+    private function countUnknownTransforms(array $rules, array &$counts): void
+    {
+        foreach ($rules as $rule) {
+            foreach ($rule->transforms as $transform) {
+                // `none` is a pipeline directive rather than a transform.
+                if (strcasecmp($transform, 'none') === 0) {
+                    continue;
+                }
+
+                if ($this->transformRegistry->has($transform)) {
+                    continue;
+                }
+
+                $counts[$transform] = ($counts[$transform] ?? 0) + 1;
+            }
+
+            $this->countUnknownTransforms($rule->chain, $counts);
+        }
     }
 
     /**
@@ -358,6 +449,8 @@ final class SecLangParser
             $this->warnings[] = sprintf('%s:%d — SecRule has no id, skipping rule', $sourceFile, $line);
             return null;
         }
+
+        $this->warnUnsupportedActions($parsedActions, $sourceFile, $line);
 
         // Continuations should not declare an id. One that does means either
         // the file is unusual or the parser has lost sync with the chain.
@@ -632,6 +725,36 @@ final class SecLangParser
         return str_starts_with($realPath, rtrim($realDir, '/') . '/');
     }
 
+    /**
+     * Record the actions a rule declared that this engine recognises but does
+     * not implement, so they land in manifest.json alongside the unsupported
+     * operators rather than being dropped in silence.
+     *
+     * The rule still runs — these actions change behaviour at the margins
+     * rather than defining the detection — so this is a warning, not a skip.
+     * The point is that a CRS release leaning harder on ctl becomes visible in
+     * the refresh PR's warning count instead of quietly diverging.
+     */
+    private function warnUnsupportedActions(ParsedActions $parsedActions, string $sourceFile, int $line): void
+    {
+        // Chain continuations carry no id of their own, so naming one "rule 0"
+        // sends a reader looking for a rule that does not exist.
+        $subject = $parsedActions->id === 0
+            ? 'a chain continuation'
+            : 'rule ' . $parsedActions->id;
+
+        foreach ($parsedActions->unsupportedActions as $action) {
+            $this->warnings[] = sprintf(
+                '%s:%d — %s uses unsupported action `%s`; it is ignored and the rule may behave '
+                . 'differently than under ModSecurity',
+                $sourceFile,
+                $line,
+                $subject,
+                $action,
+            );
+        }
+    }
+
     private function parseActions(string $raw): ParsedActions
     {
         $parsedActions = new ParsedActions();
@@ -707,16 +830,40 @@ final class SecLangParser
                 case 'skipafter':
                     $parsedActions->skipAfter = $value;
                     break;
-                case 'ver':
-                case 'rev':
-                case 'maturity':
-                case 'accuracy':
+                // Recognised, not implemented, and consequential: each of these
+                // changes what a rule does under ModSecurity, so a rule using
+                // one behaves differently here. Collected for the caller to
+                // report against the rule id.
+                //
+                // ctl is the one that matters most — ctl:requestBodyProcessor
+                // changes what gets parsed and inspected, and
+                // ctl:ruleRemoveTargetById changes which rules apply to which
+                // targets. The rest imply cross-request state this engine does
+                // not model at all.
                 case 'ctl':
                 case 'expirevar':
                 case 'deprecatevar':
                 case 'initcol':
+                case 'setsid':
+                case 'setuid':
+                case 'setrsc':
+                    $parsedActions->unsupportedActions[] = $value === null
+                        ? strtolower($name)
+                        : strtolower($name) . ':' . $value;
+                    break;
+                // Metadata and audit-log hints the engine has no use for. Inert
+                // by nature rather than unimplemented, so warning about them
+                // would bury the entries above under noise on every rule.
+                case 'ver':
+                case 'rev':
+                case 'maturity':
+                case 'accuracy':
                 case 'sanitisearg':
                 case 'sanitiserequestheader':
+                case 'nolog':
+                case 'log':
+                case 'auditlog':
+                case 'noauditlog':
                 default:
                     break;
             }

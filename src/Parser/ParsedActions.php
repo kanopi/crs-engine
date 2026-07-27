@@ -16,6 +16,12 @@ final class ParsedActions
      * @param array<int, string> $transforms
      * @param array<int, string> $tags
      * @param array<int, array{name: string, op: string, value: string}> $setvars
+     * @param array<int, string> $unsupportedActions Actions recognised but not
+     *        implemented, which change what a rule does — the caller turns
+     *        these into parser warnings once it knows the rule id. Metadata the
+     *        engine has no use for (ver, rev, maturity, ...) is not collected:
+     *        it is genuinely inert, and warning about it would bury the
+     *        entries that mean the rule behaves differently here.
      */
     public function __construct(
         public int $id = 0,
@@ -31,6 +37,7 @@ final class ParsedActions
         public bool $chain = false,
         public ?string $skipAfter = null,
         public ?string $logdata = null,
+        public array $unsupportedActions = [],
     ) {
     }
 }

@@ -82,9 +82,10 @@ final class XmlBody
     /**
      * Evaluate an XPath expression against the parsed XML body.
      *
-     * Returns one string per matched node (textContent for element nodes,
-     * nodeValue for attributes / text nodes). Returns empty when the body
-     * is not XML, is malformed, or the XPath fails to evaluate.
+     * Returns one string per matched node, using textContent throughout —
+     * which is the value for attribute and text nodes too, so no special case
+     * is needed. Returns empty when the body is not XML, is malformed, or the
+     * XPath fails to evaluate.
      *
      * @return array<int, string>
      */

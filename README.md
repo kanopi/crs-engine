@@ -618,7 +618,7 @@ trawling through CRS source.
 Two test suites, separated by speed and scope.
 
 ```sh
-# Everything (54 tests, fast)
+# Everything — unit + integration, no network, about a second
 composer test
 
 # Just the unit tests

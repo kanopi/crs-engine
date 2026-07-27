@@ -1,6 +1,6 @@
 {
     "version": "v4.26.0",
-    "generated_at": "2026-07-27T16:56:57+00:00",
+    "generated_at": "2026-07-27T22:16:35+00:00",
     "rule_count": 619,
     "files": [
         "REQUEST-911-METHOD-ENFORCEMENT.json",
@@ -30,9 +30,21 @@
         "RESPONSE-980-CORRELATION.json"
     ],
     "warnings": [
+        "REQUEST-920-PROTOCOL-ENFORCEMENT.conf:1031 \u2014 a chain continuation uses unsupported action `ctl:forceRequestBodyVariable=On`; it is ignored and the rule may behave differently than under ModSecurity",
+        "REQUEST-920-PROTOCOL-ENFORCEMENT.conf:1298 \u2014 rule 920539 uses unsupported action `ctl:ruleRemoveById=920540`; it is ignored and the rule may behave differently than under ModSecurity",
+        "REQUEST-930-APPLICATION-ATTACK-LFI.conf \u2014 transform `t:normalizePathWin` is not implemented; skipped on 4 rules, which will therefore match against less-normalised input than upstream intends",
+        "REQUEST-932-APPLICATION-ATTACK-RCE.conf \u2014 transform `t:escapeSeqDecode` is not implemented; skipped on 7 rules, which will therefore match against less-normalised input than upstream intends",
+        "REQUEST-932-APPLICATION-ATTACK-RCE.conf \u2014 transform `t:normalizePath` is not implemented; skipped on 5 rules, which will therefore match against less-normalised input than upstream intends",
+        "REQUEST-933-APPLICATION-ATTACK-PHP.conf \u2014 transform `t:normalizePath` is not implemented; skipped on 3 rules, which will therefore match against less-normalised input than upstream intends",
+        "REQUEST-934-APPLICATION-ATTACK-GENERIC.conf \u2014 transform `t:jsDecode` is not implemented; skipped on 7 rules, which will therefore match against less-normalised input than upstream intends",
+        "REQUEST-941-APPLICATION-ATTACK-XSS.conf:57 \u2014 rule 941010 uses unsupported action `ctl:ruleRemoveTargetByTag=xss-perf-disable;REQUEST_FILENAME`; it is ignored and the rule may behave differently than under ModSecurity",
         "REQUEST-941-APPLICATION-ATTACK-XSS.conf:83 \u2014 unsupported operator '@detectXSS', skipping rule",
         "REQUEST-941-APPLICATION-ATTACK-XSS.conf:884 \u2014 unsupported operator '@detectXSS', skipping rule",
+        "REQUEST-941-APPLICATION-ATTACK-XSS.conf \u2014 transform `t:cssDecode` is not implemented; skipped on 21 rules, which will therefore match against less-normalised input than upstream intends",
+        "REQUEST-941-APPLICATION-ATTACK-XSS.conf \u2014 transform `t:jsDecode` is not implemented; skipped on 25 rules, which will therefore match against less-normalised input than upstream intends",
         "REQUEST-942-APPLICATION-ATTACK-SQLI.conf:46 \u2014 unsupported operator '@detectSQLi', skipping rule",
-        "REQUEST-942-APPLICATION-ATTACK-SQLI.conf:1590 \u2014 unsupported operator '@detectSQLi', skipping rule"
+        "REQUEST-942-APPLICATION-ATTACK-SQLI.conf:1590 \u2014 unsupported operator '@detectSQLi', skipping rule",
+        "REQUEST-942-APPLICATION-ATTACK-SQLI.conf \u2014 transform `t:removeCommentsChar` is not implemented; skipped on 1 rule, which will therefore match against less-normalised input than upstream intends",
+        "REQUEST-944-APPLICATION-ATTACK-JAVA.conf \u2014 transform `t:jsDecode` is not implemented; skipped on 3 rules, which will therefore match against less-normalised input than upstream intends"
     ]
 }

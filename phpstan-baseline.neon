@@ -1,0 +1,13 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Parameter \#1 \$data of static method Kanopi\\Crs\\Runtime\\CompiledRule\:\:fromArray\(\) expects array\{id\?\: int, phase\?\: int, operator\?\: string, operator_arg\?\: string, operator_negated\?\: bool, targets\?\: array\<int, array\{collection\: string, selector\?\: string\|null, negated\?\: bool, count\?\: bool, regex\?\: bool\}\>, transforms\?\: array\<int, string\>, action\?\: string, \.\.\.\}, array\<string, mixed\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Runtime/CompiledRule.php
+
+		-
+			message: '#^Parameter \#1 \$data of static method Kanopi\\Crs\\Runtime\\CompiledRule\:\:fromArray\(\) expects array\{id\?\: int, phase\?\: int, operator\?\: string, operator_arg\?\: string, operator_negated\?\: bool, targets\?\: array\<int, array\{collection\: string, selector\?\: string\|null, negated\?\: bool, count\?\: bool, regex\?\: bool\}\>, transforms\?\: array\<int, string\>, action\?\: string, \.\.\.\}, array\<string, mixed\> given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Runtime/RuleSet.php

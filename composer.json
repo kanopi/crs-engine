@@ -45,6 +45,11 @@
         "test": "vendor/bin/phpunit",
         "test:unit": "vendor/bin/phpunit --testsuite unit",
         "test:integration": "vendor/bin/phpunit --testsuite integration",
+        "test:coverage": [
+            "@putenv XDEBUG_MODE=coverage",
+            "vendor/bin/phpunit --coverage-clover=build/clover.xml",
+            "php tools/coverage-gate.php build/clover.xml"
+        ],
         "refresh": "bin/refresh-crs",
         "refresh:bump": "bin/refresh-crs --bump",
         "check:code": "vendor/bin/phpcs --standard=phpcs_ruleset.xml src tests",

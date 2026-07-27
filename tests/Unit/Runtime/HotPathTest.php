@@ -110,13 +110,17 @@ final class HotPathTest extends TestCase
         $this->assertSame('mixed', $this->pipeline()->apply(['none', 'lowercase'], 'MiXeD'));
     }
 
-    public function testUnknownTransformIsSkippedAndRecorded(): void
+    /**
+     * Skipping is the right runtime behaviour — the rest of the pipeline still
+     * normalises something. Reporting it is the parser's job, at a point where
+     * it can be acted on; see UnknownTransformWarningTest.
+     */
+    public function testUnknownTransformIsSkippedRatherThanFatal(): void
     {
-        $transformRegistry = new TransformRegistry();
-        $transformPipeline = new TransformPipeline($transformRegistry);
+        $transformPipeline = new TransformPipeline(new TransformRegistry());
 
         $this->assertSame('mixed', $transformPipeline->apply(['lowercase', 'notARealTransform'], 'MiXeD'));
-        $this->assertContains('notARealTransform', $transformRegistry->unknownTransforms());
+        $this->assertSame('  mixed  ', $transformPipeline->apply(['notARealTransform', 'lowercase'], '  MiXeD  '));
     }
 
     public function testEachStillYieldsEveryIntermediateValue(): void

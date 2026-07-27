@@ -28,25 +28,47 @@ final class IpMatchOperator implements OperatorInterface
                     continue;
                 }
 
-                if (str_contains($entry, '/')) {
-                    [$ip, $bits] = explode('/', $entry, 2);
-                    $ranges[] = [$ip, (int) $bits];
-                } else {
-                    $ranges[] = [$entry, str_contains($entry, ':') ? 128 : 32];
+                $width = str_contains($entry, ':') ? 128 : 32;
+
+                if (!str_contains($entry, '/')) {
+                    $ranges[] = [$entry, $width];
+                    continue;
                 }
+
+                [$ip, $bitsRaw] = explode('/', $entry, 2);
+                $bitsRaw = trim($bitsRaw);
+                // A malformed prefix is a typo in the rule, and the handling has
+                // to be chosen so that a typo can never *widen* a range — a
+                // deny-list entry that quietly becomes match-all is far worse
+                // than one that stops matching.
+                //
+                // Anything not a plain non-negative integer is dropped —
+                // ctype_digit() rejects '', '-1', '+24', '24.5' and 'abc' alike.
+                // Casting instead would send all of them to 0, and a zero prefix
+                // masks nothing, so every one would match every address in the
+                // family.
+                if (!ctype_digit($bitsRaw)) {
+                    continue;
+                }
+
+                // Too-large is clamped rather than dropped: /33 on IPv4 can only
+                // have meant "this exact address", and clamping to the address
+                // width narrows, so it is safe. Unclamped it indexed past the
+                // end of the packed address and raised an uncaught Error.
+                $ranges[] = [$ip, min((int) $bitsRaw, $width)];
             }
 
             self::$parsedCache[$argument] = $ranges;
         }
 
-        $valueBin = @inet_pton($value);
-        if ($valueBin === false) {
+        $valueBin = $this->pack($value);
+        if ($valueBin === null) {
             return OperatorMatch::miss();
         }
 
         foreach ($ranges as [$ip, $bits]) {
-            $ipBin = @inet_pton($ip);
-            if ($ipBin === false) {
+            $ipBin = $this->pack($ip);
+            if ($ipBin === null) {
                 continue;
             }
 
@@ -62,6 +84,33 @@ final class IpMatchOperator implements OperatorInterface
         return OperatorMatch::miss();
     }
 
+    /**
+     * inet_pton() as a total function: the packed address, or null for anything
+     * that is not one.
+     *
+     * It returns false for a malformed address but *throws* ValueError when the
+     * input contains a null byte, and the @ suppression operator does not catch
+     * exceptions. An address is attacker-controlled whenever a rule points
+     * @ipMatch at a header rather than REMOTE_ADDR — X-Forwarded-For being the
+     * obvious one — so a null byte there took the request down instead of the
+     * rule. The shipped CRS ruleset does not use @ipMatch at all, but custom
+     * rules are a supported path and this is a natural thing to write.
+     */
+    private function pack(string $address): ?string
+    {
+        if ($address === '' || str_contains($address, "\0")) {
+            return null;
+        }
+
+        try {
+            $packed = @inet_pton($address);
+        } catch (\ValueError) {
+            return null;
+        }
+
+        return $packed === false ? null : $packed;
+    }
+
     private function binaryMatch(string $a, string $b, int $bits): bool
     {
         $bytes = intdiv($bits, 8);
@@ -71,6 +120,13 @@ final class IpMatchOperator implements OperatorInterface
 
         $remaining = $bits % 8;
         if ($remaining === 0) {
+            return true;
+        }
+
+        // Callers clamp $bits to the address width, so this should be
+        // unreachable. Kept because the alternative when it is not is an
+        // uncaught Error out of the middle of request evaluation.
+        if (!isset($a[$bytes], $b[$bytes])) {
             return true;
         }
 
