@@ -66,7 +66,7 @@ final class AnomalyScoringTest extends TestCase
             new CrsConfig(
                 paranoia: 1,
                 mode: $mode,
-                anomalyThresholds: ['critical' => $threshold, 'error' => $threshold],
+                anomalyThresholds: ['inbound' => $threshold, 'outbound' => $threshold],
             ),
             new RuleSet($rules, 'test'),
         );

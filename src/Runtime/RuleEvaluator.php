@@ -373,15 +373,12 @@ final class RuleEvaluator
         return (int) ($txStore->get('tx.' . $direction . '_anomaly_score') ?? '0');
     }
 
-    /**
-     * Inbound and outbound have separate thresholds in CRS. The config keys are
-     * still named by severity — see #14 — so map them here rather than at the
-     * call site.
-     */
+    /** Inbound and outbound have separate thresholds in CRS. */
     private function thresholdFor(bool $requestPhase): int
     {
-        $key = $requestPhase ? 'critical' : 'error';
-        return $this->crsConfig->anomalyThresholds[$key] ?? PHP_INT_MAX;
+        return $requestPhase
+            ? $this->crsConfig->inboundThreshold()
+            : $this->crsConfig->outboundThreshold();
     }
 
     private function decideAction(?int $blockingId, int $totalScore, bool $requestPhase): string
