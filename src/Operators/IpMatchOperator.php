@@ -28,12 +28,34 @@ final class IpMatchOperator implements OperatorInterface
                     continue;
                 }
 
-                if (str_contains($entry, '/')) {
-                    [$ip, $bits] = explode('/', $entry, 2);
-                    $ranges[] = [$ip, (int) $bits];
-                } else {
-                    $ranges[] = [$entry, str_contains($entry, ':') ? 128 : 32];
+                $width = str_contains($entry, ':') ? 128 : 32;
+
+                if (!str_contains($entry, '/')) {
+                    $ranges[] = [$entry, $width];
+                    continue;
                 }
+
+                [$ip, $bitsRaw] = explode('/', $entry, 2);
+                $bitsRaw = trim($bitsRaw);
+                // A malformed prefix is a typo in the rule, and the handling has
+                // to be chosen so that a typo can never *widen* a range — a
+                // deny-list entry that quietly becomes match-all is far worse
+                // than one that stops matching.
+                //
+                // Anything not a plain non-negative integer is dropped —
+                // ctype_digit() rejects '', '-1', '+24', '24.5' and 'abc' alike.
+                // Casting instead would send all of them to 0, and a zero prefix
+                // masks nothing, so every one would match every address in the
+                // family.
+                if (!ctype_digit($bitsRaw)) {
+                    continue;
+                }
+
+                // Too-large is clamped rather than dropped: /33 on IPv4 can only
+                // have meant "this exact address", and clamping to the address
+                // width narrows, so it is safe. Unclamped it indexed past the
+                // end of the packed address and raised an uncaught Error.
+                $ranges[] = [$ip, min((int) $bitsRaw, $width)];
             }
 
             self::$parsedCache[$argument] = $ranges;
@@ -71,6 +93,13 @@ final class IpMatchOperator implements OperatorInterface
 
         $remaining = $bits % 8;
         if ($remaining === 0) {
+            return true;
+        }
+
+        // Callers clamp $bits to the address width, so this should be
+        // unreachable. Kept because the alternative when it is not is an
+        // uncaught Error out of the middle of request evaluation.
+        if (!isset($a[$bytes], $b[$bytes])) {
             return true;
         }
 
