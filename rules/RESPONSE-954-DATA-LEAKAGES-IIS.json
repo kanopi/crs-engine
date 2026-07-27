@@ -1,7 +1,7 @@
 {
     "source_file": "RESPONSE-954-DATA-LEAKAGES-IIS.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 14,
+    "rule_count": 15,
     "rules": [
         {
             "id": 954010,
@@ -281,33 +281,39 @@
             "setvars": [],
             "chain": [
                 {
-                    "id": 954013,
-                    "phase": 3,
-                    "operator": "lt",
-                    "operator_arg": "2",
+                    "id": 0,
+                    "phase": 2,
+                    "operator": "rx",
+                    "operator_arg": "\\bServer Error in.{0,50}?\\bApplication\\b",
                     "operator_negated": false,
                     "targets": [
                         {
-                            "collection": "TX",
-                            "selector": "DETECTION_PARANOIA_LEVEL",
+                            "collection": "RESPONSE_BODY",
+                            "selector": null,
                             "negated": false,
                             "count": false,
                             "regex": false
                         }
                     ],
-                    "transforms": [],
+                    "transforms": [
+                        "none"
+                    ],
                     "action": "pass",
                     "severity": "notice",
                     "message": "",
-                    "tags": [
-                        "OWASP_CRS"
-                    ],
+                    "tags": [],
                     "paranoia": 1,
                     "category": "response_leak_iis",
-                    "setvars": [],
+                    "setvars": [
+                        {
+                            "name": "tx.outbound_anomaly_score_pl1",
+                            "op": "+",
+                            "value": "4"
+                        }
+                    ],
                     "chain": [],
-                    "capture": false,
-                    "skip_after": "END-RESPONSE-954-DATA-LEAKAGES-IIS",
+                    "capture": true,
+                    "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
                     "marker": null
@@ -315,6 +321,38 @@
             ],
             "capture": true,
             "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 954013,
+            "phase": 3,
+            "operator": "lt",
+            "operator_arg": "2",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "DETECTION_PARANOIA_LEVEL",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "response_leak_iis",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "END-RESPONSE-954-DATA-LEAKAGES-IIS",
             "multi_match": false,
             "warnings": [],
             "marker": null

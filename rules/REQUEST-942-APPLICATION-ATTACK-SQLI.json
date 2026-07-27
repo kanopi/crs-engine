@@ -1,7 +1,7 @@
 {
     "source_file": "REQUEST-942-APPLICATION-ATTACK-SQLI.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 62,
+    "rule_count": 67,
     "rules": [
         {
             "id": 942011,
@@ -1837,129 +1837,28 @@
             ],
             "chain": [
                 {
-                    "id": 942131,
+                    "id": 0,
                     "phase": 2,
-                    "operator": "rx",
-                    "operator_arg": "(?i)[\\s\\x0b\"'-\\)`]*?\\b([0-9A-Z_a-z]+)\\b[\\s\\x0b\"'-\\)`]*?(?:![<->]|<[=>]?|>=?|\\^|is[\\s\\x0b]+not|not[\\s\\x0b]+(?:like|r(?:like|egexp)))[\\s\\x0b\"'-\\)`]*?\\b([0-9A-Z_a-z]+)\\b",
+                    "operator": "streq",
+                    "operator_arg": "%{TX.2}",
                     "operator_negated": false,
                     "targets": [
                         {
-                            "collection": "ARGS_NAMES",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "ARGS",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "XML",
-                            "selector": "/*",
+                            "collection": "TX",
+                            "selector": "1",
                             "negated": false,
                             "count": false,
                             "regex": false
                         }
                     ],
                     "transforms": [
-                        "none",
-                        "urlDecodeUni",
-                        "replaceComments"
+                        "none"
                     ],
-                    "action": "block",
-                    "severity": "critical",
-                    "message": "SQL Injection Attack: SQL Boolean-based attack detected",
-                    "tags": [
-                        "application-multi",
-                        "language-multi",
-                        "platform-multi",
-                        "attack-sqli",
-                        "paranoia-level/2",
-                        "OWASP_CRS",
-                        "OWASP_CRS/ATTACK-SQLI",
-                        "capec/1000/152/248/66"
-                    ],
-                    "paranoia": 2,
-                    "category": "sqli",
-                    "setvars": [
-                        {
-                            "name": "tx.942131_matched_var_name",
-                            "op": "=",
-                            "value": "0"
-                        }
-                    ],
-                    "chain": [],
-                    "capture": true,
-                    "skip_after": null,
-                    "multi_match": true,
-                    "warnings": [],
-                    "marker": null
-                },
-                {
-                    "id": 942150,
-                    "phase": 2,
-                    "operator": "rx",
-                    "operator_arg": "(?i)\\b(?:json(?:_[0-9A-Z_a-z]+)?|a(?:bs|(?:cos|sin)h?|tan[2h]?|vg)|c(?:eil(?:ing)?|h(?:a(?:nges|r(?:set)?)|r)|o(?:alesce|sh?|unt)|ast)|d(?:e(?:grees|fault)|a(?:te|y))|exp|f(?:loor(?:avg)?|ormat|ield)|g(?:lob|roup_concat)|h(?:ex|our)|i(?:f(?:null)?|if|n(?:str)?)|l(?:ast(?:_insert_rowid)?|ength|ike(?:l(?:ihood|y))?|n|o(?:ad_extension|g(?:10|2)?|wer(?:pi)?|cal)|trim)|m(?:ax|in(?:ute)?|o(?:d|nth))|n(?:ullif|ow)|p(?:i|ow(?:er)?|rintf|assword)|quote|r(?:a(?:dians|ndom(?:blob)?)|e(?:p(?:lace|eat)|verse)|ound|trim|ight)|s(?:i(?:gn|nh?)|oundex|q(?:lite_(?:compileoption_(?:get|used)|offset|source_id|version)|rt)|u(?:bstr(?:ing)?|m)|econd|leep)|t(?:anh?|otal(?:_changes)?|r(?:im|unc)|ypeof|ime)|u(?:n(?:icode|likely)|(?:pp|s)er)|zeroblob|bin|v(?:alues|ersion)|week|year)[^0-9A-Z_a-z]*\\(",
-                    "operator_negated": false,
-                    "targets": [
-                        {
-                            "collection": "REQUEST_COOKIES",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "REQUEST_COOKIES_NAMES",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "ARGS_NAMES",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "ARGS",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "XML",
-                            "selector": "/*",
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        }
-                    ],
-                    "transforms": [
-                        "none",
-                        "urlDecodeUni"
-                    ],
-                    "action": "block",
-                    "severity": "critical",
-                    "message": "SQL Injection Attack: SQL function name detected",
-                    "tags": [
-                        "application-multi",
-                        "language-multi",
-                        "platform-multi",
-                        "attack-sqli",
-                        "paranoia-level/2",
-                        "OWASP_CRS",
-                        "OWASP_CRS/ATTACK-SQLI",
-                        "capec/1000/152/248/66"
-                    ],
-                    "paranoia": 2,
+                    "action": "pass",
+                    "severity": "notice",
+                    "message": "",
+                    "tags": [],
+                    "paranoia": 1,
                     "category": "sqli",
                     "setvars": [
                         {
@@ -1974,13 +1873,201 @@
                         }
                     ],
                     "chain": [],
-                    "capture": true,
+                    "capture": false,
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
                     "marker": null
                 }
             ],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 942131,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "(?i)[\\s\\x0b\"'-\\)`]*?\\b([0-9A-Z_a-z]+)\\b[\\s\\x0b\"'-\\)`]*?(?:![<->]|<[=>]?|>=?|\\^|is[\\s\\x0b]+not|not[\\s\\x0b]+(?:like|r(?:like|egexp)))[\\s\\x0b\"'-\\)`]*?\\b([0-9A-Z_a-z]+)\\b",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "urlDecodeUni",
+                "replaceComments"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "SQL Injection Attack: SQL Boolean-based attack detected",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-sqli",
+                "paranoia-level/2",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-SQLI",
+                "capec/1000/152/248/66"
+            ],
+            "paranoia": 2,
+            "category": "sqli",
+            "setvars": [
+                {
+                    "name": "tx.942131_matched_var_name",
+                    "op": "=",
+                    "value": "0"
+                }
+            ],
+            "chain": [
+                {
+                    "id": 0,
+                    "phase": 2,
+                    "operator": "streq",
+                    "operator_arg": "%{TX.2}",
+                    "operator_negated": true,
+                    "targets": [
+                        {
+                            "collection": "TX",
+                            "selector": "1",
+                            "negated": false,
+                            "count": false,
+                            "regex": false
+                        }
+                    ],
+                    "transforms": [
+                        "none"
+                    ],
+                    "action": "pass",
+                    "severity": "notice",
+                    "message": "",
+                    "tags": [],
+                    "paranoia": 1,
+                    "category": "sqli",
+                    "setvars": [
+                        {
+                            "name": "tx.sql_injection_score",
+                            "op": "+",
+                            "value": "5"
+                        },
+                        {
+                            "name": "tx.inbound_anomaly_score_pl2",
+                            "op": "+",
+                            "value": "5"
+                        }
+                    ],
+                    "chain": [],
+                    "capture": false,
+                    "skip_after": null,
+                    "multi_match": false,
+                    "warnings": [],
+                    "marker": null
+                }
+            ],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": true,
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 942150,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "(?i)\\b(?:json(?:_[0-9A-Z_a-z]+)?|a(?:bs|(?:cos|sin)h?|tan[2h]?|vg)|c(?:eil(?:ing)?|h(?:a(?:nges|r(?:set)?)|r)|o(?:alesce|sh?|unt)|ast)|d(?:e(?:grees|fault)|a(?:te|y))|exp|f(?:loor(?:avg)?|ormat|ield)|g(?:lob|roup_concat)|h(?:ex|our)|i(?:f(?:null)?|if|n(?:str)?)|l(?:ast(?:_insert_rowid)?|ength|ike(?:l(?:ihood|y))?|n|o(?:ad_extension|g(?:10|2)?|wer(?:pi)?|cal)|trim)|m(?:ax|in(?:ute)?|o(?:d|nth))|n(?:ullif|ow)|p(?:i|ow(?:er)?|rintf|assword)|quote|r(?:a(?:dians|ndom(?:blob)?)|e(?:p(?:lace|eat)|verse)|ound|trim|ight)|s(?:i(?:gn|nh?)|oundex|q(?:lite_(?:compileoption_(?:get|used)|offset|source_id|version)|rt)|u(?:bstr(?:ing)?|m)|econd|leep)|t(?:anh?|otal(?:_changes)?|r(?:im|unc)|ypeof|ime)|u(?:n(?:icode|likely)|(?:pp|s)er)|zeroblob|bin|v(?:alues|ersion)|week|year)[^0-9A-Z_a-z]*\\(",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "urlDecodeUni"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "SQL Injection Attack: SQL function name detected",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-sqli",
+                "paranoia-level/2",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-SQLI",
+                "capec/1000/152/248/66"
+            ],
+            "paranoia": 2,
+            "category": "sqli",
+            "setvars": [
+                {
+                    "name": "tx.sql_injection_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl2",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
             "capture": true,
             "skip_after": null,
             "multi_match": false,
@@ -2147,66 +2234,28 @@
             "setvars": [],
             "chain": [
                 {
-                    "id": 942210,
+                    "id": 0,
                     "phase": 2,
                     "operator": "rx",
-                    "operator_arg": "(?i)(?:&&|\\|\\||and|between|div|like|n(?:and|ot)|(?:xx?)?or)[\\s\\x0b\\(]+[0-9A-Z_a-z]+[\\s\\x0b\\)]*?[!\\+=]+[\\s\\x0b0-9]*?[\"'-\\)=`]|[0-9](?:[\\s\\x0b]*?(?:and|between|div|like|x?or)[\\s\\x0b]*?[0-9]+[\\s\\x0b]*?[\\+\\-]|[\\s\\x0b]+group[\\s\\x0b]+by.+\\()|/[0-9A-Z_a-z]+;?[\\s\\x0b]+(?:and|between|div|having|like|x?or|select)[^0-9A-Z_a-z]|(?:[#;]|--)[\\s\\x0b]*?(?:alter|drop|(?:insert|update)[\\s\\x0b]*?[0-9A-Z_a-z]{2,})|@.+=[\\s\\x0b]*?\\([\\s\\x0b]*?select|[^0-9A-Z_a-z]SET[\\s\\x0b]*?@[0-9A-Z_a-z]+",
-                    "operator_negated": false,
+                    "operator_arg": "^[,\\-0-9=A-Z_a-z]+$",
+                    "operator_negated": true,
                     "targets": [
                         {
-                            "collection": "REQUEST_COOKIES",
+                            "collection": "MATCHED_VARS",
                             "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "REQUEST_COOKIES_NAMES",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "ARGS_NAMES",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "ARGS",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "XML",
-                            "selector": "/*",
                             "negated": false,
                             "count": false,
                             "regex": false
                         }
                     ],
                     "transforms": [
-                        "none",
-                        "urlDecodeUni"
+                        "none"
                     ],
-                    "action": "block",
-                    "severity": "critical",
-                    "message": "Detects chained SQL injection attempts 1/2",
-                    "tags": [
-                        "application-multi",
-                        "language-multi",
-                        "platform-multi",
-                        "attack-sqli",
-                        "paranoia-level/2",
-                        "OWASP_CRS",
-                        "OWASP_CRS/ATTACK-SQLI",
-                        "capec/1000/152/248/66"
-                    ],
-                    "paranoia": 2,
+                    "action": "pass",
+                    "severity": "notice",
+                    "message": "",
+                    "tags": [],
+                    "paranoia": 1,
                     "category": "sqli",
                     "setvars": [
                         {
@@ -2221,13 +2270,94 @@
                         }
                     ],
                     "chain": [],
-                    "capture": true,
+                    "capture": false,
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
                     "marker": null
                 }
             ],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 942210,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "(?i)(?:&&|\\|\\||and|between|div|like|n(?:and|ot)|(?:xx?)?or)[\\s\\x0b\\(]+[0-9A-Z_a-z]+[\\s\\x0b\\)]*?[!\\+=]+[\\s\\x0b0-9]*?[\"'-\\)=`]|[0-9](?:[\\s\\x0b]*?(?:and|between|div|like|x?or)[\\s\\x0b]*?[0-9]+[\\s\\x0b]*?[\\+\\-]|[\\s\\x0b]+group[\\s\\x0b]+by.+\\()|/[0-9A-Z_a-z]+;?[\\s\\x0b]+(?:and|between|div|having|like|x?or|select)[^0-9A-Z_a-z]|(?:[#;]|--)[\\s\\x0b]*?(?:alter|drop|(?:insert|update)[\\s\\x0b]*?[0-9A-Z_a-z]{2,})|@.+=[\\s\\x0b]*?\\([\\s\\x0b]*?select|[^0-9A-Z_a-z]SET[\\s\\x0b]*?@[0-9A-Z_a-z]+",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "urlDecodeUni"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Detects chained SQL injection attempts 1/2",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-sqli",
+                "paranoia-level/2",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-SQLI",
+                "capec/1000/152/248/66"
+            ],
+            "paranoia": 2,
+            "category": "sqli",
+            "setvars": [
+                {
+                    "name": "tx.sql_injection_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl2",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
             "capture": true,
             "skip_after": null,
             "multi_match": false,
@@ -3528,87 +3658,130 @@
             "setvars": [],
             "chain": [
                 {
-                    "id": 942450,
+                    "id": 0,
                     "phase": 2,
                     "operator": "rx",
-                    "operator_arg": "(?i)\\b0x[0-9a-f]{3,}|(?:x'[0-9a-f]{3,}|b'[01]{10,})'",
-                    "operator_negated": false,
+                    "operator_arg": "^(?:ey[\\-0-9A-Z_a-z]+\\.ey[\\-0-9A-Z_a-z]+\\.)?[\\-0-9A-Z_a-z]+$",
+                    "operator_negated": true,
                     "targets": [
                         {
-                            "collection": "REQUEST_COOKIES",
+                            "collection": "MATCHED_VARS",
                             "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "REQUEST_COOKIES_NAMES",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "ARGS_NAMES",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "ARGS",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "XML",
-                            "selector": "/*",
                             "negated": false,
                             "count": false,
                             "regex": false
                         }
                     ],
                     "transforms": [
-                        "none",
-                        "urlDecodeUni"
+                        "none"
                     ],
-                    "action": "block",
-                    "severity": "critical",
-                    "message": "SQL Bin or Hex Encoding Identified",
-                    "tags": [
-                        "application-multi",
-                        "language-multi",
-                        "platform-multi",
-                        "attack-sqli",
-                        "paranoia-level/2",
-                        "OWASP_CRS",
-                        "OWASP_CRS/ATTACK-SQLI",
-                        "capec/1000/152/248/66"
-                    ],
-                    "paranoia": 2,
+                    "action": "pass",
+                    "severity": "notice",
+                    "message": "",
+                    "tags": [],
+                    "paranoia": 1,
                     "category": "sqli",
                     "setvars": [
                         {
-                            "name": "tx.sql_injection_score",
+                            "name": "tx.inbound_anomaly_score_pl2",
                             "op": "+",
                             "value": "5"
                         },
                         {
-                            "name": "tx.inbound_anomaly_score_pl2",
+                            "name": "tx.sql_injection_score",
                             "op": "+",
                             "value": "5"
                         }
                     ],
                     "chain": [],
-                    "capture": true,
+                    "capture": false,
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
                     "marker": null
                 }
             ],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 942450,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "(?i)\\b0x[0-9a-f]{3,}|(?:x'[0-9a-f]{3,}|b'[01]{10,})'",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "urlDecodeUni"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "SQL Bin or Hex Encoding Identified",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-sqli",
+                "paranoia-level/2",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-SQLI",
+                "capec/1000/152/248/66"
+            ],
+            "paranoia": 2,
+            "category": "sqli",
+            "setvars": [
+                {
+                    "name": "tx.sql_injection_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl2",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
             "capture": true,
             "skip_after": null,
             "multi_match": false,
@@ -3848,52 +4021,28 @@
             ],
             "chain": [
                 {
-                    "id": 942522,
+                    "id": 0,
                     "phase": 2,
                     "operator": "rx",
-                    "operator_arg": "^.*?\\x5c['\"`](?:.*?['\"`])?\\s*(?:and|or)\\b",
+                    "operator_arg": "^(?:and|or)$",
                     "operator_negated": false,
                     "targets": [
                         {
-                            "collection": "ARGS_NAMES",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "ARGS",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "XML",
-                            "selector": "/*",
+                            "collection": "TX",
+                            "selector": "1",
                             "negated": false,
                             "count": false,
                             "regex": false
                         }
                     ],
                     "transforms": [
-                        "none",
-                        "urlDecodeUni"
+                        "none"
                     ],
-                    "action": "block",
-                    "severity": "critical",
-                    "message": "Detects basic SQL authentication bypass attempts 4.1/4",
-                    "tags": [
-                        "application-multi",
-                        "language-multi",
-                        "platform-multi",
-                        "attack-sqli",
-                        "paranoia-level/2",
-                        "OWASP_CRS",
-                        "OWASP_CRS/ATTACK-SQLI",
-                        "capec/1000/152/248/66"
-                    ],
-                    "paranoia": 2,
+                    "action": "pass",
+                    "severity": "notice",
+                    "message": "",
+                    "tags": [],
+                    "paranoia": 1,
                     "category": "sqli",
                     "setvars": [
                         {
@@ -3908,13 +4057,80 @@
                         }
                     ],
                     "chain": [],
-                    "capture": true,
+                    "capture": false,
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
                     "marker": null
                 }
             ],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 942522,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "^.*?\\x5c['\"`](?:.*?['\"`])?\\s*(?:and|or)\\b",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "urlDecodeUni"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Detects basic SQL authentication bypass attempts 4.1/4",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-sqli",
+                "paranoia-level/2",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-SQLI",
+                "capec/1000/152/248/66"
+            ],
+            "paranoia": 2,
+            "category": "sqli",
+            "setvars": [
+                {
+                    "name": "tx.sql_injection_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl2",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
             "capture": true,
             "skip_after": null,
             "multi_match": false,

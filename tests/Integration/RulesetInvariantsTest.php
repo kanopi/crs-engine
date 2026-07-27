@@ -17,13 +17,17 @@ use PHPUnit\Framework\TestCase;
  */
 final class RulesetInvariantsTest extends TestCase
 {
-    /** @var array<int, CompiledRule> */
+    /** @var array<int, CompiledRule> Top-level entries only (rules + markers). */
+    private static array $top = [];
+
+    /** @var array<int, CompiledRule> Top-level entries plus every chain child. */
     private static array $flat = [];
 
     public static function setUpBeforeClass(): void
     {
         $ruleSet = RuleSet::loadFromDirectory(dirname(__DIR__, 2) . '/rules', useCache: false);
-        self::$flat = self::flatten($ruleSet->all());
+        self::$top = $ruleSet->all();
+        self::$flat = self::flatten(self::$top);
     }
 
     /**
@@ -89,6 +93,51 @@ final class RulesetInvariantsTest extends TestCase
         );
     }
 
+    /**
+     * A chain continuation has no id of its own. One that does means the
+     * parser lost sync and consumed an unrelated sibling as the child — the
+     * failure mode behind #16, which cost 51 rules and neutered 51 more.
+     */
+    public function testNoChainChildCarriesItsOwnRuleId(): void
+    {
+        $offenders = [];
+        foreach (self::$flat as $rule) {
+            foreach ($rule->chain as $child) {
+                if ($child->id !== 0) {
+                    $offenders[] = sprintf('%d swallowed %d', $rule->id, $child->id);
+                }
+            }
+        }
+
+        $this->assertSame([], $offenders, 'A chain child with a CRS rule id means an unrelated rule was consumed as a chain condition.');
+    }
+
+    /**
+     * Guards against silent shrinkage: every upstream SecRule should end up
+     * either at the top level or explicitly accounted for as skipped.
+     */
+    public function testTopLevelRuleCountMatchesUpstreamMinusSkipped(): void
+    {
+        $manifest = json_decode(
+            (string) file_get_contents(dirname(__DIR__, 2) . '/rules/manifest.json'),
+            true,
+            flags: JSON_THROW_ON_ERROR,
+        );
+
+        $topLevel = count(array_filter(self::$top, static fn (CompiledRule $compiledRule): bool => !$compiledRule->isMarker()));
+
+        // 587 upstream SecRule directives across the 24 parsed files, less the
+        // 4 that use libinjection operators we do not implement.
+        $this->assertSame(
+            583,
+            $topLevel,
+            sprintf(
+                'Expected 583 top-level rules (587 upstream - 4 unsupported); manifest reports %s total entries. A shortfall means the parser is dropping or swallowing rules.',
+                (string) ($manifest['rule_count'] ?? '?'),
+            ),
+        );
+    }
+
     public function testRulesetContainsMarkers(): void
     {
         $markers = array_filter(self::$flat, static fn (CompiledRule $compiledRule): bool => $compiledRule->isMarker());
@@ -112,26 +161,18 @@ final class RulesetInvariantsTest extends TestCase
     }
 
     /**
-     * TX variables that no rule writes and CrsTxDefaults deliberately does not
-     * seed yet. These are the crs-setup.conf / REQUEST-901-INITIALIZATION
-     * values the engine replaces with CrsConfig.
+     * TX variables a rule reads that no setvar writes and CrsTxDefaults does
+     * not seed.
      *
-     * Seeding them is blocked on #16: the PL gate rules that read
-     * detection_paranoia_level are currently mis-attached as chain children of
-     * unrelated rules, so making them resolvable turns 954130 into a false
-     * positive on any non-404 response. Seed these together with the #16 fix.
+     * The crs-setup values that used to live here are seeded as of #16, which
+     * restored correct chain parsing and made that safe. What remains is
+     * numeric: TX:0, TX:1, TX:2 are regex capture backreferences, populated by
+     * the `capture` action rather than by setvar. Capture is parsed but never
+     * applied at runtime — tracked in #8 — so these rules cannot fire yet.
      *
      * @var array<int, string>
      */
-    private const UNSEEDED_TX_VARS = [
-        'DETECTION_PARANOIA_LEVEL',
-        'BLOCKING_PARANOIA_LEVEL',
-        'REPORTING_LEVEL',
-        'DETECTION_ANOMALY_SCORE',
-        'BLOCKING_ANOMALY_SCORE',
-        'allow_method_override_parameter',
-        'crs_skip_response_analysis',
-    ];
+    private const UNSEEDED_TX_VARS = ['0', '1', '2'];
 
     /**
      * Guards the read side of the setvar/TX contract: any TX variable a rule
@@ -200,12 +241,13 @@ final class RulesetInvariantsTest extends TestCase
             $seeded[strtolower(preg_replace('/^tx\./', '', $name) ?? $name)] = true;
         }
 
+        $stale = [];
         foreach (self::UNSEEDED_TX_VARS as $name) {
-            $this->assertArrayNotHasKey(
-                strtolower($name),
-                $seeded,
-                sprintf('%s is now seeded — drop it from UNSEEDED_TX_VARS.', $name),
-            );
+            if (isset($seeded[strtolower($name)])) {
+                $stale[] = $name;
+            }
         }
+
+        $this->assertSame([], $stale, 'Now seeded — drop from UNSEEDED_TX_VARS.');
     }
 }

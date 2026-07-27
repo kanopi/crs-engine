@@ -1286,10 +1286,214 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
         0 => 
         array (
-          'id' => 920171,
-          'phase' => 1,
+          'id' => 0,
+          'phase' => 2,
           'operator' => 'rx',
-          'operator_arg' => '^(?:GET|HEAD)$',
+          'operator_arg' => '^0?$',
+          'operator_negated' => true,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'REQUEST_HEADERS',
+              'selector' => 'Content-Length',
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'none',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl1',
+              'op' => '+',
+              'value' => '5',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    26 => 
+    array (
+      'id' => 920171,
+      'phase' => 1,
+      'operator' => 'rx',
+      'operator_arg' => '^(?:GET|HEAD)$',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_METHOD',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'GET or HEAD Request with Transfer-Encoding',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'eq',
+          'operator_arg' => '0',
+          'operator_negated' => true,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'REQUEST_HEADERS',
+              'selector' => 'Transfer-Encoding',
+              'negated' => false,
+              'count' => true,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'none',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl1',
+              'op' => '+',
+              'value' => '5',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    27 => 
+    array (
+      'id' => 920180,
+      'phase' => 1,
+      'operator' => 'within',
+      'operator_arg' => 'HTTP/2 HTTP/2.0 HTTP/3 HTTP/3.0',
+      'operator_negated' => true,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_PROTOCOL',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'warning',
+      'message' => 'POST without Content-Length and Transfer-Encoding headers',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'streq',
+          'operator_arg' => 'POST',
           'operator_negated' => false,
           'targets' => 
           array (
@@ -1304,21 +1508,12 @@ Mozilla/5.0 (compatible; AppScan;',
           ),
           'transforms' => 
           array (
-            0 => 'none',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'GET or HEAD Request with Transfer-Encoding',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/210/272',
           ),
           'paranoia' => 1,
           'category' => 'rce',
@@ -1338,39 +1533,30 @@ Mozilla/5.0 (compatible; AppScan;',
         ),
         1 => 
         array (
-          'id' => 920180,
-          'phase' => 1,
-          'operator' => 'within',
-          'operator_arg' => 'HTTP/2 HTTP/2.0 HTTP/3 HTTP/3.0',
-          'operator_negated' => true,
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'eq',
+          'operator_arg' => '0',
+          'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'REQUEST_PROTOCOL',
-              'selector' => NULL,
+              'collection' => 'REQUEST_HEADERS',
+              'selector' => 'Content-Length',
               'negated' => false,
-              'count' => false,
+              'count' => true,
               'regex' => false,
             ),
           ),
           'transforms' => 
           array (
-            0 => 'none',
           ),
-          'action' => 'block',
-          'severity' => 'warning',
-          'message' => 'POST without Content-Length and Transfer-Encoding headers',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/210/272',
           ),
           'paranoia' => 1,
           'category' => 'rce',
@@ -1390,11 +1576,11 @@ Mozilla/5.0 (compatible; AppScan;',
         ),
         2 => 
         array (
-          'id' => 920181,
-          'phase' => 1,
+          'id' => 0,
+          'phase' => 2,
           'operator' => 'eq',
           'operator_arg' => '0',
-          'operator_negated' => true,
+          'operator_negated' => false,
           'targets' => 
           array (
             0 => 
@@ -1408,125 +1594,12 @@ Mozilla/5.0 (compatible; AppScan;',
           ),
           'transforms' => 
           array (
-            0 => 'none',
           ),
-          'action' => 'block',
-          'severity' => 'warning',
-          'message' => 'Content-Length and Transfer-Encoding headers present',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/210/272',
-          ),
-          'paranoia' => 1,
-          'category' => 'rce',
-          'setvars' => 
-          array (
-          ),
-          'chain' => 
-          array (
-          ),
-          'capture' => false,
-          'skip_after' => NULL,
-          'multi_match' => false,
-          'warnings' => 
-          array (
-          ),
-          'marker' => NULL,
-        ),
-        3 => 
-        array (
-          'id' => 920190,
-          'phase' => 1,
-          'operator' => 'rx',
-          'operator_arg' => '(\\d+)-(\\d+)',
-          'operator_negated' => false,
-          'targets' => 
-          array (
-            0 => 
-            array (
-              'collection' => 'REQUEST_HEADERS',
-              'selector' => 'Range',
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-          ),
-          'transforms' => 
-          array (
-            0 => 'none',
-          ),
-          'action' => 'block',
-          'severity' => 'warning',
-          'message' => 'Range: Invalid Last Byte Value',
-          'tags' => 
-          array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/210/272',
-          ),
-          'paranoia' => 1,
-          'category' => 'rce',
-          'setvars' => 
-          array (
-          ),
-          'chain' => 
-          array (
-          ),
-          'capture' => true,
-          'skip_after' => NULL,
-          'multi_match' => false,
-          'warnings' => 
-          array (
-          ),
-          'marker' => NULL,
-        ),
-        4 => 
-        array (
-          'id' => 920660,
-          'phase' => 1,
-          'operator' => 'gt',
-          'operator_arg' => '0',
-          'operator_negated' => false,
-          'targets' => 
-          array (
-            0 => 
-            array (
-              'collection' => 'REQUEST_HEADERS',
-              'selector' => 'Request-Range',
-              'negated' => false,
-              'count' => true,
-              'regex' => false,
-            ),
-          ),
-          'transforms' => 
-          array (
-            0 => 'none',
-          ),
-          'action' => 'block',
-          'severity' => 'warning',
-          'message' => 'Obsolete Request-Range header detected',
-          'tags' => 
-          array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/210/272',
           ),
           'paranoia' => 1,
           'category' => 'rce',
@@ -1559,7 +1632,268 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    26 => 
+    28 => 
+    array (
+      'id' => 920181,
+      'phase' => 1,
+      'operator' => 'eq',
+      'operator_arg' => '0',
+      'operator_negated' => true,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => 'Transfer-Encoding',
+          'negated' => false,
+          'count' => true,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'warning',
+      'message' => 'Content-Length and Transfer-Encoding headers present',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'eq',
+          'operator_arg' => '0',
+          'operator_negated' => true,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'REQUEST_HEADERS',
+              'selector' => 'Content-Length',
+              'negated' => false,
+              'count' => true,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'none',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl1',
+              'op' => '+',
+              'value' => '3',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    29 => 
+    array (
+      'id' => 920190,
+      'phase' => 1,
+      'operator' => 'rx',
+      'operator_arg' => '(\\d+)-(\\d+)',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => 'Range',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'warning',
+      'message' => 'Range: Invalid Last Byte Value',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'lt',
+          'operator_arg' => '%{tx.1}',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'TX',
+              'selector' => '2',
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl1',
+              'op' => '+',
+              'value' => '3',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => true,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    30 => 
+    array (
+      'id' => 920660,
+      'phase' => 1,
+      'operator' => 'gt',
+      'operator_arg' => '0',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => 'Request-Range',
+          'negated' => false,
+          'count' => true,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'warning',
+      'message' => 'Obsolete Request-Range header detected',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl1',
+          'op' => '+',
+          'value' => '3',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    31 => 
     array (
       'id' => 920210,
       'phase' => 1,
@@ -1617,7 +1951,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    27 => 
+    32 => 
     array (
       'id' => 920250,
       'phase' => 2,
@@ -1662,16 +1996,16 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
         0 => 
         array (
-          'id' => 920260,
+          'id' => 0,
           'phase' => 2,
-          'operator' => 'rx',
-          'operator_arg' => '(?i)%uff[0-9a-f]{2}',
+          'operator' => 'validateUtf8Encoding',
+          'operator_arg' => '',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'REQUEST_URI',
+              'collection' => 'REQUEST_FILENAME',
               'selector' => NULL,
               'negated' => false,
               'count' => false,
@@ -1679,7 +2013,15 @@ Mozilla/5.0 (compatible; AppScan;',
             ),
             1 => 
             array (
-              'collection' => 'REQUEST_BODY',
+              'collection' => 'ARGS',
+              'selector' => NULL,
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+            2 => 
+            array (
+              'collection' => 'ARGS_NAMES',
               'selector' => NULL,
               'negated' => false,
               'count' => false,
@@ -1688,22 +2030,12 @@ Mozilla/5.0 (compatible; AppScan;',
           ),
           'transforms' => 
           array (
-            0 => 'none',
           ),
-          'action' => 'block',
-          'severity' => 'warning',
-          'message' => 'Unicode Full/Half Width Abuse Attack Attempt',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-iis',
-            3 => 'platform-windows',
-            4 => 'attack-protocol',
-            5 => 'paranoia-level/1',
-            6 => 'OWASP_CRS',
-            7 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            8 => 'capec/1000/255/153/267/72',
           ),
           'paranoia' => 1,
           'category' => 'rce',
@@ -1736,7 +2068,74 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    28 => 
+    33 => 
+    array (
+      'id' => 920260,
+      'phase' => 2,
+      'operator' => 'rx',
+      'operator_arg' => '(?i)%uff[0-9a-f]{2}',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_URI',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        1 => 
+        array (
+          'collection' => 'REQUEST_BODY',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'warning',
+      'message' => 'Unicode Full/Half Width Abuse Attack Attempt',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-iis',
+        3 => 'platform-windows',
+        4 => 'attack-protocol',
+        5 => 'paranoia-level/1',
+        6 => 'OWASP_CRS',
+        7 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        8 => 'capec/1000/255/153/267/72',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl1',
+          'op' => '+',
+          'value' => '3',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    34 => 
     array (
       'id' => 920270,
       'phase' => 2,
@@ -1819,7 +2218,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    29 => 
+    35 => 
     array (
       'id' => 920280,
       'phase' => 1,
@@ -1877,7 +2276,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    30 => 
+    36 => 
     array (
       'id' => 920290,
       'phase' => 1,
@@ -1935,7 +2334,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    31 => 
+    37 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -1970,7 +2369,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => 'END-HOST-CHECK',
     ),
-    32 => 
+    38 => 
     array (
       'id' => 920310,
       'phase' => 1,
@@ -2015,17 +2414,17 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
         0 => 
         array (
-          'id' => 920311,
-          'phase' => 1,
+          'id' => 0,
+          'phase' => 2,
           'operator' => 'rx',
-          'operator_arg' => '^$',
-          'operator_negated' => false,
+          'operator_arg' => '^OPTIONS$',
+          'operator_negated' => true,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'REQUEST_HEADERS',
-              'selector' => 'Accept',
+              'collection' => 'REQUEST_METHOD',
+              'selector' => NULL,
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -2033,21 +2432,12 @@ Mozilla/5.0 (compatible; AppScan;',
           ),
           'transforms' => 
           array (
-            0 => 'none',
           ),
-          'action' => 'block',
+          'action' => 'pass',
           'severity' => 'notice',
-          'message' => 'Request Has an Empty Accept Header',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/210/272',
           ),
           'paranoia' => 1,
           'category' => 'rce',
@@ -2067,11 +2457,11 @@ Mozilla/5.0 (compatible; AppScan;',
         ),
         1 => 
         array (
-          'id' => 920330,
-          'phase' => 1,
-          'operator' => 'rx',
-          'operator_arg' => '^$',
-          'operator_negated' => false,
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'pm',
+          'operator_arg' => 'AppleWebKit Android Business Enterprise Entreprise',
+          'operator_negated' => true,
           'targets' => 
           array (
             0 => 
@@ -2087,19 +2477,11 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
             0 => 'none',
           ),
-          'action' => 'block',
+          'action' => 'pass',
           'severity' => 'notice',
-          'message' => 'Empty User Agent Header',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/210/272',
           ),
           'paranoia' => 1,
           'category' => 'rce',
@@ -2132,7 +2514,210 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    33 => 
+    39 => 
+    array (
+      'id' => 920311,
+      'phase' => 1,
+      'operator' => 'rx',
+      'operator_arg' => '^$',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => 'Accept',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'notice',
+      'message' => 'Request Has an Empty Accept Header',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'rx',
+          'operator_arg' => '^OPTIONS$',
+          'operator_negated' => true,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'REQUEST_METHOD',
+              'selector' => NULL,
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+        1 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'eq',
+          'operator_arg' => '0',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'REQUEST_HEADERS',
+              'selector' => 'User-Agent',
+              'negated' => false,
+              'count' => true,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'none',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl1',
+              'op' => '+',
+              'value' => '2',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    40 => 
+    array (
+      'id' => 920330,
+      'phase' => 1,
+      'operator' => 'rx',
+      'operator_arg' => '^$',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => 'User-Agent',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'notice',
+      'message' => 'Empty User Agent Header',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl1',
+          'op' => '+',
+          'value' => '2',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    41 => 
     array (
       'id' => 920340,
       'phase' => 1,
@@ -2177,19 +2762,19 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
         0 => 
         array (
-          'id' => 920350,
-          'phase' => 1,
-          'operator' => 'rx',
-          'operator_arg' => '(?:^([\\d.]+|\\[[\\da-f:]+\\]|[\\da-f:]+)(:[\\d]+)?$)',
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'eq',
+          'operator_arg' => '0',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
               'collection' => 'REQUEST_HEADERS',
-              'selector' => 'Host',
+              'selector' => 'Content-Type',
               'negated' => false,
-              'count' => false,
+              'count' => true,
               'regex' => false,
             ),
           ),
@@ -2197,19 +2782,11 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
             0 => 'none',
           ),
-          'action' => 'block',
-          'severity' => 'warning',
-          'message' => 'Host header is a numeric IP address',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/210/272',
           ),
           'paranoia' => 1,
           'category' => 'rce',
@@ -2219,7 +2796,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl1',
               'op' => '+',
-              'value' => '3',
+              'value' => '5',
             ),
           ),
           'chain' => 
@@ -2242,7 +2819,65 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    34 => 
+    42 => 
+    array (
+      'id' => 920350,
+      'phase' => 1,
+      'operator' => 'rx',
+      'operator_arg' => '(?:^([\\d.]+|\\[[\\da-f:]+\\]|[\\da-f:]+)(:[\\d]+)?$)',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => 'Host',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'warning',
+      'message' => 'Host header is a numeric IP address',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl1',
+          'op' => '+',
+          'value' => '3',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    43 => 
     array (
       'id' => 920380,
       'phase' => 2,
@@ -2287,17 +2922,17 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
         0 => 
         array (
-          'id' => 920360,
+          'id' => 0,
           'phase' => 2,
-          'operator' => 'eq',
-          'operator_arg' => '1',
+          'operator' => 'gt',
+          'operator_arg' => '%{tx.max_num_args}',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'TX',
-              'selector' => 'ARG_NAME_LENGTH',
+              'collection' => 'ARGS',
+              'selector' => NULL,
               'negated' => false,
               'count' => true,
               'regex' => false,
@@ -2307,280 +2942,11 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
             0 => 'none',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Argument name too long',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/210/272',
-          ),
-          'paranoia' => 1,
-          'category' => 'rce',
-          'setvars' => 
-          array (
-          ),
-          'chain' => 
-          array (
-          ),
-          'capture' => false,
-          'skip_after' => NULL,
-          'multi_match' => false,
-          'warnings' => 
-          array (
-          ),
-          'marker' => NULL,
-        ),
-        1 => 
-        array (
-          'id' => 920370,
-          'phase' => 2,
-          'operator' => 'eq',
-          'operator_arg' => '1',
-          'operator_negated' => false,
-          'targets' => 
-          array (
-            0 => 
-            array (
-              'collection' => 'TX',
-              'selector' => 'ARG_LENGTH',
-              'negated' => false,
-              'count' => true,
-              'regex' => false,
-            ),
-          ),
-          'transforms' => 
-          array (
-            0 => 'none',
-          ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Argument value too long',
-          'tags' => 
-          array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/210/272',
-          ),
-          'paranoia' => 1,
-          'category' => 'rce',
-          'setvars' => 
-          array (
-          ),
-          'chain' => 
-          array (
-          ),
-          'capture' => false,
-          'skip_after' => NULL,
-          'multi_match' => false,
-          'warnings' => 
-          array (
-          ),
-          'marker' => NULL,
-        ),
-        2 => 
-        array (
-          'id' => 920390,
-          'phase' => 2,
-          'operator' => 'eq',
-          'operator_arg' => '1',
-          'operator_negated' => false,
-          'targets' => 
-          array (
-            0 => 
-            array (
-              'collection' => 'TX',
-              'selector' => 'TOTAL_ARG_LENGTH',
-              'negated' => false,
-              'count' => true,
-              'regex' => false,
-            ),
-          ),
-          'transforms' => 
-          array (
-            0 => 'none',
-          ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Total arguments size exceeded',
-          'tags' => 
-          array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/210/272',
-          ),
-          'paranoia' => 1,
-          'category' => 'rce',
-          'setvars' => 
-          array (
-          ),
-          'chain' => 
-          array (
-          ),
-          'capture' => false,
-          'skip_after' => NULL,
-          'multi_match' => false,
-          'warnings' => 
-          array (
-          ),
-          'marker' => NULL,
-        ),
-        3 => 
-        array (
-          'id' => 920400,
-          'phase' => 1,
-          'operator' => 'eq',
-          'operator_arg' => '1',
-          'operator_negated' => false,
-          'targets' => 
-          array (
-            0 => 
-            array (
-              'collection' => 'TX',
-              'selector' => 'MAX_FILE_SIZE',
-              'negated' => false,
-              'count' => true,
-              'regex' => false,
-            ),
-          ),
-          'transforms' => 
-          array (
-            0 => 'none',
-          ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Uploaded file size too large',
-          'tags' => 
-          array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/210/272',
-          ),
-          'paranoia' => 1,
-          'category' => 'rce',
-          'setvars' => 
-          array (
-          ),
-          'chain' => 
-          array (
-          ),
-          'capture' => false,
-          'skip_after' => NULL,
-          'multi_match' => false,
-          'warnings' => 
-          array (
-          ),
-          'marker' => NULL,
-        ),
-        4 => 
-        array (
-          'id' => 920410,
-          'phase' => 2,
-          'operator' => 'eq',
-          'operator_arg' => '1',
-          'operator_negated' => false,
-          'targets' => 
-          array (
-            0 => 
-            array (
-              'collection' => 'TX',
-              'selector' => 'COMBINED_FILE_SIZES',
-              'negated' => false,
-              'count' => true,
-              'regex' => false,
-            ),
-          ),
-          'transforms' => 
-          array (
-            0 => 'none',
-          ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Total uploaded files size too large',
-          'tags' => 
-          array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/210/272',
-          ),
-          'paranoia' => 1,
-          'category' => 'rce',
-          'setvars' => 
-          array (
-          ),
-          'chain' => 
-          array (
-          ),
-          'capture' => false,
-          'skip_after' => NULL,
-          'multi_match' => false,
-          'warnings' => 
-          array (
-          ),
-          'marker' => NULL,
-        ),
-        5 => 
-        array (
-          'id' => 920470,
-          'phase' => 1,
-          'operator' => 'rx',
-          'operator_arg' => '^[\\w/.+*-]+(?:\\s?;\\s*(?:action|boundary|charset|component|start(?:-info)?|type|version)\\s?=\\s?[\'"\\w.()+,/:=?<>@#*-]+)*$',
-          'operator_negated' => true,
-          'targets' => 
-          array (
-            0 => 
-            array (
-              'collection' => 'REQUEST_HEADERS',
-              'selector' => 'Content-Type',
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-          ),
-          'transforms' => 
-          array (
-            0 => 'none',
-            1 => 'lowercase',
-          ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Illegal Content-Type header',
-          'tags' => 
-          array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/255/153',
           ),
           'paranoia' => 1,
           'category' => 'rce',
@@ -2613,7 +2979,621 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    35 => 
+    44 => 
+    array (
+      'id' => 920360,
+      'phase' => 2,
+      'operator' => 'eq',
+      'operator_arg' => '1',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'TX',
+          'selector' => 'ARG_NAME_LENGTH',
+          'negated' => false,
+          'count' => true,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Argument name too long',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'gt',
+          'operator_arg' => '%{tx.arg_name_length}',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'ARGS_NAMES',
+              'selector' => NULL,
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'none',
+            1 => 'length',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl1',
+              'op' => '+',
+              'value' => '5',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    45 => 
+    array (
+      'id' => 920370,
+      'phase' => 2,
+      'operator' => 'eq',
+      'operator_arg' => '1',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'TX',
+          'selector' => 'ARG_LENGTH',
+          'negated' => false,
+          'count' => true,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Argument value too long',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'gt',
+          'operator_arg' => '%{tx.arg_length}',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'ARGS',
+              'selector' => NULL,
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'none',
+            1 => 'length',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl1',
+              'op' => '+',
+              'value' => '5',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    46 => 
+    array (
+      'id' => 920390,
+      'phase' => 2,
+      'operator' => 'eq',
+      'operator_arg' => '1',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'TX',
+          'selector' => 'TOTAL_ARG_LENGTH',
+          'negated' => false,
+          'count' => true,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Total arguments size exceeded',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'gt',
+          'operator_arg' => '%{tx.total_arg_length}',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'ARGS_COMBINED_SIZE',
+              'selector' => NULL,
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'none',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl1',
+              'op' => '+',
+              'value' => '5',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    47 => 
+    array (
+      'id' => 920400,
+      'phase' => 1,
+      'operator' => 'eq',
+      'operator_arg' => '1',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'TX',
+          'selector' => 'MAX_FILE_SIZE',
+          'negated' => false,
+          'count' => true,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Uploaded file size too large',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'rx',
+          'operator_arg' => '^(?i)multipart/form-data',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'REQUEST_HEADERS',
+              'selector' => 'Content-Type',
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+        1 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'gt',
+          'operator_arg' => '%{tx.max_file_size}',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'REQUEST_HEADERS',
+              'selector' => 'Content-Length',
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'none',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl1',
+              'op' => '+',
+              'value' => '5',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    48 => 
+    array (
+      'id' => 920410,
+      'phase' => 2,
+      'operator' => 'eq',
+      'operator_arg' => '1',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'TX',
+          'selector' => 'COMBINED_FILE_SIZES',
+          'negated' => false,
+          'count' => true,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Total uploaded files size too large',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'gt',
+          'operator_arg' => '%{tx.combined_file_sizes}',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'FILES_COMBINED_SIZE',
+              'selector' => NULL,
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'none',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl1',
+              'op' => '+',
+              'value' => '5',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    49 => 
+    array (
+      'id' => 920470,
+      'phase' => 1,
+      'operator' => 'rx',
+      'operator_arg' => '^[\\w/.+*-]+(?:\\s?;\\s*(?:action|boundary|charset|component|start(?:-info)?|type|version)\\s?=\\s?[\'"\\w.()+,/:=?<>@#*-]+)*$',
+      'operator_negated' => true,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => 'Content-Type',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+        1 => 'lowercase',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Illegal Content-Type header',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/255/153',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl1',
+          'op' => '+',
+          'value' => '5',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    50 => 
     array (
       'id' => 920420,
       'phase' => 1,
@@ -2664,17 +3644,17 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
         0 => 
         array (
-          'id' => 920480,
-          'phase' => 1,
-          'operator' => 'rx',
-          'operator_arg' => 'charset\\s*=\\s*["\']?([^;"\'\\s]+)',
-          'operator_negated' => false,
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'within',
+          'operator_arg' => '%{tx.allowed_request_content_type}',
+          'operator_negated' => true,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'REQUEST_HEADERS',
-              'selector' => 'Content-Type',
+              'collection' => 'TX',
+              'selector' => 'content_type',
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -2682,80 +3662,13 @@ Mozilla/5.0 (compatible; AppScan;',
           ),
           'transforms' => 
           array (
-            0 => 'none',
+            0 => 'lowercase',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Request content type charset is not allowed by policy',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/255/153',
-          ),
-          'paranoia' => 1,
-          'category' => 'rce',
-          'setvars' => 
-          array (
-            0 => 
-            array (
-              'name' => 'tx.content_type_charset',
-              'op' => '=',
-              'value' => '|0|',
-            ),
-          ),
-          'chain' => 
-          array (
-          ),
-          'capture' => true,
-          'skip_after' => NULL,
-          'multi_match' => false,
-          'warnings' => 
-          array (
-          ),
-          'marker' => NULL,
-        ),
-        1 => 
-        array (
-          'id' => 920530,
-          'phase' => 1,
-          'operator' => 'rx',
-          'operator_arg' => 'charset.*?charset',
-          'operator_negated' => false,
-          'targets' => 
-          array (
-            0 => 
-            array (
-              'collection' => 'REQUEST_HEADERS',
-              'selector' => 'Content-Type',
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-          ),
-          'transforms' => 
-          array (
-            0 => 'none',
-            1 => 'lowercase',
-          ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Multiple charsets detected in content type header',
-          'tags' => 
-          array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/255/153',
           ),
           'paranoia' => 1,
           'category' => 'rce',
@@ -2788,7 +3701,174 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    36 => 
+    51 => 
+    array (
+      'id' => 920480,
+      'phase' => 1,
+      'operator' => 'rx',
+      'operator_arg' => 'charset\\s*=\\s*["\']?([^;"\'\\s]+)',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => 'Content-Type',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Request content type charset is not allowed by policy',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/255/153',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.content_type_charset',
+          'op' => '=',
+          'value' => '|0|',
+        ),
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'within',
+          'operator_arg' => '%{tx.allowed_request_content_type_charset}',
+          'operator_negated' => true,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'TX',
+              'selector' => 'content_type_charset',
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'lowercase',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl1',
+              'op' => '+',
+              'value' => '5',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => true,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    52 => 
+    array (
+      'id' => 920530,
+      'phase' => 1,
+      'operator' => 'rx',
+      'operator_arg' => 'charset.*?charset',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => 'Content-Type',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+        1 => 'lowercase',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Multiple charsets detected in content type header',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/255/153',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl1',
+          'op' => '+',
+          'value' => '5',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    53 => 
     array (
       'id' => 920640,
       'phase' => 2,
@@ -2833,19 +3913,19 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
         0 => 
         array (
-          'id' => 920430,
-          'phase' => 1,
-          'operator' => 'within',
-          'operator_arg' => '%{tx.allowed_http_versions}',
-          'operator_negated' => true,
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'eq',
+          'operator_arg' => '0',
+          'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'REQUEST_PROTOCOL',
-              'selector' => NULL,
+              'collection' => 'REQUEST_HEADERS',
+              'selector' => 'Content-Type',
               'negated' => false,
-              'count' => false,
+              'count' => true,
               'regex' => false,
             ),
           ),
@@ -2853,19 +3933,11 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
             0 => 'none',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'HTTP protocol version is not allowed by policy',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/210/272',
           ),
           'paranoia' => 1,
           'category' => 'rce',
@@ -2898,7 +3970,65 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    37 => 
+    54 => 
+    array (
+      'id' => 920430,
+      'phase' => 1,
+      'operator' => 'within',
+      'operator_arg' => '%{tx.allowed_http_versions}',
+      'operator_negated' => true,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_PROTOCOL',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'HTTP protocol version is not allowed by policy',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl1',
+          'op' => '+',
+          'value' => '5',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    55 => 
     array (
       'id' => 920440,
       'phase' => 1,
@@ -2950,17 +4080,17 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
         0 => 
         array (
-          'id' => 920500,
-          'phase' => 1,
-          'operator' => 'rx',
-          'operator_arg' => '\\.[^.~]+~(?:/.*|)$',
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'within',
+          'operator_arg' => '%{tx.restricted_extensions}',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'REQUEST_FILENAME',
-              'selector' => NULL,
+              'collection' => 'TX',
+              'selector' => 'EXTENSION',
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -2969,21 +4099,13 @@ Mozilla/5.0 (compatible; AppScan;',
           'transforms' => 
           array (
             0 => 'none',
-            1 => 'urlDecodeUni',
+            1 => 'lowercase',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Attempt to access a backup or working file',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/210/272',
           ),
           'paranoia' => 1,
           'category' => 'rce',
@@ -2999,7 +4121,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'chain' => 
           array (
           ),
-          'capture' => true,
+          'capture' => false,
           'skip_after' => NULL,
           'multi_match' => false,
           'warnings' => 
@@ -3016,7 +4138,66 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    38 => 
+    56 => 
+    array (
+      'id' => 920500,
+      'phase' => 1,
+      'operator' => 'rx',
+      'operator_arg' => '\\.[^.~]+~(?:/.*|)$',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_FILENAME',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+        1 => 'urlDecodeUni',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Attempt to access a backup or working file',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl1',
+          'op' => '+',
+          'value' => '5',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => true,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    57 => 
     array (
       'id' => 920450,
       'phase' => 1,
@@ -3068,41 +4249,30 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
         0 => 
         array (
-          'id' => 920520,
-          'phase' => 1,
-          'operator' => 'gt',
-          'operator_arg' => '100',
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'within',
+          'operator_arg' => '%{tx.restricted_headers_basic}',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'REQUEST_HEADERS',
-              'selector' => 'Accept-Encoding',
+              'collection' => 'TX',
+              'selector' => '^header_name_920450_',
               'negated' => false,
               'count' => false,
-              'regex' => false,
+              'regex' => true,
             ),
           ),
           'transforms' => 
           array (
-            0 => 'none',
-            1 => 'lowercase',
-            2 => 'length',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Accept-Encoding header exceeded sensible length',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/255/153',
           ),
           'paranoia' => 1,
           'category' => 'rce',
@@ -3135,7 +4305,67 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    39 => 
+    58 => 
+    array (
+      'id' => 920520,
+      'phase' => 1,
+      'operator' => 'gt',
+      'operator_arg' => '100',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => 'Accept-Encoding',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+        1 => 'lowercase',
+        2 => 'length',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Accept-Encoding header exceeded sensible length',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/255/153',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl1',
+          'op' => '+',
+          'value' => '5',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    59 => 
     array (
       'id' => 920600,
       'phase' => 1,
@@ -3193,7 +4423,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    40 => 
+    60 => 
     array (
       'id' => 920539,
       'phase' => 2,
@@ -3239,7 +4469,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    41 => 
+    61 => 
     array (
       'id' => 920540,
       'phase' => 2,
@@ -3321,7 +4551,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    42 => 
+    62 => 
     array (
       'id' => 920610,
       'phase' => 1,
@@ -3378,7 +4608,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    43 => 
+    63 => 
     array (
       'id' => 920620,
       'phase' => 1,
@@ -3435,7 +4665,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    44 => 
+    64 => 
     array (
       'id' => 920013,
       'phase' => 1,
@@ -3479,7 +4709,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    45 => 
+    65 => 
     array (
       'id' => 920014,
       'phase' => 2,
@@ -3523,7 +4753,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    46 => 
+    66 => 
     array (
       'id' => 920200,
       'phase' => 1,
@@ -3568,11 +4798,11 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
         0 => 
         array (
-          'id' => 920201,
-          'phase' => 1,
+          'id' => 0,
+          'phase' => 2,
           'operator' => 'endsWith',
           'operator_arg' => '.pdf',
-          'operator_negated' => false,
+          'operator_negated' => true,
           'targets' => 
           array (
             0 => 
@@ -3586,76 +4816,14 @@ Mozilla/5.0 (compatible; AppScan;',
           ),
           'transforms' => 
           array (
-            0 => 'none',
-            1 => 'urlDecodeUni',
           ),
-          'action' => 'block',
-          'severity' => 'warning',
-          'message' => 'Range: Too many fields for pdf request (63 or more)',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/2',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/210/272',
           ),
-          'paranoia' => 2,
-          'category' => 'rce',
-          'setvars' => 
-          array (
-          ),
-          'chain' => 
-          array (
-          ),
-          'capture' => false,
-          'skip_after' => NULL,
-          'multi_match' => false,
-          'warnings' => 
-          array (
-          ),
-          'marker' => NULL,
-        ),
-        1 => 
-        array (
-          'id' => 920230,
-          'phase' => 2,
-          'operator' => 'rx',
-          'operator_arg' => '%[0-9a-fA-F]{2}',
-          'operator_negated' => false,
-          'targets' => 
-          array (
-            0 => 
-            array (
-              'collection' => 'ARGS',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-          ),
-          'transforms' => 
-          array (
-            0 => 'none',
-          ),
-          'action' => 'block',
-          'severity' => 'warning',
-          'message' => 'Multiple URL Encoding Detected',
-          'tags' => 
-          array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/2',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/255/153/267/120',
-          ),
-          'paranoia' => 2,
+          'paranoia' => 1,
           'category' => 'rce',
           'setvars' => 
           array (
@@ -3686,7 +4854,167 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    47 => 
+    67 => 
+    array (
+      'id' => 920201,
+      'phase' => 1,
+      'operator' => 'endsWith',
+      'operator_arg' => '.pdf',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_BASENAME',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+        1 => 'urlDecodeUni',
+      ),
+      'action' => 'block',
+      'severity' => 'warning',
+      'message' => 'Range: Too many fields for pdf request (63 or more)',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/2',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 2,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'rx',
+          'operator_arg' => '^bytes=(?:(?:\\d+)?-(?:\\d+)?\\s*,?\\s*){63}',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'REQUEST_HEADERS',
+              'selector' => 'Range',
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl2',
+              'op' => '+',
+              'value' => '3',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    68 => 
+    array (
+      'id' => 920230,
+      'phase' => 2,
+      'operator' => 'rx',
+      'operator_arg' => '%[0-9a-fA-F]{2}',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'ARGS',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'warning',
+      'message' => 'Multiple URL Encoding Detected',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/2',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/255/153/267/120',
+      ),
+      'paranoia' => 2,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl2',
+          'op' => '+',
+          'value' => '3',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    69 => 
     array (
       'id' => 920271,
       'phase' => 2,
@@ -3769,7 +5097,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    48 => 
+    70 => 
     array (
       'id' => 920320,
       'phase' => 1,
@@ -3827,7 +5155,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    49 => 
+    71 => 
     array (
       'id' => 920121,
       'phase' => 2,
@@ -3894,7 +5222,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    50 => 
+    72 => 
     array (
       'id' => 920451,
       'phase' => 1,
@@ -3946,17 +5274,118 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
         0 => 
         array (
-          'id' => 920240,
+          'id' => 0,
           'phase' => 2,
-          'operator' => 'rx',
-          'operator_arg' => '^(?i)application/x-www-form-urlencoded',
+          'operator' => 'within',
+          'operator_arg' => '%{tx.restricted_headers_extended}',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'REQUEST_HEADERS',
-              'selector' => 'Content-Type',
+              'collection' => 'TX',
+              'selector' => '^header_name_920451_',
+              'negated' => false,
+              'count' => false,
+              'regex' => true,
+            ),
+          ),
+          'transforms' => 
+          array (
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl2',
+              'op' => '+',
+              'value' => '5',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => true,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    73 => 
+    array (
+      'id' => 920240,
+      'phase' => 2,
+      'operator' => 'rx',
+      'operator_arg' => '^(?i)application/x-www-form-urlencoded',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => 'Content-Type',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'warning',
+      'message' => 'URL Encoding Abuse Attack Attempt',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/2',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/255/153/267/72',
+      ),
+      'paranoia' => 2,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'rx',
+          'operator_arg' => '\\x25',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'REQUEST_BODY',
+              'selector' => NULL,
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -3964,23 +5393,14 @@ Mozilla/5.0 (compatible; AppScan;',
           ),
           'transforms' => 
           array (
-            0 => 'none',
           ),
-          'action' => 'block',
-          'severity' => 'warning',
-          'message' => 'URL Encoding Abuse Attack Attempt',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/2',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/255/153/267/72',
           ),
-          'paranoia' => 2,
+          'paranoia' => 1,
           'category' => 'rce',
           'setvars' => 
           array (
@@ -3998,17 +5418,118 @@ Mozilla/5.0 (compatible; AppScan;',
         ),
         1 => 
         array (
-          'id' => 920650,
+          'id' => 0,
           'phase' => 2,
-          'operator' => 'eq',
-          'operator_arg' => '0',
+          'operator' => 'validateUrlEncoding',
+          'operator_arg' => '',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'TX',
-              'selector' => 'allow_method_override_parameter',
+              'collection' => 'REQUEST_BODY',
+              'selector' => NULL,
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl2',
+              'op' => '+',
+              'value' => '3',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    74 => 
+    array (
+      'id' => 920650,
+      'phase' => 2,
+      'operator' => 'eq',
+      'operator_arg' => '0',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'TX',
+          'selector' => 'allow_method_override_parameter',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'HTTP method override attempt via _method parameter',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/2',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 2,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'streq',
+          'operator_arg' => '%{ARGS._method}',
+          'operator_negated' => true,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'REQUEST_METHOD',
+              'selector' => NULL,
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -4017,22 +5538,15 @@ Mozilla/5.0 (compatible; AppScan;',
           'transforms' => 
           array (
             0 => 'none',
+            1 => 'lowercase',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'HTTP method override attempt via _method parameter',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/2',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/210/272',
           ),
-          'paranoia' => 2,
+          'paranoia' => 1,
           'category' => 'rce',
           'setvars' => 
           array (
@@ -4048,19 +5562,19 @@ Mozilla/5.0 (compatible; AppScan;',
           ),
           'marker' => NULL,
         ),
-        2 => 
+        1 => 
         array (
-          'id' => 920015,
-          'phase' => 1,
-          'operator' => 'lt',
-          'operator_arg' => '3',
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'rx',
+          'operator_arg' => '^[a-z]{3,10}$',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'TX',
-              'selector' => 'DETECTION_PARANOIA_LEVEL',
+              'collection' => 'ARGS',
+              'selector' => '_method',
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -4068,24 +5582,32 @@ Mozilla/5.0 (compatible; AppScan;',
           ),
           'transforms' => 
           array (
+            0 => 'none',
+            1 => 'urlDecodeUni',
+            2 => 'lowercase',
           ),
           'action' => 'pass',
           'severity' => 'notice',
           'message' => '',
           'tags' => 
           array (
-            0 => 'OWASP_CRS',
           ),
           'paranoia' => 1,
           'category' => 'rce',
           'setvars' => 
           array (
+            0 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl2',
+              'op' => '+',
+              'value' => '5',
+            ),
           ),
           'chain' => 
           array (
           ),
           'capture' => false,
-          'skip_after' => 'END-REQUEST-920-PROTOCOL-ENFORCEMENT',
+          'skip_after' => NULL,
           'multi_match' => false,
           'warnings' => 
           array (
@@ -4093,7 +5615,7 @@ Mozilla/5.0 (compatible; AppScan;',
           'marker' => NULL,
         ),
       ),
-      'capture' => true,
+      'capture' => false,
       'skip_after' => NULL,
       'multi_match' => false,
       'warnings' => 
@@ -4101,7 +5623,51 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    51 => 
+    75 => 
+    array (
+      'id' => 920015,
+      'phase' => 1,
+      'operator' => 'lt',
+      'operator_arg' => '3',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'TX',
+          'selector' => 'DETECTION_PARANOIA_LEVEL',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+      ),
+      'action' => 'pass',
+      'severity' => 'notice',
+      'message' => '',
+      'tags' => 
+      array (
+        0 => 'OWASP_CRS',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => 'END-REQUEST-920-PROTOCOL-ENFORCEMENT',
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    76 => 
     array (
       'id' => 920016,
       'phase' => 2,
@@ -4145,7 +5711,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    52 => 
+    77 => 
     array (
       'id' => 920272,
       'phase' => 2,
@@ -4236,7 +5802,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    53 => 
+    78 => 
     array (
       'id' => 920300,
       'phase' => 1,
@@ -4281,40 +5847,32 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
         0 => 
         array (
-          'id' => 920490,
-          'phase' => 1,
-          'operator' => 'ge',
-          'operator_arg' => '1',
-          'operator_negated' => false,
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'rx',
+          'operator_arg' => '^(?:OPTIONS|CONNECT)$',
+          'operator_negated' => true,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'REQUEST_HEADERS',
-              'selector' => 'x-up-devcap-post-charset',
+              'collection' => 'REQUEST_METHOD',
+              'selector' => NULL,
               'negated' => false,
-              'count' => true,
+              'count' => false,
               'regex' => false,
             ),
           ),
           'transforms' => 
           array (
-            0 => 'none',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Request header x-up-devcap-post-charset detected in combination with prefix \\\'UP\\\' to User-Agent',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'language-aspnet',
-            1 => 'platform-windows',
-            2 => 'attack-protocol',
-            3 => 'paranoia-level/3',
-            4 => 'OWASP_CRS',
-            5 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            6 => 'capec/1000/210/272',
           ),
-          'paranoia' => 3,
+          'paranoia' => 1,
           'category' => 'rce',
           'setvars' => 
           array (
@@ -4332,19 +5890,19 @@ Mozilla/5.0 (compatible; AppScan;',
         ),
         1 => 
         array (
-          'id' => 920510,
-          'phase' => 1,
-          'operator' => 'gt',
-          'operator_arg' => '0',
-          'operator_negated' => false,
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'pm',
+          'operator_arg' => 'AppleWebKit Android',
+          'operator_negated' => true,
           'targets' => 
           array (
             0 => 
             array (
               'collection' => 'REQUEST_HEADERS',
-              'selector' => 'Cache-Control',
+              'selector' => 'User-Agent',
               'negated' => false,
-              'count' => true,
+              'count' => false,
               'regex' => false,
             ),
           ),
@@ -4352,25 +5910,22 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
             0 => 'none',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Invalid Cache-Control request header',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'header-allowlist',
-            5 => 'paranoia-level/3',
-            6 => 'OWASP_CRS',
-            7 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            8 => 'capec/1000/210/272',
           ),
-          'paranoia' => 3,
+          'paranoia' => 1,
           'category' => 'rce',
           'setvars' => 
           array (
+            0 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl3',
+              'op' => '+',
+              'value' => '2',
+            ),
           ),
           'chain' => 
           array (
@@ -4383,19 +5938,70 @@ Mozilla/5.0 (compatible; AppScan;',
           ),
           'marker' => NULL,
         ),
-        2 => 
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    79 => 
+    array (
+      'id' => 920490,
+      'phase' => 1,
+      'operator' => 'ge',
+      'operator_arg' => '1',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
         array (
-          'id' => 920521,
-          'phase' => 1,
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => 'x-up-devcap-post-charset',
+          'negated' => false,
+          'count' => true,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Request header x-up-devcap-post-charset detected in combination with prefix \\\'UP\\\' to User-Agent',
+      'tags' => 
+      array (
+        0 => 'language-aspnet',
+        1 => 'platform-windows',
+        2 => 'attack-protocol',
+        3 => 'paranoia-level/3',
+        4 => 'OWASP_CRS',
+        5 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        6 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 3,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
           'operator' => 'rx',
-          'operator_arg' => 'br|compress|deflate|(?:pack200-)?gzip|identity|\\*|^$|aes128gcm|exi|zstd|x-(?:compress|gzip)',
-          'operator_negated' => true,
+          'operator_arg' => '^(?i)up',
+          'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
               'collection' => 'REQUEST_HEADERS',
-              'selector' => 'Accept-Encoding',
+              'selector' => 'User-Agent',
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -4404,23 +6010,14 @@ Mozilla/5.0 (compatible; AppScan;',
           'transforms' => 
           array (
             0 => 'none',
-            1 => 'lowercase',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Illegal Accept-Encoding header',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/3',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/255/153',
           ),
-          'paranoia' => 3,
+          'paranoia' => 1,
           'category' => 'rce',
           'setvars' => 
           array (
@@ -4451,7 +6048,168 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    54 => 
+    80 => 
+    array (
+      'id' => 920510,
+      'phase' => 1,
+      'operator' => 'gt',
+      'operator_arg' => '0',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => 'Cache-Control',
+          'negated' => false,
+          'count' => true,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Invalid Cache-Control request header',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'header-allowlist',
+        5 => 'paranoia-level/3',
+        6 => 'OWASP_CRS',
+        7 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        8 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 3,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'rx',
+          'operator_arg' => '^(?:(?:max-age=[0-9]+|min-fresh=[0-9]+|no-cache|no-store|no-transform|only-if-cached|max-stale(?:=[0-9]+)?)(?:\\s*\\,\\s*|$)){1,7}$',
+          'operator_negated' => true,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'REQUEST_HEADERS',
+              'selector' => 'Cache-Control',
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl3',
+              'op' => '+',
+              'value' => '5',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    81 => 
+    array (
+      'id' => 920521,
+      'phase' => 1,
+      'operator' => 'rx',
+      'operator_arg' => 'br|compress|deflate|(?:pack200-)?gzip|identity|\\*|^$|aes128gcm|exi|zstd|x-(?:compress|gzip)',
+      'operator_negated' => true,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => 'Accept-Encoding',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+        1 => 'lowercase',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Illegal Accept-Encoding header',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/3',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/255/153',
+      ),
+      'paranoia' => 3,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl3',
+          'op' => '+',
+          'value' => '5',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    82 => 
     array (
       'id' => 920017,
       'phase' => 1,
@@ -4495,7 +6253,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    55 => 
+    83 => 
     array (
       'id' => 920018,
       'phase' => 2,
@@ -4539,7 +6297,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    56 => 
+    84 => 
     array (
       'id' => 920202,
       'phase' => 1,
@@ -4585,33 +6343,17 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
         0 => 
         array (
-          'id' => 920273,
+          'id' => 0,
           'phase' => 2,
-          'operator' => 'validateByteRange',
-          'operator_arg' => '38,44-46,48-58,61,65-90,95,97-122',
+          'operator' => 'rx',
+          'operator_arg' => '^bytes=(?:(?:\\d+)?-(?:\\d+)?\\s*,?\\s*){6}',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'ARGS',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            1 => 
-            array (
-              'collection' => 'ARGS_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            2 => 
-            array (
-              'collection' => 'REQUEST_BODY',
-              'selector' => NULL,
+              'collection' => 'REQUEST_HEADERS',
+              'selector' => 'Range',
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -4619,24 +6361,14 @@ Mozilla/5.0 (compatible; AppScan;',
           ),
           'transforms' => 
           array (
-            0 => 'none',
-            1 => 'urlDecodeUni',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Invalid character in request (outside of very strict set)',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-protocol',
-            4 => 'paranoia-level/4',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
-            7 => 'capec/1000/210/272',
           ),
-          'paranoia' => 4,
+          'paranoia' => 1,
           'category' => 'rce',
           'setvars' => 
           array (
@@ -4644,7 +6376,7 @@ Mozilla/5.0 (compatible; AppScan;',
             array (
               'name' => 'tx.inbound_anomaly_score_pl4',
               'op' => '+',
-              'value' => '5',
+              'value' => '3',
             ),
           ),
           'chain' => 
@@ -4667,7 +6399,82 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    57 => 
+    85 => 
+    array (
+      'id' => 920273,
+      'phase' => 2,
+      'operator' => 'validateByteRange',
+      'operator_arg' => '38,44-46,48-58,61,65-90,95,97-122',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'ARGS',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        1 => 
+        array (
+          'collection' => 'ARGS_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        2 => 
+        array (
+          'collection' => 'REQUEST_BODY',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+        1 => 'urlDecodeUni',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Invalid character in request (outside of very strict set)',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-protocol',
+        4 => 'paranoia-level/4',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
+        7 => 'capec/1000/210/272',
+      ),
+      'paranoia' => 4,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl4',
+          'op' => '+',
+          'value' => '5',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    86 => 
     array (
       'id' => 920274,
       'phase' => 1,
@@ -4774,7 +6581,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    58 => 
+    87 => 
     array (
       'id' => 920275,
       'phase' => 1,
@@ -4841,7 +6648,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    59 => 
+    88 => 
     array (
       'id' => 920460,
       'phase' => 2,
@@ -4931,7 +6738,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    60 => 
+    89 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -4966,7 +6773,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => 'END-REQUEST-920-PROTOCOL-ENFORCEMENT',
     ),
-    61 => 
+    90 => 
     array (
       'id' => 921011,
       'phase' => 1,
@@ -5010,7 +6817,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    62 => 
+    91 => 
     array (
       'id' => 921012,
       'phase' => 2,
@@ -5054,7 +6861,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    63 => 
+    92 => 
     array (
       'id' => 921110,
       'phase' => 2,
@@ -5144,7 +6951,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    64 => 
+    93 => 
     array (
       'id' => 921120,
       'phase' => 2,
@@ -5241,7 +7048,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    65 => 
+    94 => 
     array (
       'id' => 921130,
       'phase' => 2,
@@ -5339,7 +7146,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    66 => 
+    95 => 
     array (
       'id' => 921140,
       'phase' => 1,
@@ -5412,7 +7219,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    67 => 
+    96 => 
     array (
       'id' => 921150,
       'phase' => 2,
@@ -5476,7 +7283,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    68 => 
+    97 => 
     array (
       'id' => 921160,
       'phase' => 1,
@@ -5549,7 +7356,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    69 => 
+    98 => 
     array (
       'id' => 921190,
       'phase' => 1,
@@ -5614,7 +7421,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    70 => 
+    99 => 
     array (
       'id' => 921200,
       'phase' => 2,
@@ -5704,7 +7511,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    71 => 
+    100 => 
     array (
       'id' => 921421,
       'phase' => 1,
@@ -5763,7 +7570,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    72 => 
+    101 => 
     array (
       'id' => 921240,
       'phase' => 1,
@@ -5823,7 +7630,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    73 => 
+    102 => 
     array (
       'id' => 921250,
       'phase' => 1,
@@ -5881,7 +7688,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    74 => 
+    103 => 
     array (
       'id' => 921013,
       'phase' => 1,
@@ -5925,7 +7732,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    75 => 
+    104 => 
     array (
       'id' => 921014,
       'phase' => 2,
@@ -5969,7 +7776,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    76 => 
+    105 => 
     array (
       'id' => 921151,
       'phase' => 1,
@@ -6033,7 +7840,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    77 => 
+    106 => 
     array (
       'id' => 921422,
       'phase' => 1,
@@ -6092,7 +7899,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    78 => 
+    107 => 
     array (
       'id' => 921015,
       'phase' => 1,
@@ -6136,7 +7943,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    79 => 
+    108 => 
     array (
       'id' => 921016,
       'phase' => 2,
@@ -6180,7 +7987,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    80 => 
+    109 => 
     array (
       'id' => 921230,
       'phase' => 1,
@@ -6238,7 +8045,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    81 => 
+    110 => 
     array (
       'id' => 921170,
       'phase' => 2,
@@ -6294,7 +8101,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    82 => 
+    111 => 
     array (
       'id' => 921180,
       'phase' => 2,
@@ -6357,7 +8164,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    83 => 
+    112 => 
     array (
       'id' => 921210,
       'phase' => 2,
@@ -6420,7 +8227,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    84 => 
+    113 => 
     array (
       'id' => 921017,
       'phase' => 1,
@@ -6464,7 +8271,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    85 => 
+    114 => 
     array (
       'id' => 921018,
       'phase' => 2,
@@ -6508,7 +8315,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    86 => 
+    115 => 
     array (
       'id' => 921220,
       'phase' => 2,
@@ -6571,7 +8378,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    87 => 
+    116 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -6606,7 +8413,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => 'END-REQUEST-921-PROTOCOL-ATTACK',
     ),
-    88 => 
+    117 => 
     array (
       'id' => 922100,
       'phase' => 2,
@@ -6657,34 +8464,31 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
         0 => 
         array (
-          'id' => 922140,
+          'id' => 0,
           'phase' => 2,
-          'operator' => 'gt',
-          'operator_arg' => '0',
-          'operator_negated' => false,
+          'operator' => 'within',
+          'operator_arg' => '%{tx.allowed_request_content_type_charset}',
+          'operator_negated' => true,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'MULTIPART_PART_HEADERS',
-              'selector' => NULL,
+              'collection' => 'TX',
+              'selector' => '922100_CHARSET',
               'negated' => false,
-              'count' => true,
+              'count' => false,
               'regex' => false,
             ),
           ),
           'transforms' => 
           array (
-            0 => 'none',
+            0 => 'lowercase',
           ),
           'action' => 'pass',
           'severity' => 'notice',
           'message' => '',
           'tags' => 
           array (
-            0 => 'attack-multipart-header',
-            1 => 'OWASP_CRS',
-            2 => 'OWASP_CRS/MULTIPART-ATTACK',
           ),
           'paranoia' => 1,
           'category' => 'multipart',
@@ -6692,9 +8496,9 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
             0 => 
             array (
-              'name' => 'tx.multipart_headers_content_counter',
-              'op' => '=',
-              'value' => '0',
+              'name' => 'tx.inbound_anomaly_score_pl1',
+              'op' => '+',
+              'value' => '5',
             ),
           ),
           'chain' => 
@@ -6717,7 +8521,60 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    89 => 
+    118 => 
+    array (
+      'id' => 922140,
+      'phase' => 2,
+      'operator' => 'gt',
+      'operator_arg' => '0',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'MULTIPART_PART_HEADERS',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => true,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'pass',
+      'severity' => 'notice',
+      'message' => '',
+      'tags' => 
+      array (
+        0 => 'attack-multipart-header',
+        1 => 'OWASP_CRS',
+        2 => 'OWASP_CRS/MULTIPART-ATTACK',
+      ),
+      'paranoia' => 1,
+      'category' => 'multipart',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.multipart_headers_content_counter',
+          'op' => '=',
+          'value' => '0',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    119 => 
     array (
       'id' => 922150,
       'phase' => 2,
@@ -6777,7 +8634,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    90 => 
+    120 => 
     array (
       'id' => 922110,
       'phase' => 2,
@@ -6837,7 +8694,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    91 => 
+    121 => 
     array (
       'id' => 922120,
       'phase' => 2,
@@ -6897,7 +8754,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    92 => 
+    122 => 
     array (
       'id' => 922130,
       'phase' => 2,
@@ -6956,7 +8813,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    93 => 
+    123 => 
     array (
       'id' => 930011,
       'phase' => 1,
@@ -7000,7 +8857,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    94 => 
+    124 => 
     array (
       'id' => 930012,
       'phase' => 2,
@@ -7044,7 +8901,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    95 => 
+    125 => 
     array (
       'id' => 930100,
       'phase' => 2,
@@ -7148,7 +9005,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    96 => 
+    126 => 
     array (
       'id' => 930110,
       'phase' => 2,
@@ -7256,7 +9113,7 @@ Mozilla/5.0 (compatible; AppScan;',
       ),
       'marker' => NULL,
     ),
-    97 => 
+    127 => 
     array (
       'id' => 930120,
       'phase' => 2,
@@ -8435,7 +10292,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    98 => 
+    128 => 
     array (
       'id' => 930130,
       'phase' => 1,
@@ -9123,7 +10980,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    99 => 
+    129 => 
     array (
       'id' => 930140,
       'phase' => 1,
@@ -9214,7 +11071,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    100 => 
+    130 => 
     array (
       'id' => 930013,
       'phase' => 1,
@@ -9258,7 +11115,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    101 => 
+    131 => 
     array (
       'id' => 930014,
       'phase' => 2,
@@ -9302,7 +11159,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    102 => 
+    132 => 
     array (
       'id' => 930121,
       'phase' => 1,
@@ -10457,7 +12314,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    103 => 
+    133 => 
     array (
       'id' => 930015,
       'phase' => 1,
@@ -10501,7 +12358,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    104 => 
+    134 => 
     array (
       'id' => 930016,
       'phase' => 2,
@@ -10545,7 +12402,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    105 => 
+    135 => 
     array (
       'id' => 930017,
       'phase' => 1,
@@ -10589,7 +12446,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    106 => 
+    136 => 
     array (
       'id' => 930018,
       'phase' => 2,
@@ -10633,7 +12490,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    107 => 
+    137 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -10668,7 +12525,7 @@ login.sql
       ),
       'marker' => 'END-REQUEST-930-APPLICATION-ATTACK-LFI',
     ),
-    108 => 
+    138 => 
     array (
       'id' => 931011,
       'phase' => 1,
@@ -10712,7 +12569,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    109 => 
+    139 => 
     array (
       'id' => 931012,
       'phase' => 2,
@@ -10756,7 +12613,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    110 => 
+    140 => 
     array (
       'id' => 931100,
       'phase' => 2,
@@ -10829,7 +12686,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    111 => 
+    141 => 
     array (
       'id' => 931110,
       'phase' => 2,
@@ -10902,7 +12759,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    112 => 
+    142 => 
     array (
       'id' => 931120,
       'phase' => 2,
@@ -10966,7 +12823,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    113 => 
+    143 => 
     array (
       'id' => 931013,
       'phase' => 1,
@@ -11010,7 +12867,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    114 => 
+    144 => 
     array (
       'id' => 931014,
       'phase' => 2,
@@ -11054,7 +12911,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    115 => 
+    145 => 
     array (
       'id' => 931130,
       'phase' => 2,
@@ -11111,46 +12968,42 @@ login.sql
       array (
         0 => 
         array (
-          'id' => 931131,
-          'phase' => 1,
-          'operator' => 'rx',
-          'operator_arg' => '(?i)(?:(?:url|jar):)?(?:a(?:cap|f[ps]|ttachment)|b(?:eshare|itcoin|lob)|c(?:a(?:llto|p)|id|vs|ompress.(?:zlib|bzip2))|d(?:a(?:v|ta)|ict|n(?:s|tp))|e(?:d2k|xpect)|f(?:(?:ee)?d|i(?:le|nger|sh)|tps?)|g(?:it|o(?:pher)?|lob)|h(?:323|ttps?)|i(?:ax|cap|(?:ma|p)ps?|rc[6s]?)|ja(?:bbe)?r|l(?:dap[is]?|ocal_file)|m(?:a(?:ilto|ven)|ms|umble)|n(?:e(?:tdoc|ws)|fs|ntps?)|ogg|p(?:aparazzi|h(?:ar|p)|op(?:2|3s?)|r(?:es|oxy)|syc)|r(?:mi|sync|tm(?:f?p)?|ar)|s(?:3|ftp|ips?|m(?:[bs]|tps?)|n(?:ews|mp)|sh(?:2(?:.(?:s(?:hell|(?:ft|c)p)|exec|tunnel))?)?|vn(?:\\+ssh)?)|t(?:e(?:amspeak|lnet)|ftp|urns?)|u(?:dp|nreal|t2004)|v(?:entrilo|iew-source|nc)|w(?:ebcal|ss?)|x(?:mpp|ri)|zip)://(?:[^@]+@)?([^/]*)',
-          'operator_negated' => false,
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'endsWith',
+          'operator_arg' => '.%{request_headers.host}',
+          'operator_negated' => true,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'REQUEST_FILENAME',
-              'selector' => NULL,
+              'collection' => 'TX',
+              'selector' => 'rfi_parameter_.*',
               'negated' => false,
               'count' => false,
-              'regex' => false,
+              'regex' => true,
             ),
           ),
           'transforms' => 
           array (
-            0 => 'none',
-            1 => 'urlDecodeUni',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Possible Remote File Inclusion (RFI) Attack',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-rfi',
-            4 => 'paranoia-level/2',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/ATTACK-RFI',
-            7 => 'capec/1000/152/175/253',
           ),
-          'paranoia' => 2,
+          'paranoia' => 1,
           'category' => 'rfi',
           'setvars' => 
           array (
             0 => 
+            array (
+              'name' => 'tx.rfi_score',
+              'op' => '+',
+              'value' => '5',
+            ),
+            1 => 
             array (
               'name' => 'tx.inbound_anomaly_score_pl2',
               'op' => '+',
@@ -11160,7 +13013,7 @@ login.sql
           'chain' => 
           array (
           ),
-          'capture' => true,
+          'capture' => false,
           'skip_after' => NULL,
           'multi_match' => false,
           'warnings' => 
@@ -11177,7 +13030,66 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    116 => 
+    146 => 
+    array (
+      'id' => 931131,
+      'phase' => 1,
+      'operator' => 'rx',
+      'operator_arg' => '(?i)(?:(?:url|jar):)?(?:a(?:cap|f[ps]|ttachment)|b(?:eshare|itcoin|lob)|c(?:a(?:llto|p)|id|vs|ompress.(?:zlib|bzip2))|d(?:a(?:v|ta)|ict|n(?:s|tp))|e(?:d2k|xpect)|f(?:(?:ee)?d|i(?:le|nger|sh)|tps?)|g(?:it|o(?:pher)?|lob)|h(?:323|ttps?)|i(?:ax|cap|(?:ma|p)ps?|rc[6s]?)|ja(?:bbe)?r|l(?:dap[is]?|ocal_file)|m(?:a(?:ilto|ven)|ms|umble)|n(?:e(?:tdoc|ws)|fs|ntps?)|ogg|p(?:aparazzi|h(?:ar|p)|op(?:2|3s?)|r(?:es|oxy)|syc)|r(?:mi|sync|tm(?:f?p)?|ar)|s(?:3|ftp|ips?|m(?:[bs]|tps?)|n(?:ews|mp)|sh(?:2(?:.(?:s(?:hell|(?:ft|c)p)|exec|tunnel))?)?|vn(?:\\+ssh)?)|t(?:e(?:amspeak|lnet)|ftp|urns?)|u(?:dp|nreal|t2004)|v(?:entrilo|iew-source|nc)|w(?:ebcal|ss?)|x(?:mpp|ri)|zip)://(?:[^@]+@)?([^/]*)',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_FILENAME',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+        1 => 'urlDecodeUni',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Possible Remote File Inclusion (RFI) Attack',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-rfi',
+        4 => 'paranoia-level/2',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/ATTACK-RFI',
+        7 => 'capec/1000/152/175/253',
+      ),
+      'paranoia' => 2,
+      'category' => 'rfi',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl2',
+          'op' => '+',
+          'value' => '5',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => true,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    147 => 
     array (
       'id' => 931015,
       'phase' => 1,
@@ -11221,7 +13133,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    117 => 
+    148 => 
     array (
       'id' => 931016,
       'phase' => 2,
@@ -11265,7 +13177,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    118 => 
+    149 => 
     array (
       'id' => 931017,
       'phase' => 1,
@@ -11309,7 +13221,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    119 => 
+    150 => 
     array (
       'id' => 931018,
       'phase' => 2,
@@ -11353,7 +13265,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    120 => 
+    151 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -11388,7 +13300,7 @@ login.sql
       ),
       'marker' => 'END-REQUEST-931-APPLICATION-ATTACK-RFI',
     ),
-    121 => 
+    152 => 
     array (
       'id' => 932011,
       'phase' => 1,
@@ -11432,7 +13344,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    122 => 
+    153 => 
     array (
       'id' => 932012,
       'phase' => 2,
@@ -11476,7 +13388,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    123 => 
+    154 => 
     array (
       'id' => 932230,
       'phase' => 2,
@@ -11572,7 +13484,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    124 => 
+    155 => 
     array (
       'id' => 932235,
       'phase' => 2,
@@ -11668,7 +13580,7 @@ login.sql
       ),
       'marker' => NULL,
     ),
-    125 => 
+    156 => 
     array (
       'id' => 932120,
       'phase' => 2,
@@ -12186,7 +14098,7 @@ Write-Warning',
       ),
       'marker' => NULL,
     ),
-    126 => 
+    157 => 
     array (
       'id' => 932125,
       'phase' => 2,
@@ -12282,7 +14194,7 @@ Write-Warning',
       ),
       'marker' => NULL,
     ),
-    127 => 
+    158 => 
     array (
       'id' => 932130,
       'phase' => 2,
@@ -12379,7 +14291,7 @@ Write-Warning',
       ),
       'marker' => NULL,
     ),
-    128 => 
+    159 => 
     array (
       'id' => 932140,
       'phase' => 2,
@@ -12476,7 +14388,7 @@ Write-Warning',
       ),
       'marker' => NULL,
     ),
-    129 => 
+    160 => 
     array (
       'id' => 932270,
       'phase' => 2,
@@ -12573,7 +14485,7 @@ Write-Warning',
       ),
       'marker' => NULL,
     ),
-    130 => 
+    161 => 
     array (
       'id' => 932280,
       'phase' => 2,
@@ -12669,7 +14581,7 @@ Write-Warning',
       ),
       'marker' => NULL,
     ),
-    131 => 
+    162 => 
     array (
       'id' => 932250,
       'phase' => 2,
@@ -12765,7 +14677,7 @@ Write-Warning',
       ),
       'marker' => NULL,
     ),
-    132 => 
+    163 => 
     array (
       'id' => 932260,
       'phase' => 2,
@@ -12861,7 +14773,7 @@ Write-Warning',
       ),
       'marker' => NULL,
     ),
-    133 => 
+    164 => 
     array (
       'id' => 932340,
       'phase' => 2,
@@ -12973,7 +14885,7 @@ Write-Warning',
       ),
       'marker' => NULL,
     ),
-    134 => 
+    165 => 
     array (
       'id' => 932330,
       'phase' => 2,
@@ -13069,7 +14981,7 @@ Write-Warning',
       ),
       'marker' => NULL,
     ),
-    135 => 
+    166 => 
     array (
       'id' => 932160,
       'phase' => 2,
@@ -13875,7 +15787,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    136 => 
+    167 => 
     array (
       'id' => 932170,
       'phase' => 1,
@@ -13948,7 +15860,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    137 => 
+    168 => 
     array (
       'id' => 932171,
       'phase' => 2,
@@ -14029,7 +15941,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    138 => 
+    169 => 
     array (
       'id' => 932175,
       'phase' => 2,
@@ -14125,7 +16037,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    139 => 
+    170 => 
     array (
       'id' => 932180,
       'phase' => 2,
@@ -14688,49 +16600,17 @@ zoneinfo',
       array (
         0 => 
         array (
-          'id' => 932370,
+          'id' => 0,
           'phase' => 2,
           'operator' => 'rx',
-          'operator_arg' => '(?i)(?:[\\n\\r;`\\{]|\\|\\|?|&&?)[\\s\\x0b]*[\\s\\x0b"\'\\(,@]*(?:["\'\\.-9A-Z_a-z]+/|(?:["\'\\x5c\\^]*[0-9A-Z_a-z]["\'\\x5c\\^]*:[^\\x5c]*|[ "\'\\.-9A-Z\\x5c\\^_a-z]*)\\x5c)?["\\^]*(?:a["\\^]*(?:c["\\^]*c["\\^]*c["\\^]*h["\\^]*e["\\^]*c["\\^]*k["\\^]*c["\\^]*o["\\^]*n["\\^]*s["\\^]*o["\\^]*l["\\^]*e|d["\\^]*(?:p["\\^]*l["\\^]*u["\\^]*s|v["\\^]*p["\\^]*a["\\^]*c["\\^]*k)|(?:g["\\^]*e["\\^]*n["\\^]*t["\\^]*e["\\^]*x["\\^]*e["\\^]*c["\\^]*u["\\^]*t["\\^]*o|(?:s["\\^]*p["\\^]*n["\\^]*e["\\^]*t["\\^]*_["\\^]*c["\\^]*o["\\^]*m["\\^]*p["\\^]*i["\\^]*l|t["\\^]*b["\\^]*r["\\^]*o["\\^]*k)["\\^]*e)["\\^]*r|p["\\^]*p["\\^]*(?:i["\\^]*n["\\^]*s["\\^]*t["\\^]*a["\\^]*l["\\^]*l["\\^]*e["\\^]*r|v["\\^]*l["\\^]*p))|b["\\^]*(?:a["\\^]*s["\\^]*h|g["\\^]*i["\\^]*n["\\^]*f["\\^]*o|i["\\^]*t["\\^]*s["\\^]*a["\\^]*d["\\^]*m["\\^]*i["\\^]*n)|c["\\^]*(?:d["\\^]*b|e["\\^]*r["\\^]*t["\\^]*(?:o["\\^]*c|r["\\^]*e["\\^]*q|u["\\^]*t["\\^]*i["\\^]*l)|l["\\^]*_["\\^]*(?:i["\\^]*n["\\^]*v["\\^]*o["\\^]*c["\\^]*a["\\^]*t["\\^]*i["\\^]*o["\\^]*n|l["\\^]*o["\\^]*a["\\^]*d["\\^]*a["\\^]*s["\\^]*s["\\^]*e["\\^]*m["\\^]*b["\\^]*l["\\^]*y|m["\\^]*u["\\^]*t["\\^]*e["\\^]*x["\\^]*v["\\^]*e["\\^]*r["\\^]*i["\\^]*f["\\^]*i["\\^]*e["\\^]*r["\\^]*s)|m["\\^]*(?:d(?:["\\^]*(?:k["\\^]*e["\\^]*y|l["\\^]*3["\\^]*2))?|s["\\^]*t["\\^]*p)|o["\\^]*(?:m["\\^]*s["\\^]*v["\\^]*c["\\^]*s|n["\\^]*(?:f["\\^]*i["\\^]*g["\\^]*s["\\^]*e["\\^]*c["\\^]*u["\\^]*r["\\^]*i["\\^]*t["\\^]*y["\\^]*p["\\^]*o["\\^]*l["\\^]*i["\\^]*c["\\^]*y|h["\\^]*o["\\^]*s["\\^]*t|t["\\^]*r["\\^]*o["\\^]*l)|r["\\^]*e["\\^]*g["\\^]*e["\\^]*n)|r["\\^]*e["\\^]*a["\\^]*t["\\^]*e["\\^]*d["\\^]*u["\\^]*m["\\^]*p|s["\\^]*(?:c(?:["\\^]*r["\\^]*i["\\^]*p["\\^]*t)?|i)|u["\\^]*s["\\^]*t["\\^]*o["\\^]*m["\\^]*s["\\^]*h["\\^]*e["\\^]*l["\\^]*l["\\^]*h["\\^]*o["\\^]*s["\\^]*t)|d["\\^]*(?:a["\\^]*t["\\^]*a["\\^]*s["\\^]*v["\\^]*c["\\^]*u["\\^]*t["\\^]*i["\\^]*l|e["\\^]*(?:f["\\^]*a["\\^]*u["\\^]*l["\\^]*t["\\^]*p["\\^]*a["\\^]*c["\\^]*k|s["\\^]*k(?:["\\^]*t["\\^]*o["\\^]*p["\\^]*i["\\^]*m["\\^]*g["\\^]*d["\\^]*o["\\^]*w["\\^]*n["\\^]*l["\\^]*d["\\^]*r)?|v["\\^]*(?:i["\\^]*c["\\^]*e["\\^]*c["\\^]*r["\\^]*e["\\^]*d["\\^]*e["\\^]*n["\\^]*t["\\^]*i["\\^]*a["\\^]*l["\\^]*d["\\^]*e["\\^]*p["\\^]*l["\\^]*o["\\^]*y["\\^]*m["\\^]*e["\\^]*n["\\^]*t|t["\\^]*o["\\^]*o["\\^]*l["\\^]*s["\\^]*l["\\^]*a["\\^]*u["\\^]*n["\\^]*c["\\^]*h["\\^]*e["\\^]*r))|f["\\^]*s["\\^]*(?:h["\\^]*i["\\^]*m|v["\\^]*c)|i["\\^]*(?:a["\\^]*n["\\^]*t["\\^]*z|s["\\^]*k["\\^]*s["\\^]*h["\\^]*a["\\^]*d["\\^]*o["\\^]*w)|n["\\^]*(?:s["\\^]*c["\\^]*m["\\^]*d|x)|o["\\^]*t["\\^]*n["\\^]*e["\\^]*t|u["\\^]*m["\\^]*p["\\^]*6["\\^]*4|x["\\^]*c["\\^]*a["\\^]*p)|e["\\^]*(?:s["\\^]*e["\\^]*n["\\^]*t["\\^]*u["\\^]*t["\\^]*l|v["\\^]*e["\\^]*n["\\^]*t["\\^]*v["\\^]*w["\\^]*r|x["\\^]*(?:c["\\^]*e["\\^]*l|p["\\^]*(?:a["\\^]*n["\\^]*d|l["\\^]*o["\\^]*r["\\^]*e["\\^]*r)|t["\\^]*(?:e["\\^]*x["\\^]*p["\\^]*o["\\^]*r["\\^]*t|r["\\^]*a["\\^]*c["\\^]*3["\\^]*2)))|f["\\^]*(?:i["\\^]*n["\\^]*(?:d["\\^]*s["\\^]*t|g["\\^]*e)["\\^]*r|l["\\^]*t["\\^]*m["\\^]*c|o["\\^]*r["\\^]*f["\\^]*i["\\^]*l["\\^]*e["\\^]*s|s["\\^]*(?:i(?:["\\^]*a["\\^]*n["\\^]*y["\\^]*c["\\^]*p["\\^]*u)?|u["\\^]*t["\\^]*i["\\^]*l)|t["\\^]*p)|g["\\^]*(?:f["\\^]*x["\\^]*d["\\^]*o["\\^]*w["\\^]*n["\\^]*l["\\^]*o["\\^]*a["\\^]*d["\\^]*w["\\^]*r["\\^]*a["\\^]*p["\\^]*p["\\^]*e["\\^]*r|p["\\^]*s["\\^]*c["\\^]*r["\\^]*i["\\^]*p["\\^]*t)|h["\\^]*h|i["\\^]*(?:e["\\^]*(?:4["\\^]*u["\\^]*i["\\^]*n["\\^]*i["\\^]*t|a["\\^]*d["\\^]*v["\\^]*p["\\^]*a["\\^]*c["\\^]*k|e["\\^]*x["\\^]*e["\\^]*c|f["\\^]*r["\\^]*a["\\^]*m["\\^]*e)|l["\\^]*a["\\^]*s["\\^]*m|m["\\^]*e["\\^]*w["\\^]*d["\\^]*b["\\^]*l["\\^]*d|n["\\^]*(?:f["\\^]*d["\\^]*e["\\^]*f["\\^]*a["\\^]*u["\\^]*l["\\^]*t["\\^]*i["\\^]*n["\\^]*s["\\^]*t["\\^]*a["\\^]*l|s["\\^]*t["\\^]*a["\\^]*l["\\^]*l["\\^]*u["\\^]*t["\\^]*i)["\\^]*l)|j["\\^]*s["\\^]*c|l["\\^]*(?:a["\\^]*u["\\^]*n["\\^]*c["\\^]*h["\\^]*-["\\^]*v["\\^]*s["\\^]*d["\\^]*e["\\^]*v["\\^]*s["\\^]*h["\\^]*e["\\^]*l["\\^]*l|d["\\^]*i["\\^]*f["\\^]*d["\\^]*e)|m["\\^]*(?:a["\\^]*(?:k["\\^]*e["\\^]*c["\\^]*a["\\^]*b|n["\\^]*a["\\^]*g["\\^]*e["\\^]*-["\\^]*b["\\^]*d["\\^]*e|v["\\^]*i["\\^]*n["\\^]*j["\\^]*e["\\^]*c["\\^]*t)|f["\\^]*t["\\^]*r["\\^]*a["\\^]*c["\\^]*e|i["\\^]*c["\\^]*r["\\^]*o["\\^]*s["\\^]*o["\\^]*f["\\^]*t|m["\\^]*c|p["\\^]*c["\\^]*m["\\^]*d["\\^]*r["\\^]*u["\\^]*n|s["\\^]*(?:(?:b["\\^]*u["\\^]*i["\\^]*l|o["\\^]*h["\\^]*t["\\^]*m["\\^]*e)["\\^]*d|c["\\^]*o["\\^]*n["\\^]*f["\\^]*i["\\^]*g|d["\\^]*(?:e["\\^]*p["\\^]*l["\\^]*o["\\^]*y|t)|h["\\^]*t["\\^]*(?:a|m["\\^]*l)|i["\\^]*e["\\^]*x["\\^]*e["\\^]*c|p["\\^]*u["\\^]*b|x["\\^]*s["\\^]*l))|n["\\^]*(?:e["\\^]*t["\\^]*s["\\^]*h|t["\\^]*d["\\^]*s["\\^]*u["\\^]*t["\\^]*i["\\^]*l)|o["\\^]*(?:d["\\^]*b["\\^]*c["\\^]*c["\\^]*o["\\^]*n["\\^]*f|f["\\^]*f["\\^]*l["\\^]*i["\\^]*n["\\^]*e["\\^]*s["\\^]*c["\\^]*a["\\^]*n["\\^]*n["\\^]*e["\\^]*r["\\^]*s["\\^]*h["\\^]*e["\\^]*l["\\^]*l|n["\\^]*e["\\^]*d["\\^]*r["\\^]*i["\\^]*v["\\^]*e["\\^]*s["\\^]*t["\\^]*a["\\^]*n["\\^]*d["\\^]*a["\\^]*l["\\^]*o["\\^]*n["\\^]*e["\\^]*u["\\^]*p["\\^]*d["\\^]*a["\\^]*t["\\^]*e["\\^]*r|p["\\^]*e["\\^]*n["\\^]*c["\\^]*o["\\^]*n["\\^]*s["\\^]*o["\\^]*l["\\^]*e)|p["\\^]*(?:c["\\^]*(?:a["\\^]*l["\\^]*u["\\^]*a|w["\\^]*(?:r["\\^]*u["\\^]*n|u["\\^]*t["\\^]*l))|(?:e["\\^]*s["\\^]*t["\\^]*e|s)["\\^]*r|(?:k["\\^]*t["\\^]*m["\\^]*o|u["\\^]*b["\\^]*p["\\^]*r)["\\^]*n|n["\\^]*p["\\^]*u["\\^]*t["\\^]*i["\\^]*l|o["\\^]*w["\\^]*e["\\^]*r["\\^]*p["\\^]*n["\\^]*t|r["\\^]*(?:e["\\^]*s["\\^]*e["\\^]*n["\\^]*t["\\^]*a["\\^]*t["\\^]*i["\\^]*o["\\^]*n["\\^]*h["\\^]*o["\\^]*s["\\^]*t|i["\\^]*n["\\^]*t(?:["\\^]*b["\\^]*r["\\^]*m)?|o["\\^]*(?:c["\\^]*d["\\^]*u["\\^]*m["\\^]*p|t["\\^]*o["\\^]*c["\\^]*o["\\^]*l["\\^]*h["\\^]*a["\\^]*n["\\^]*d["\\^]*l["\\^]*e["\\^]*r)))|r["\\^]*(?:a["\\^]*s["\\^]*a["\\^]*u["\\^]*t["\\^]*o["\\^]*u|c["\\^]*s["\\^]*i|(?:d["\\^]*r["\\^]*l["\\^]*e["\\^]*a["\\^]*k["\\^]*d["\\^]*i["\\^]*a|p["\\^]*c["\\^]*p["\\^]*i["\\^]*n)["\\^]*g|e["\\^]*(?:g(?:["\\^]*(?:a["\\^]*s["\\^]*m|e["\\^]*d["\\^]*i["\\^]*t|i["\\^]*(?:n["\\^]*i|s["\\^]*t["\\^]*e["\\^]*r["\\^]*-["\\^]*c["\\^]*i["\\^]*m["\\^]*p["\\^]*r["\\^]*o["\\^]*v["\\^]*i["\\^]*d["\\^]*e["\\^]*r)|s["\\^]*v["\\^]*(?:c["\\^]*s|r["\\^]*3["\\^]*2)))?|(?:m["\\^]*o["\\^]*t|p["\\^]*l["\\^]*a["\\^]*c)["\\^]*e)|u["\\^]*n["\\^]*(?:d["\\^]*l["\\^]*l["\\^]*3["\\^]*2|(?:e["\\^]*x["\\^]*e|s["\\^]*c["\\^]*r["\\^]*i["\\^]*p["\\^]*t)["\\^]*h["\\^]*e["\\^]*l["\\^]*p["\\^]*e["\\^]*r|o["\\^]*n["\\^]*c["\\^]*e))|s["\\^]*(?:c["\\^]*(?:[\\s\\x0b,\\./;<>].*|h["\\^]*t["\\^]*a["\\^]*s["\\^]*k["\\^]*s|r["\\^]*i["\\^]*p["\\^]*t["\\^]*r["\\^]*u["\\^]*n["\\^]*n["\\^]*e["\\^]*r)|e["\\^]*t["\\^]*(?:r["\\^]*e["\\^]*s|t["\\^]*i["\\^]*n["\\^]*g["\\^]*s["\\^]*y["\\^]*n["\\^]*c["\\^]*h["\\^]*o["\\^]*s["\\^]*t|u["\\^]*p["\\^]*a["\\^]*p["\\^]*i)|h["\\^]*(?:d["\\^]*o["\\^]*c["\\^]*v["\\^]*w|e["\\^]*l["\\^]*l["\\^]*3["\\^]*2)|q["\\^]*(?:l["\\^]*(?:d["\\^]*u["\\^]*m["\\^]*p["\\^]*e["\\^]*r|(?:t["\\^]*o["\\^]*o["\\^]*l["\\^]*s["\\^]*)?p["\\^]*s)|u["\\^]*i["\\^]*r["\\^]*r["\\^]*e["\\^]*l)|s["\\^]*h|t["\\^]*o["\\^]*r["\\^]*d["\\^]*i["\\^]*a["\\^]*g|y["\\^]*(?:n["\\^]*c["\\^]*a["\\^]*p["\\^]*p["\\^]*v["\\^]*p["\\^]*u["\\^]*b["\\^]*l["\\^]*i["\\^]*s["\\^]*h["\\^]*i["\\^]*n["\\^]*g["\\^]*s["\\^]*e["\\^]*r["\\^]*v["\\^]*e["\\^]*r|s["\\^]*s["\\^]*e["\\^]*t["\\^]*u["\\^]*p))|t["\\^]*(?:e["\\^]*[\\s\\x0b,\\./;<>].*|r["\\^]*a["\\^]*c["\\^]*k["\\^]*e["\\^]*r|t["\\^]*(?:d["\\^]*i["\\^]*n["\\^]*j["\\^]*e["\\^]*c["\\^]*t|t["\\^]*r["\\^]*a["\\^]*c["\\^]*e["\\^]*r))|u["\\^]*(?:n["\\^]*r["\\^]*e["\\^]*g["\\^]*m["\\^]*p["\\^]*2|p["\\^]*d["\\^]*a["\\^]*t["\\^]*e|t["\\^]*i["\\^]*l["\\^]*i["\\^]*t["\\^]*y["\\^]*f["\\^]*u["\\^]*n["\\^]*c["\\^]*t["\\^]*i["\\^]*o["\\^]*n["\\^]*s)|v["\\^]*(?:b["\\^]*c|e["\\^]*r["\\^]*c["\\^]*l["\\^]*s["\\^]*i["\\^]*d|i["\\^]*s["\\^]*u["\\^]*a["\\^]*l["\\^]*u["\\^]*i["\\^]*a["\\^]*v["\\^]*e["\\^]*r["\\^]*i["\\^]*f["\\^]*y["\\^]*n["\\^]*a["\\^]*t["\\^]*i["\\^]*v["\\^]*e|s["\\^]*(?:i["\\^]*i["\\^]*s["\\^]*e["\\^]*x["\\^]*e["\\^]*l["\\^]*a["\\^]*u["\\^]*n["\\^]*c["\\^]*h|j["\\^]*i["\\^]*t["\\^]*d["\\^]*e["\\^]*b["\\^]*u["\\^]*g["\\^]*g)["\\^]*e["\\^]*r)|w["\\^]*(?:a["\\^]*b|(?:f|m["\\^]*i)["\\^]*c|i["\\^]*n["\\^]*(?:g["\\^]*e["\\^]*t|r["\\^]*m|w["\\^]*o["\\^]*r["\\^]*d)|l["\\^]*r["\\^]*m["\\^]*d["\\^]*r|o["\\^]*r["\\^]*k["\\^]*f["\\^]*o["\\^]*l["\\^]*d["\\^]*e["\\^]*r["\\^]*s|s["\\^]*(?:(?:c["\\^]*r["\\^]*i["\\^]*p|r["\\^]*e["\\^]*s["\\^]*e)["\\^]*t|l)|t["\\^]*[\\s\\x0b,\\./;<>].*|u["\\^]*a["\\^]*u["\\^]*c["\\^]*l["\\^]*t)|x["\\^]*w["\\^]*i["\\^]*z["\\^]*a["\\^]*r["\\^]*d|z["\\^]*i["\\^]*p["\\^]*f["\\^]*l["\\^]*d["\\^]*r)(?:\\.["\\^]*[0-9A-Z_a-z]+)?\\b',
-          'operator_negated' => false,
+          'operator_arg' => '(?i)(?:\\.boto|buddyinfo|mtrr|acpi|zoneinfo)\\B',
+          'operator_negated' => true,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'REQUEST_COOKIES',
+              'collection' => 'MATCHED_VARS',
               'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            1 => 
-            array (
-              'collection' => 'REQUEST_COOKIES_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            2 => 
-            array (
-              'collection' => 'ARGS_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            3 => 
-            array (
-              'collection' => 'ARGS',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            4 => 
-            array (
-              'collection' => 'XML',
-              'selector' => '/*',
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -14740,19 +16620,11 @@ zoneinfo',
           array (
             0 => 'none',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Remote Command Execution: Windows Command Injection',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-shell',
-            2 => 'platform-windows',
-            3 => 'attack-rce',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/ATTACK-RCE',
-            7 => 'capec/1000/152/248/88',
           ),
           'paranoia' => 1,
           'category' => 'rce',
@@ -14774,7 +16646,7 @@ zoneinfo',
           'chain' => 
           array (
           ),
-          'capture' => true,
+          'capture' => false,
           'skip_after' => NULL,
           'multi_match' => false,
           'warnings' => 
@@ -14791,7 +16663,103 @@ zoneinfo',
       ),
       'marker' => NULL,
     ),
-    140 => 
+    171 => 
+    array (
+      'id' => 932370,
+      'phase' => 2,
+      'operator' => 'rx',
+      'operator_arg' => '(?i)(?:[\\n\\r;`\\{]|\\|\\|?|&&?)[\\s\\x0b]*[\\s\\x0b"\'\\(,@]*(?:["\'\\.-9A-Z_a-z]+/|(?:["\'\\x5c\\^]*[0-9A-Z_a-z]["\'\\x5c\\^]*:[^\\x5c]*|[ "\'\\.-9A-Z\\x5c\\^_a-z]*)\\x5c)?["\\^]*(?:a["\\^]*(?:c["\\^]*c["\\^]*c["\\^]*h["\\^]*e["\\^]*c["\\^]*k["\\^]*c["\\^]*o["\\^]*n["\\^]*s["\\^]*o["\\^]*l["\\^]*e|d["\\^]*(?:p["\\^]*l["\\^]*u["\\^]*s|v["\\^]*p["\\^]*a["\\^]*c["\\^]*k)|(?:g["\\^]*e["\\^]*n["\\^]*t["\\^]*e["\\^]*x["\\^]*e["\\^]*c["\\^]*u["\\^]*t["\\^]*o|(?:s["\\^]*p["\\^]*n["\\^]*e["\\^]*t["\\^]*_["\\^]*c["\\^]*o["\\^]*m["\\^]*p["\\^]*i["\\^]*l|t["\\^]*b["\\^]*r["\\^]*o["\\^]*k)["\\^]*e)["\\^]*r|p["\\^]*p["\\^]*(?:i["\\^]*n["\\^]*s["\\^]*t["\\^]*a["\\^]*l["\\^]*l["\\^]*e["\\^]*r|v["\\^]*l["\\^]*p))|b["\\^]*(?:a["\\^]*s["\\^]*h|g["\\^]*i["\\^]*n["\\^]*f["\\^]*o|i["\\^]*t["\\^]*s["\\^]*a["\\^]*d["\\^]*m["\\^]*i["\\^]*n)|c["\\^]*(?:d["\\^]*b|e["\\^]*r["\\^]*t["\\^]*(?:o["\\^]*c|r["\\^]*e["\\^]*q|u["\\^]*t["\\^]*i["\\^]*l)|l["\\^]*_["\\^]*(?:i["\\^]*n["\\^]*v["\\^]*o["\\^]*c["\\^]*a["\\^]*t["\\^]*i["\\^]*o["\\^]*n|l["\\^]*o["\\^]*a["\\^]*d["\\^]*a["\\^]*s["\\^]*s["\\^]*e["\\^]*m["\\^]*b["\\^]*l["\\^]*y|m["\\^]*u["\\^]*t["\\^]*e["\\^]*x["\\^]*v["\\^]*e["\\^]*r["\\^]*i["\\^]*f["\\^]*i["\\^]*e["\\^]*r["\\^]*s)|m["\\^]*(?:d(?:["\\^]*(?:k["\\^]*e["\\^]*y|l["\\^]*3["\\^]*2))?|s["\\^]*t["\\^]*p)|o["\\^]*(?:m["\\^]*s["\\^]*v["\\^]*c["\\^]*s|n["\\^]*(?:f["\\^]*i["\\^]*g["\\^]*s["\\^]*e["\\^]*c["\\^]*u["\\^]*r["\\^]*i["\\^]*t["\\^]*y["\\^]*p["\\^]*o["\\^]*l["\\^]*i["\\^]*c["\\^]*y|h["\\^]*o["\\^]*s["\\^]*t|t["\\^]*r["\\^]*o["\\^]*l)|r["\\^]*e["\\^]*g["\\^]*e["\\^]*n)|r["\\^]*e["\\^]*a["\\^]*t["\\^]*e["\\^]*d["\\^]*u["\\^]*m["\\^]*p|s["\\^]*(?:c(?:["\\^]*r["\\^]*i["\\^]*p["\\^]*t)?|i)|u["\\^]*s["\\^]*t["\\^]*o["\\^]*m["\\^]*s["\\^]*h["\\^]*e["\\^]*l["\\^]*l["\\^]*h["\\^]*o["\\^]*s["\\^]*t)|d["\\^]*(?:a["\\^]*t["\\^]*a["\\^]*s["\\^]*v["\\^]*c["\\^]*u["\\^]*t["\\^]*i["\\^]*l|e["\\^]*(?:f["\\^]*a["\\^]*u["\\^]*l["\\^]*t["\\^]*p["\\^]*a["\\^]*c["\\^]*k|s["\\^]*k(?:["\\^]*t["\\^]*o["\\^]*p["\\^]*i["\\^]*m["\\^]*g["\\^]*d["\\^]*o["\\^]*w["\\^]*n["\\^]*l["\\^]*d["\\^]*r)?|v["\\^]*(?:i["\\^]*c["\\^]*e["\\^]*c["\\^]*r["\\^]*e["\\^]*d["\\^]*e["\\^]*n["\\^]*t["\\^]*i["\\^]*a["\\^]*l["\\^]*d["\\^]*e["\\^]*p["\\^]*l["\\^]*o["\\^]*y["\\^]*m["\\^]*e["\\^]*n["\\^]*t|t["\\^]*o["\\^]*o["\\^]*l["\\^]*s["\\^]*l["\\^]*a["\\^]*u["\\^]*n["\\^]*c["\\^]*h["\\^]*e["\\^]*r))|f["\\^]*s["\\^]*(?:h["\\^]*i["\\^]*m|v["\\^]*c)|i["\\^]*(?:a["\\^]*n["\\^]*t["\\^]*z|s["\\^]*k["\\^]*s["\\^]*h["\\^]*a["\\^]*d["\\^]*o["\\^]*w)|n["\\^]*(?:s["\\^]*c["\\^]*m["\\^]*d|x)|o["\\^]*t["\\^]*n["\\^]*e["\\^]*t|u["\\^]*m["\\^]*p["\\^]*6["\\^]*4|x["\\^]*c["\\^]*a["\\^]*p)|e["\\^]*(?:s["\\^]*e["\\^]*n["\\^]*t["\\^]*u["\\^]*t["\\^]*l|v["\\^]*e["\\^]*n["\\^]*t["\\^]*v["\\^]*w["\\^]*r|x["\\^]*(?:c["\\^]*e["\\^]*l|p["\\^]*(?:a["\\^]*n["\\^]*d|l["\\^]*o["\\^]*r["\\^]*e["\\^]*r)|t["\\^]*(?:e["\\^]*x["\\^]*p["\\^]*o["\\^]*r["\\^]*t|r["\\^]*a["\\^]*c["\\^]*3["\\^]*2)))|f["\\^]*(?:i["\\^]*n["\\^]*(?:d["\\^]*s["\\^]*t|g["\\^]*e)["\\^]*r|l["\\^]*t["\\^]*m["\\^]*c|o["\\^]*r["\\^]*f["\\^]*i["\\^]*l["\\^]*e["\\^]*s|s["\\^]*(?:i(?:["\\^]*a["\\^]*n["\\^]*y["\\^]*c["\\^]*p["\\^]*u)?|u["\\^]*t["\\^]*i["\\^]*l)|t["\\^]*p)|g["\\^]*(?:f["\\^]*x["\\^]*d["\\^]*o["\\^]*w["\\^]*n["\\^]*l["\\^]*o["\\^]*a["\\^]*d["\\^]*w["\\^]*r["\\^]*a["\\^]*p["\\^]*p["\\^]*e["\\^]*r|p["\\^]*s["\\^]*c["\\^]*r["\\^]*i["\\^]*p["\\^]*t)|h["\\^]*h|i["\\^]*(?:e["\\^]*(?:4["\\^]*u["\\^]*i["\\^]*n["\\^]*i["\\^]*t|a["\\^]*d["\\^]*v["\\^]*p["\\^]*a["\\^]*c["\\^]*k|e["\\^]*x["\\^]*e["\\^]*c|f["\\^]*r["\\^]*a["\\^]*m["\\^]*e)|l["\\^]*a["\\^]*s["\\^]*m|m["\\^]*e["\\^]*w["\\^]*d["\\^]*b["\\^]*l["\\^]*d|n["\\^]*(?:f["\\^]*d["\\^]*e["\\^]*f["\\^]*a["\\^]*u["\\^]*l["\\^]*t["\\^]*i["\\^]*n["\\^]*s["\\^]*t["\\^]*a["\\^]*l|s["\\^]*t["\\^]*a["\\^]*l["\\^]*l["\\^]*u["\\^]*t["\\^]*i)["\\^]*l)|j["\\^]*s["\\^]*c|l["\\^]*(?:a["\\^]*u["\\^]*n["\\^]*c["\\^]*h["\\^]*-["\\^]*v["\\^]*s["\\^]*d["\\^]*e["\\^]*v["\\^]*s["\\^]*h["\\^]*e["\\^]*l["\\^]*l|d["\\^]*i["\\^]*f["\\^]*d["\\^]*e)|m["\\^]*(?:a["\\^]*(?:k["\\^]*e["\\^]*c["\\^]*a["\\^]*b|n["\\^]*a["\\^]*g["\\^]*e["\\^]*-["\\^]*b["\\^]*d["\\^]*e|v["\\^]*i["\\^]*n["\\^]*j["\\^]*e["\\^]*c["\\^]*t)|f["\\^]*t["\\^]*r["\\^]*a["\\^]*c["\\^]*e|i["\\^]*c["\\^]*r["\\^]*o["\\^]*s["\\^]*o["\\^]*f["\\^]*t|m["\\^]*c|p["\\^]*c["\\^]*m["\\^]*d["\\^]*r["\\^]*u["\\^]*n|s["\\^]*(?:(?:b["\\^]*u["\\^]*i["\\^]*l|o["\\^]*h["\\^]*t["\\^]*m["\\^]*e)["\\^]*d|c["\\^]*o["\\^]*n["\\^]*f["\\^]*i["\\^]*g|d["\\^]*(?:e["\\^]*p["\\^]*l["\\^]*o["\\^]*y|t)|h["\\^]*t["\\^]*(?:a|m["\\^]*l)|i["\\^]*e["\\^]*x["\\^]*e["\\^]*c|p["\\^]*u["\\^]*b|x["\\^]*s["\\^]*l))|n["\\^]*(?:e["\\^]*t["\\^]*s["\\^]*h|t["\\^]*d["\\^]*s["\\^]*u["\\^]*t["\\^]*i["\\^]*l)|o["\\^]*(?:d["\\^]*b["\\^]*c["\\^]*c["\\^]*o["\\^]*n["\\^]*f|f["\\^]*f["\\^]*l["\\^]*i["\\^]*n["\\^]*e["\\^]*s["\\^]*c["\\^]*a["\\^]*n["\\^]*n["\\^]*e["\\^]*r["\\^]*s["\\^]*h["\\^]*e["\\^]*l["\\^]*l|n["\\^]*e["\\^]*d["\\^]*r["\\^]*i["\\^]*v["\\^]*e["\\^]*s["\\^]*t["\\^]*a["\\^]*n["\\^]*d["\\^]*a["\\^]*l["\\^]*o["\\^]*n["\\^]*e["\\^]*u["\\^]*p["\\^]*d["\\^]*a["\\^]*t["\\^]*e["\\^]*r|p["\\^]*e["\\^]*n["\\^]*c["\\^]*o["\\^]*n["\\^]*s["\\^]*o["\\^]*l["\\^]*e)|p["\\^]*(?:c["\\^]*(?:a["\\^]*l["\\^]*u["\\^]*a|w["\\^]*(?:r["\\^]*u["\\^]*n|u["\\^]*t["\\^]*l))|(?:e["\\^]*s["\\^]*t["\\^]*e|s)["\\^]*r|(?:k["\\^]*t["\\^]*m["\\^]*o|u["\\^]*b["\\^]*p["\\^]*r)["\\^]*n|n["\\^]*p["\\^]*u["\\^]*t["\\^]*i["\\^]*l|o["\\^]*w["\\^]*e["\\^]*r["\\^]*p["\\^]*n["\\^]*t|r["\\^]*(?:e["\\^]*s["\\^]*e["\\^]*n["\\^]*t["\\^]*a["\\^]*t["\\^]*i["\\^]*o["\\^]*n["\\^]*h["\\^]*o["\\^]*s["\\^]*t|i["\\^]*n["\\^]*t(?:["\\^]*b["\\^]*r["\\^]*m)?|o["\\^]*(?:c["\\^]*d["\\^]*u["\\^]*m["\\^]*p|t["\\^]*o["\\^]*c["\\^]*o["\\^]*l["\\^]*h["\\^]*a["\\^]*n["\\^]*d["\\^]*l["\\^]*e["\\^]*r)))|r["\\^]*(?:a["\\^]*s["\\^]*a["\\^]*u["\\^]*t["\\^]*o["\\^]*u|c["\\^]*s["\\^]*i|(?:d["\\^]*r["\\^]*l["\\^]*e["\\^]*a["\\^]*k["\\^]*d["\\^]*i["\\^]*a|p["\\^]*c["\\^]*p["\\^]*i["\\^]*n)["\\^]*g|e["\\^]*(?:g(?:["\\^]*(?:a["\\^]*s["\\^]*m|e["\\^]*d["\\^]*i["\\^]*t|i["\\^]*(?:n["\\^]*i|s["\\^]*t["\\^]*e["\\^]*r["\\^]*-["\\^]*c["\\^]*i["\\^]*m["\\^]*p["\\^]*r["\\^]*o["\\^]*v["\\^]*i["\\^]*d["\\^]*e["\\^]*r)|s["\\^]*v["\\^]*(?:c["\\^]*s|r["\\^]*3["\\^]*2)))?|(?:m["\\^]*o["\\^]*t|p["\\^]*l["\\^]*a["\\^]*c)["\\^]*e)|u["\\^]*n["\\^]*(?:d["\\^]*l["\\^]*l["\\^]*3["\\^]*2|(?:e["\\^]*x["\\^]*e|s["\\^]*c["\\^]*r["\\^]*i["\\^]*p["\\^]*t)["\\^]*h["\\^]*e["\\^]*l["\\^]*p["\\^]*e["\\^]*r|o["\\^]*n["\\^]*c["\\^]*e))|s["\\^]*(?:c["\\^]*(?:[\\s\\x0b,\\./;<>].*|h["\\^]*t["\\^]*a["\\^]*s["\\^]*k["\\^]*s|r["\\^]*i["\\^]*p["\\^]*t["\\^]*r["\\^]*u["\\^]*n["\\^]*n["\\^]*e["\\^]*r)|e["\\^]*t["\\^]*(?:r["\\^]*e["\\^]*s|t["\\^]*i["\\^]*n["\\^]*g["\\^]*s["\\^]*y["\\^]*n["\\^]*c["\\^]*h["\\^]*o["\\^]*s["\\^]*t|u["\\^]*p["\\^]*a["\\^]*p["\\^]*i)|h["\\^]*(?:d["\\^]*o["\\^]*c["\\^]*v["\\^]*w|e["\\^]*l["\\^]*l["\\^]*3["\\^]*2)|q["\\^]*(?:l["\\^]*(?:d["\\^]*u["\\^]*m["\\^]*p["\\^]*e["\\^]*r|(?:t["\\^]*o["\\^]*o["\\^]*l["\\^]*s["\\^]*)?p["\\^]*s)|u["\\^]*i["\\^]*r["\\^]*r["\\^]*e["\\^]*l)|s["\\^]*h|t["\\^]*o["\\^]*r["\\^]*d["\\^]*i["\\^]*a["\\^]*g|y["\\^]*(?:n["\\^]*c["\\^]*a["\\^]*p["\\^]*p["\\^]*v["\\^]*p["\\^]*u["\\^]*b["\\^]*l["\\^]*i["\\^]*s["\\^]*h["\\^]*i["\\^]*n["\\^]*g["\\^]*s["\\^]*e["\\^]*r["\\^]*v["\\^]*e["\\^]*r|s["\\^]*s["\\^]*e["\\^]*t["\\^]*u["\\^]*p))|t["\\^]*(?:e["\\^]*[\\s\\x0b,\\./;<>].*|r["\\^]*a["\\^]*c["\\^]*k["\\^]*e["\\^]*r|t["\\^]*(?:d["\\^]*i["\\^]*n["\\^]*j["\\^]*e["\\^]*c["\\^]*t|t["\\^]*r["\\^]*a["\\^]*c["\\^]*e["\\^]*r))|u["\\^]*(?:n["\\^]*r["\\^]*e["\\^]*g["\\^]*m["\\^]*p["\\^]*2|p["\\^]*d["\\^]*a["\\^]*t["\\^]*e|t["\\^]*i["\\^]*l["\\^]*i["\\^]*t["\\^]*y["\\^]*f["\\^]*u["\\^]*n["\\^]*c["\\^]*t["\\^]*i["\\^]*o["\\^]*n["\\^]*s)|v["\\^]*(?:b["\\^]*c|e["\\^]*r["\\^]*c["\\^]*l["\\^]*s["\\^]*i["\\^]*d|i["\\^]*s["\\^]*u["\\^]*a["\\^]*l["\\^]*u["\\^]*i["\\^]*a["\\^]*v["\\^]*e["\\^]*r["\\^]*i["\\^]*f["\\^]*y["\\^]*n["\\^]*a["\\^]*t["\\^]*i["\\^]*v["\\^]*e|s["\\^]*(?:i["\\^]*i["\\^]*s["\\^]*e["\\^]*x["\\^]*e["\\^]*l["\\^]*a["\\^]*u["\\^]*n["\\^]*c["\\^]*h|j["\\^]*i["\\^]*t["\\^]*d["\\^]*e["\\^]*b["\\^]*u["\\^]*g["\\^]*g)["\\^]*e["\\^]*r)|w["\\^]*(?:a["\\^]*b|(?:f|m["\\^]*i)["\\^]*c|i["\\^]*n["\\^]*(?:g["\\^]*e["\\^]*t|r["\\^]*m|w["\\^]*o["\\^]*r["\\^]*d)|l["\\^]*r["\\^]*m["\\^]*d["\\^]*r|o["\\^]*r["\\^]*k["\\^]*f["\\^]*o["\\^]*l["\\^]*d["\\^]*e["\\^]*r["\\^]*s|s["\\^]*(?:(?:c["\\^]*r["\\^]*i["\\^]*p|r["\\^]*e["\\^]*s["\\^]*e)["\\^]*t|l)|t["\\^]*[\\s\\x0b,\\./;<>].*|u["\\^]*a["\\^]*u["\\^]*c["\\^]*l["\\^]*t)|x["\\^]*w["\\^]*i["\\^]*z["\\^]*a["\\^]*r["\\^]*d|z["\\^]*i["\\^]*p["\\^]*f["\\^]*l["\\^]*d["\\^]*r)(?:\\.["\\^]*[0-9A-Z_a-z]+)?\\b',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_COOKIES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        1 => 
+        array (
+          'collection' => 'REQUEST_COOKIES_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        2 => 
+        array (
+          'collection' => 'ARGS_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        3 => 
+        array (
+          'collection' => 'ARGS',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        4 => 
+        array (
+          'collection' => 'XML',
+          'selector' => '/*',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Remote Command Execution: Windows Command Injection',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-shell',
+        2 => 'platform-windows',
+        3 => 'attack-rce',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/ATTACK-RCE',
+        7 => 'capec/1000/152/248/88',
+      ),
+      'paranoia' => 1,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.rce_score',
+          'op' => '+',
+          'value' => '5',
+        ),
+        1 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl1',
+          'op' => '+',
+          'value' => '5',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => true,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    172 => 
     array (
       'id' => 932380,
       'phase' => 2,
@@ -14887,7 +16855,7 @@ zoneinfo',
       ),
       'marker' => NULL,
     ),
-    141 => 
+    173 => 
     array (
       'id' => 932013,
       'phase' => 1,
@@ -14931,7 +16899,7 @@ zoneinfo',
       ),
       'marker' => NULL,
     ),
-    142 => 
+    174 => 
     array (
       'id' => 932014,
       'phase' => 2,
@@ -14975,7 +16943,7 @@ zoneinfo',
       ),
       'marker' => NULL,
     ),
-    143 => 
+    175 => 
     array (
       'id' => 932371,
       'phase' => 2,
@@ -15071,7 +17039,7 @@ zoneinfo',
       ),
       'marker' => NULL,
     ),
-    144 => 
+    176 => 
     array (
       'id' => 932231,
       'phase' => 2,
@@ -15167,7 +17135,7 @@ zoneinfo',
       ),
       'marker' => NULL,
     ),
-    145 => 
+    177 => 
     array (
       'id' => 932131,
       'phase' => 1,
@@ -15240,7 +17208,7 @@ zoneinfo',
       ),
       'marker' => NULL,
     ),
-    146 => 
+    178 => 
     array (
       'id' => 932200,
       'phase' => 2,
@@ -15325,17 +17293,17 @@ zoneinfo',
       array (
         0 => 
         array (
-          'id' => 932205,
-          'phase' => 1,
+          'id' => 0,
+          'phase' => 2,
           'operator' => 'rx',
-          'operator_arg' => '^[^#]+',
+          'operator_arg' => '/',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'REQUEST_HEADERS',
-              'selector' => 'Referer',
+              'collection' => 'MATCHED_VARS',
+              'selector' => NULL,
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -15344,38 +17312,22 @@ zoneinfo',
           'transforms' => 
           array (
             0 => 'none',
-            1 => 'lowercase',
-            2 => 'urlDecodeUni',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'RCE Bypass Technique',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-rce',
-            4 => 'paranoia-level/2',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/ATTACK-RCE',
-            7 => 'capec/1000/152/248/88',
           ),
-          'paranoia' => 2,
+          'paranoia' => 1,
           'category' => 'rce',
           'setvars' => 
           array (
-            0 => 
-            array (
-              'name' => 'tx.932205_matched_var_name',
-              'op' => '=',
-              'value' => '0',
-            ),
           ),
           'chain' => 
           array (
           ),
-          'capture' => true,
+          'capture' => false,
           'skip_after' => NULL,
           'multi_match' => false,
           'warnings' => 
@@ -15385,169 +17337,17 @@ zoneinfo',
         ),
         1 => 
         array (
-          'id' => 932206,
-          'phase' => 1,
-          'operator' => 'rx',
-          'operator_arg' => '^[^\\.]*?(?:[\'\\*\\?\\x5c`][^\\n/]+/|/[^/]+?[\'\\*\\?\\x5c`]|\\$[!#\\$\\(\\*\\-0-9\\?-\\[_a-\\{])',
-          'operator_negated' => false,
-          'targets' => 
-          array (
-            0 => 
-            array (
-              'collection' => 'REQUEST_HEADERS',
-              'selector' => 'Referer',
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-          ),
-          'transforms' => 
-          array (
-            0 => 'none',
-            1 => 'lowercase',
-            2 => 'urlDecodeUni',
-          ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'RCE Bypass Technique',
-          'tags' => 
-          array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-rce',
-            4 => 'paranoia-level/2',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/ATTACK-RCE',
-            7 => 'capec/1000/152/248/88',
-          ),
-          'paranoia' => 2,
-          'category' => 'rce',
-          'setvars' => 
-          array (
-            0 => 
-            array (
-              'name' => 'tx.932206_matched_var_name',
-              'op' => '=',
-              'value' => '0',
-            ),
-          ),
-          'chain' => 
-          array (
-          ),
-          'capture' => true,
-          'skip_after' => NULL,
-          'multi_match' => false,
-          'warnings' => 
-          array (
-          ),
-          'marker' => NULL,
-        ),
-        2 => 
-        array (
-          'id' => 932207,
-          'phase' => 1,
-          'operator' => 'rx',
-          'operator_arg' => '#.*',
-          'operator_negated' => false,
-          'targets' => 
-          array (
-            0 => 
-            array (
-              'collection' => 'REQUEST_HEADERS',
-              'selector' => 'Referer',
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-          ),
-          'transforms' => 
-          array (
-            0 => 'none',
-            1 => 'lowercase',
-            2 => 'urlDecodeUni',
-          ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'RCE Bypass Technique',
-          'tags' => 
-          array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-rce',
-            4 => 'paranoia-level/2',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/ATTACK-RCE',
-            7 => 'capec/1000/152/248/88',
-          ),
-          'paranoia' => 2,
-          'category' => 'rce',
-          'setvars' => 
-          array (
-            0 => 
-            array (
-              'name' => 'tx.932207_matched_var_name',
-              'op' => '=',
-              'value' => '0',
-            ),
-          ),
-          'chain' => 
-          array (
-          ),
-          'capture' => true,
-          'skip_after' => NULL,
-          'multi_match' => false,
-          'warnings' => 
-          array (
-          ),
-          'marker' => NULL,
-        ),
-        3 => 
-        array (
-          'id' => 932220,
+          'id' => 0,
           'phase' => 2,
           'operator' => 'rx',
-          'operator_arg' => '(?i).\\|(?:[\\s\\x0b]*|b["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?u["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?s["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?y["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?b["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?o["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?x|(?:c["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?o["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?m["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?m["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?a["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?n["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?d|e["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:n["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?v|v["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?a["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?l)|w["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?a["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?t["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?c["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?h)["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?[\\s\\x0b&\\),<>\\|].*|[ls]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?t["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?r["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?a["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?c["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?e|n["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?o["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?h["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?u["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?p|t["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?i["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?m["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?e["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[\\s\\x0b&\\),<>\\|].*|o["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?u["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?t)|[\\n\\r;=`\\{]|\\|\\|?|&&?|\\$(?:\\(\\(?|[\\[\\{])|<(?:\\(|<<)|>\\(|\\([\\s\\x0b]*\\))[\\s\\x0b]*(?:[\\$\\{]|(?:[\\s\\x0b]*\\(|!)[\\s\\x0b]*|[0-9A-Z_a-z]+=(?:[^\\s\\x0b]*|\\$(?:.*|.*)|[<>].*|\'[^\']*\'|"[^"]*")[\\s\\x0b]+)*[\\s\\x0b]*["\']*(?:["\'-\\+\\--9\\?A-\\]_a-z\\|]+/)?["\'\\x5c]*(?:(?:7["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?z["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[arx]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?|(?:G["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?E["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?T|b["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?z["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?z|c["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[89]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?9|[au]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?t|c|(?:m["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?p|s["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?h)|d["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[dfu]|i["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?[gr])|f["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[cgi]|m["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?t|t["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?p)|h["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:d|u["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?p)|i["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[dp]|r["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?b)|j["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:j["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?s|q)|k["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?s["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?h|m["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:a["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?n|t["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?r|v)|n["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[cl]|e["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?t|(?:p["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?m)|o["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?d|t["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:a["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?[cr]|b["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?l|e["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?[ex]|i["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?c|o["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?p)|u["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?l|v["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?i["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?m|w["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:3["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?m|c)|x["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:x["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?d|z)|y["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:e["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?s|u["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?m)|z["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:i["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?p|s["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?h))["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?|e["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:(?:[bdx]|n["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?v|q["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?n)["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?|s["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:h["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?)|l["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:(?:(?:u["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?a|[lnps])["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?|d["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:d["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?|z["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:4["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?)?|r["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:(?:a["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?r|e["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?[dv]|p["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?m)["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?|c["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:p["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?|m["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:t["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?)|s["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:(?:c["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?p|e["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?[dt]|[ghu]|v["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?n)["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?|s["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:h["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?))[\\s\\x0b&\\),<>\\|].*|a["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:a["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?-["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[&\\),<>\\|]{1,10}|(?:[\\-\\.0-9A-Z_a-z]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?){1,10}[\\s\\x0b&\\),<>\\|\\}]{1,10})|(?:(?:b|(?:p["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?t|w["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?[ks])["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?|r["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[jp]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?|s["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:h["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?)[\\s\\x0b&\\),<>\\|].*)|g["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:c["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?c["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[&\\),<>\\|]{1,10}|(?:[\\-\\.0-9A-Z_a-z]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?){1,10}[\\s\\x0b&\\),<>\\|\\}]{1,10})|(?:d["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?b|e["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?m|[hr]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?c|i["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?t|o|p["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?g)["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?[\\s\\x0b&\\),<>\\|].*)|p["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:(?:(?:[at]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?x|d["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?b|f|(?:k["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?g|h["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?p|w["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?d|x["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?z)["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?|r["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:y["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?)[\\s\\x0b&\\),<>\\|].*|i["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:c["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?[\\s\\x0b&\\),<>\\|].*|p["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[\\s\\x0b&\\),<>\\|].*|[&\\),<>\\|]{1,10}|(?:[\\-\\.0-9A-Z_a-z]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?){1,10}[\\s\\x0b&\\),<>\\|\\}]{1,10}))))',
+          'operator_arg' => '\\s',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'REQUEST_COOKIES',
+              'collection' => 'MATCHED_VARS',
               'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            1 => 
-            array (
-              'collection' => 'REQUEST_COOKIES_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            2 => 
-            array (
-              'collection' => 'ARGS_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            3 => 
-            array (
-              'collection' => 'ARGS',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            4 => 
-            array (
-              'collection' => 'XML',
-              'selector' => '/*',
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -15557,21 +17357,13 @@ zoneinfo',
           array (
             0 => 'none',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Remote Command Execution: Unix Command Injection with pipe',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-shell',
-            2 => 'platform-unix',
-            3 => 'attack-rce',
-            4 => 'paranoia-level/2',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/ATTACK-RCE',
-            7 => 'capec/1000/152/248/88',
           ),
-          'paranoia' => 2,
+          'paranoia' => 1,
           'category' => 'rce',
           'setvars' => 
           array (
@@ -15591,7 +17383,7 @@ zoneinfo',
           'chain' => 
           array (
           ),
-          'capture' => true,
+          'capture' => false,
           'skip_after' => NULL,
           'multi_match' => false,
           'warnings' => 
@@ -15608,7 +17400,715 @@ zoneinfo',
       ),
       'marker' => NULL,
     ),
-    147 => 
+    179 => 
+    array (
+      'id' => 932205,
+      'phase' => 1,
+      'operator' => 'rx',
+      'operator_arg' => '^[^#]+',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => 'Referer',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+        1 => 'lowercase',
+        2 => 'urlDecodeUni',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'RCE Bypass Technique',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-rce',
+        4 => 'paranoia-level/2',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/ATTACK-RCE',
+        7 => 'capec/1000/152/248/88',
+      ),
+      'paranoia' => 2,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.932205_matched_var_name',
+          'op' => '=',
+          'value' => '0',
+        ),
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'rx',
+          'operator_arg' => '^[^\\.]+\\.[^;\\?]+[;\\?](.*([\'\\*\\?\\x5c`][^\\n/]+/|/[^/]+?[\'\\*\\?\\x5c`]|\\$[!#\\$\\(\\*\\-0-9\\?-\\[_a-\\{]))',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'TX',
+              'selector' => '0',
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'none',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => true,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+        1 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'rx',
+          'operator_arg' => '/',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'TX',
+              'selector' => '1',
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'none',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+        2 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'rx',
+          'operator_arg' => '\\s',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'TX',
+              'selector' => '1',
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'none',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.rce_score',
+              'op' => '+',
+              'value' => '5',
+            ),
+            1 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl2',
+              'op' => '+',
+              'value' => '5',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => true,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    180 => 
+    array (
+      'id' => 932206,
+      'phase' => 1,
+      'operator' => 'rx',
+      'operator_arg' => '^[^\\.]*?(?:[\'\\*\\?\\x5c`][^\\n/]+/|/[^/]+?[\'\\*\\?\\x5c`]|\\$[!#\\$\\(\\*\\-0-9\\?-\\[_a-\\{])',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => 'Referer',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+        1 => 'lowercase',
+        2 => 'urlDecodeUni',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'RCE Bypass Technique',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-rce',
+        4 => 'paranoia-level/2',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/ATTACK-RCE',
+        7 => 'capec/1000/152/248/88',
+      ),
+      'paranoia' => 2,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.932206_matched_var_name',
+          'op' => '=',
+          'value' => '0',
+        ),
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'rx',
+          'operator_arg' => '/',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'MATCHED_VARS',
+              'selector' => NULL,
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'none',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+        1 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'rx',
+          'operator_arg' => '\\s',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'MATCHED_VARS',
+              'selector' => NULL,
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'none',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.rce_score',
+              'op' => '+',
+              'value' => '5',
+            ),
+            1 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl2',
+              'op' => '+',
+              'value' => '5',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => true,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    181 => 
+    array (
+      'id' => 932207,
+      'phase' => 1,
+      'operator' => 'rx',
+      'operator_arg' => '#.*',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => 'Referer',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+        1 => 'lowercase',
+        2 => 'urlDecodeUni',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'RCE Bypass Technique',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-rce',
+        4 => 'paranoia-level/2',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/ATTACK-RCE',
+        7 => 'capec/1000/152/248/88',
+      ),
+      'paranoia' => 2,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.932207_matched_var_name',
+          'op' => '=',
+          'value' => '0',
+        ),
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'rx',
+          'operator_arg' => '[\'\\*\\?\\x5c`][^\\n/]+/|/[^/]+?[\'\\*\\?\\x5c`]|\\$[!#\\$\\(\\*\\-0-9\\?-\\[_a-\\{]',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'TX',
+              'selector' => '0',
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'none',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => true,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+        1 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'rx',
+          'operator_arg' => '/',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'MATCHED_VAR',
+              'selector' => NULL,
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'none',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+        2 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'rx',
+          'operator_arg' => '\\s',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'MATCHED_VAR',
+              'selector' => NULL,
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'none',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+        3 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'beginsWith',
+          'operator_arg' => '#:~:text=',
+          'operator_negated' => true,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'MATCHED_VAR',
+              'selector' => NULL,
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'none',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'rce',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.rce_score',
+              'op' => '+',
+              'value' => '5',
+            ),
+            1 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl2',
+              'op' => '+',
+              'value' => '5',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => true,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    182 => 
+    array (
+      'id' => 932220,
+      'phase' => 2,
+      'operator' => 'rx',
+      'operator_arg' => '(?i).\\|(?:[\\s\\x0b]*|b["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?u["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?s["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?y["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?b["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?o["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?x|(?:c["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?o["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?m["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?m["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?a["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?n["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?d|e["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:n["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?v|v["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?a["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?l)|w["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?a["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?t["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?c["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?h)["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?[\\s\\x0b&\\),<>\\|].*|[ls]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?t["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?r["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?a["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?c["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?e|n["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?o["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?h["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?u["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?p|t["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?i["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?m["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?e["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[\\s\\x0b&\\),<>\\|].*|o["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?u["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?t)|[\\n\\r;=`\\{]|\\|\\|?|&&?|\\$(?:\\(\\(?|[\\[\\{])|<(?:\\(|<<)|>\\(|\\([\\s\\x0b]*\\))[\\s\\x0b]*(?:[\\$\\{]|(?:[\\s\\x0b]*\\(|!)[\\s\\x0b]*|[0-9A-Z_a-z]+=(?:[^\\s\\x0b]*|\\$(?:.*|.*)|[<>].*|\'[^\']*\'|"[^"]*")[\\s\\x0b]+)*[\\s\\x0b]*["\']*(?:["\'-\\+\\--9\\?A-\\]_a-z\\|]+/)?["\'\\x5c]*(?:(?:7["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?z["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[arx]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?|(?:G["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?E["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?T|b["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?z["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?z|c["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[89]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?9|[au]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?t|c|(?:m["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?p|s["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?h)|d["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[dfu]|i["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?[gr])|f["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[cgi]|m["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?t|t["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?p)|h["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:d|u["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?p)|i["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[dp]|r["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?b)|j["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:j["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?s|q)|k["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?s["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?h|m["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:a["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?n|t["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?r|v)|n["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[cl]|e["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?t|(?:p["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?m)|o["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?d|t["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:a["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?[cr]|b["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?l|e["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?[ex]|i["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?c|o["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?p)|u["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?l|v["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?i["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?m|w["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:3["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?m|c)|x["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:x["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?d|z)|y["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:e["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?s|u["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?m)|z["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:i["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?p|s["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?h))["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?|e["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:(?:[bdx]|n["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?v|q["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?n)["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?|s["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:h["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?)|l["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:(?:(?:u["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?a|[lnps])["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?|d["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:d["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?|z["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:4["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?)?|r["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:(?:a["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?r|e["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?[dv]|p["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?m)["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?|c["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:p["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?|m["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:t["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?)|s["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:(?:c["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?p|e["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?[dt]|[ghu]|v["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?n)["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?|s["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:h["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?))[\\s\\x0b&\\),<>\\|].*|a["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:a["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?-["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[&\\),<>\\|]{1,10}|(?:[\\-\\.0-9A-Z_a-z]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?){1,10}[\\s\\x0b&\\),<>\\|\\}]{1,10})|(?:(?:b|(?:p["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?t|w["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?[ks])["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?|r["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[jp]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?|s["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:h["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?)[\\s\\x0b&\\),<>\\|].*)|g["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:c["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?c["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[&\\),<>\\|]{1,10}|(?:[\\-\\.0-9A-Z_a-z]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?){1,10}[\\s\\x0b&\\),<>\\|\\}]{1,10})|(?:d["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?b|e["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?m|[hr]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?c|i["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?t|o|p["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?g)["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?[\\s\\x0b&\\),<>\\|].*)|p["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:(?:(?:[at]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?x|d["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?b|f|(?:k["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?g|h["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?p|w["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?d|x["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?z)["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?|r["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:y["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?)?)[\\s\\x0b&\\),<>\\|].*|i["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:c["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?[\\s\\x0b&\\),<>\\|].*|p["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?(?:[\\s\\x0b&\\),<>\\|].*|[&\\),<>\\|]{1,10}|(?:[\\-\\.0-9A-Z_a-z]["\'\\)\\[\\x5c]*(?:(?:(?:\\|\\||&&)[\\s\\x0b]*)?\\$[!#\\(\\*\\-0-9\\?@_a-\\{]*)?\\x5c?){1,10}[\\s\\x0b&\\),<>\\|\\}]{1,10}))))',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_COOKIES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        1 => 
+        array (
+          'collection' => 'REQUEST_COOKIES_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        2 => 
+        array (
+          'collection' => 'ARGS_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        3 => 
+        array (
+          'collection' => 'ARGS',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        4 => 
+        array (
+          'collection' => 'XML',
+          'selector' => '/*',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Remote Command Execution: Unix Command Injection with pipe',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-shell',
+        2 => 'platform-unix',
+        3 => 'attack-rce',
+        4 => 'paranoia-level/2',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/ATTACK-RCE',
+        7 => 'capec/1000/152/248/88',
+      ),
+      'paranoia' => 2,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.rce_score',
+          'op' => '+',
+          'value' => '5',
+        ),
+        1 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl2',
+          'op' => '+',
+          'value' => '5',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => true,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    183 => 
     array (
       'id' => 932240,
       'phase' => 2,
@@ -15683,49 +18183,17 @@ zoneinfo',
       array (
         0 => 
         array (
-          'id' => 932281,
+          'id' => 0,
           'phase' => 2,
           'operator' => 'rx',
-          'operator_arg' => '\\{[^\\s\\x0b,:\\}]*,[^\\s\\x0b]*\\}',
-          'operator_negated' => false,
+          'operator_arg' => '[0-9]\\s*\\\'\\s*[0-9]',
+          'operator_negated' => true,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'REQUEST_COOKIES',
+              'collection' => 'MATCHED_VARS',
               'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            1 => 
-            array (
-              'collection' => 'REQUEST_COOKIES_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            2 => 
-            array (
-              'collection' => 'ARGS_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            3 => 
-            array (
-              'collection' => 'ARGS',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            4 => 
-            array (
-              'collection' => 'XML',
-              'selector' => '/*',
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -15735,21 +18203,13 @@ zoneinfo',
           array (
             0 => 'none',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Remote Command Execution: Brace Expansion Found',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-shell',
-            2 => 'platform-unix',
-            3 => 'attack-rce',
-            4 => 'paranoia-level/2',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/ATTACK-RCE',
-            7 => 'capec/1000/152/248/88',
           ),
-          'paranoia' => 2,
+          'paranoia' => 1,
           'category' => 'rce',
           'setvars' => 
           array (
@@ -15769,7 +18229,7 @@ zoneinfo',
           'chain' => 
           array (
           ),
-          'capture' => true,
+          'capture' => false,
           'skip_after' => NULL,
           'multi_match' => false,
           'warnings' => 
@@ -15786,7 +18246,103 @@ zoneinfo',
       ),
       'marker' => NULL,
     ),
-    148 => 
+    184 => 
+    array (
+      'id' => 932281,
+      'phase' => 2,
+      'operator' => 'rx',
+      'operator_arg' => '\\{[^\\s\\x0b,:\\}]*,[^\\s\\x0b]*\\}',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_COOKIES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        1 => 
+        array (
+          'collection' => 'REQUEST_COOKIES_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        2 => 
+        array (
+          'collection' => 'ARGS_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        3 => 
+        array (
+          'collection' => 'ARGS',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        4 => 
+        array (
+          'collection' => 'XML',
+          'selector' => '/*',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Remote Command Execution: Brace Expansion Found',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-shell',
+        2 => 'platform-unix',
+        3 => 'attack-rce',
+        4 => 'paranoia-level/2',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/ATTACK-RCE',
+        7 => 'capec/1000/152/248/88',
+      ),
+      'paranoia' => 2,
+      'category' => 'rce',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.rce_score',
+          'op' => '+',
+          'value' => '5',
+        ),
+        1 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl2',
+          'op' => '+',
+          'value' => '5',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => true,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    185 => 
     array (
       'id' => 932210,
       'phase' => 2,
@@ -15884,7 +18440,7 @@ zoneinfo',
       ),
       'marker' => NULL,
     ),
-    149 => 
+    186 => 
     array (
       'id' => 932271,
       'phase' => 2,
@@ -15981,7 +18537,7 @@ zoneinfo',
       ),
       'marker' => NULL,
     ),
-    150 => 
+    187 => 
     array (
       'id' => 932300,
       'phase' => 2,
@@ -16077,7 +18633,7 @@ zoneinfo',
       ),
       'marker' => NULL,
     ),
-    151 => 
+    188 => 
     array (
       'id' => 932310,
       'phase' => 2,
@@ -16173,7 +18729,7 @@ zoneinfo',
       ),
       'marker' => NULL,
     ),
-    152 => 
+    189 => 
     array (
       'id' => 932320,
       'phase' => 2,
@@ -16269,7 +18825,7 @@ zoneinfo',
       ),
       'marker' => NULL,
     ),
-    153 => 
+    190 => 
     array (
       'id' => 932236,
       'phase' => 2,
@@ -16365,7 +18921,7 @@ zoneinfo',
       ),
       'marker' => NULL,
     ),
-    154 => 
+    191 => 
     array (
       'id' => 932239,
       'phase' => 1,
@@ -16437,7 +18993,7 @@ zoneinfo',
       ),
       'marker' => NULL,
     ),
-    155 => 
+    192 => 
     array (
       'id' => 932161,
       'phase' => 1,
@@ -17219,7 +19775,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    156 => 
+    193 => 
     array (
       'id' => 932390,
       'phase' => 2,
@@ -17332,7 +19888,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    157 => 
+    194 => 
     array (
       'id' => 932015,
       'phase' => 1,
@@ -17376,7 +19932,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    158 => 
+    195 => 
     array (
       'id' => 932016,
       'phase' => 2,
@@ -17420,7 +19976,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    159 => 
+    196 => 
     array (
       'id' => 932232,
       'phase' => 2,
@@ -17516,7 +20072,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    160 => 
+    197 => 
     array (
       'id' => 932237,
       'phase' => 1,
@@ -17590,7 +20146,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    161 => 
+    198 => 
     array (
       'id' => 932238,
       'phase' => 2,
@@ -17704,7 +20260,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    162 => 
+    199 => 
     array (
       'id' => 932190,
       'phase' => 2,
@@ -17770,7 +20326,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    163 => 
+    200 => 
     array (
       'id' => 932350,
       'phase' => 2,
@@ -17882,7 +20438,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    164 => 
+    201 => 
     array (
       'id' => 932301,
       'phase' => 2,
@@ -17978,7 +20534,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    165 => 
+    202 => 
     array (
       'id' => 932311,
       'phase' => 2,
@@ -18074,7 +20630,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    166 => 
+    203 => 
     array (
       'id' => 932321,
       'phase' => 2,
@@ -18170,7 +20726,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    167 => 
+    204 => 
     array (
       'id' => 932331,
       'phase' => 2,
@@ -18266,7 +20822,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    168 => 
+    205 => 
     array (
       'id' => 932017,
       'phase' => 1,
@@ -18310,7 +20866,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    169 => 
+    206 => 
     array (
       'id' => 932018,
       'phase' => 2,
@@ -18354,7 +20910,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    170 => 
+    207 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -18389,7 +20945,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => 'END-REQUEST-932-APPLICATION-ATTACK-RCE',
     ),
-    171 => 
+    208 => 
     array (
       'id' => 933011,
       'phase' => 1,
@@ -18433,7 +20989,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    172 => 
+    209 => 
     array (
       'id' => 933012,
       'phase' => 2,
@@ -18477,7 +21033,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    173 => 
+    210 => 
     array (
       'id' => 933100,
       'phase' => 2,
@@ -18589,7 +21145,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    174 => 
+    211 => 
     array (
       'id' => 933110,
       'phase' => 2,
@@ -18687,7 +21243,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    175 => 
+    212 => 
     array (
       'id' => 933120,
       'phase' => 2,
@@ -18784,7 +21340,7 @@ sbin/start-stop-daemon',
       ),
       'marker' => NULL,
     ),
-    176 => 
+    213 => 
     array (
       'id' => 933130,
       'phase' => 2,
@@ -18902,7 +21458,7 @@ $HTTP_SERVER_VARS',
       ),
       'marker' => NULL,
     ),
-    177 => 
+    214 => 
     array (
       'id' => 933135,
       'phase' => 2,
@@ -19006,7 +21562,7 @@ $HTTP_SERVER_VARS',
       ),
       'marker' => NULL,
     ),
-    178 => 
+    215 => 
     array (
       'id' => 933140,
       'phase' => 2,
@@ -19102,7 +21658,7 @@ $HTTP_SERVER_VARS',
       ),
       'marker' => NULL,
     ),
-    179 => 
+    216 => 
     array (
       'id' => 933200,
       'phase' => 2,
@@ -19202,7 +21758,7 @@ $HTTP_SERVER_VARS',
       ),
       'marker' => NULL,
     ),
-    180 => 
+    217 => 
     array (
       'id' => 933150,
       'phase' => 2,
@@ -19519,57 +22075,17 @@ zlib_decode',
       array (
         0 => 
         array (
-          'id' => 933160,
+          'id' => 0,
           'phase' => 2,
-          'operator' => 'rx',
-          'operator_arg' => '(?i)\\b\\(?["\']*(?:assert(?:_options)?|c(?:hr|reate_function)|e(?:val|x(?:ec|p))|f(?:ile(?:group)?|open|puts)|glob|i(?:mage(?:gif|(?:jpe|pn)g|wbmp|xbm)|s_a|ntval)|m(?:d5|kdir)|o(?:pendir|rd)|p(?:assthru|hpinfo|open|r(?:intf|ev))|r(?:eadfile|trim)|s(?:t(?:rip_tags|at)|ubstr|ystem)|tmpfile|u(?:n(?:(?:pac|lin)k|serialize)|sort))(?:/(?:\\*.*?\\*/|/[^\\n\\r]*)|#[^\\n\\r]*|[\\s\\x0b"])*["\']*\\)?[\\s\\x0b]*\\([^\\)]*\\)',
+          'operator' => 'pm',
+          'operator_arg' => '( )',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'REQUEST_COOKIES',
+              'collection' => 'MATCHED_VARS',
               'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            1 => 
-            array (
-              'collection' => 'REQUEST_COOKIES_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            2 => 
-            array (
-              'collection' => 'REQUEST_FILENAME',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            3 => 
-            array (
-              'collection' => 'ARGS_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            4 => 
-            array (
-              'collection' => 'ARGS',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            5 => 
-            array (
-              'collection' => 'XML',
-              'selector' => '/*',
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -19579,19 +22095,11 @@ zlib_decode',
           array (
             0 => 'none',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'PHP Injection Attack: High-Risk PHP Function Call Found',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-php',
-            2 => 'platform-multi',
-            3 => 'attack-injection-php',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/ATTACK-PHP',
-            7 => 'capec/1000/152/242',
           ),
           'paranoia' => 1,
           'category' => 'php',
@@ -19613,7 +22121,7 @@ zlib_decode',
           'chain' => 
           array (
           ),
-          'capture' => true,
+          'capture' => false,
           'skip_after' => NULL,
           'multi_match' => false,
           'warnings' => 
@@ -19630,7 +22138,111 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    181 => 
+    218 => 
+    array (
+      'id' => 933160,
+      'phase' => 2,
+      'operator' => 'rx',
+      'operator_arg' => '(?i)\\b\\(?["\']*(?:assert(?:_options)?|c(?:hr|reate_function)|e(?:val|x(?:ec|p))|f(?:ile(?:group)?|open|puts)|glob|i(?:mage(?:gif|(?:jpe|pn)g|wbmp|xbm)|s_a|ntval)|m(?:d5|kdir)|o(?:pendir|rd)|p(?:assthru|hpinfo|open|r(?:intf|ev))|r(?:eadfile|trim)|s(?:t(?:rip_tags|at)|ubstr|ystem)|tmpfile|u(?:n(?:(?:pac|lin)k|serialize)|sort))(?:/(?:\\*.*?\\*/|/[^\\n\\r]*)|#[^\\n\\r]*|[\\s\\x0b"])*["\']*\\)?[\\s\\x0b]*\\([^\\)]*\\)',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_COOKIES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        1 => 
+        array (
+          'collection' => 'REQUEST_COOKIES_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        2 => 
+        array (
+          'collection' => 'REQUEST_FILENAME',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        3 => 
+        array (
+          'collection' => 'ARGS_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        4 => 
+        array (
+          'collection' => 'ARGS',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        5 => 
+        array (
+          'collection' => 'XML',
+          'selector' => '/*',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'PHP Injection Attack: High-Risk PHP Function Call Found',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-php',
+        2 => 'platform-multi',
+        3 => 'attack-injection-php',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/ATTACK-PHP',
+        7 => 'capec/1000/152/242',
+      ),
+      'paranoia' => 1,
+      'category' => 'php',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.php_injection_score',
+          'op' => '+',
+          'value' => '5',
+        ),
+        1 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl1',
+          'op' => '+',
+          'value' => '5',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => true,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    219 => 
     array (
       'id' => 933170,
       'phase' => 2,
@@ -19734,7 +22346,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    182 => 
+    220 => 
     array (
       'id' => 933180,
       'phase' => 2,
@@ -19838,7 +22450,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    183 => 
+    221 => 
     array (
       'id' => 933210,
       'phase' => 2,
@@ -19945,7 +22557,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    184 => 
+    222 => 
     array (
       'id' => 933220,
       'phase' => 2,
@@ -20050,7 +22662,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    185 => 
+    223 => 
     array (
       'id' => 933013,
       'phase' => 1,
@@ -20094,7 +22706,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    186 => 
+    224 => 
     array (
       'id' => 933014,
       'phase' => 2,
@@ -20138,7 +22750,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    187 => 
+    225 => 
     array (
       'id' => 933151,
       'phase' => 2,
@@ -20242,7 +22854,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    188 => 
+    226 => 
     array (
       'id' => 933152,
       'phase' => 2,
@@ -20346,7 +22958,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    189 => 
+    227 => 
     array (
       'id' => 933153,
       'phase' => 2,
@@ -20450,7 +23062,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    190 => 
+    228 => 
     array (
       'id' => 933015,
       'phase' => 1,
@@ -20494,7 +23106,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    191 => 
+    229 => 
     array (
       'id' => 933016,
       'phase' => 2,
@@ -20538,7 +23150,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    192 => 
+    230 => 
     array (
       'id' => 933131,
       'phase' => 2,
@@ -20636,7 +23248,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    193 => 
+    231 => 
     array (
       'id' => 933161,
       'phase' => 2,
@@ -20740,7 +23352,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    194 => 
+    232 => 
     array (
       'id' => 933111,
       'phase' => 2,
@@ -20838,7 +23450,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    195 => 
+    233 => 
     array (
       'id' => 933190,
       'phase' => 2,
@@ -20935,7 +23547,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    196 => 
+    234 => 
     array (
       'id' => 933211,
       'phase' => 2,
@@ -21042,7 +23654,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    197 => 
+    235 => 
     array (
       'id' => 933017,
       'phase' => 1,
@@ -21086,7 +23698,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    198 => 
+    236 => 
     array (
       'id' => 933018,
       'phase' => 2,
@@ -21130,7 +23742,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    199 => 
+    237 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -21165,7 +23777,7 @@ zlib_decode',
       ),
       'marker' => 'END-REQUEST-933-APPLICATION-ATTACK-PHP',
     ),
-    200 => 
+    238 => 
     array (
       'id' => 934011,
       'phase' => 1,
@@ -21209,7 +23821,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    201 => 
+    239 => 
     array (
       'id' => 934012,
       'phase' => 2,
@@ -21253,7 +23865,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    202 => 
+    240 => 
     array (
       'id' => 934100,
       'phase' => 2,
@@ -21366,7 +23978,7 @@ zlib_decode',
       ),
       'marker' => NULL,
     ),
-    203 => 
+    241 => 
     array (
       'id' => 934110,
       'phase' => 2,
@@ -21572,7 +24184,7 @@ http://localhost:9001/2018-06-01/runtime/',
       ),
       'marker' => NULL,
     ),
-    204 => 
+    242 => 
     array (
       'id' => 934190,
       'phase' => 2,
@@ -21688,7 +24300,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    205 => 
+    243 => 
     array (
       'id' => 934130,
       'phase' => 2,
@@ -21787,7 +24399,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    206 => 
+    244 => 
     array (
       'id' => 934150,
       'phase' => 2,
@@ -21884,7 +24496,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    207 => 
+    245 => 
     array (
       'id' => 934160,
       'phase' => 2,
@@ -21995,7 +24607,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    208 => 
+    246 => 
     array (
       'id' => 934170,
       'phase' => 2,
@@ -22100,7 +24712,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    209 => 
+    247 => 
     array (
       'id' => 934200,
       'phase' => 2,
@@ -22197,7 +24809,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    210 => 
+    248 => 
     array (
       'id' => 934013,
       'phase' => 1,
@@ -22241,7 +24853,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    211 => 
+    249 => 
     array (
       'id' => 934014,
       'phase' => 2,
@@ -22285,7 +24897,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    212 => 
+    250 => 
     array (
       'id' => 934101,
       'phase' => 2,
@@ -22395,7 +25007,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    213 => 
+    251 => 
     array (
       'id' => 934120,
       'phase' => 2,
@@ -22499,7 +25111,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    214 => 
+    252 => 
     array (
       'id' => 934140,
       'phase' => 2,
@@ -22596,7 +25208,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    215 => 
+    253 => 
     array (
       'id' => 934180,
       'phase' => 2,
@@ -22692,7 +25304,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    216 => 
+    254 => 
     array (
       'id' => 934015,
       'phase' => 1,
@@ -22736,7 +25348,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    217 => 
+    255 => 
     array (
       'id' => 934016,
       'phase' => 2,
@@ -22780,7 +25392,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    218 => 
+    256 => 
     array (
       'id' => 934017,
       'phase' => 1,
@@ -22824,7 +25436,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    219 => 
+    257 => 
     array (
       'id' => 934018,
       'phase' => 2,
@@ -22868,7 +25480,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    220 => 
+    258 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -22903,7 +25515,7 @@ lvh.me/',
       ),
       'marker' => 'END-REQUEST-934-APPLICATION-ATTACK-GENERIC',
     ),
-    221 => 
+    259 => 
     array (
       'id' => 941011,
       'phase' => 1,
@@ -22947,7 +25559,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    222 => 
+    260 => 
     array (
       'id' => 941012,
       'phase' => 2,
@@ -22991,7 +25603,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    223 => 
+    261 => 
     array (
       'id' => 941010,
       'phase' => 1,
@@ -23037,7 +25649,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    224 => 
+    262 => 
     array (
       'id' => 941110,
       'phase' => 2,
@@ -23164,7 +25776,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    225 => 
+    263 => 
     array (
       'id' => 941120,
       'phase' => 2,
@@ -23291,7 +25903,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    226 => 
+    264 => 
     array (
       'id' => 941130,
       'phase' => 2,
@@ -23410,7 +26022,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    227 => 
+    265 => 
     array (
       'id' => 941140,
       'phase' => 2,
@@ -23538,7 +26150,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    228 => 
+    266 => 
     array (
       'id' => 941160,
       'phase' => 2,
@@ -23665,7 +26277,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    229 => 
+    267 => 
     array (
       'id' => 941170,
       'phase' => 2,
@@ -23792,7 +26404,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    230 => 
+    268 => 
     array (
       'id' => 941180,
       'phase' => 2,
@@ -23903,7 +26515,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    231 => 
+    269 => 
     array (
       'id' => 941190,
       'phase' => 2,
@@ -24014,7 +26626,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    232 => 
+    270 => 
     array (
       'id' => 941200,
       'phase' => 2,
@@ -24125,7 +26737,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    233 => 
+    271 => 
     array (
       'id' => 941210,
       'phase' => 2,
@@ -24236,7 +26848,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    234 => 
+    272 => 
     array (
       'id' => 941220,
       'phase' => 2,
@@ -24347,7 +26959,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    235 => 
+    273 => 
     array (
       'id' => 941230,
       'phase' => 2,
@@ -24458,7 +27070,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    236 => 
+    274 => 
     array (
       'id' => 941240,
       'phase' => 2,
@@ -24570,7 +27182,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    237 => 
+    275 => 
     array (
       'id' => 941250,
       'phase' => 2,
@@ -24681,7 +27293,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    238 => 
+    276 => 
     array (
       'id' => 941260,
       'phase' => 2,
@@ -24792,7 +27404,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    239 => 
+    277 => 
     array (
       'id' => 941270,
       'phase' => 2,
@@ -24903,7 +27515,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    240 => 
+    278 => 
     array (
       'id' => 941280,
       'phase' => 2,
@@ -25014,7 +27626,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    241 => 
+    279 => 
     array (
       'id' => 941290,
       'phase' => 2,
@@ -25125,7 +27737,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    242 => 
+    280 => 
     array (
       'id' => 941300,
       'phase' => 2,
@@ -25236,7 +27848,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    243 => 
+    281 => 
     array (
       'id' => 941310,
       'phase' => 2,
@@ -25326,57 +27938,17 @@ lvh.me/',
       array (
         0 => 
         array (
-          'id' => 941350,
+          'id' => 0,
           'phase' => 2,
           'operator' => 'rx',
-          'operator_arg' => '\\+ADw-.*(?:\\+AD4-|>)|<.*\\+AD4-',
+          'operator_arg' => '\\x{bc}[\\s\\x0b]*/[\\s\\x0b]*[^>\\x{be}]*[>\\x{be}]|<[\\s\\x0b]*/[\\s\\x0b]*[^\\x{be}]*\\x{be}',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'REQUEST_COOKIES',
+              'collection' => 'MATCHED_VARS',
               'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            1 => 
-            array (
-              'collection' => 'REQUEST_COOKIES_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            2 => 
-            array (
-              'collection' => 'ARGS_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            3 => 
-            array (
-              'collection' => 'ARGS',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            4 => 
-            array (
-              'collection' => 'REQUEST_FILENAME',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            5 => 
-            array (
-              'collection' => 'XML',
-              'selector' => '/*',
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -25384,25 +27956,12 @@ lvh.me/',
           ),
           'transforms' => 
           array (
-            0 => 'none',
-            1 => 'urlDecodeUni',
-            2 => 'htmlEntityDecode',
-            3 => 'jsDecode',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'UTF-7 Encoding IE XSS - Attack Detected',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-internet-explorer',
-            3 => 'attack-xss',
-            4 => 'xss-perf-disable',
-            5 => 'paranoia-level/1',
-            6 => 'OWASP_CRS',
-            7 => 'OWASP_CRS/ATTACK-XSS',
-            8 => 'capec/1000/152/242',
           ),
           'paranoia' => 1,
           'category' => 'xss',
@@ -25424,7 +27983,7 @@ lvh.me/',
           'chain' => 
           array (
           ),
-          'capture' => true,
+          'capture' => false,
           'skip_after' => NULL,
           'multi_match' => false,
           'warnings' => 
@@ -25441,7 +28000,115 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    244 => 
+    282 => 
+    array (
+      'id' => 941350,
+      'phase' => 2,
+      'operator' => 'rx',
+      'operator_arg' => '\\+ADw-.*(?:\\+AD4-|>)|<.*\\+AD4-',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_COOKIES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        1 => 
+        array (
+          'collection' => 'REQUEST_COOKIES_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        2 => 
+        array (
+          'collection' => 'ARGS_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        3 => 
+        array (
+          'collection' => 'ARGS',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        4 => 
+        array (
+          'collection' => 'REQUEST_FILENAME',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        5 => 
+        array (
+          'collection' => 'XML',
+          'selector' => '/*',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+        1 => 'urlDecodeUni',
+        2 => 'htmlEntityDecode',
+        3 => 'jsDecode',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'UTF-7 Encoding IE XSS - Attack Detected',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-internet-explorer',
+        3 => 'attack-xss',
+        4 => 'xss-perf-disable',
+        5 => 'paranoia-level/1',
+        6 => 'OWASP_CRS',
+        7 => 'OWASP_CRS/ATTACK-XSS',
+        8 => 'capec/1000/152/242',
+      ),
+      'paranoia' => 1,
+      'category' => 'xss',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.xss_score',
+          'op' => '+',
+          'value' => '5',
+        ),
+        1 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl1',
+          'op' => '+',
+          'value' => '5',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => true,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    283 => 
     array (
       'id' => 941360,
       'phase' => 2,
@@ -25545,7 +28212,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    245 => 
+    284 => 
     array (
       'id' => 941370,
       'phase' => 2,
@@ -25643,7 +28310,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    246 => 
+    285 => 
     array (
       'id' => 941390,
       'phase' => 2,
@@ -25750,7 +28417,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    247 => 
+    286 => 
     array (
       'id' => 941400,
       'phase' => 2,
@@ -25856,7 +28523,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    248 => 
+    287 => 
     array (
       'id' => 941013,
       'phase' => 1,
@@ -25900,7 +28567,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    249 => 
+    288 => 
     array (
       'id' => 941014,
       'phase' => 2,
@@ -25944,7 +28611,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    250 => 
+    289 => 
     array (
       'id' => 941150,
       'phase' => 2,
@@ -26063,7 +28730,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    251 => 
+    290 => 
     array (
       'id' => 941181,
       'phase' => 2,
@@ -26175,7 +28842,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    252 => 
+    291 => 
     array (
       'id' => 941320,
       'phase' => 2,
@@ -26282,7 +28949,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    253 => 
+    292 => 
     array (
       'id' => 941330,
       'phase' => 2,
@@ -26389,7 +29056,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    254 => 
+    293 => 
     array (
       'id' => 941340,
       'phase' => 2,
@@ -26496,7 +29163,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    255 => 
+    294 => 
     array (
       'id' => 941380,
       'phase' => 2,
@@ -26600,7 +29267,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    256 => 
+    295 => 
     array (
       'id' => 941015,
       'phase' => 1,
@@ -26644,7 +29311,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    257 => 
+    296 => 
     array (
       'id' => 941016,
       'phase' => 2,
@@ -26688,7 +29355,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    258 => 
+    297 => 
     array (
       'id' => 941017,
       'phase' => 1,
@@ -26732,7 +29399,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    259 => 
+    298 => 
     array (
       'id' => 941018,
       'phase' => 2,
@@ -26776,7 +29443,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    260 => 
+    299 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -26811,7 +29478,7 @@ lvh.me/',
       ),
       'marker' => 'END-REQUEST-941-APPLICATION-ATTACK-XSS',
     ),
-    261 => 
+    300 => 
     array (
       'id' => 942011,
       'phase' => 1,
@@ -26855,7 +29522,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    262 => 
+    301 => 
     array (
       'id' => 942012,
       'phase' => 2,
@@ -26899,7 +29566,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    263 => 
+    302 => 
     array (
       'id' => 942140,
       'phase' => 2,
@@ -26996,7 +29663,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    264 => 
+    303 => 
     array (
       'id' => 942151,
       'phase' => 2,
@@ -27093,7 +29760,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    265 => 
+    304 => 
     array (
       'id' => 942160,
       'phase' => 2,
@@ -27199,7 +29866,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    266 => 
+    305 => 
     array (
       'id' => 942170,
       'phase' => 2,
@@ -27296,7 +29963,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    267 => 
+    306 => 
     array (
       'id' => 942190,
       'phase' => 2,
@@ -27394,7 +30061,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    268 => 
+    307 => 
     array (
       'id' => 942220,
       'phase' => 2,
@@ -27491,7 +30158,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    269 => 
+    308 => 
     array (
       'id' => 942230,
       'phase' => 2,
@@ -27588,7 +30255,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    270 => 
+    309 => 
     array (
       'id' => 942240,
       'phase' => 2,
@@ -27685,7 +30352,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    271 => 
+    310 => 
     array (
       'id' => 942250,
       'phase' => 2,
@@ -27782,7 +30449,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    272 => 
+    311 => 
     array (
       'id' => 942270,
       'phase' => 2,
@@ -27879,7 +30546,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    273 => 
+    312 => 
     array (
       'id' => 942280,
       'phase' => 2,
@@ -27992,7 +30659,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    274 => 
+    313 => 
     array (
       'id' => 942290,
       'phase' => 2,
@@ -28089,7 +30756,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    275 => 
+    314 => 
     array (
       'id' => 942320,
       'phase' => 2,
@@ -28186,7 +30853,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    276 => 
+    315 => 
     array (
       'id' => 942350,
       'phase' => 2,
@@ -28284,7 +30951,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    277 => 
+    316 => 
     array (
       'id' => 942360,
       'phase' => 2,
@@ -28381,7 +31048,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    278 => 
+    317 => 
     array (
       'id' => 942500,
       'phase' => 2,
@@ -28478,7 +31145,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    279 => 
+    318 => 
     array (
       'id' => 942540,
       'phase' => 2,
@@ -28576,7 +31243,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    280 => 
+    319 => 
     array (
       'id' => 942560,
       'phase' => 2,
@@ -28674,7 +31341,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    281 => 
+    320 => 
     array (
       'id' => 942550,
       'phase' => 2,
@@ -28780,7 +31447,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    282 => 
+    321 => 
     array (
       'id' => 942013,
       'phase' => 1,
@@ -28824,7 +31491,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    283 => 
+    322 => 
     array (
       'id' => 942014,
       'phase' => 2,
@@ -28868,7 +31535,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    284 => 
+    323 => 
     array (
       'id' => 942120,
       'phase' => 2,
@@ -28958,7 +31625,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    285 => 
+    324 => 
     array (
       'id' => 942130,
       'phase' => 2,
@@ -29027,33 +31694,17 @@ lvh.me/',
       array (
         0 => 
         array (
-          'id' => 942131,
+          'id' => 0,
           'phase' => 2,
-          'operator' => 'rx',
-          'operator_arg' => '(?i)[\\s\\x0b"\'-\\)`]*?\\b([0-9A-Z_a-z]+)\\b[\\s\\x0b"\'-\\)`]*?(?:![<->]|<[=>]?|>=?|\\^|is[\\s\\x0b]+not|not[\\s\\x0b]+(?:like|r(?:like|egexp)))[\\s\\x0b"\'-\\)`]*?\\b([0-9A-Z_a-z]+)\\b',
+          'operator' => 'streq',
+          'operator_arg' => '%{TX.2}',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'ARGS_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            1 => 
-            array (
-              'collection' => 'ARGS',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            2 => 
-            array (
-              'collection' => 'XML',
-              'selector' => '/*',
+              'collection' => 'TX',
+              'selector' => '1',
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -29062,115 +31713,14 @@ lvh.me/',
           'transforms' => 
           array (
             0 => 'none',
-            1 => 'urlDecodeUni',
-            2 => 'replaceComments',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'SQL Injection Attack: SQL Boolean-based attack detected',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-sqli',
-            4 => 'paranoia-level/2',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/ATTACK-SQLI',
-            7 => 'capec/1000/152/248/66',
           ),
-          'paranoia' => 2,
-          'category' => 'sqli',
-          'setvars' => 
-          array (
-            0 => 
-            array (
-              'name' => 'tx.942131_matched_var_name',
-              'op' => '=',
-              'value' => '0',
-            ),
-          ),
-          'chain' => 
-          array (
-          ),
-          'capture' => true,
-          'skip_after' => NULL,
-          'multi_match' => true,
-          'warnings' => 
-          array (
-          ),
-          'marker' => NULL,
-        ),
-        1 => 
-        array (
-          'id' => 942150,
-          'phase' => 2,
-          'operator' => 'rx',
-          'operator_arg' => '(?i)\\b(?:json(?:_[0-9A-Z_a-z]+)?|a(?:bs|(?:cos|sin)h?|tan[2h]?|vg)|c(?:eil(?:ing)?|h(?:a(?:nges|r(?:set)?)|r)|o(?:alesce|sh?|unt)|ast)|d(?:e(?:grees|fault)|a(?:te|y))|exp|f(?:loor(?:avg)?|ormat|ield)|g(?:lob|roup_concat)|h(?:ex|our)|i(?:f(?:null)?|if|n(?:str)?)|l(?:ast(?:_insert_rowid)?|ength|ike(?:l(?:ihood|y))?|n|o(?:ad_extension|g(?:10|2)?|wer(?:pi)?|cal)|trim)|m(?:ax|in(?:ute)?|o(?:d|nth))|n(?:ullif|ow)|p(?:i|ow(?:er)?|rintf|assword)|quote|r(?:a(?:dians|ndom(?:blob)?)|e(?:p(?:lace|eat)|verse)|ound|trim|ight)|s(?:i(?:gn|nh?)|oundex|q(?:lite_(?:compileoption_(?:get|used)|offset|source_id|version)|rt)|u(?:bstr(?:ing)?|m)|econd|leep)|t(?:anh?|otal(?:_changes)?|r(?:im|unc)|ypeof|ime)|u(?:n(?:icode|likely)|(?:pp|s)er)|zeroblob|bin|v(?:alues|ersion)|week|year)[^0-9A-Z_a-z]*\\(',
-          'operator_negated' => false,
-          'targets' => 
-          array (
-            0 => 
-            array (
-              'collection' => 'REQUEST_COOKIES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            1 => 
-            array (
-              'collection' => 'REQUEST_COOKIES_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            2 => 
-            array (
-              'collection' => 'ARGS_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            3 => 
-            array (
-              'collection' => 'ARGS',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            4 => 
-            array (
-              'collection' => 'XML',
-              'selector' => '/*',
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-          ),
-          'transforms' => 
-          array (
-            0 => 'none',
-            1 => 'urlDecodeUni',
-          ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'SQL Injection Attack: SQL function name detected',
-          'tags' => 
-          array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-sqli',
-            4 => 'paranoia-level/2',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/ATTACK-SQLI',
-            7 => 'capec/1000/152/248/66',
-          ),
-          'paranoia' => 2,
+          'paranoia' => 1,
           'category' => 'sqli',
           'setvars' => 
           array (
@@ -29190,7 +31740,7 @@ lvh.me/',
           'chain' => 
           array (
           ),
-          'capture' => true,
+          'capture' => false,
           'skip_after' => NULL,
           'multi_match' => false,
           'warnings' => 
@@ -29207,7 +31757,236 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    286 => 
+    325 => 
+    array (
+      'id' => 942131,
+      'phase' => 2,
+      'operator' => 'rx',
+      'operator_arg' => '(?i)[\\s\\x0b"\'-\\)`]*?\\b([0-9A-Z_a-z]+)\\b[\\s\\x0b"\'-\\)`]*?(?:![<->]|<[=>]?|>=?|\\^|is[\\s\\x0b]+not|not[\\s\\x0b]+(?:like|r(?:like|egexp)))[\\s\\x0b"\'-\\)`]*?\\b([0-9A-Z_a-z]+)\\b',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'ARGS_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        1 => 
+        array (
+          'collection' => 'ARGS',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        2 => 
+        array (
+          'collection' => 'XML',
+          'selector' => '/*',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+        1 => 'urlDecodeUni',
+        2 => 'replaceComments',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'SQL Injection Attack: SQL Boolean-based attack detected',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-sqli',
+        4 => 'paranoia-level/2',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/ATTACK-SQLI',
+        7 => 'capec/1000/152/248/66',
+      ),
+      'paranoia' => 2,
+      'category' => 'sqli',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.942131_matched_var_name',
+          'op' => '=',
+          'value' => '0',
+        ),
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'streq',
+          'operator_arg' => '%{TX.2}',
+          'operator_negated' => true,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'TX',
+              'selector' => '1',
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+            0 => 'none',
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'sqli',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.sql_injection_score',
+              'op' => '+',
+              'value' => '5',
+            ),
+            1 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl2',
+              'op' => '+',
+              'value' => '5',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => true,
+      'skip_after' => NULL,
+      'multi_match' => true,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    326 => 
+    array (
+      'id' => 942150,
+      'phase' => 2,
+      'operator' => 'rx',
+      'operator_arg' => '(?i)\\b(?:json(?:_[0-9A-Z_a-z]+)?|a(?:bs|(?:cos|sin)h?|tan[2h]?|vg)|c(?:eil(?:ing)?|h(?:a(?:nges|r(?:set)?)|r)|o(?:alesce|sh?|unt)|ast)|d(?:e(?:grees|fault)|a(?:te|y))|exp|f(?:loor(?:avg)?|ormat|ield)|g(?:lob|roup_concat)|h(?:ex|our)|i(?:f(?:null)?|if|n(?:str)?)|l(?:ast(?:_insert_rowid)?|ength|ike(?:l(?:ihood|y))?|n|o(?:ad_extension|g(?:10|2)?|wer(?:pi)?|cal)|trim)|m(?:ax|in(?:ute)?|o(?:d|nth))|n(?:ullif|ow)|p(?:i|ow(?:er)?|rintf|assword)|quote|r(?:a(?:dians|ndom(?:blob)?)|e(?:p(?:lace|eat)|verse)|ound|trim|ight)|s(?:i(?:gn|nh?)|oundex|q(?:lite_(?:compileoption_(?:get|used)|offset|source_id|version)|rt)|u(?:bstr(?:ing)?|m)|econd|leep)|t(?:anh?|otal(?:_changes)?|r(?:im|unc)|ypeof|ime)|u(?:n(?:icode|likely)|(?:pp|s)er)|zeroblob|bin|v(?:alues|ersion)|week|year)[^0-9A-Z_a-z]*\\(',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_COOKIES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        1 => 
+        array (
+          'collection' => 'REQUEST_COOKIES_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        2 => 
+        array (
+          'collection' => 'ARGS_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        3 => 
+        array (
+          'collection' => 'ARGS',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        4 => 
+        array (
+          'collection' => 'XML',
+          'selector' => '/*',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+        1 => 'urlDecodeUni',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'SQL Injection Attack: SQL function name detected',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-sqli',
+        4 => 'paranoia-level/2',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/ATTACK-SQLI',
+        7 => 'capec/1000/152/248/66',
+      ),
+      'paranoia' => 2,
+      'category' => 'sqli',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.sql_injection_score',
+          'op' => '+',
+          'value' => '5',
+        ),
+        1 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl2',
+          'op' => '+',
+          'value' => '5',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => true,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    327 => 
     array (
       'id' => 942180,
       'phase' => 2,
@@ -29304,7 +32083,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    287 => 
+    328 => 
     array (
       'id' => 942200,
       'phase' => 2,
@@ -29398,49 +32177,17 @@ lvh.me/',
       array (
         0 => 
         array (
-          'id' => 942210,
+          'id' => 0,
           'phase' => 2,
           'operator' => 'rx',
-          'operator_arg' => '(?i)(?:&&|\\|\\||and|between|div|like|n(?:and|ot)|(?:xx?)?or)[\\s\\x0b\\(]+[0-9A-Z_a-z]+[\\s\\x0b\\)]*?[!\\+=]+[\\s\\x0b0-9]*?["\'-\\)=`]|[0-9](?:[\\s\\x0b]*?(?:and|between|div|like|x?or)[\\s\\x0b]*?[0-9]+[\\s\\x0b]*?[\\+\\-]|[\\s\\x0b]+group[\\s\\x0b]+by.+\\()|/[0-9A-Z_a-z]+;?[\\s\\x0b]+(?:and|between|div|having|like|x?or|select)[^0-9A-Z_a-z]|(?:[#;]|--)[\\s\\x0b]*?(?:alter|drop|(?:insert|update)[\\s\\x0b]*?[0-9A-Z_a-z]{2,})|@.+=[\\s\\x0b]*?\\([\\s\\x0b]*?select|[^0-9A-Z_a-z]SET[\\s\\x0b]*?@[0-9A-Z_a-z]+',
-          'operator_negated' => false,
+          'operator_arg' => '^[,\\-0-9=A-Z_a-z]+$',
+          'operator_negated' => true,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'REQUEST_COOKIES',
+              'collection' => 'MATCHED_VARS',
               'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            1 => 
-            array (
-              'collection' => 'REQUEST_COOKIES_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            2 => 
-            array (
-              'collection' => 'ARGS_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            3 => 
-            array (
-              'collection' => 'ARGS',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            4 => 
-            array (
-              'collection' => 'XML',
-              'selector' => '/*',
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -29449,23 +32196,14 @@ lvh.me/',
           'transforms' => 
           array (
             0 => 'none',
-            1 => 'urlDecodeUni',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Detects chained SQL injection attempts 1/2',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-sqli',
-            4 => 'paranoia-level/2',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/ATTACK-SQLI',
-            7 => 'capec/1000/152/248/66',
           ),
-          'paranoia' => 2,
+          'paranoia' => 1,
           'category' => 'sqli',
           'setvars' => 
           array (
@@ -29485,7 +32223,7 @@ lvh.me/',
           'chain' => 
           array (
           ),
-          'capture' => true,
+          'capture' => false,
           'skip_after' => NULL,
           'multi_match' => false,
           'warnings' => 
@@ -29502,7 +32240,104 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    288 => 
+    329 => 
+    array (
+      'id' => 942210,
+      'phase' => 2,
+      'operator' => 'rx',
+      'operator_arg' => '(?i)(?:&&|\\|\\||and|between|div|like|n(?:and|ot)|(?:xx?)?or)[\\s\\x0b\\(]+[0-9A-Z_a-z]+[\\s\\x0b\\)]*?[!\\+=]+[\\s\\x0b0-9]*?["\'-\\)=`]|[0-9](?:[\\s\\x0b]*?(?:and|between|div|like|x?or)[\\s\\x0b]*?[0-9]+[\\s\\x0b]*?[\\+\\-]|[\\s\\x0b]+group[\\s\\x0b]+by.+\\()|/[0-9A-Z_a-z]+;?[\\s\\x0b]+(?:and|between|div|having|like|x?or|select)[^0-9A-Z_a-z]|(?:[#;]|--)[\\s\\x0b]*?(?:alter|drop|(?:insert|update)[\\s\\x0b]*?[0-9A-Z_a-z]{2,})|@.+=[\\s\\x0b]*?\\([\\s\\x0b]*?select|[^0-9A-Z_a-z]SET[\\s\\x0b]*?@[0-9A-Z_a-z]+',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_COOKIES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        1 => 
+        array (
+          'collection' => 'REQUEST_COOKIES_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        2 => 
+        array (
+          'collection' => 'ARGS_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        3 => 
+        array (
+          'collection' => 'ARGS',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        4 => 
+        array (
+          'collection' => 'XML',
+          'selector' => '/*',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+        1 => 'urlDecodeUni',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Detects chained SQL injection attempts 1/2',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-sqli',
+        4 => 'paranoia-level/2',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/ATTACK-SQLI',
+        7 => 'capec/1000/152/248/66',
+      ),
+      'paranoia' => 2,
+      'category' => 'sqli',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.sql_injection_score',
+          'op' => '+',
+          'value' => '5',
+        ),
+        1 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl2',
+          'op' => '+',
+          'value' => '5',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => true,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    330 => 
     array (
       'id' => 942260,
       'phase' => 2,
@@ -29599,7 +32434,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    289 => 
+    331 => 
     array (
       'id' => 942300,
       'phase' => 2,
@@ -29696,7 +32531,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    290 => 
+    332 => 
     array (
       'id' => 942310,
       'phase' => 2,
@@ -29793,7 +32628,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    291 => 
+    333 => 
     array (
       'id' => 942330,
       'phase' => 2,
@@ -29890,7 +32725,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    292 => 
+    334 => 
     array (
       'id' => 942340,
       'phase' => 2,
@@ -29987,7 +32822,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    293 => 
+    335 => 
     array (
       'id' => 942361,
       'phase' => 2,
@@ -30084,7 +32919,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    294 => 
+    336 => 
     array (
       'id' => 942362,
       'phase' => 2,
@@ -30181,7 +33016,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    295 => 
+    337 => 
     array (
       'id' => 942370,
       'phase' => 2,
@@ -30294,7 +33129,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    296 => 
+    338 => 
     array (
       'id' => 942380,
       'phase' => 2,
@@ -30391,7 +33226,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    297 => 
+    339 => 
     array (
       'id' => 942390,
       'phase' => 2,
@@ -30488,7 +33323,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    298 => 
+    340 => 
     array (
       'id' => 942400,
       'phase' => 2,
@@ -30585,7 +33420,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    299 => 
+    341 => 
     array (
       'id' => 942410,
       'phase' => 2,
@@ -30682,7 +33517,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    300 => 
+    342 => 
     array (
       'id' => 942470,
       'phase' => 2,
@@ -30779,7 +33614,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    301 => 
+    343 => 
     array (
       'id' => 942480,
       'phase' => 2,
@@ -30892,7 +33727,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    302 => 
+    344 => 
     array (
       'id' => 942430,
       'phase' => 2,
@@ -30973,7 +33808,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    303 => 
+    345 => 
     array (
       'id' => 942440,
       'phase' => 2,
@@ -31051,49 +33886,17 @@ lvh.me/',
       array (
         0 => 
         array (
-          'id' => 942450,
+          'id' => 0,
           'phase' => 2,
           'operator' => 'rx',
-          'operator_arg' => '(?i)\\b0x[0-9a-f]{3,}|(?:x\'[0-9a-f]{3,}|b\'[01]{10,})\'',
-          'operator_negated' => false,
+          'operator_arg' => '^(?:ey[\\-0-9A-Z_a-z]+\\.ey[\\-0-9A-Z_a-z]+\\.)?[\\-0-9A-Z_a-z]+$',
+          'operator_negated' => true,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'REQUEST_COOKIES',
+              'collection' => 'MATCHED_VARS',
               'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            1 => 
-            array (
-              'collection' => 'REQUEST_COOKIES_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            2 => 
-            array (
-              'collection' => 'ARGS_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            3 => 
-            array (
-              'collection' => 'ARGS',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            4 => 
-            array (
-              'collection' => 'XML',
-              'selector' => '/*',
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -31102,35 +33905,26 @@ lvh.me/',
           'transforms' => 
           array (
             0 => 'none',
-            1 => 'urlDecodeUni',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'SQL Bin or Hex Encoding Identified',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-sqli',
-            4 => 'paranoia-level/2',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/ATTACK-SQLI',
-            7 => 'capec/1000/152/248/66',
           ),
-          'paranoia' => 2,
+          'paranoia' => 1,
           'category' => 'sqli',
           'setvars' => 
           array (
             0 => 
             array (
-              'name' => 'tx.sql_injection_score',
+              'name' => 'tx.inbound_anomaly_score_pl2',
               'op' => '+',
               'value' => '5',
             ),
             1 => 
             array (
-              'name' => 'tx.inbound_anomaly_score_pl2',
+              'name' => 'tx.sql_injection_score',
               'op' => '+',
               'value' => '5',
             ),
@@ -31138,7 +33932,7 @@ lvh.me/',
           'chain' => 
           array (
           ),
-          'capture' => true,
+          'capture' => false,
           'skip_after' => NULL,
           'multi_match' => false,
           'warnings' => 
@@ -31155,7 +33949,104 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    304 => 
+    346 => 
+    array (
+      'id' => 942450,
+      'phase' => 2,
+      'operator' => 'rx',
+      'operator_arg' => '(?i)\\b0x[0-9a-f]{3,}|(?:x\'[0-9a-f]{3,}|b\'[01]{10,})\'',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'REQUEST_COOKIES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        1 => 
+        array (
+          'collection' => 'REQUEST_COOKIES_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        2 => 
+        array (
+          'collection' => 'ARGS_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        3 => 
+        array (
+          'collection' => 'ARGS',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        4 => 
+        array (
+          'collection' => 'XML',
+          'selector' => '/*',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+        1 => 'urlDecodeUni',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'SQL Bin or Hex Encoding Identified',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-sqli',
+        4 => 'paranoia-level/2',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/ATTACK-SQLI',
+        7 => 'capec/1000/152/248/66',
+      ),
+      'paranoia' => 2,
+      'category' => 'sqli',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.sql_injection_score',
+          'op' => '+',
+          'value' => '5',
+        ),
+        1 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl2',
+          'op' => '+',
+          'value' => '5',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => true,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    347 => 
     array (
       'id' => 942510,
       'phase' => 2,
@@ -31252,7 +34143,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    305 => 
+    348 => 
     array (
       'id' => 942520,
       'phase' => 2,
@@ -31349,7 +34240,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    306 => 
+    349 => 
     array (
       'id' => 942521,
       'phase' => 2,
@@ -31433,33 +34324,17 @@ lvh.me/',
       array (
         0 => 
         array (
-          'id' => 942522,
+          'id' => 0,
           'phase' => 2,
           'operator' => 'rx',
-          'operator_arg' => '^.*?\\x5c[\'"`](?:.*?[\'"`])?\\s*(?:and|or)\\b',
+          'operator_arg' => '^(?:and|or)$',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'ARGS_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            1 => 
-            array (
-              'collection' => 'ARGS',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            2 => 
-            array (
-              'collection' => 'XML',
-              'selector' => '/*',
+              'collection' => 'TX',
+              'selector' => '1',
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -31468,23 +34343,14 @@ lvh.me/',
           'transforms' => 
           array (
             0 => 'none',
-            1 => 'urlDecodeUni',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Detects basic SQL authentication bypass attempts 4.1/4',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-sqli',
-            4 => 'paranoia-level/2',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/ATTACK-SQLI',
-            7 => 'capec/1000/152/248/66',
           ),
-          'paranoia' => 2,
+          'paranoia' => 1,
           'category' => 'sqli',
           'setvars' => 
           array (
@@ -31504,7 +34370,7 @@ lvh.me/',
           'chain' => 
           array (
           ),
-          'capture' => true,
+          'capture' => false,
           'skip_after' => NULL,
           'multi_match' => false,
           'warnings' => 
@@ -31521,7 +34387,88 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    307 => 
+    350 => 
+    array (
+      'id' => 942522,
+      'phase' => 2,
+      'operator' => 'rx',
+      'operator_arg' => '^.*?\\x5c[\'"`](?:.*?[\'"`])?\\s*(?:and|or)\\b',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'ARGS_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        1 => 
+        array (
+          'collection' => 'ARGS',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        2 => 
+        array (
+          'collection' => 'XML',
+          'selector' => '/*',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+        1 => 'urlDecodeUni',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Detects basic SQL authentication bypass attempts 4.1/4',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-sqli',
+        4 => 'paranoia-level/2',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/ATTACK-SQLI',
+        7 => 'capec/1000/152/248/66',
+      ),
+      'paranoia' => 2,
+      'category' => 'sqli',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.sql_injection_score',
+          'op' => '+',
+          'value' => '5',
+        ),
+        1 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl2',
+          'op' => '+',
+          'value' => '5',
+        ),
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => true,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    351 => 
     array (
       'id' => 942152,
       'phase' => 1,
@@ -31594,7 +34541,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    308 => 
+    352 => 
     array (
       'id' => 942321,
       'phase' => 1,
@@ -31667,7 +34614,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    309 => 
+    353 => 
     array (
       'id' => 942015,
       'phase' => 1,
@@ -31711,7 +34658,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    310 => 
+    354 => 
     array (
       'id' => 942016,
       'phase' => 2,
@@ -31755,7 +34702,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    311 => 
+    355 => 
     array (
       'id' => 942251,
       'phase' => 2,
@@ -31852,7 +34799,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    312 => 
+    356 => 
     array (
       'id' => 942490,
       'phase' => 2,
@@ -31949,7 +34896,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    313 => 
+    357 => 
     array (
       'id' => 942420,
       'phase' => 1,
@@ -32022,7 +34969,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    314 => 
+    358 => 
     array (
       'id' => 942431,
       'phase' => 2,
@@ -32119,7 +35066,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    315 => 
+    359 => 
     array (
       'id' => 942460,
       'phase' => 2,
@@ -32183,7 +35130,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    316 => 
+    360 => 
     array (
       'id' => 942511,
       'phase' => 2,
@@ -32280,7 +35227,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    317 => 
+    361 => 
     array (
       'id' => 942530,
       'phase' => 2,
@@ -32377,7 +35324,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    318 => 
+    362 => 
     array (
       'id' => 942017,
       'phase' => 1,
@@ -32421,7 +35368,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    319 => 
+    363 => 
     array (
       'id' => 942018,
       'phase' => 2,
@@ -32465,7 +35412,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    320 => 
+    364 => 
     array (
       'id' => 942421,
       'phase' => 1,
@@ -32538,7 +35485,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    321 => 
+    365 => 
     array (
       'id' => 942432,
       'phase' => 2,
@@ -32619,7 +35566,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    322 => 
+    366 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -32654,7 +35601,7 @@ lvh.me/',
       ),
       'marker' => 'END-REQUEST-942-APPLICATION-ATTACK-SQLI',
     ),
-    323 => 
+    367 => 
     array (
       'id' => 943011,
       'phase' => 1,
@@ -32698,7 +35645,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    324 => 
+    368 => 
     array (
       'id' => 943012,
       'phase' => 2,
@@ -32742,7 +35689,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    325 => 
+    369 => 
     array (
       'id' => 943100,
       'phase' => 2,
@@ -32839,7 +35786,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    326 => 
+    370 => 
     array (
       'id' => 943110,
       'phase' => 2,
@@ -32891,17 +35838,17 @@ lvh.me/',
       array (
         0 => 
         array (
-          'id' => 943120,
+          'id' => 0,
           'phase' => 2,
           'operator' => 'rx',
-          'operator_arg' => '^(?:j(?:se(?:ssionid|rvsession)|wsession)|(?:asp(?:\\.net_)?session|session[\\-_]?)id|phpsessi(?:on|d)|(?:weblogic|laravel_)session|_(?:session_id|flask_session)|c(?:f(?:s?id|token)|onnect\\.sid))$',
+          'operator_arg' => '^(?:ht|f)tps?://(.*?)/',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'ARGS_NAMES',
-              'selector' => NULL,
+              'collection' => 'REQUEST_HEADERS',
+              'selector' => 'Referer',
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -32909,33 +35856,17 @@ lvh.me/',
           ),
           'transforms' => 
           array (
-            0 => 'none',
-            1 => 'lowercase',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Possible Session Fixation Attack: SessionID Parameter Name with No Referer',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-multi',
-            2 => 'platform-multi',
-            3 => 'attack-fixation',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/ATTACK-SESSION-FIXATION',
-            7 => 'capec/1000/225/21/593/61',
           ),
           'paranoia' => 1,
           'category' => 'session_fixation',
           'setvars' => 
           array (
-            0 => 
-            array (
-              'name' => 'tx.943120_matched_var_name',
-              'op' => '=',
-              'value' => '0',
-            ),
           ),
           'chain' => 
           array (
@@ -32950,17 +35881,17 @@ lvh.me/',
         ),
         1 => 
         array (
-          'id' => 943013,
-          'phase' => 1,
-          'operator' => 'lt',
-          'operator_arg' => '2',
-          'operator_negated' => false,
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'endsWith',
+          'operator_arg' => '%{request_headers.host}',
+          'operator_negated' => true,
           'targets' => 
           array (
             0 => 
             array (
               'collection' => 'TX',
-              'selector' => 'DETECTION_PARANOIA_LEVEL',
+              'selector' => '1',
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -32974,18 +35905,29 @@ lvh.me/',
           'message' => '',
           'tags' => 
           array (
-            0 => 'OWASP_CRS',
           ),
           'paranoia' => 1,
           'category' => 'session_fixation',
           'setvars' => 
           array (
+            0 => 
+            array (
+              'name' => 'tx.session_fixation_score',
+              'op' => '+',
+              'value' => '5',
+            ),
+            1 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl1',
+              'op' => '+',
+              'value' => '5',
+            ),
           ),
           'chain' => 
           array (
           ),
           'capture' => false,
-          'skip_after' => 'END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION',
+          'skip_after' => NULL,
           'multi_match' => false,
           'warnings' => 
           array (
@@ -33001,7 +35943,165 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    327 => 
+    371 => 
+    array (
+      'id' => 943120,
+      'phase' => 2,
+      'operator' => 'rx',
+      'operator_arg' => '^(?:j(?:se(?:ssionid|rvsession)|wsession)|(?:asp(?:\\.net_)?session|session[\\-_]?)id|phpsessi(?:on|d)|(?:weblogic|laravel_)session|_(?:session_id|flask_session)|c(?:f(?:s?id|token)|onnect\\.sid))$',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'ARGS_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+        1 => 'lowercase',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Possible Session Fixation Attack: SessionID Parameter Name with No Referer',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-multi',
+        2 => 'platform-multi',
+        3 => 'attack-fixation',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/ATTACK-SESSION-FIXATION',
+        7 => 'capec/1000/225/21/593/61',
+      ),
+      'paranoia' => 1,
+      'category' => 'session_fixation',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.943120_matched_var_name',
+          'op' => '=',
+          'value' => '0',
+        ),
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'eq',
+          'operator_arg' => '0',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'REQUEST_HEADERS',
+              'selector' => 'Referer',
+              'negated' => false,
+              'count' => true,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'session_fixation',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.session_fixation_score',
+              'op' => '+',
+              'value' => '5',
+            ),
+            1 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl1',
+              'op' => '+',
+              'value' => '5',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => true,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    372 => 
+    array (
+      'id' => 943013,
+      'phase' => 1,
+      'operator' => 'lt',
+      'operator_arg' => '2',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'TX',
+          'selector' => 'DETECTION_PARANOIA_LEVEL',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+      ),
+      'action' => 'pass',
+      'severity' => 'notice',
+      'message' => '',
+      'tags' => 
+      array (
+        0 => 'OWASP_CRS',
+      ),
+      'paranoia' => 1,
+      'category' => 'session_fixation',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => 'END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION',
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    373 => 
     array (
       'id' => 943014,
       'phase' => 2,
@@ -33045,7 +36145,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    328 => 
+    374 => 
     array (
       'id' => 943015,
       'phase' => 1,
@@ -33089,7 +36189,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    329 => 
+    375 => 
     array (
       'id' => 943016,
       'phase' => 2,
@@ -33133,7 +36233,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    330 => 
+    376 => 
     array (
       'id' => 943017,
       'phase' => 1,
@@ -33177,7 +36277,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    331 => 
+    377 => 
     array (
       'id' => 943018,
       'phase' => 2,
@@ -33221,7 +36321,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    332 => 
+    378 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -33256,7 +36356,7 @@ lvh.me/',
       ),
       'marker' => 'END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION',
     ),
-    333 => 
+    379 => 
     array (
       'id' => 944011,
       'phase' => 1,
@@ -33300,7 +36400,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    334 => 
+    380 => 
     array (
       'id' => 944012,
       'phase' => 2,
@@ -33344,7 +36444,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    335 => 
+    381 => 
     array (
       'id' => 944100,
       'phase' => 2,
@@ -33473,7 +36573,7 @@ lvh.me/',
       ),
       'marker' => NULL,
     ),
-    336 => 
+    382 => 
     array (
       'id' => 944110,
       'phase' => 2,
@@ -33583,16 +36683,16 @@ lvh.me/',
       array (
         0 => 
         array (
-          'id' => 944120,
+          'id' => 0,
           'phase' => 2,
           'operator' => 'rx',
-          'operator_arg' => '(?:clonetransform|xmldecod)er|f(?:orclosure|ilewriter)|in(?:stantiate(?:factory|transformer)|vokertransformer)|(?:prototype(?:clone|serialization)factor|getpropert)y|whileclosure',
+          'operator_arg' => '(?i)(?:unmarshaller|base64data|java\\.)',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'ARGS',
+              'collection' => 'MATCHED_VARS',
               'selector' => NULL,
               'negated' => false,
               'count' => false,
@@ -33600,61 +36700,13 @@ lvh.me/',
             ),
             1 => 
             array (
-              'collection' => 'ARGS_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            2 => 
-            array (
-              'collection' => 'REQUEST_COOKIES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            3 => 
-            array (
-              'collection' => 'REQUEST_COOKIES_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            4 => 
-            array (
-              'collection' => 'REQUEST_BODY',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            5 => 
-            array (
-              'collection' => 'REQUEST_HEADERS',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            6 => 
-            array (
-              'collection' => 'REQUEST_HEADERS',
-              'selector' => 'Cookie',
-              'negated' => true,
-              'count' => false,
-              'regex' => false,
-            ),
-            7 => 
-            array (
               'collection' => 'XML',
               'selector' => '/*',
               'negated' => false,
               'count' => false,
               'regex' => false,
             ),
-            8 => 
+            2 => 
             array (
               'collection' => 'XML',
               'selector' => '//@*',
@@ -33665,27 +36717,29 @@ lvh.me/',
           ),
           'transforms' => 
           array (
-            0 => 'none',
-            1 => 'lowercase',
           ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Remote Command Execution: Java serialization (CVE-2015-4852)',
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'application-multi',
-            1 => 'language-java',
-            2 => 'platform-multi',
-            3 => 'attack-rce',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/ATTACK-JAVA',
-            7 => 'capec/1000/152/248',
           ),
           'paranoia' => 1,
           'category' => 'java',
           'setvars' => 
           array (
+            0 => 
+            array (
+              'name' => 'tx.rce_score',
+              'op' => '+',
+              'value' => '5',
+            ),
+            1 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl1',
+              'op' => '+',
+              'value' => '5',
+            ),
           ),
           'chain' => 
           array (
@@ -33698,12 +36752,193 @@ lvh.me/',
           ),
           'marker' => NULL,
         ),
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    383 => 
+    array (
+      'id' => 944120,
+      'phase' => 2,
+      'operator' => 'rx',
+      'operator_arg' => '(?:clonetransform|xmldecod)er|f(?:orclosure|ilewriter)|in(?:stantiate(?:factory|transformer)|vokertransformer)|(?:prototype(?:clone|serialization)factor|getpropert)y|whileclosure',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'ARGS',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
         1 => 
         array (
-          'id' => 944130,
+          'collection' => 'ARGS_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        2 => 
+        array (
+          'collection' => 'REQUEST_COOKIES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        3 => 
+        array (
+          'collection' => 'REQUEST_COOKIES_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        4 => 
+        array (
+          'collection' => 'REQUEST_BODY',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        5 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        6 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => 'Cookie',
+          'negated' => true,
+          'count' => false,
+          'regex' => false,
+        ),
+        7 => 
+        array (
+          'collection' => 'XML',
+          'selector' => '/*',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        8 => 
+        array (
+          'collection' => 'XML',
+          'selector' => '//@*',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+        1 => 'lowercase',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Remote Command Execution: Java serialization (CVE-2015-4852)',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-java',
+        2 => 'platform-multi',
+        3 => 'attack-rce',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/ATTACK-JAVA',
+        7 => 'capec/1000/152/248',
+      ),
+      'paranoia' => 1,
+      'category' => 'java',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+        0 => 
+        array (
+          'id' => 0,
           'phase' => 2,
-          'operator' => 'pmf',
-          'operator_arg' => 'com.opensymphony.xwork2
+          'operator' => 'rx',
+          'operator_arg' => '(?:runtime|processbuilder)',
+          'operator_negated' => false,
+          'targets' => 
+          array (
+            0 => 
+            array (
+              'collection' => 'MATCHED_VARS',
+              'selector' => NULL,
+              'negated' => false,
+              'count' => false,
+              'regex' => false,
+            ),
+          ),
+          'transforms' => 
+          array (
+          ),
+          'action' => 'pass',
+          'severity' => 'notice',
+          'message' => '',
+          'tags' => 
+          array (
+          ),
+          'paranoia' => 1,
+          'category' => 'java',
+          'setvars' => 
+          array (
+            0 => 
+            array (
+              'name' => 'tx.rce_score',
+              'op' => '+',
+              'value' => '5',
+            ),
+            1 => 
+            array (
+              'name' => 'tx.inbound_anomaly_score_pl1',
+              'op' => '+',
+              'value' => '5',
+            ),
+          ),
+          'chain' => 
+          array (
+          ),
+          'capture' => false,
+          'skip_after' => NULL,
+          'multi_match' => false,
+          'warnings' => 
+          array (
+          ),
+          'marker' => NULL,
+        ),
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    384 => 
+    array (
+      'id' => 944130,
+      'phase' => 2,
+      'operator' => 'pmf',
+      'operator_arg' => 'com.opensymphony.xwork2
 com.sun.org.apache
 classLoader
 declaredClass
@@ -33771,136 +37006,127 @@ PropertyUtilsBean
 java.beans.XMLDecode
 java.nio.file
 sun.reflect',
-          'operator_negated' => false,
-          'targets' => 
-          array (
-            0 => 
-            array (
-              'collection' => 'ARGS',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            1 => 
-            array (
-              'collection' => 'ARGS_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            2 => 
-            array (
-              'collection' => 'REQUEST_COOKIES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            3 => 
-            array (
-              'collection' => 'REQUEST_COOKIES_NAMES',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            4 => 
-            array (
-              'collection' => 'REQUEST_BODY',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            5 => 
-            array (
-              'collection' => 'REQUEST_FILENAME',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            6 => 
-            array (
-              'collection' => 'REQUEST_HEADERS',
-              'selector' => NULL,
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            7 => 
-            array (
-              'collection' => 'REQUEST_HEADERS',
-              'selector' => 'Cookie',
-              'negated' => true,
-              'count' => false,
-              'regex' => false,
-            ),
-            8 => 
-            array (
-              'collection' => 'XML',
-              'selector' => '/*',
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-            9 => 
-            array (
-              'collection' => 'XML',
-              'selector' => '//@*',
-              'negated' => false,
-              'count' => false,
-              'regex' => false,
-            ),
-          ),
-          'transforms' => 
-          array (
-            0 => 'none',
-          ),
-          'action' => 'block',
-          'severity' => 'critical',
-          'message' => 'Suspicious Java class detected',
-          'tags' => 
-          array (
-            0 => 'application-multi',
-            1 => 'language-java',
-            2 => 'platform-multi',
-            3 => 'attack-rce',
-            4 => 'paranoia-level/1',
-            5 => 'OWASP_CRS',
-            6 => 'OWASP_CRS/ATTACK-JAVA',
-            7 => 'capec/1000/152/248',
-          ),
-          'paranoia' => 1,
-          'category' => 'java',
-          'setvars' => 
-          array (
-            0 => 
-            array (
-              'name' => 'tx.rce_score',
-              'op' => '+',
-              'value' => '5',
-            ),
-            1 => 
-            array (
-              'name' => 'tx.inbound_anomaly_score_pl1',
-              'op' => '+',
-              'value' => '5',
-            ),
-          ),
-          'chain' => 
-          array (
-          ),
-          'capture' => false,
-          'skip_after' => NULL,
-          'multi_match' => false,
-          'warnings' => 
-          array (
-          ),
-          'marker' => NULL,
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'ARGS',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
         ),
+        1 => 
+        array (
+          'collection' => 'ARGS_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        2 => 
+        array (
+          'collection' => 'REQUEST_COOKIES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        3 => 
+        array (
+          'collection' => 'REQUEST_COOKIES_NAMES',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        4 => 
+        array (
+          'collection' => 'REQUEST_BODY',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        5 => 
+        array (
+          'collection' => 'REQUEST_FILENAME',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        6 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => NULL,
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        7 => 
+        array (
+          'collection' => 'REQUEST_HEADERS',
+          'selector' => 'Cookie',
+          'negated' => true,
+          'count' => false,
+          'regex' => false,
+        ),
+        8 => 
+        array (
+          'collection' => 'XML',
+          'selector' => '/*',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+        9 => 
+        array (
+          'collection' => 'XML',
+          'selector' => '//@*',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'block',
+      'severity' => 'critical',
+      'message' => 'Suspicious Java class detected',
+      'tags' => 
+      array (
+        0 => 'application-multi',
+        1 => 'language-java',
+        2 => 'platform-multi',
+        3 => 'attack-rce',
+        4 => 'paranoia-level/1',
+        5 => 'OWASP_CRS',
+        6 => 'OWASP_CRS/ATTACK-JAVA',
+        7 => 'capec/1000/152/248',
+      ),
+      'paranoia' => 1,
+      'category' => 'java',
+      'setvars' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tx.rce_score',
+          'op' => '+',
+          'value' => '5',
+        ),
+        1 => 
+        array (
+          'name' => 'tx.inbound_anomaly_score_pl1',
+          'op' => '+',
+          'value' => '5',
+        ),
+      ),
+      'chain' => 
+      array (
       ),
       'capture' => false,
       'skip_after' => NULL,
@@ -33910,7 +37136,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    337 => 
+    385 => 
     array (
       'id' => 944140,
       'phase' => 2,
@@ -34008,7 +37234,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    338 => 
+    386 => 
     array (
       'id' => 944150,
       'phase' => 2,
@@ -34139,7 +37365,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    339 => 
+    387 => 
     array (
       'id' => 944013,
       'phase' => 1,
@@ -34183,7 +37409,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    340 => 
+    388 => 
     array (
       'id' => 944014,
       'phase' => 2,
@@ -34227,7 +37453,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    341 => 
+    389 => 
     array (
       'id' => 944151,
       'phase' => 2,
@@ -34358,7 +37584,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    342 => 
+    390 => 
     array (
       'id' => 944200,
       'phase' => 2,
@@ -34485,7 +37711,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    343 => 
+    391 => 
     array (
       'id' => 944210,
       'phase' => 2,
@@ -34612,7 +37838,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    344 => 
+    392 => 
     array (
       'id' => 944240,
       'phase' => 2,
@@ -34741,7 +37967,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    345 => 
+    393 => 
     array (
       'id' => 944250,
       'phase' => 2,
@@ -34869,7 +38095,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    346 => 
+    394 => 
     array (
       'id' => 944260,
       'phase' => 2,
@@ -34997,7 +38223,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    347 => 
+    395 => 
     array (
       'id' => 944015,
       'phase' => 1,
@@ -35041,7 +38267,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    348 => 
+    396 => 
     array (
       'id' => 944016,
       'phase' => 2,
@@ -35085,7 +38311,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    349 => 
+    397 => 
     array (
       'id' => 944300,
       'phase' => 2,
@@ -35213,7 +38439,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    350 => 
+    398 => 
     array (
       'id' => 944017,
       'phase' => 1,
@@ -35257,7 +38483,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    351 => 
+    399 => 
     array (
       'id' => 944018,
       'phase' => 2,
@@ -35301,7 +38527,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    352 => 
+    400 => 
     array (
       'id' => 944152,
       'phase' => 2,
@@ -35432,7 +38658,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    353 => 
+    401 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -35467,7 +38693,7 @@ sun.reflect',
       ),
       'marker' => 'END-REQUEST-944-APPLICATION-ATTACK-JAVA',
     ),
-    354 => 
+    402 => 
     array (
       'id' => 949052,
       'phase' => 1,
@@ -35518,7 +38744,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    355 => 
+    403 => 
     array (
       'id' => 949152,
       'phase' => 1,
@@ -35569,7 +38795,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    356 => 
+    404 => 
     array (
       'id' => 949053,
       'phase' => 1,
@@ -35620,7 +38846,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    357 => 
+    405 => 
     array (
       'id' => 949153,
       'phase' => 1,
@@ -35671,7 +38897,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    358 => 
+    406 => 
     array (
       'id' => 949054,
       'phase' => 1,
@@ -35722,7 +38948,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    359 => 
+    407 => 
     array (
       'id' => 949154,
       'phase' => 1,
@@ -35773,7 +38999,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    360 => 
+    408 => 
     array (
       'id' => 949055,
       'phase' => 1,
@@ -35824,7 +39050,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    361 => 
+    409 => 
     array (
       'id' => 949155,
       'phase' => 1,
@@ -35875,7 +39101,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    362 => 
+    410 => 
     array (
       'id' => 949060,
       'phase' => 2,
@@ -35926,7 +39152,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    363 => 
+    411 => 
     array (
       'id' => 949160,
       'phase' => 2,
@@ -35977,7 +39203,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    364 => 
+    412 => 
     array (
       'id' => 949061,
       'phase' => 2,
@@ -36028,7 +39254,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    365 => 
+    413 => 
     array (
       'id' => 949161,
       'phase' => 2,
@@ -36079,7 +39305,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    366 => 
+    414 => 
     array (
       'id' => 949062,
       'phase' => 2,
@@ -36130,7 +39356,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    367 => 
+    415 => 
     array (
       'id' => 949162,
       'phase' => 2,
@@ -36181,7 +39407,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    368 => 
+    416 => 
     array (
       'id' => 949063,
       'phase' => 2,
@@ -36232,7 +39458,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    369 => 
+    417 => 
     array (
       'id' => 949163,
       'phase' => 2,
@@ -36283,7 +39509,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    370 => 
+    418 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -36318,7 +39544,7 @@ sun.reflect',
       ),
       'marker' => 'BEGIN-REQUEST-BLOCKING-EVAL',
     ),
-    371 => 
+    419 => 
     array (
       'id' => 949111,
       'phase' => 1,
@@ -36357,17 +39583,17 @@ sun.reflect',
       array (
         0 => 
         array (
-          'id' => 949110,
+          'id' => 0,
           'phase' => 2,
-          'operator' => 'ge',
-          'operator_arg' => '%{tx.inbound_anomaly_score_threshold}',
+          'operator' => 'eq',
+          'operator_arg' => '1',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
               'collection' => 'TX',
-              'selector' => 'BLOCKING_INBOUND_ANOMALY_SCORE',
+              'selector' => 'EARLY_BLOCKING',
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -36375,15 +39601,12 @@ sun.reflect',
           ),
           'transforms' => 
           array (
-            0 => 'none',
           ),
-          'action' => 'deny',
+          'action' => 'pass',
           'severity' => 'notice',
-          'message' => 'Inbound Anomaly Score Exceeded (Total Score: %{TX.BLOCKING_INBOUND_ANOMALY_SCORE})',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'anomaly-evaluation',
-            1 => 'OWASP_CRS',
           ),
           'paranoia' => 1,
           'category' => 'misc',
@@ -36410,7 +39633,53 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    372 => 
+    420 => 
+    array (
+      'id' => 949110,
+      'phase' => 2,
+      'operator' => 'ge',
+      'operator_arg' => '%{tx.inbound_anomaly_score_threshold}',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'TX',
+          'selector' => 'BLOCKING_INBOUND_ANOMALY_SCORE',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'deny',
+      'severity' => 'notice',
+      'message' => 'Inbound Anomaly Score Exceeded (Total Score: %{TX.BLOCKING_INBOUND_ANOMALY_SCORE})',
+      'tags' => 
+      array (
+        0 => 'anomaly-evaluation',
+        1 => 'OWASP_CRS',
+      ),
+      'paranoia' => 1,
+      'category' => 'misc',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    421 => 
     array (
       'id' => 949011,
       'phase' => 1,
@@ -36454,7 +39723,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    373 => 
+    422 => 
     array (
       'id' => 949012,
       'phase' => 2,
@@ -36498,7 +39767,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    374 => 
+    423 => 
     array (
       'id' => 949013,
       'phase' => 1,
@@ -36542,7 +39811,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    375 => 
+    424 => 
     array (
       'id' => 949014,
       'phase' => 2,
@@ -36586,7 +39855,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    376 => 
+    425 => 
     array (
       'id' => 949015,
       'phase' => 1,
@@ -36630,7 +39899,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    377 => 
+    426 => 
     array (
       'id' => 949016,
       'phase' => 2,
@@ -36674,7 +39943,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    378 => 
+    427 => 
     array (
       'id' => 949017,
       'phase' => 1,
@@ -36718,7 +39987,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    379 => 
+    428 => 
     array (
       'id' => 949018,
       'phase' => 2,
@@ -36762,7 +40031,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    380 => 
+    429 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -36797,7 +40066,7 @@ sun.reflect',
       ),
       'marker' => 'END-REQUEST-949-BLOCKING-EVALUATION',
     ),
-    381 => 
+    430 => 
     array (
       'id' => 950021,
       'phase' => 3,
@@ -36842,7 +40111,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    382 => 
+    431 => 
     array (
       'id' => 950010,
       'phase' => 4,
@@ -36887,7 +40156,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    383 => 
+    432 => 
     array (
       'id' => 950011,
       'phase' => 3,
@@ -36931,7 +40200,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    384 => 
+    433 => 
     array (
       'id' => 950012,
       'phase' => 4,
@@ -36975,7 +40244,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    385 => 
+    434 => 
     array (
       'id' => 950130,
       'phase' => 4,
@@ -37033,7 +40302,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    386 => 
+    435 => 
     array (
       'id' => 950140,
       'phase' => 4,
@@ -37091,7 +40360,7 @@ sun.reflect',
       ),
       'marker' => NULL,
     ),
-    387 => 
+    436 => 
     array (
       'id' => 950150,
       'phase' => 4,
@@ -37205,7 +40474,7 @@ System.Web.Http.HttpRouteCollection',
       ),
       'marker' => NULL,
     ),
-    388 => 
+    437 => 
     array (
       'id' => 950013,
       'phase' => 3,
@@ -37249,7 +40518,7 @@ System.Web.Http.HttpRouteCollection',
       ),
       'marker' => NULL,
     ),
-    389 => 
+    438 => 
     array (
       'id' => 950014,
       'phase' => 4,
@@ -37293,7 +40562,7 @@ System.Web.Http.HttpRouteCollection',
       ),
       'marker' => NULL,
     ),
-    390 => 
+    439 => 
     array (
       'id' => 950100,
       'phase' => 3,
@@ -37351,7 +40620,7 @@ System.Web.Http.HttpRouteCollection',
       ),
       'marker' => NULL,
     ),
-    391 => 
+    440 => 
     array (
       'id' => 950015,
       'phase' => 3,
@@ -37395,7 +40664,7 @@ System.Web.Http.HttpRouteCollection',
       ),
       'marker' => NULL,
     ),
-    392 => 
+    441 => 
     array (
       'id' => 950016,
       'phase' => 4,
@@ -37439,7 +40708,7 @@ System.Web.Http.HttpRouteCollection',
       ),
       'marker' => NULL,
     ),
-    393 => 
+    442 => 
     array (
       'id' => 950017,
       'phase' => 3,
@@ -37483,7 +40752,7 @@ System.Web.Http.HttpRouteCollection',
       ),
       'marker' => NULL,
     ),
-    394 => 
+    443 => 
     array (
       'id' => 950018,
       'phase' => 4,
@@ -37527,7 +40796,7 @@ System.Web.Http.HttpRouteCollection',
       ),
       'marker' => NULL,
     ),
-    395 => 
+    444 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -37562,7 +40831,7 @@ System.Web.Http.HttpRouteCollection',
       ),
       'marker' => 'END-RESPONSE-950-DATA-LEAKAGES',
     ),
-    396 => 
+    445 => 
     array (
       'id' => 951010,
       'phase' => 4,
@@ -37607,7 +40876,7 @@ System.Web.Http.HttpRouteCollection',
       ),
       'marker' => NULL,
     ),
-    397 => 
+    446 => 
     array (
       'id' => 951011,
       'phase' => 3,
@@ -37651,7 +40920,7 @@ System.Web.Http.HttpRouteCollection',
       ),
       'marker' => NULL,
     ),
-    398 => 
+    447 => 
     array (
       'id' => 951012,
       'phase' => 4,
@@ -37695,7 +40964,7 @@ System.Web.Http.HttpRouteCollection',
       ),
       'marker' => NULL,
     ),
-    399 => 
+    448 => 
     array (
       'id' => 951100,
       'phase' => 4,
@@ -37916,7 +41185,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    400 => 
+    449 => 
     array (
       'id' => 951110,
       'phase' => 4,
@@ -37980,7 +41249,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    401 => 
+    450 => 
     array (
       'id' => 951120,
       'phase' => 4,
@@ -38044,7 +41313,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    402 => 
+    451 => 
     array (
       'id' => 951130,
       'phase' => 4,
@@ -38108,7 +41377,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    403 => 
+    452 => 
     array (
       'id' => 951140,
       'phase' => 4,
@@ -38172,7 +41441,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    404 => 
+    453 => 
     array (
       'id' => 951150,
       'phase' => 4,
@@ -38236,7 +41505,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    405 => 
+    454 => 
     array (
       'id' => 951160,
       'phase' => 4,
@@ -38300,7 +41569,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    406 => 
+    455 => 
     array (
       'id' => 951170,
       'phase' => 4,
@@ -38364,7 +41633,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    407 => 
+    456 => 
     array (
       'id' => 951180,
       'phase' => 4,
@@ -38428,7 +41697,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    408 => 
+    457 => 
     array (
       'id' => 951190,
       'phase' => 4,
@@ -38492,7 +41761,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    409 => 
+    458 => 
     array (
       'id' => 951200,
       'phase' => 4,
@@ -38556,7 +41825,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    410 => 
+    459 => 
     array (
       'id' => 951210,
       'phase' => 4,
@@ -38620,7 +41889,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    411 => 
+    460 => 
     array (
       'id' => 951220,
       'phase' => 4,
@@ -38684,7 +41953,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    412 => 
+    461 => 
     array (
       'id' => 951230,
       'phase' => 4,
@@ -38748,7 +42017,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    413 => 
+    462 => 
     array (
       'id' => 951240,
       'phase' => 4,
@@ -38812,7 +42081,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    414 => 
+    463 => 
     array (
       'id' => 951250,
       'phase' => 4,
@@ -38876,7 +42145,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    415 => 
+    464 => 
     array (
       'id' => 951260,
       'phase' => 4,
@@ -38940,7 +42209,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    416 => 
+    465 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -38975,7 +42244,7 @@ XPATH syntax error:',
       ),
       'marker' => 'END-SQL-ERROR-MATCH-PL1',
     ),
-    417 => 
+    466 => 
     array (
       'id' => 951013,
       'phase' => 3,
@@ -39019,7 +42288,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    418 => 
+    467 => 
     array (
       'id' => 951014,
       'phase' => 4,
@@ -39063,7 +42332,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    419 => 
+    468 => 
     array (
       'id' => 951015,
       'phase' => 3,
@@ -39107,7 +42376,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    420 => 
+    469 => 
     array (
       'id' => 951016,
       'phase' => 4,
@@ -39151,7 +42420,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    421 => 
+    470 => 
     array (
       'id' => 951017,
       'phase' => 3,
@@ -39195,7 +42464,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    422 => 
+    471 => 
     array (
       'id' => 951018,
       'phase' => 4,
@@ -39239,7 +42508,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    423 => 
+    472 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -39274,7 +42543,7 @@ XPATH syntax error:',
       ),
       'marker' => 'END-RESPONSE-951-DATA-LEAKAGES-SQL',
     ),
-    424 => 
+    473 => 
     array (
       'id' => 952010,
       'phase' => 4,
@@ -39319,7 +42588,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    425 => 
+    474 => 
     array (
       'id' => 952011,
       'phase' => 3,
@@ -39363,7 +42632,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    426 => 
+    475 => 
     array (
       'id' => 952012,
       'phase' => 4,
@@ -39407,7 +42676,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    427 => 
+    476 => 
     array (
       'id' => 952110,
       'phase' => 4,
@@ -39465,7 +42734,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    428 => 
+    477 => 
     array (
       'id' => 952013,
       'phase' => 3,
@@ -39509,7 +42778,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    429 => 
+    478 => 
     array (
       'id' => 952014,
       'phase' => 4,
@@ -39553,7 +42822,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    430 => 
+    479 => 
     array (
       'id' => 952015,
       'phase' => 3,
@@ -39597,7 +42866,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    431 => 
+    480 => 
     array (
       'id' => 952016,
       'phase' => 4,
@@ -39641,7 +42910,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    432 => 
+    481 => 
     array (
       'id' => 952017,
       'phase' => 3,
@@ -39685,7 +42954,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    433 => 
+    482 => 
     array (
       'id' => 952018,
       'phase' => 4,
@@ -39729,7 +42998,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    434 => 
+    483 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -39764,7 +43033,7 @@ XPATH syntax error:',
       ),
       'marker' => 'END-RESPONSE-952-DATA-LEAKAGES-JAVA',
     ),
-    435 => 
+    484 => 
     array (
       'id' => 953010,
       'phase' => 4,
@@ -39809,7 +43078,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    436 => 
+    485 => 
     array (
       'id' => 953011,
       'phase' => 3,
@@ -39853,7 +43122,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    437 => 
+    486 => 
     array (
       'id' => 953012,
       'phase' => 4,
@@ -39897,7 +43166,7 @@ XPATH syntax error:',
       ),
       'marker' => NULL,
     ),
-    438 => 
+    487 => 
     array (
       'id' => 953100,
       'phase' => 4,
@@ -41787,7 +45056,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    439 => 
+    488 => 
     array (
       'id' => 953110,
       'phase' => 4,
@@ -41845,7 +45114,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    440 => 
+    489 => 
     array (
       'id' => 953120,
       'phase' => 4,
@@ -41903,7 +45172,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    441 => 
+    490 => 
     array (
       'id' => 953013,
       'phase' => 3,
@@ -41947,7 +45216,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    442 => 
+    491 => 
     array (
       'id' => 953014,
       'phase' => 4,
@@ -41991,7 +45260,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    443 => 
+    492 => 
     array (
       'id' => 953101,
       'phase' => 4,
@@ -42049,7 +45318,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    444 => 
+    493 => 
     array (
       'id' => 953015,
       'phase' => 3,
@@ -42093,7 +45362,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    445 => 
+    494 => 
     array (
       'id' => 953016,
       'phase' => 4,
@@ -42137,7 +45406,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    446 => 
+    495 => 
     array (
       'id' => 953017,
       'phase' => 3,
@@ -42181,7 +45450,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    447 => 
+    496 => 
     array (
       'id' => 953018,
       'phase' => 4,
@@ -42225,7 +45494,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    448 => 
+    497 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -42260,7 +45529,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => 'END-RESPONSE-953-DATA-LEAKAGES-PHP',
     ),
-    449 => 
+    498 => 
     array (
       'id' => 954010,
       'phase' => 4,
@@ -42305,7 +45574,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    450 => 
+    499 => 
     array (
       'id' => 954011,
       'phase' => 3,
@@ -42349,7 +45618,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    451 => 
+    500 => 
     array (
       'id' => 954012,
       'phase' => 4,
@@ -42393,7 +45662,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    452 => 
+    501 => 
     array (
       'id' => 954100,
       'phase' => 4,
@@ -42452,7 +45721,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    453 => 
+    502 => 
     array (
       'id' => 954110,
       'phase' => 4,
@@ -42511,7 +45780,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    454 => 
+    503 => 
     array (
       'id' => 954120,
       'phase' => 4,
@@ -42624,7 +45893,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    455 => 
+    504 => 
     array (
       'id' => 954130,
       'phase' => 4,
@@ -42670,17 +45939,17 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
         0 => 
         array (
-          'id' => 954013,
-          'phase' => 3,
-          'operator' => 'lt',
-          'operator_arg' => '2',
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'rx',
+          'operator_arg' => '\\bServer Error in.{0,50}?\\bApplication\\b',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
-              'collection' => 'TX',
-              'selector' => 'DETECTION_PARANOIA_LEVEL',
+              'collection' => 'RESPONSE_BODY',
+              'selector' => NULL,
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -42688,24 +45957,30 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
           ),
           'transforms' => 
           array (
+            0 => 'none',
           ),
           'action' => 'pass',
           'severity' => 'notice',
           'message' => '',
           'tags' => 
           array (
-            0 => 'OWASP_CRS',
           ),
           'paranoia' => 1,
           'category' => 'response_leak_iis',
           'setvars' => 
           array (
+            0 => 
+            array (
+              'name' => 'tx.outbound_anomaly_score_pl1',
+              'op' => '+',
+              'value' => '4',
+            ),
           ),
           'chain' => 
           array (
           ),
-          'capture' => false,
-          'skip_after' => 'END-RESPONSE-954-DATA-LEAKAGES-IIS',
+          'capture' => true,
+          'skip_after' => NULL,
           'multi_match' => false,
           'warnings' => 
           array (
@@ -42721,7 +45996,51 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    456 => 
+    505 => 
+    array (
+      'id' => 954013,
+      'phase' => 3,
+      'operator' => 'lt',
+      'operator_arg' => '2',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'TX',
+          'selector' => 'DETECTION_PARANOIA_LEVEL',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+      ),
+      'action' => 'pass',
+      'severity' => 'notice',
+      'message' => '',
+      'tags' => 
+      array (
+        0 => 'OWASP_CRS',
+      ),
+      'paranoia' => 1,
+      'category' => 'response_leak_iis',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => 'END-RESPONSE-954-DATA-LEAKAGES-IIS',
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    506 => 
     array (
       'id' => 954014,
       'phase' => 4,
@@ -42765,7 +46084,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    457 => 
+    507 => 
     array (
       'id' => 954101,
       'phase' => 4,
@@ -42824,7 +46143,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    458 => 
+    508 => 
     array (
       'id' => 954015,
       'phase' => 3,
@@ -42868,7 +46187,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    459 => 
+    509 => 
     array (
       'id' => 954016,
       'phase' => 4,
@@ -42912,7 +46231,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    460 => 
+    510 => 
     array (
       'id' => 954017,
       'phase' => 3,
@@ -42956,7 +46275,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    461 => 
+    511 => 
     array (
       'id' => 954018,
       'phase' => 4,
@@ -43000,7 +46319,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    462 => 
+    512 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -43035,7 +46354,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => 'END-RESPONSE-954-DATA-LEAKAGES-IIS',
     ),
-    463 => 
+    513 => 
     array (
       'id' => 955010,
       'phase' => 4,
@@ -43080,7 +46399,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    464 => 
+    514 => 
     array (
       'id' => 955011,
       'phase' => 3,
@@ -43124,7 +46443,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    465 => 
+    515 => 
     array (
       'id' => 955012,
       'phase' => 4,
@@ -43168,7 +46487,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       ),
       'marker' => NULL,
     ),
-    466 => 
+    516 => 
     array (
       'id' => 955100,
       'phase' => 4,
@@ -43298,7 +46617,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    467 => 
+    517 => 
     array (
       'id' => 955110,
       'phase' => 4,
@@ -43355,7 +46674,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    468 => 
+    518 => 
     array (
       'id' => 955120,
       'phase' => 4,
@@ -43412,7 +46731,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    469 => 
+    519 => 
     array (
       'id' => 955130,
       'phase' => 4,
@@ -43469,7 +46788,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    470 => 
+    520 => 
     array (
       'id' => 955140,
       'phase' => 4,
@@ -43526,7 +46845,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    471 => 
+    521 => 
     array (
       'id' => 955150,
       'phase' => 4,
@@ -43583,7 +46902,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    472 => 
+    522 => 
     array (
       'id' => 955160,
       'phase' => 4,
@@ -43640,7 +46959,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    473 => 
+    523 => 
     array (
       'id' => 955170,
       'phase' => 4,
@@ -43697,7 +47016,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    474 => 
+    524 => 
     array (
       'id' => 955180,
       'phase' => 4,
@@ -43754,7 +47073,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    475 => 
+    525 => 
     array (
       'id' => 955190,
       'phase' => 4,
@@ -43811,7 +47130,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    476 => 
+    526 => 
     array (
       'id' => 955200,
       'phase' => 4,
@@ -43868,7 +47187,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    477 => 
+    527 => 
     array (
       'id' => 955210,
       'phase' => 4,
@@ -43925,7 +47244,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    478 => 
+    528 => 
     array (
       'id' => 955220,
       'phase' => 4,
@@ -43982,7 +47301,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    479 => 
+    529 => 
     array (
       'id' => 955230,
       'phase' => 4,
@@ -44039,7 +47358,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    480 => 
+    530 => 
     array (
       'id' => 955240,
       'phase' => 4,
@@ -44096,7 +47415,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    481 => 
+    531 => 
     array (
       'id' => 955250,
       'phase' => 4,
@@ -44153,7 +47472,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    482 => 
+    532 => 
     array (
       'id' => 955260,
       'phase' => 4,
@@ -44210,7 +47529,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    483 => 
+    533 => 
     array (
       'id' => 955270,
       'phase' => 4,
@@ -44267,7 +47586,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    484 => 
+    534 => 
     array (
       'id' => 955280,
       'phase' => 4,
@@ -44324,7 +47643,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    485 => 
+    535 => 
     array (
       'id' => 955290,
       'phase' => 4,
@@ -44381,7 +47700,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    486 => 
+    536 => 
     array (
       'id' => 955300,
       'phase' => 4,
@@ -44440,7 +47759,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    487 => 
+    537 => 
     array (
       'id' => 955310,
       'phase' => 4,
@@ -44497,7 +47816,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    488 => 
+    538 => 
     array (
       'id' => 955320,
       'phase' => 4,
@@ -44554,7 +47873,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    489 => 
+    539 => 
     array (
       'id' => 955330,
       'phase' => 4,
@@ -44611,7 +47930,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    490 => 
+    540 => 
     array (
       'id' => 955340,
       'phase' => 4,
@@ -44668,7 +47987,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    491 => 
+    541 => 
     array (
       'id' => 955400,
       'phase' => 4,
@@ -44727,7 +48046,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    492 => 
+    542 => 
     array (
       'id' => 955013,
       'phase' => 3,
@@ -44771,7 +48090,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    493 => 
+    543 => 
     array (
       'id' => 955014,
       'phase' => 4,
@@ -44815,7 +48134,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    494 => 
+    544 => 
     array (
       'id' => 955350,
       'phase' => 4,
@@ -44872,7 +48191,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    495 => 
+    545 => 
     array (
       'id' => 955015,
       'phase' => 3,
@@ -44916,7 +48235,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    496 => 
+    546 => 
     array (
       'id' => 955016,
       'phase' => 4,
@@ -44960,7 +48279,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    497 => 
+    547 => 
     array (
       'id' => 955017,
       'phase' => 3,
@@ -45004,7 +48323,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    498 => 
+    548 => 
     array (
       'id' => 955018,
       'phase' => 4,
@@ -45048,7 +48367,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    499 => 
+    549 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -45083,7 +48402,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => 'END-RESPONSE-955-WEB-SHELLS',
     ),
-    500 => 
+    550 => 
     array (
       'id' => 956010,
       'phase' => 4,
@@ -45128,7 +48447,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    501 => 
+    551 => 
     array (
       'id' => 956011,
       'phase' => 3,
@@ -45172,7 +48491,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    502 => 
+    552 => 
     array (
       'id' => 956012,
       'phase' => 4,
@@ -45216,7 +48535,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       ),
       'marker' => NULL,
     ),
-    503 => 
+    553 => 
     array (
       'id' => 956100,
       'phase' => 4,
@@ -45379,7 +48698,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    504 => 
+    554 => 
     array (
       'id' => 956013,
       'phase' => 3,
@@ -45423,7 +48742,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    505 => 
+    555 => 
     array (
       'id' => 956014,
       'phase' => 4,
@@ -45467,7 +48786,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    506 => 
+    556 => 
     array (
       'id' => 956110,
       'phase' => 4,
@@ -45525,7 +48844,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    507 => 
+    557 => 
     array (
       'id' => 956015,
       'phase' => 3,
@@ -45569,7 +48888,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    508 => 
+    558 => 
     array (
       'id' => 956016,
       'phase' => 4,
@@ -45613,7 +48932,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    509 => 
+    559 => 
     array (
       'id' => 956017,
       'phase' => 3,
@@ -45657,7 +48976,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    510 => 
+    560 => 
     array (
       'id' => 956018,
       'phase' => 4,
@@ -45701,7 +49020,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    511 => 
+    561 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -45736,7 +49055,7 @@ ActionView::TemplateError',
       ),
       'marker' => 'END-RESPONSE-956-DATA-LEAKAGES-RUBY',
     ),
-    512 => 
+    562 => 
     array (
       'id' => 959052,
       'phase' => 3,
@@ -45787,7 +49106,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    513 => 
+    563 => 
     array (
       'id' => 959152,
       'phase' => 3,
@@ -45838,7 +49157,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    514 => 
+    564 => 
     array (
       'id' => 959053,
       'phase' => 3,
@@ -45889,7 +49208,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    515 => 
+    565 => 
     array (
       'id' => 959153,
       'phase' => 3,
@@ -45940,7 +49259,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    516 => 
+    566 => 
     array (
       'id' => 959054,
       'phase' => 3,
@@ -45991,7 +49310,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    517 => 
+    567 => 
     array (
       'id' => 959154,
       'phase' => 3,
@@ -46042,7 +49361,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    518 => 
+    568 => 
     array (
       'id' => 959055,
       'phase' => 3,
@@ -46093,7 +49412,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    519 => 
+    569 => 
     array (
       'id' => 959155,
       'phase' => 3,
@@ -46144,7 +49463,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    520 => 
+    570 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -46179,7 +49498,7 @@ ActionView::TemplateError',
       ),
       'marker' => 'EARLY_BLOCKING_ANOMALY_SCORING',
     ),
-    521 => 
+    571 => 
     array (
       'id' => 959060,
       'phase' => 4,
@@ -46230,7 +49549,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    522 => 
+    572 => 
     array (
       'id' => 959160,
       'phase' => 4,
@@ -46281,7 +49600,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    523 => 
+    573 => 
     array (
       'id' => 959061,
       'phase' => 4,
@@ -46332,7 +49651,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    524 => 
+    574 => 
     array (
       'id' => 959161,
       'phase' => 4,
@@ -46383,7 +49702,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    525 => 
+    575 => 
     array (
       'id' => 959062,
       'phase' => 4,
@@ -46434,7 +49753,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    526 => 
+    576 => 
     array (
       'id' => 959162,
       'phase' => 4,
@@ -46485,7 +49804,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    527 => 
+    577 => 
     array (
       'id' => 959063,
       'phase' => 4,
@@ -46536,7 +49855,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    528 => 
+    578 => 
     array (
       'id' => 959163,
       'phase' => 4,
@@ -46587,7 +49906,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    529 => 
+    579 => 
     array (
       'id' => 959101,
       'phase' => 3,
@@ -46626,17 +49945,17 @@ ActionView::TemplateError',
       array (
         0 => 
         array (
-          'id' => 959100,
-          'phase' => 4,
-          'operator' => 'ge',
-          'operator_arg' => '%{tx.outbound_anomaly_score_threshold}',
+          'id' => 0,
+          'phase' => 2,
+          'operator' => 'eq',
+          'operator_arg' => '1',
           'operator_negated' => false,
           'targets' => 
           array (
             0 => 
             array (
               'collection' => 'TX',
-              'selector' => 'BLOCKING_OUTBOUND_ANOMALY_SCORE',
+              'selector' => 'EARLY_BLOCKING',
               'negated' => false,
               'count' => false,
               'regex' => false,
@@ -46644,15 +49963,12 @@ ActionView::TemplateError',
           ),
           'transforms' => 
           array (
-            0 => 'none',
           ),
-          'action' => 'deny',
+          'action' => 'pass',
           'severity' => 'notice',
-          'message' => 'Outbound Anomaly Score Exceeded (Total Score: %{tx.blocking_outbound_anomaly_score})',
+          'message' => '',
           'tags' => 
           array (
-            0 => 'anomaly-evaluation',
-            1 => 'OWASP_CRS',
           ),
           'paranoia' => 1,
           'category' => 'misc',
@@ -46679,7 +49995,53 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    530 => 
+    580 => 
+    array (
+      'id' => 959100,
+      'phase' => 4,
+      'operator' => 'ge',
+      'operator_arg' => '%{tx.outbound_anomaly_score_threshold}',
+      'operator_negated' => false,
+      'targets' => 
+      array (
+        0 => 
+        array (
+          'collection' => 'TX',
+          'selector' => 'BLOCKING_OUTBOUND_ANOMALY_SCORE',
+          'negated' => false,
+          'count' => false,
+          'regex' => false,
+        ),
+      ),
+      'transforms' => 
+      array (
+        0 => 'none',
+      ),
+      'action' => 'deny',
+      'severity' => 'notice',
+      'message' => 'Outbound Anomaly Score Exceeded (Total Score: %{tx.blocking_outbound_anomaly_score})',
+      'tags' => 
+      array (
+        0 => 'anomaly-evaluation',
+        1 => 'OWASP_CRS',
+      ),
+      'paranoia' => 1,
+      'category' => 'misc',
+      'setvars' => 
+      array (
+      ),
+      'chain' => 
+      array (
+      ),
+      'capture' => false,
+      'skip_after' => NULL,
+      'multi_match' => false,
+      'warnings' => 
+      array (
+      ),
+      'marker' => NULL,
+    ),
+    581 => 
     array (
       'id' => 959011,
       'phase' => 3,
@@ -46723,7 +50085,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    531 => 
+    582 => 
     array (
       'id' => 959012,
       'phase' => 4,
@@ -46767,7 +50129,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    532 => 
+    583 => 
     array (
       'id' => 959013,
       'phase' => 3,
@@ -46811,7 +50173,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    533 => 
+    584 => 
     array (
       'id' => 959014,
       'phase' => 4,
@@ -46855,7 +50217,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    534 => 
+    585 => 
     array (
       'id' => 959015,
       'phase' => 3,
@@ -46899,7 +50261,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    535 => 
+    586 => 
     array (
       'id' => 959016,
       'phase' => 4,
@@ -46943,7 +50305,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    536 => 
+    587 => 
     array (
       'id' => 959017,
       'phase' => 3,
@@ -46987,7 +50349,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    537 => 
+    588 => 
     array (
       'id' => 959018,
       'phase' => 4,
@@ -47031,7 +50393,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    538 => 
+    589 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -47066,7 +50428,7 @@ ActionView::TemplateError',
       ),
       'marker' => 'END-RESPONSE-959-BLOCKING-EVALUATION',
     ),
-    539 => 
+    590 => 
     array (
       'id' => 980041,
       'phase' => 5,
@@ -47110,7 +50472,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    540 => 
+    591 => 
     array (
       'id' => 980042,
       'phase' => 5,
@@ -47154,7 +50516,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    541 => 
+    592 => 
     array (
       'id' => 980043,
       'phase' => 5,
@@ -47198,7 +50560,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    542 => 
+    593 => 
     array (
       'id' => 980044,
       'phase' => 5,
@@ -47242,7 +50604,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    543 => 
+    594 => 
     array (
       'id' => 980045,
       'phase' => 5,
@@ -47286,7 +50648,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    544 => 
+    595 => 
     array (
       'id' => 980046,
       'phase' => 5,
@@ -47330,7 +50692,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    545 => 
+    596 => 
     array (
       'id' => 980047,
       'phase' => 5,
@@ -47374,7 +50736,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    546 => 
+    597 => 
     array (
       'id' => 980048,
       'phase' => 5,
@@ -47418,7 +50780,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    547 => 
+    598 => 
     array (
       'id' => 980049,
       'phase' => 5,
@@ -47462,7 +50824,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    548 => 
+    599 => 
     array (
       'id' => 980050,
       'phase' => 5,
@@ -47506,7 +50868,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    549 => 
+    600 => 
     array (
       'id' => 980051,
       'phase' => 5,
@@ -47550,7 +50912,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    550 => 
+    601 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -47585,7 +50947,7 @@ ActionView::TemplateError',
       ),
       'marker' => 'LOG-REPORTING',
     ),
-    551 => 
+    602 => 
     array (
       'id' => 0,
       'phase' => 0,
@@ -47620,7 +50982,7 @@ ActionView::TemplateError',
       ),
       'marker' => 'END-REPORTING',
     ),
-    552 => 
+    603 => 
     array (
       'id' => 980011,
       'phase' => 1,
@@ -47664,7 +51026,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    553 => 
+    604 => 
     array (
       'id' => 980012,
       'phase' => 2,
@@ -47708,7 +51070,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    554 => 
+    605 => 
     array (
       'id' => 980013,
       'phase' => 1,
@@ -47752,7 +51114,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    555 => 
+    606 => 
     array (
       'id' => 980014,
       'phase' => 2,
@@ -47796,7 +51158,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    556 => 
+    607 => 
     array (
       'id' => 980015,
       'phase' => 1,
@@ -47840,7 +51202,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    557 => 
+    608 => 
     array (
       'id' => 980016,
       'phase' => 2,
@@ -47884,7 +51246,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    558 => 
+    609 => 
     array (
       'id' => 980017,
       'phase' => 1,
@@ -47928,7 +51290,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    559 => 
+    610 => 
     array (
       'id' => 980018,
       'phase' => 2,
@@ -47972,7 +51334,7 @@ ActionView::TemplateError',
       ),
       'marker' => NULL,
     ),
-    560 => 
+    611 => 
     array (
       'id' => 0,
       'phase' => 0,

@@ -1,7 +1,7 @@
 {
     "source_file": "REQUEST-922-MULTIPART-ATTACK.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 5,
+    "rule_count": 6,
     "rules": [
         {
             "id": 922100,
@@ -45,38 +45,34 @@
             ],
             "chain": [
                 {
-                    "id": 922140,
+                    "id": 0,
                     "phase": 2,
-                    "operator": "gt",
-                    "operator_arg": "0",
-                    "operator_negated": false,
+                    "operator": "within",
+                    "operator_arg": "%{tx.allowed_request_content_type_charset}",
+                    "operator_negated": true,
                     "targets": [
                         {
-                            "collection": "MULTIPART_PART_HEADERS",
-                            "selector": null,
+                            "collection": "TX",
+                            "selector": "922100_CHARSET",
                             "negated": false,
-                            "count": true,
+                            "count": false,
                             "regex": false
                         }
                     ],
                     "transforms": [
-                        "none"
+                        "lowercase"
                     ],
                     "action": "pass",
                     "severity": "notice",
                     "message": "",
-                    "tags": [
-                        "attack-multipart-header",
-                        "OWASP_CRS",
-                        "OWASP_CRS/MULTIPART-ATTACK"
-                    ],
+                    "tags": [],
                     "paranoia": 1,
                     "category": "multipart",
                     "setvars": [
                         {
-                            "name": "tx.multipart_headers_content_counter",
-                            "op": "=",
-                            "value": "0"
+                            "name": "tx.inbound_anomaly_score_pl1",
+                            "op": "+",
+                            "value": "5"
                         }
                     ],
                     "chain": [],
@@ -87,6 +83,48 @@
                     "marker": null
                 }
             ],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 922140,
+            "phase": 2,
+            "operator": "gt",
+            "operator_arg": "0",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "MULTIPART_PART_HEADERS",
+                    "selector": null,
+                    "negated": false,
+                    "count": true,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "attack-multipart-header",
+                "OWASP_CRS",
+                "OWASP_CRS/MULTIPART-ATTACK"
+            ],
+            "paranoia": 1,
+            "category": "multipart",
+            "setvars": [
+                {
+                    "name": "tx.multipart_headers_content_counter",
+                    "op": "=",
+                    "value": "0"
+                }
+            ],
+            "chain": [],
             "capture": false,
             "skip_after": null,
             "multi_match": false,

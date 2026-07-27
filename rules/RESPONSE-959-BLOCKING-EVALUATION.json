@@ -1,7 +1,7 @@
 {
     "source_file": "RESPONSE-959-BLOCKING-EVALUATION.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 27,
+    "rule_count": 28,
     "rules": [
         {
             "id": 959052,
@@ -695,30 +695,25 @@
             "setvars": [],
             "chain": [
                 {
-                    "id": 959100,
-                    "phase": 4,
-                    "operator": "ge",
-                    "operator_arg": "%{tx.outbound_anomaly_score_threshold}",
+                    "id": 0,
+                    "phase": 2,
+                    "operator": "eq",
+                    "operator_arg": "1",
                     "operator_negated": false,
                     "targets": [
                         {
                             "collection": "TX",
-                            "selector": "BLOCKING_OUTBOUND_ANOMALY_SCORE",
+                            "selector": "EARLY_BLOCKING",
                             "negated": false,
                             "count": false,
                             "regex": false
                         }
                     ],
-                    "transforms": [
-                        "none"
-                    ],
-                    "action": "deny",
+                    "transforms": [],
+                    "action": "pass",
                     "severity": "notice",
-                    "message": "Outbound Anomaly Score Exceeded (Total Score: %{tx.blocking_outbound_anomaly_score})",
-                    "tags": [
-                        "anomaly-evaluation",
-                        "OWASP_CRS"
-                    ],
+                    "message": "",
+                    "tags": [],
                     "paranoia": 1,
                     "category": "misc",
                     "setvars": [],
@@ -730,6 +725,41 @@
                     "marker": null
                 }
             ],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 959100,
+            "phase": 4,
+            "operator": "ge",
+            "operator_arg": "%{tx.outbound_anomaly_score_threshold}",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "TX",
+                    "selector": "BLOCKING_OUTBOUND_ANOMALY_SCORE",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "deny",
+            "severity": "notice",
+            "message": "Outbound Anomaly Score Exceeded (Total Score: %{tx.blocking_outbound_anomaly_score})",
+            "tags": [
+                "anomaly-evaluation",
+                "OWASP_CRS"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [],
+            "chain": [],
             "capture": false,
             "skip_after": null,
             "multi_match": false,

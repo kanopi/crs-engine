@@ -94,13 +94,7 @@ final class SecLangParser
             // the file never terminates and the rest of the ruleset is
             // silently discarded.
             if (strcasecmp($directive, 'SecMarker') === 0) {
-                // An unterminated chain must be flushed first so the marker
-                // keeps its position relative to the rules around it.
-                if ($pendingChainParent instanceof RuleParseState) {
-                    $rules[] = $this->attachChain($pendingChainParent, $pendingChain);
-                    $pendingChainParent = null;
-                    $pendingChain = [];
-                }
+                $this->dropUnterminatedChain($pendingChainParent, $pendingChain, $sourceFile, $line, 'SecMarker');
 
                 $name = $this->markerName($rest);
                 if ($name !== '') {
@@ -111,6 +105,7 @@ final class SecLangParser
             }
 
             if (strcasecmp($directive, 'SecAction') === 0) {
+                $this->dropUnterminatedChain($pendingChainParent, $pendingChain, $sourceFile, $line, 'SecAction');
                 continue;
             }
 
@@ -118,20 +113,34 @@ final class SecLangParser
                 continue;
             }
 
+            // A chain continuation is identified by position, not by content:
+            // it is whatever SecRule follows a rule that declared `chain`.
+            // Continuations carry no id of their own, so they must not be run
+            // through the "needs an id" check that applies to new rules.
+            $isContinuation = $pendingChainParent instanceof RuleParseState;
+
             try {
-                $parsed = $this->parseSecRule($rest, $sourceFile, $line, $category);
+                $parsed = $this->parseSecRule($rest, $sourceFile, $line, $category, $isContinuation);
             } catch (ParseException $e) {
                 $this->warnings[] = sprintf('%s:%d — %s', $sourceFile, $line, $e->getMessage());
+                $this->dropUnparsableChain($pendingChainParent, $pendingChain, $sourceFile, $line, $e->getMessage());
                 continue;
             }
 
-            if (!$parsed instanceof \Kanopi\Crs\Parser\RuleParseState) {
+            if (!$parsed instanceof RuleParseState) {
+                // parseSecRule() already recorded why (unsupported operator, or
+                // a new rule with no id). If this was a chain continuation the
+                // parent loses its qualifying condition, so the whole chained
+                // rule has to go — keeping the parent would make it fire on the
+                // broader condition alone.
+                $this->dropUnparsableChain($pendingChainParent, $pendingChain, $sourceFile, $line, 'continuation could not be parsed');
                 continue;
             }
 
-            if ($pendingChainParent instanceof \Kanopi\Crs\Parser\RuleParseState) {
+            if ($isContinuation) {
                 $pendingChain[] = $parsed;
                 if (!$parsed->hasChainFollow) {
+                    /** @var RuleParseState $pendingChainParent */
                     $rules[] = $this->attachChain($pendingChainParent, $pendingChain);
                     $pendingChainParent = null;
                     $pendingChain = [];
@@ -148,11 +157,64 @@ final class SecLangParser
             $rules[] = $parsed->rule;
         }
 
-        if ($pendingChainParent instanceof \Kanopi\Crs\Parser\RuleParseState) {
-            $rules[] = $this->attachChain($pendingChainParent, $pendingChain);
-        }
+        $this->dropUnterminatedChain($pendingChainParent, $pendingChain, $sourceFile, 0, 'end of file');
 
         return $rules;
+    }
+
+    /**
+     * A chain starter whose continuation never arrived is malformed. Drop it
+     * rather than emit a parent that would fire without its qualifier.
+     *
+     * @param array<int, RuleParseState> $pendingChain
+     * @param-out null $ruleParseState
+     * @param-out array<int, RuleParseState> $pendingChain
+     */
+    private function dropUnterminatedChain(?RuleParseState &$ruleParseState, array &$pendingChain, string $sourceFile, int $line, string $context): void
+    {
+        if (!$ruleParseState instanceof RuleParseState) {
+            return;
+        }
+
+        $this->skippedRules[] = $ruleParseState->rule->id;
+        $this->warnings[] = sprintf(
+            '%s:%d — rule %d declares chain but no continuation followed (hit %s); dropping the rule',
+            $sourceFile,
+            $line,
+            $ruleParseState->rule->id,
+            $context,
+        );
+
+        $ruleParseState = null;
+        $pendingChain = [];
+    }
+
+    /**
+     * A continuation that failed to parse takes its parent with it, for the
+     * same reason: the parent alone is a weaker condition than the author
+     * wrote, which turns a targeted rule into a false-positive generator.
+     *
+     * @param array<int, RuleParseState> $pendingChain
+     * @param-out null $ruleParseState
+     * @param-out array<int, RuleParseState> $pendingChain
+     */
+    private function dropUnparsableChain(?RuleParseState &$ruleParseState, array &$pendingChain, string $sourceFile, int $line, string $reason): void
+    {
+        if (!$ruleParseState instanceof RuleParseState) {
+            return;
+        }
+
+        $this->skippedRules[] = $ruleParseState->rule->id;
+        $this->warnings[] = sprintf(
+            '%s:%d — dropping chained rule %d: %s',
+            $sourceFile,
+            $line,
+            $ruleParseState->rule->id,
+            $reason,
+        );
+
+        $ruleParseState = null;
+        $pendingChain = [];
     }
 
     /**
@@ -243,7 +305,12 @@ final class SecLangParser
         return substr($s, 0, $i);
     }
 
-    private function parseSecRule(string $body, string $sourceFile, int $line, string $category): ?RuleParseState
+    /**
+     * @param bool $isContinuation True when this SecRule is a chain continuation.
+     *        Continuations carry no id of their own — requiring one drops the
+     *        real condition and lets the next rule slide into its place.
+     */
+    private function parseSecRule(string $body, string $sourceFile, int $line, string $category, bool $isContinuation = false): ?RuleParseState
     {
         $tokens = $this->tokenize($body);
         if (count($tokens) < 2) {
@@ -255,15 +322,33 @@ final class SecLangParser
 
         [$operator, $operatorArgument, $operatorNegated, $supported] = $this->parseOperator($operatorRaw);
         if (!$supported) {
-            $this->warnings[] = sprintf("%s:%d — unsupported operator '@%s', skipping rule", $sourceFile, $line, $operator);
+            $this->warnings[] = sprintf(
+                "%s:%d — unsupported operator '@%s', skipping %s",
+                $sourceFile,
+                $line,
+                $operator,
+                $isContinuation ? 'chained rule' : 'rule',
+            );
             return null;
         }
 
         $actionsRaw = $tokens[2] ?? '';
         $parsedActions    = $this->parseActions($actionsRaw);
 
-        if ($parsedActions->id === 0) {
+        if (!$isContinuation && $parsedActions->id === 0) {
+            $this->warnings[] = sprintf('%s:%d — SecRule has no id, skipping rule', $sourceFile, $line);
             return null;
+        }
+
+        // Continuations should not declare an id. One that does means either
+        // the file is unusual or the parser has lost sync with the chain.
+        if ($isContinuation && $parsedActions->id !== 0) {
+            $this->warnings[] = sprintf(
+                '%s:%d — chain continuation unexpectedly declares id:%d; treating it as a continuation',
+                $sourceFile,
+                $line,
+                $parsedActions->id,
+            );
         }
 
         $parsedRule = new ParsedRule(

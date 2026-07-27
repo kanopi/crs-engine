@@ -156,6 +156,13 @@ final class RealCrsSmokeTest extends TestCase
             'Accept-Language' => 'en-US,en;q=0.5',
         ];
 
+        // A real POST always carries Content-Length or Transfer-Encoding;
+        // one that carries neither is the request-smuggling signal CRS 920180
+        // exists to catch, so the fixture has to supply it.
+        if ($method !== 'GET' && $method !== 'HEAD') {
+            $headers += ['Content-Length' => (string) strlen($body ?? '')];
+        }
+
         return new RequestData(
             method: $method,
             uri: '/' . ($qs === '' ? '' : '?' . $qs),

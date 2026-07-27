@@ -1,7 +1,7 @@
 {
     "source_file": "REQUEST-944-APPLICATION-ATTACK-JAVA.conf",
     "crs_version": "v4.26.0",
-    "rule_count": 21,
+    "rule_count": 23,
     "rules": [
         {
             "id": 944011,
@@ -269,58 +269,16 @@
             "setvars": [],
             "chain": [
                 {
-                    "id": 944120,
+                    "id": 0,
                     "phase": 2,
                     "operator": "rx",
-                    "operator_arg": "(?:clonetransform|xmldecod)er|f(?:orclosure|ilewriter)|in(?:stantiate(?:factory|transformer)|vokertransformer)|(?:prototype(?:clone|serialization)factor|getpropert)y|whileclosure",
+                    "operator_arg": "(?i)(?:unmarshaller|base64data|java\\.)",
                     "operator_negated": false,
                     "targets": [
                         {
-                            "collection": "ARGS",
+                            "collection": "MATCHED_VARS",
                             "selector": null,
                             "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "ARGS_NAMES",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "REQUEST_COOKIES",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "REQUEST_COOKIES_NAMES",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "REQUEST_BODY",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "REQUEST_HEADERS",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "REQUEST_HEADERS",
-                            "selector": "Cookie",
-                            "negated": true,
                             "count": false,
                             "regex": false
                         },
@@ -339,127 +297,11 @@
                             "regex": false
                         }
                     ],
-                    "transforms": [
-                        "none",
-                        "lowercase"
-                    ],
-                    "action": "block",
-                    "severity": "critical",
-                    "message": "Remote Command Execution: Java serialization (CVE-2015-4852)",
-                    "tags": [
-                        "application-multi",
-                        "language-java",
-                        "platform-multi",
-                        "attack-rce",
-                        "paranoia-level/1",
-                        "OWASP_CRS",
-                        "OWASP_CRS/ATTACK-JAVA",
-                        "capec/1000/152/248"
-                    ],
-                    "paranoia": 1,
-                    "category": "java",
-                    "setvars": [],
-                    "chain": [],
-                    "capture": false,
-                    "skip_after": null,
-                    "multi_match": false,
-                    "warnings": [],
-                    "marker": null
-                },
-                {
-                    "id": 944130,
-                    "phase": 2,
-                    "operator": "pmf",
-                    "operator_arg": "com.opensymphony.xwork2\ncom.sun.org.apache\nclassLoader\ndeclaredClass\nfreemarker.core\nfreemarker.template\nfreemarker.ext.rhino\njava.io.BufferedInputStream\njava.io.BufferedReader\njava.io.ByteArrayInputStream\njava.io.ByteArrayOutputStream\njava.io.CharArrayReader\njava.io.DataInputStream\njava.io.File\njava.io.FileOutputStream\njava.io.FilePermission\njava.io.FileWriter\njava.io.FilterInputStream\njava.io.FilterOutputStream\njava.io.FilterReader\njava.io.InputStream\njava.io.IOException\njava.io.LineNumberReader\njava.io.ObjectInputStream\njava.io.ObjectOutputStream\njava.io.OutputStream\njava.io.PipedOutputStream\njava.io.PipedReader\njava.io.PrintStream\njava.io.PushbackInputStream\njava.io.Reader\njava.io.StringReader\njava.lang.Class\njava.lang.Enum\njava.lang.Integer\njava.lang.Number\njava.lang.Object\njava.lang.Process\njava.lang.ProcessBuilder\njava.lang.reflect\njava.lang.Runtime\njava.lang.String\njava.lang.System\njava.net.HttpURLConnection\njava.net.JarURLConnection\njava.net.DatagramSocket\njava.net.MulticastSocket\njava.net.ServerSocket\njava.net.Socket\njava.net.URL\njavassist\njavax.naming.InitialContext\njavax.script.ScriptEngineManager\njavax.xml.parsers\njavax.xml.stream\nOgnlContext\nOgnlUtil\norg.apache.commons\norg.apache.struts\norg.apache.struts2\norg.dom4j.io.SAXReader\norg.jdom2.input.SAXBuilder\norg.omg.CORBA\norg.xml.sax\nPropertyUtilsBean\njava.beans.XMLDecode\njava.nio.file\nsun.reflect",
-                    "operator_negated": false,
-                    "targets": [
-                        {
-                            "collection": "ARGS",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "ARGS_NAMES",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "REQUEST_COOKIES",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "REQUEST_COOKIES_NAMES",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "REQUEST_BODY",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "REQUEST_FILENAME",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "REQUEST_HEADERS",
-                            "selector": null,
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "REQUEST_HEADERS",
-                            "selector": "Cookie",
-                            "negated": true,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "XML",
-                            "selector": "/*",
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        },
-                        {
-                            "collection": "XML",
-                            "selector": "//@*",
-                            "negated": false,
-                            "count": false,
-                            "regex": false
-                        }
-                    ],
-                    "transforms": [
-                        "none"
-                    ],
-                    "action": "block",
-                    "severity": "critical",
-                    "message": "Suspicious Java class detected",
-                    "tags": [
-                        "application-multi",
-                        "language-java",
-                        "platform-multi",
-                        "attack-rce",
-                        "paranoia-level/1",
-                        "OWASP_CRS",
-                        "OWASP_CRS/ATTACK-JAVA",
-                        "capec/1000/152/248"
-                    ],
+                    "transforms": [],
+                    "action": "pass",
+                    "severity": "notice",
+                    "message": "",
+                    "tags": [],
                     "paranoia": 1,
                     "category": "java",
                     "setvars": [
@@ -482,6 +324,261 @@
                     "marker": null
                 }
             ],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 944120,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "(?:clonetransform|xmldecod)er|f(?:orclosure|ilewriter)|in(?:stantiate(?:factory|transformer)|vokertransformer)|(?:prototype(?:clone|serialization)factor|getpropert)y|whileclosure",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_BODY",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_HEADERS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_HEADERS",
+                    "selector": "Cookie",
+                    "negated": true,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "lowercase"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Remote Command Execution: Java serialization (CVE-2015-4852)",
+            "tags": [
+                "application-multi",
+                "language-java",
+                "platform-multi",
+                "attack-rce",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-JAVA",
+                "capec/1000/152/248"
+            ],
+            "paranoia": 1,
+            "category": "java",
+            "setvars": [],
+            "chain": [
+                {
+                    "id": 0,
+                    "phase": 2,
+                    "operator": "rx",
+                    "operator_arg": "(?:runtime|processbuilder)",
+                    "operator_negated": false,
+                    "targets": [
+                        {
+                            "collection": "MATCHED_VARS",
+                            "selector": null,
+                            "negated": false,
+                            "count": false,
+                            "regex": false
+                        }
+                    ],
+                    "transforms": [],
+                    "action": "pass",
+                    "severity": "notice",
+                    "message": "",
+                    "tags": [],
+                    "paranoia": 1,
+                    "category": "java",
+                    "setvars": [
+                        {
+                            "name": "tx.rce_score",
+                            "op": "+",
+                            "value": "5"
+                        },
+                        {
+                            "name": "tx.inbound_anomaly_score_pl1",
+                            "op": "+",
+                            "value": "5"
+                        }
+                    ],
+                    "chain": [],
+                    "capture": false,
+                    "skip_after": null,
+                    "multi_match": false,
+                    "warnings": [],
+                    "marker": null
+                }
+            ],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": null
+        },
+        {
+            "id": 944130,
+            "phase": 2,
+            "operator": "pmf",
+            "operator_arg": "com.opensymphony.xwork2\ncom.sun.org.apache\nclassLoader\ndeclaredClass\nfreemarker.core\nfreemarker.template\nfreemarker.ext.rhino\njava.io.BufferedInputStream\njava.io.BufferedReader\njava.io.ByteArrayInputStream\njava.io.ByteArrayOutputStream\njava.io.CharArrayReader\njava.io.DataInputStream\njava.io.File\njava.io.FileOutputStream\njava.io.FilePermission\njava.io.FileWriter\njava.io.FilterInputStream\njava.io.FilterOutputStream\njava.io.FilterReader\njava.io.InputStream\njava.io.IOException\njava.io.LineNumberReader\njava.io.ObjectInputStream\njava.io.ObjectOutputStream\njava.io.OutputStream\njava.io.PipedOutputStream\njava.io.PipedReader\njava.io.PrintStream\njava.io.PushbackInputStream\njava.io.Reader\njava.io.StringReader\njava.lang.Class\njava.lang.Enum\njava.lang.Integer\njava.lang.Number\njava.lang.Object\njava.lang.Process\njava.lang.ProcessBuilder\njava.lang.reflect\njava.lang.Runtime\njava.lang.String\njava.lang.System\njava.net.HttpURLConnection\njava.net.JarURLConnection\njava.net.DatagramSocket\njava.net.MulticastSocket\njava.net.ServerSocket\njava.net.Socket\njava.net.URL\njavassist\njavax.naming.InitialContext\njavax.script.ScriptEngineManager\njavax.xml.parsers\njavax.xml.stream\nOgnlContext\nOgnlUtil\norg.apache.commons\norg.apache.struts\norg.apache.struts2\norg.dom4j.io.SAXReader\norg.jdom2.input.SAXBuilder\norg.omg.CORBA\norg.xml.sax\nPropertyUtilsBean\njava.beans.XMLDecode\njava.nio.file\nsun.reflect",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_COOKIES_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_BODY",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_FILENAME",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_HEADERS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_HEADERS",
+                    "selector": "Cookie",
+                    "negated": true,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "Suspicious Java class detected",
+            "tags": [
+                "application-multi",
+                "language-java",
+                "platform-multi",
+                "attack-rce",
+                "paranoia-level/1",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-JAVA",
+                "capec/1000/152/248"
+            ],
+            "paranoia": 1,
+            "category": "java",
+            "setvars": [
+                {
+                    "name": "tx.rce_score",
+                    "op": "+",
+                    "value": "5"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "5"
+                }
+            ],
+            "chain": [],
             "capture": false,
             "skip_after": null,
             "multi_match": false,

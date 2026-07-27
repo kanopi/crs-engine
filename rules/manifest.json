@@ -1,7 +1,7 @@
 {
     "version": "v4.26.0",
-    "generated_at": "2026-07-27T03:21:44+00:00",
-    "rule_count": 561,
+    "generated_at": "2026-07-27T04:43:53+00:00",
+    "rule_count": 612,
     "files": [
         "REQUEST-911-METHOD-ENFORCEMENT.json",
         "REQUEST-913-SCANNER-DETECTION.json",
