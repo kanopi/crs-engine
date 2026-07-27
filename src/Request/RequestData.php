@@ -133,7 +133,16 @@ final class RequestData
     }
 
     /**
-     * Combined GET + POST args, mirroring SecLang's ARGS variable.
+     * Combined GET + POST args as a name-keyed map, for integrators that want
+     * one bag to inspect.
+     *
+     * Lossy by construction: a name-keyed array cannot hold two parameters
+     * with the same name, and the union below keeps the query value when both
+     * bags carry one. That is fine for callers who want "the effective value
+     * of parameter X", and wrong for rule evaluation, where a duplicated name
+     * means two distinct values that both need inspecting. The engine does not
+     * use this — VariableResolver resolves ARGS from queryArgs and postArgs
+     * separately so neither value can hide the other.
      *
      * @return array<string, string|array<int|string, mixed>>
      */

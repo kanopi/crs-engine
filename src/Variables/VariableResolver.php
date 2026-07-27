@@ -110,10 +110,23 @@ final class VariableResolver
     private function resolveOne(string $collection, ?string $selector, bool $selectorIsRegex, RequestData $requestData): array
     {
         return match (strtoupper($collection)) {
-            'ARGS'             => $this->flatten('ARGS', $requestData->allArgs(), $selector, $selectorIsRegex),
+            // ARGS is the concatenation of the query and body bags, not a merge
+            // of them. Resolving it from a name-keyed union (RequestData::allArgs())
+            // dropped the POST value whenever a query parameter of the same name
+            // existed, so `?id=harmless` with the payload in POST:id evaluated as
+            // if the payload were not there — a bypass of every ARGS rule, which
+            // is most of the ruleset. Same-named parameters are distinct values
+            // here, exactly as they are in ModSecurity.
+            'ARGS'             => array_merge(
+                $this->flatten('ARGS', $requestData->queryArgs, $selector, $selectorIsRegex),
+                $this->flatten('ARGS', $requestData->postArgs, $selector, $selectorIsRegex),
+            ),
             'ARGS_GET'         => $this->flatten('ARGS_GET', $requestData->queryArgs, $selector, $selectorIsRegex),
             'ARGS_POST'        => $this->flatten('ARGS_POST', $requestData->postArgs, $selector, $selectorIsRegex),
-            'ARGS_NAMES'       => $this->keys('ARGS_NAMES', $requestData->allArgs(), $selector, $selectorIsRegex),
+            'ARGS_NAMES'       => array_merge(
+                $this->keys('ARGS_NAMES', $requestData->queryArgs, $selector, $selectorIsRegex),
+                $this->keys('ARGS_NAMES', $requestData->postArgs, $selector, $selectorIsRegex),
+            ),
             'ARGS_GET_NAMES'   => $this->keys('ARGS_GET_NAMES', $requestData->queryArgs, $selector, $selectorIsRegex),
             'ARGS_POST_NAMES'  => $this->keys('ARGS_POST_NAMES', $requestData->postArgs, $selector, $selectorIsRegex),
             'REQUEST_HEADERS'  => $this->flattenHeaders('REQUEST_HEADERS', $requestData->headers, $selector, $selectorIsRegex),

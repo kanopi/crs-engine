@@ -69,8 +69,17 @@ final class CrsTxDefaults
             // Protocol enforcement defaults.
             'tx.allowed_methods'                        => 'GET HEAD POST OPTIONS',
             'tx.allowed_http_versions'                  => 'HTTP/1.0 HTTP/1.1 HTTP/2 HTTP/2.0',
+            // Both of these are matched with @within, which is a substring test.
+            // CRS makes that behave like an exact-element test by wrapping every
+            // list entry in pipes and building the needle the same way — 920420
+            // sets tx.content_type to '|%{tx.0}|' and 920480 sets
+            // tx.content_type_charset to '|%{tx.1}|'. The wrapping is what stops
+            // a partial like `application/js` matching, so both sides have to
+            // carry it: a bare pipe-separated list leaves the first and last
+            // entries without delimiters, and `|utf-8|` is then not a substring
+            // of `utf-8|iso-8859-1|...`, which blocked charset=utf-8 outright.
             'tx.allowed_request_content_type'           => '|application/x-www-form-urlencoded| |multipart/form-data| |multipart/related| |text/xml| |application/xml| |application/soap+xml| |application/x-amf| |application/json| |application/cloudevents+json| |application/cloudevents-batch+json| |application/octet-stream| |application/csp-report| |application/xss-auditor-report| |text/plain|',
-            'tx.allowed_request_content_type_charset'   => 'utf-8|iso-8859-1|iso-8859-15|windows-1252',
+            'tx.allowed_request_content_type_charset'   => '|utf-8| |iso-8859-1| |iso-8859-15| |windows-1252|',
             'tx.restricted_extensions'                  => '.asa/ .asax/ .ascx/ .axd/ .backup/ .bak/ .bat/ .cdx/ .cer/ .cfg/ .cmd/ .com/ .config/ .conf/ .cs/ .csproj/ .csr/ .dat/ .db/ .dbf/ .dll/ .dos/ .htr/ .htw/ .ida/ .idc/ .idq/ .inc/ .ini/ .key/ .licx/ .lnk/ .log/ .mdb/ .old/ .pass/ .pdb/ .pol/ .printer/ .pwd/ .rdb/ .resources/ .resx/ .sql/ .swp/ .sys/ .vb/ .vbs/ .vbproj/ .vsdisco/ .webinfo/ .xsd/ .xsx/',
             'tx.restricted_headers_basic'               => '/proxy/ /lock-token/ /content-range/ /if/ /x-http-method-override/ /x-http-method/ /x-method-override/',
             'tx.restricted_headers_extended'            => '/accept-charset/',
