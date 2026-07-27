@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Kanopi\Crs\Parser;
 
 use Kanopi\Crs\Exception\ParseException;
+use Kanopi\Crs\Transforms\TransformRegistry;
 
 /**
  * Parses ModSecurity SecLang .conf files into ParsedRule objects.
@@ -49,6 +50,14 @@ final class SecLangParser
     /** @var array<int, string> */
     public array $warnings = [];
 
+    /**
+     * Used only to tell a transform this engine implements from one it does
+     * not, so unknown names can be reported at parse time. Injectable so a
+     * caller that has registered its own transforms is not told they are
+     * missing.
+     */
+    private readonly TransformRegistry $transformRegistry;
+
     /** @var array<int, int> */
     public array $skippedRules = [];
 
@@ -57,6 +66,11 @@ final class SecLangParser
      * Auto-populated from the .conf file's directory in parseFile().
      */
     private ?string $dataFileDir = null;
+
+    public function __construct(?TransformRegistry $transformRegistry = null)
+    {
+        $this->transformRegistry = $transformRegistry ?? new TransformRegistry();
+    }
 
     /**
      * @return array<int, ParsedRule>
@@ -194,8 +208,67 @@ final class SecLangParser
         }
 
         $this->dropUnterminatedChain($pendingChainParent, $pendingChain, $sourceFile, 0, 'end of file');
+        $this->warnUnknownTransforms($rules, $sourceFile);
 
         return $rules;
+    }
+
+    /**
+     * Report transforms the rules ask for that this engine does not implement.
+     *
+     * TransformPipeline skips an unknown transform at runtime and carries on,
+     * which is the right call mid-request but means the rule quietly runs on
+     * less-normalised input than its author assumed — exactly the difference
+     * anti-evasion transforms exist to remove. Nothing surfaced that: the
+     * registry recorded unknown names into a property no production code ever
+     * read, on an object CrsEngine rebuilds for every evaluate() call.
+     *
+     * Summarised per name rather than per occurrence. CRS v4.26.0 asks for six
+     * transforms this engine lacks across 76 occurrences, and 76 lines would
+     * bury the six facts worth knowing.
+     *
+     * @param array<int, ParsedRule> $rules
+     */
+    private function warnUnknownTransforms(array $rules, string $sourceFile): void
+    {
+        $counts = [];
+        $this->countUnknownTransforms($rules, $counts);
+
+        ksort($counts);
+        foreach ($counts as $name => $occurrences) {
+            $this->warnings[] = sprintf(
+                '%s — transform `t:%s` is not implemented; skipped on %d rule%s, which will '
+                . 'therefore match against less-normalised input than upstream intends',
+                $sourceFile,
+                $name,
+                $occurrences,
+                $occurrences === 1 ? '' : 's',
+            );
+        }
+    }
+
+    /**
+     * @param array<int, ParsedRule> $rules
+     * @param array<string, int> $counts
+     */
+    private function countUnknownTransforms(array $rules, array &$counts): void
+    {
+        foreach ($rules as $rule) {
+            foreach ($rule->transforms as $transform) {
+                // `none` is a pipeline directive rather than a transform.
+                if (strcasecmp($transform, 'none') === 0) {
+                    continue;
+                }
+
+                if ($this->transformRegistry->has($transform)) {
+                    continue;
+                }
+
+                $counts[$transform] = ($counts[$transform] ?? 0) + 1;
+            }
+
+            $this->countUnknownTransforms($rule->chain, $counts);
+        }
     }
 
     /**

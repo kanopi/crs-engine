@@ -11,9 +11,6 @@ final class TransformRegistry
     /** @var array<string, TransformInterface> */
     private array $transforms = [];
 
-    /** @var array<string, true> */
-    private array $unknown = [];
-
     public function __construct()
     {
         $this->registerDefaults();
@@ -37,23 +34,6 @@ final class TransformRegistry
     public function has(string $name): bool
     {
         return isset($this->transforms[strtolower($name)]);
-    }
-
-    /**
-     * Returns true and records the name if we don't know this transform,
-     * so the parser can flag rules using unsupported transforms.
-     */
-    public function recordUnknown(string $name): void
-    {
-        $this->unknown[$name] = true;
-    }
-
-    /**
-     * @return array<int, string>
-     */
-    public function unknownTransforms(): array
-    {
-        return array_keys($this->unknown);
     }
 
     private function registerDefaults(): void
