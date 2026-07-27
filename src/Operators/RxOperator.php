@@ -33,6 +33,15 @@ final class RxOperator implements OperatorInterface
             return OperatorMatch::miss();
         }
 
-        return OperatorMatch::hit($matches[0] ?? '');
+        // Numbered groups only; the evaluator copies them to TX:0..TX:9 when
+        // the rule carries `capture`.
+        $captures = [];
+        foreach ($matches as $index => $group) {
+            if (is_int($index)) {
+                $captures[$index] = $group;
+            }
+        }
+
+        return OperatorMatch::hit($matches[0] ?? '', $captures);
     }
 }

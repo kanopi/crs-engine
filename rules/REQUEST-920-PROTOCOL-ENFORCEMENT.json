@@ -33,6 +33,7 @@
             "skip_after": "END-REQUEST-920-PROTOCOL-ENFORCEMENT",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -66,6 +67,7 @@
             "skip_after": "END-REQUEST-920-PROTOCOL-ENFORCEMENT",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -114,6 +116,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{request_line}",
             "marker": null,
             "unconditional": false
         },
@@ -170,6 +173,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -218,6 +222,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -292,6 +297,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -300,6 +306,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -374,6 +381,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -382,6 +390,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -448,6 +457,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 },
@@ -479,6 +489,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 },
@@ -516,6 +527,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -524,6 +536,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -598,6 +611,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -606,6 +620,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -678,6 +693,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -686,6 +702,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -734,6 +751,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -782,6 +800,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -868,6 +887,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -876,6 +896,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -932,6 +953,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -1002,6 +1024,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -1050,6 +1073,7 @@
             "skip_after": "END-HOST-CHECK",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -1098,6 +1122,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -1121,6 +1146,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": "END-HOST-CHECK",
             "unconditional": false
         },
@@ -1187,6 +1213,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 },
@@ -1226,6 +1253,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -1234,6 +1262,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -1300,6 +1329,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 },
@@ -1339,6 +1369,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -1347,6 +1378,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -1395,6 +1427,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -1469,6 +1502,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -1477,6 +1511,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -1525,6 +1560,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -1599,6 +1635,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -1607,6 +1644,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -1682,6 +1720,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -1690,6 +1729,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -1765,6 +1805,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -1773,6 +1814,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -1847,6 +1889,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -1855,6 +1898,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -1921,6 +1965,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 },
@@ -1960,6 +2005,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -1968,6 +2014,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -2042,6 +2089,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -2050,6 +2098,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -2099,6 +2148,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -2179,6 +2229,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -2187,6 +2238,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -2267,6 +2319,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -2275,6 +2328,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -2324,6 +2378,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -2398,6 +2453,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -2406,6 +2462,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -2454,6 +2511,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -2536,6 +2594,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -2544,6 +2603,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{TX.0}",
             "marker": null,
             "unconditional": false
         },
@@ -2593,6 +2653,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{TX.0}",
             "marker": null,
             "unconditional": false
         },
@@ -2672,6 +2733,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -2680,6 +2742,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Restricted header detected: %{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -2730,6 +2793,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -2778,6 +2842,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -2814,6 +2879,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -2883,6 +2949,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -2930,6 +2997,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -2977,6 +3045,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -3010,6 +3079,7 @@
             "skip_after": "END-REQUEST-920-PROTOCOL-ENFORCEMENT",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -3043,6 +3113,7 @@
             "skip_after": "END-REQUEST-920-PROTOCOL-ENFORCEMENT",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -3115,6 +3186,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -3123,6 +3195,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -3196,6 +3269,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -3204,6 +3278,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -3252,6 +3327,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -3322,6 +3398,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -3370,6 +3447,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -3426,6 +3504,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -3505,6 +3584,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -3513,6 +3593,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Restricted header detected: %{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -3579,6 +3660,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 },
@@ -3616,6 +3698,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -3624,6 +3707,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -3693,6 +3777,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 },
@@ -3734,6 +3819,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -3742,6 +3828,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Requested method override: %{ARGS._method}",
             "marker": null,
             "unconditional": false
         },
@@ -3775,6 +3862,7 @@
             "skip_after": "END-REQUEST-920-PROTOCOL-ENFORCEMENT",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -3808,6 +3896,7 @@
             "skip_after": "END-REQUEST-920-PROTOCOL-ENFORCEMENT",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -3885,6 +3974,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -3951,6 +4041,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 },
@@ -3990,6 +4081,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -3998,6 +4090,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -4071,6 +4164,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -4079,6 +4173,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -4152,6 +4247,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -4160,6 +4256,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Invalid Cache-Control value in request found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -4209,6 +4306,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -4242,6 +4340,7 @@
             "skip_after": "END-REQUEST-920-PROTOCOL-ENFORCEMENT",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -4275,6 +4374,7 @@
             "skip_after": "END-REQUEST-920-PROTOCOL-ENFORCEMENT",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -4348,6 +4448,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -4356,6 +4457,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -4419,6 +4521,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -4510,6 +4613,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -4566,6 +4670,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -4642,6 +4747,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -4665,6 +4771,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": "END-REQUEST-920-PROTOCOL-ENFORCEMENT",
             "unconditional": false
         }

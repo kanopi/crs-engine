@@ -125,8 +125,6 @@ final class RuleEvaluator
                 continue;
             }
 
-            $this->applySetvars($compiledRule, $txStore);
-
             // Report detections, not control flow. CRS's paranoia gates, skip
             // rules and score aggregators match constantly and carry neither a
             // message nor an anomaly contribution; listing them buries the two
@@ -143,6 +141,9 @@ final class RuleEvaluator
                     'tags'         => $compiledRule->tags,
                     'category'     => $compiledRule->category,
                     'matched_data' => $hit->matchedData,
+                    'logdata'      => $compiledRule->logdata === null
+                        ? null
+                        : $this->expandVariableRefs($compiledRule->logdata, $txStore, $this->matchContext($hit)),
                 ];
             }
 
@@ -181,6 +182,16 @@ final class RuleEvaluator
                 continue;
             }
 
+            $match = $match->withMatchedName($value->location);
+
+            // ModSecurity runs a rule's non-disruptive actions when that rule
+            // matches, not when the whole chain does. CRS depends on it: the
+            // starter of 931130 writes tx.rfi_parameter_<name> and the chained
+            // condition reads it straight back via a TX regex selector. So
+            // captures and setvars are applied here, before descending.
+            $this->applyCaptures($compiledRule, $match, $txStore);
+            $this->applySetvars($compiledRule, $txStore, $match);
+
             if ($compiledRule->chain === []) {
                 return $match;
             }
@@ -199,12 +210,37 @@ final class RuleEvaluator
     }
 
     /**
+     * Copy numbered regex groups into TX:0..TX:9, as ModSecurity's `capture`
+     * action does. Without this, every %{TX.0} reference in the ruleset — in
+     * a chained condition, a setvar name, or an operator argument — expanded
+     * to an empty string.
+     */
+    private function applyCaptures(CompiledRule $compiledRule, OperatorMatch $operatorMatch, TxStore $txStore): void
+    {
+        if (!$compiledRule->capture) {
+            return;
+        }
+
+        foreach ($operatorMatch->captures as $index => $group) {
+            if ($index > 9) {
+                break;
+            }
+
+            $txStore->set('tx.' . $index, $group);
+        }
+    }
+
+    /**
      * Expand %{tx.foo} (and %{TX.FOO}) references in an operator argument
      * against the current TxStore. Unset references resolve to empty
      * string. Anomaly-score constants were already inlined at parse time
      * and won't have %{} markers left.
      */
-    private function expandVariableRefs(string $argument, TxStore $txStore): string
+    /**
+     * @param array<string, string> $context Request-scoped pseudo-variables
+     *        such as MATCHED_VAR_NAME, which live outside the TX store.
+     */
+    private function expandVariableRefs(string $argument, TxStore $txStore, array $context = []): string
     {
         if (!str_contains($argument, '%{')) {
             return $argument;
@@ -212,8 +248,14 @@ final class RuleEvaluator
 
         return (string) preg_replace_callback(
             '/%\{([^}]+)\}/',
-            static function (array $m) use ($txStore): string {
+            static function (array $m) use ($txStore, $context): string {
                 $name = $m[1];
+
+                $upper = strtoupper($name);
+                if (isset($context[$upper])) {
+                    return $context[$upper];
+                }
+
                 $value = $txStore->get($name);
                 if ($value === null && !str_contains($name, '.')) {
                     $value = $txStore->get('tx.' . $name);
@@ -223,6 +265,21 @@ final class RuleEvaluator
             },
             $argument
         );
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    private function matchContext(?OperatorMatch $operatorMatch): array
+    {
+        if (!$operatorMatch instanceof OperatorMatch) {
+            return [];
+        }
+
+        return [
+            'MATCHED_VAR'      => $operatorMatch->matchedData,
+            'MATCHED_VAR_NAME' => $operatorMatch->matchedName ?? '',
+        ];
     }
 
     /**
@@ -257,15 +314,21 @@ final class RuleEvaluator
         return $match;
     }
 
-    private function applySetvars(CompiledRule $compiledRule, TxStore $txStore): void
+    private function applySetvars(CompiledRule $compiledRule, TxStore $txStore, ?OperatorMatch $operatorMatch = null): void
     {
+        $context = $this->matchContext($operatorMatch);
+
         foreach ($compiledRule->setvars as $sv) {
-            $name  = $sv['name'];
+            // Names are templates too. CRS builds per-parameter counters with
+            // setvar:'tx.paramcounter_%{MATCHED_VAR_NAME}=+1', which without
+            // expansion all collapsed onto one literal key and made the
+            // HTTP-parameter-pollution rules meaningless.
+            $name  = $this->expandVariableRefs($sv['name'], $txStore, $context);
             $op    = $sv['op'];
             // Right-hand sides carry live references — CRS aggregates with
             // setvar:'tx.blocking_inbound_anomaly_score=+%{tx.inbound_anomaly_score_pl1}'
             // — so they have to be expanded per request, not at parse time.
-            $value = $this->expandVariableRefs($sv['value'], $txStore);
+            $value = $this->expandVariableRefs($sv['value'], $txStore, $context);
             switch ($op) {
                 case '=':
                     $txStore->set($name, $value);
@@ -294,6 +357,13 @@ final class RuleEvaluator
     private function scoreFromSetvars(CompiledRule $compiledRule, TxStore $txStore): int
     {
         $score = 0;
+
+        // CRS puts the anomaly setvar on the last link of a chain, so a
+        // chained rule's contribution lives in its children, not its starter.
+        foreach ($compiledRule->chain as $sub) {
+            $score += $this->scoreFromSetvars($sub, $txStore);
+        }
+
         foreach ($compiledRule->setvars as $sv) {
             if ($sv['op'] !== '+') {
                 continue;

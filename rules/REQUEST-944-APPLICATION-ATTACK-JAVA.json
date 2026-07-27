@@ -33,6 +33,7 @@
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -66,6 +67,7 @@
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -176,6 +178,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}",
             "marker": null,
             "unconditional": false
         },
@@ -324,6 +327,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -332,6 +336,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}",
             "marker": null,
             "unconditional": false
         },
@@ -466,6 +471,7 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
+                    "logdata": null,
                     "marker": null,
                     "unconditional": false
                 }
@@ -474,6 +480,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}",
             "marker": null,
             "unconditional": false
         },
@@ -590,6 +597,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}",
             "marker": null,
             "unconditional": false
         },
@@ -673,6 +681,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -785,6 +794,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -818,6 +828,7 @@
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -851,6 +862,7 @@
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -963,6 +975,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -1070,6 +1083,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}",
             "marker": null,
             "unconditional": false
         },
@@ -1177,6 +1191,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}",
             "marker": null,
             "unconditional": false
         },
@@ -1287,6 +1302,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}",
             "marker": null,
             "unconditional": false
         },
@@ -1396,6 +1412,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}",
             "marker": null,
             "unconditional": false
         },
@@ -1505,6 +1522,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}",
             "marker": null,
             "unconditional": false
         },
@@ -1538,6 +1556,7 @@
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -1571,6 +1590,7 @@
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -1680,6 +1700,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}",
             "marker": null,
             "unconditional": false
         },
@@ -1713,6 +1734,7 @@
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -1746,6 +1768,7 @@
             "skip_after": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -1858,6 +1881,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -1881,6 +1905,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": "END-REQUEST-944-APPLICATION-ATTACK-JAVA",
             "unconditional": false
         }

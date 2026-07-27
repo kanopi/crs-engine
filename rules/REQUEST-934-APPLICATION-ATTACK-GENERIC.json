@@ -33,6 +33,7 @@
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -66,6 +67,7 @@
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -163,6 +165,7 @@
             "skip_after": null,
             "multi_match": true,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -251,6 +254,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -339,6 +343,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -423,6 +428,7 @@
             "skip_after": null,
             "multi_match": true,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -505,6 +511,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -600,6 +607,7 @@
             "skip_after": null,
             "multi_match": true,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -689,6 +697,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -771,6 +780,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -804,6 +814,7 @@
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -837,6 +848,7 @@
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -931,6 +943,7 @@
             "skip_after": null,
             "multi_match": true,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -1019,6 +1032,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -1101,6 +1115,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -1182,6 +1197,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
             "unconditional": false
         },
@@ -1215,6 +1231,7 @@
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -1248,6 +1265,7 @@
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -1281,6 +1299,7 @@
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -1314,6 +1333,7 @@
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": null,
             "unconditional": false
         },
@@ -1337,6 +1357,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
+            "logdata": null,
             "marker": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "unconditional": false
         }

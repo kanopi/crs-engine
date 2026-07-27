@@ -260,6 +260,7 @@ final class SecLangParser
             skipAfter:        $r->skipAfter,
             multiMatch:       $r->multiMatch,
             warnings:         $r->warnings,
+            logdata:          $r->logdata,
         );
     }
 
@@ -383,6 +384,7 @@ final class SecLangParser
             skipAfter:        $parsedActions->skipAfter,
             multiMatch:       $parsedActions->multiMatch,
             warnings:         [],
+            logdata:          $parsedActions->logdata,
         );
 
         return new RuleParseState($parsedRule, $parsedActions->chain);

@@ -124,7 +124,7 @@ final class VariableResolver
             'MULTIPART_INVALID_PART', 'MULTIPART_INVALID_QUOTING',
             'MULTIPART_LF_LINE', 'MULTIPART_MISSING_SEMICOLON',
             'MULTIPART_NAME', 'MULTIPART_SEMICOLON_MISSING' => $this->multipartFlag($collection, $requestData->multipartFlags),
-            'TX'               => $this->txValue($selector),
+            'TX'               => $this->txValues($selector, $selectorIsRegex),
             default            => [],
         };
     }
@@ -336,12 +336,20 @@ final class VariableResolver
      * misses every variable the ruleset sets. Fall back to the `tx.` prefix,
      * mirroring RuleEvaluator::expandVariableRefs().
      *
+     * A `/regex/` selector matches a family of names rather than one key —
+     * CRS uses that to read back per-parameter counters it built with
+     * setvar:'tx.paramcounter_%{MATCHED_VAR_NAME}=+1'.
+     *
      * @return array<int, ResolvedValue>
      */
-    private function txValue(?string $selector): array
+    private function txValues(?string $selector, bool $isRegex): array
     {
         if ($selector === null) {
             return [];
+        }
+
+        if ($isRegex) {
+            return $this->txValuesMatching($selector);
         }
 
         $value = $this->txStore->get($selector);
@@ -350,6 +358,25 @@ final class VariableResolver
         }
 
         return $value === null ? [] : [new ResolvedValue('TX:' . $selector, $value)];
+    }
+
+    /**
+     * @return array<int, ResolvedValue>
+     */
+    private function txValuesMatching(string $pattern): array
+    {
+        $delimited = '#' . str_replace('#', '\\#', $pattern) . '#i';
+
+        $out = [];
+        foreach ($this->txStore->all() as $key => $value) {
+            // Rules write `tx.foo` and match on `foo`, so compare unprefixed.
+            $bare = preg_replace('/^tx\./', '', $key) ?? $key;
+            if (@preg_match($delimited, $bare) === 1) {
+                $out[] = new ResolvedValue('TX:' . $bare, $value);
+            }
+        }
+
+        return $out;
     }
 
     /**
