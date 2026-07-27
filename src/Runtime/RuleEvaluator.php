@@ -175,9 +175,11 @@ final class RuleEvaluator
         $operator = $this->operatorRegistry->get($compiledRule->operator);
         $values   = $variableResolver->resolve($compiledRule->targets, $requestData);
         $operatorArg = $this->expandVariableRefs($compiledRule->operatorArgument, $txStore);
+        // Once per rule, not once per resolved value.
+        $transforms = $transformPipeline->resolve($compiledRule->transforms);
 
         foreach ($values as $value) {
-            $match = $this->evaluateOperatorAgainstValue($compiledRule, $operator, $operatorArg, $value->value, $transformPipeline);
+            $match = $this->evaluateOperatorAgainstValue($compiledRule, $operator, $operatorArg, $value->value, $transformPipeline, $transforms);
             if (!$match->matched) {
                 continue;
             }
@@ -288,10 +290,13 @@ final class RuleEvaluator
      * that match a mid-pipeline normalisation (e.g. after t:urlDecode but
      * before t:htmlEntityDecode) still fire.
      */
-    private function evaluateOperatorAgainstValue(CompiledRule $compiledRule, OperatorInterface $operator, string $operatorArg, string $value, TransformPipeline $transformPipeline): OperatorMatch
+    /**
+     * @param array<int, \Kanopi\Crs\Transforms\TransformInterface> $transforms
+     */
+    private function evaluateOperatorAgainstValue(CompiledRule $compiledRule, OperatorInterface $operator, string $operatorArg, string $value, TransformPipeline $transformPipeline, array $transforms): OperatorMatch
     {
         if ($compiledRule->multiMatch) {
-            foreach ($transformPipeline->each($compiledRule->transforms, $value) as $candidate) {
+            foreach ($transformPipeline->eachResolved($transforms, $value) as $candidate) {
                 $match = $operator->evaluate($operatorArg, $candidate);
                 if ($compiledRule->operatorNegated) {
                     $match = $match->matched ? OperatorMatch::miss() : OperatorMatch::hit($candidate);
@@ -305,7 +310,7 @@ final class RuleEvaluator
             return OperatorMatch::miss();
         }
 
-        $transformed = $transformPipeline->apply($compiledRule->transforms, $value);
+        $transformed = $transformPipeline->applyResolved($transforms, $value);
         $match = $operator->evaluate($operatorArg, $transformed);
         if ($compiledRule->operatorNegated) {
             return $match->matched ? OperatorMatch::miss() : OperatorMatch::hit($transformed);
