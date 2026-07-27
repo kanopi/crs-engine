@@ -9,12 +9,18 @@ use Kanopi\Crs\Exception\ParseException;
 /**
  * Parses ModSecurity SecLang .conf files into ParsedRule objects.
  *
- * Scope is intentionally limited to the subset used by CRS REQUEST-*
- * rule files. Out-of-scope (parsed but ignored, with a warning):
- *   - @detectSQLi / @detectXSS  (require libinjection)
- *   - ctl:*                     (engine controls beyond ruleEngine)
+ * Scope is the subset CRS 4.x uses across its REQUEST-* and RESPONSE-* rule
+ * files, plus this engine's own supplemental/ rules.
+ *
+ * Directives: SecRule, SecAction (an unconditional rule — CRS relies on it to
+ * reset aggregate scores between phases) and SecMarker (a placeholder that
+ * holds its position so skipAfter has a landing point).
+ *
+ * Out of scope, skipped with a warning recorded in manifest.json:
+ *   - @detectSQLi / @detectXSS  (need libinjection; see supplemental/ for
+ *                                what the engine does about the PL1 gap)
+ *   - ctl:*, expirevar, deprecatevar, initcol and similar state management
  *   - audit log directives
- *   - XML: targets              (no XML body parser in v1)
  */
 final class SecLangParser
 {

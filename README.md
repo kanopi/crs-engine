@@ -44,7 +44,8 @@ Drupal, WordPress, raw PHP).
 The engine has three stages:
 
 1. **Refresh (build time)** — `bin/refresh-crs` downloads a pinned CRS release
-   from GitHub, parses every `REQUEST-*.conf` file with the bundled SecLang
+   from GitHub, parses every `REQUEST-*.conf` and `RESPONSE-*.conf` file
+   with the bundled SecLang
    parser, and writes the result to `rules/`:
    - `rules/<source>.json` — one human-reviewable JSON file per CRS source
      file, used to make diff review of CRS bumps painless.
@@ -103,41 +104,55 @@ use Kanopi\Crs\CrsConfig;
 use Kanopi\Crs\CrsEngine;
 use Kanopi\Crs\Request\RequestData;
 
+// Construct once per process — loading the ruleset is the expensive part.
 $engine = new CrsEngine(new CrsConfig(
     paranoia: 1,
     mode: CrsConfig::MODE_BLOCK,
 ));
 
-$request = new RequestData(
-    method:      'GET',
-    uri:         '/login?user=admin&pw=' . rawurlencode("' OR 1=1"),
-    rawUri:      $_SERVER['REQUEST_URI'] ?? '/',
-    queryString: $_SERVER['QUERY_STRING'] ?? '',
-    protocol:    'HTTP/1.1',
-    remoteAddr:  $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0',
-    queryArgs:   $_GET,
-    postArgs:    $_POST,
-    cookies:     $_COOKIE,
-    headers:     getallheaders() ?: [],
-);
-
-$verdict = $engine->evaluate($request);
+$verdict = $engine->evaluate(RequestData::fromGlobals());
 
 if ($verdict->isBlocked()) {
     http_response_code(403);
     error_log(sprintf(
-        'CRS blocked request: rule %d (%s)',
-        $verdict->blockingRuleId,
-        $verdict->matchedRules[0]['msg'] ?? '',
+        'CRS blocked request: %s, score %d, %d rule(s) matched',
+        $verdict->blockingRuleId === null
+            ? 'anomaly threshold reached'
+            : 'rule ' . $verdict->blockingRuleId,
+        $verdict->totalScore,
+        count($verdict->matchedRules),
     ));
     exit;
 }
 ```
 
-For framework-specific adapters (Symfony `Request`, PSR-7, Laravel
-`Illuminate\Http\Request`, Drupal `Symfony\HttpFoundation\Request`), write a
-small mapper that produces `RequestData`. There is intentionally no built-in
-adapter — keeping the engine framework-free is the point.
+`fromGlobals()` is for plain PHP and quick experiments. Behind a framework,
+build the DTO from its request object instead:
+
+```php
+$request = new RequestData(
+    method:      $r->getMethod(),
+    uri:         $r->getRequestUri(),
+    rawUri:      $r->server->get('REQUEST_URI', '/'),
+    queryString: $r->server->get('QUERY_STRING', ''),
+    protocol:    $r->server->get('SERVER_PROTOCOL', 'HTTP/1.1'),
+    remoteAddr:  $r->getClientIp() ?? '0.0.0.0',
+    queryArgs:   $r->query->all(),
+    postArgs:    $r->request->all(),
+    cookies:     $r->cookies->all(),
+    headers:     array_map(static fn (array $v): string => $v[0], $r->headers->all()),
+    body:        (string) $r->getContent(),
+);
+```
+
+> **Include `Content-Length` on requests that have a body.** CRS rule 920180
+> treats a POST carrying neither `Content-Length` nor `Transfer-Encoding` as
+> request smuggling and will score it. `fromGlobals()` handles this; a
+> hand-built DTO has to supply it.
+
+There is intentionally no built-in framework adapter — keeping the engine
+framework-free is the point. Adapters for Symfony, PSR-7, Laravel and Drupal
+are a few lines each, as above.
 
 ---
 
@@ -235,7 +250,7 @@ $verdict->isBlocked();     // bool
 $verdict->blockingRuleId;  // ?int — the first rule that fired with deny/block/drop
 $verdict->totalScore;      // accumulated anomaly score across paranoia levels
 $verdict->scores;          // per-category: ['sqli' => 5, 'xss' => 0, ...]
-$verdict->matchedRules;    // array of [id, msg, severity, score, tags, category, matched_data]
+$verdict->matchedRules;    // [id, msg, severity, score, tags, category, matched_data, logdata]
 $verdict->toArray();       // serialisable shape for logging
 ```
 
@@ -251,10 +266,12 @@ The parser is deliberately narrower than full ModSecurity. It covers
 everything CRS 4.x uses in its `REQUEST-*` rule files, with the explicit
 exception of operators that need libinjection.
 
-**Directives:** `SecRule` (full), `SecAction`/`SecMarker` (parsed and
-ignored — used only as skipAfter targets).
+**Directives:** `SecRule` (full), `SecAction` (unconditional — CRS uses it to
+reset aggregate scores between phases, so it is evaluated, not ignored), and
+`SecMarker` (a placeholder that keeps its position so `skipAfter` has
+somewhere to land).
 
-**Operators (16):** `@rx`, `@pm`, `@pmf`, `@beginsWith`, `@endsWith`,
+**Operators (18):** `@rx`, `@pm`, `@pmf`, `@beginsWith`, `@endsWith`,
 `@contains`, `@containsWord`, `@streq`, `@eq`/`@gt`/`@lt`/`@ge`/`@le`,
 `@within`, `@ipMatch` (with CIDR), `@validateByteRange`,
 `@validateUrlEncoding`, `@validateUtf8Encoding`.
@@ -267,28 +284,73 @@ XSS rules in CRS are pure `@rx` and work normally. See
 [Detection coverage](#detection-coverage) for what that costs in practice
 and what the engine does about it.
 
-**Transforms (20+):** `none`, `lowercase`/`uppercase`,
+**Transforms (21):** `none`, `lowercase`/`uppercase`,
 `urlDecode`/`urlDecodeUni`, `htmlEntityDecode`,
 `compressWhitespace`/`removeWhitespace`, `replaceNulls`/`removeNulls`,
 `utf8toUnicode`, `base64Decode`/`base64DecodeExt`, `cmdLine`,
 `normalisePath`, `length`, `sha1`/`md5`, `trim`,
 `removeComments`/`replaceComments`.
 
-**Variables (targets):** `ARGS`, `ARGS_GET`, `ARGS_POST`, `ARGS_NAMES`,
-`ARGS_GET_NAMES`, `ARGS_POST_NAMES`, `REQUEST_URI`, `REQUEST_URI_RAW`,
-`REQUEST_FILENAME`, `REQUEST_METHOD`, `REQUEST_PROTOCOL`, `REQUEST_LINE`,
-`REQUEST_BODY`, `REQUEST_HEADERS`, `REQUEST_HEADERS_NAMES`,
-`REQUEST_COOKIES`, `REQUEST_COOKIES_NAMES`, `QUERY_STRING`, `REMOTE_ADDR`,
-`FILES_NAMES`, `TX:<name>`.
+**Variables (targets), 52 in total:**
+
+*Request* — `ARGS`, `ARGS_GET`, `ARGS_POST`, `ARGS_NAMES`, `ARGS_GET_NAMES`,
+`ARGS_POST_NAMES`, `REQUEST_URI`, `REQUEST_URI_RAW`, `REQUEST_FILENAME`,
+`REQUEST_BASENAME`, `REQUEST_METHOD`, `REQUEST_PROTOCOL`, `REQUEST_LINE`,
+`REQUEST_BODY`, `REQUEST_HEADERS`, `REQUEST_HEADERS_NAMES`, `REQUEST_COOKIES`,
+`REQUEST_COOKIES_NAMES`, `QUERY_STRING`, `REMOTE_ADDR`, `UNIQUE_ID`,
+`REQBODY_PROCESSOR`.
+
+*Uploads* — `FILES`, `FILES_NAMES`, `FILES_SIZES`, `FILES_TMPNAMES`. `FILES`
+reads the upload's `tmp_name` when readable, or inline `content` if the
+integrator pre-read it.
+
+*Response*, available to `evaluateResponse()` — `RESPONSE_STATUS`,
+`RESPONSE_PROTOCOL`, `RESPONSE_HEADERS`, `RESPONSE_HEADERS_NAMES`,
+`RESPONSE_BODY`, `RESPONSE_CONTENT_TYPE`, `RESPONSE_CONTENT_LENGTH`,
+`OUTBOUND_DATA_ERROR`.
+
+*XML* — `XML` with an XPath selector, e.g. `XML:/*`. Parsed lazily, once per
+request. External entities never resolve; see
+[`XmlBody`](src/Body/XmlBody.php).
+
+*Multipart* — `MULTIPART_PART_HEADERS`, plus the CRS-922 anti-evasion flags
+`MULTIPART_STRICT_ERROR`, `MULTIPART_UNMATCHED_BOUNDARY`,
+`MULTIPART_BOUNDARY_QUOTED`, `MULTIPART_BOUNDARY_WHITESPACE`,
+`MULTIPART_CRLF_LF_LINES`, `MULTIPART_DATA_AFTER`, `MULTIPART_DATA_BEFORE`,
+`MULTIPART_FILE_LIMIT_EXCEEDED`, `MULTIPART_HEADER_FOLDING`,
+`MULTIPART_INVALID_HEADER_FOLDING`, `MULTIPART_INVALID_PART`,
+`MULTIPART_INVALID_QUOTING`, `MULTIPART_LF_LINE`,
+`MULTIPART_MISSING_SEMICOLON`, `MULTIPART_NAME`, `MULTIPART_SEMICOLON_MISSING`.
+These are only populated if the integrator supplies them on `RequestData` —
+the engine does not parse multipart bodies itself.
+
+*Engine state* — `TX:<name>`, including `TX:/regex/` to read a family of
+names such as the per-parameter keys `setvar` generates.
 
 Target modifiers `!collection:selector` (exclude), `&collection`
 (count), and regex selectors `collection:/pattern/` are all supported.
 
-**Actions:** `id`, `phase`, `block`/`deny`/`drop`/`pass`/`allow`, `chain`,
-`capture`, `multiMatch`, `t:*`, `msg`, `logdata`, `severity`, `tag`,
-`ver`/`rev`/`maturity`/`accuracy` (recorded but unused at runtime),
-`setvar`, `skipAfter`. `ctl:*`, `expirevar`, `deprecatevar`, and similar
-state-management actions are accepted by the parser and silently ignored.
+**Actions:** `id`, `phase`, `chain`, `msg`, `severity`, `tag`, `t:*`,
+`multiMatch`, `skipAfter`, and:
+
+- `setvar` — `%{...}` on both sides is expanded per request, so
+  `tx.counter_%{MATCHED_VAR_NAME}` produces one key per parameter.
+- `capture` — numbered regex groups are written to `TX:0`–`TX:9` before any
+  chained condition runs, which is where CRS reads them.
+- `logdata` — expanded per request and returned on
+  `CrsVerdict::$matchedRules[]['logdata']`.
+- `block`/`deny`/`drop`/`pass`/`allow` — only `deny` and `drop` stop
+  evaluation. `block` defers to `SecDefaultAction`, which for CRS detection
+  rules means "score and continue"; see
+  [Detection coverage](#detection-coverage).
+
+`ver`/`rev`/`maturity`/`accuracy` are parsed and unused. `ctl:*`, `expirevar`,
+`deprecatevar`, `initcol` and similar state management are accepted and
+ignored.
+
+**Not implemented:** a rule's actions fire once per rule, not once per
+matching variable. CRS's per-parameter counters (921170/921180, HTTP
+parameter pollution) need the latter and do not work.
 
 ---
 
@@ -396,30 +458,44 @@ about porting libinjection.
 
 ## Rule scope
 
-Only request-side CRS rule files are parsed (response inspection is out of
-scope for v1):
+Every `REQUEST-*.conf` and `RESPONSE-*.conf` in the pinned CRS release is
+parsed, plus this engine's own `supplemental/`:
 
 ```
-REQUEST-911-METHOD-ENFORCEMENT
-REQUEST-913-SCANNER-DETECTION
-REQUEST-920-PROTOCOL-ENFORCEMENT
-REQUEST-921-PROTOCOL-ATTACK
-REQUEST-922-MULTIPART-ATTACK
-REQUEST-930-APPLICATION-ATTACK-LFI
-REQUEST-931-APPLICATION-ATTACK-RFI
-REQUEST-932-APPLICATION-ATTACK-RCE
-REQUEST-933-APPLICATION-ATTACK-PHP
+REQUEST-911-METHOD-ENFORCEMENT      RESPONSE-950-DATA-LEAKAGES
+REQUEST-913-SCANNER-DETECTION       RESPONSE-951-DATA-LEAKAGES-SQL
+REQUEST-920-PROTOCOL-ENFORCEMENT    RESPONSE-952-DATA-LEAKAGES-JAVA
+REQUEST-921-PROTOCOL-ATTACK         RESPONSE-953-DATA-LEAKAGES-PHP
+REQUEST-922-MULTIPART-ATTACK        RESPONSE-954-DATA-LEAKAGES-IIS
+REQUEST-930-APPLICATION-ATTACK-LFI  RESPONSE-955-WEB-SHELLS
+REQUEST-931-APPLICATION-ATTACK-RFI  RESPONSE-956-DATA-LEAKAGES-RUBY
+REQUEST-932-APPLICATION-ATTACK-RCE  RESPONSE-959-BLOCKING-EVALUATION
+REQUEST-933-APPLICATION-ATTACK-PHP  RESPONSE-980-CORRELATION
 REQUEST-934-APPLICATION-ATTACK-GENERIC
-REQUEST-941-APPLICATION-ATTACK-XSS
-REQUEST-942-APPLICATION-ATTACK-SQLI
+REQUEST-941-APPLICATION-ATTACK-XSS        supplemental/
+REQUEST-942-APPLICATION-ATTACK-SQLI       REQUEST-948-TAUTOLOGY
 REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION
 REQUEST-944-APPLICATION-ATTACK-JAVA
 REQUEST-949-BLOCKING-EVALUATION
 ```
 
-`RESPONSE-*` files and CRS's own config/init files
-(`REQUEST-901-INITIALIZATION`, `REQUEST-905-COMMON-EXCEPTIONS`,
-`RESPONSE-980-CORRELATION`) are not parsed.
+Request-phase rules (phase 1–2) run on `evaluate()`; response-phase rules
+(phase 3–4) run on `evaluateResponse()`. Phase-5 logging rules are parsed but
+contribute nothing to a verdict.
+
+Two CRS files are deliberately **not** parsed:
+`REQUEST-901-INITIALIZATION` and `REQUEST-905-COMMON-EXCEPTIONS`. They are
+CRS's own configuration scaffolding, normally driven by `crs-setup.conf`,
+which this engine replaces with `CrsConfig` and
+[`CrsTxDefaults`](src/Runtime/CrsTxDefaults.php). Parsing 901 in particular
+would make rule 901001 deny every request, because it checks a variable
+`crs-setup.conf` is supposed to have set.
+
+The current release parses **583 CRS rules** plus 1 supplemental rule, 67
+chain conditions, 6 `SecAction` directives and 29 `SecMarker` placeholders.
+Four CRS rules are skipped for using `@detectSQLi`/`@detectXSS`; the counts
+are asserted by `tests/Integration/RulesetInvariantsTest.php`, so they cannot
+drift silently across a CRS bump.
 
 ---
 
@@ -635,31 +711,39 @@ crs-engine/
 │   ├── compiled.php          Runtime hot path (var_export'd)
 │   ├── manifest.json         Version, counts, parser warnings
 │   └── REQUEST-*.json        Per-source-file JSON for review
+├── supplemental/             Engine-owned SecLang, parsed alongside CRS and
+│                             not clobbered by a refresh — see Detection coverage
 ├── src/
 │   ├── CrsEngine.php         Public entry point
 │   ├── CrsConfig.php
 │   ├── CrsVerdict.php
 │   ├── Exception/
-│   ├── Operators/            16 SecLang operators + registry
+│   ├── Body/XmlBody.php      Lazy XML body parser for XML: targets
+│   ├── Operators/            18 SecLang operators + registry + PhraseSet
 │   ├── Parser/               SecLang parser + DTOs
-│   ├── Refresh/              CrsFetcher, RuleWriter, VersionPin, RefreshRunner
-│   ├── Request/RequestData.php   Framework-agnostic request DTO
-│   ├── Runtime/              RuleEvaluator, RuleSet, TxStore, TransformPipeline
-│   ├── Transforms/           20+ SecLang transforms + registry
-│   └── Variables/            VariableResolver (ARGS, REQUEST_HEADERS, etc.)
+│   ├── Refresh/              CrsFetcher, RuleWriter, VersionPin, RulesetDigest,
+│   │                         RefreshRunner, CrsSource
+│   ├── Request/              RequestData + ResponseData DTOs
+│   ├── Runtime/              RuleEvaluator, RuleSet, TxStore, TransformPipeline,
+│   │                         CrsTxDefaults, CompiledRule
+│   ├── Transforms/           21 SecLang transforms + registry
+│   └── Variables/            VariableResolver (52 targets)
 ├── tests/
-│   ├── Integration/
-│   │   ├── fixtures/         CRS-shaped .conf files used by integration tests
-│   │   ├── RefreshFlowTest.php
-│   │   ├── SqliRulesTest.php
-│   │   └── XssRulesTest.php
+│   ├── Integration/          Against the real bundled ruleset:
+│   │   ├── fixtures/         CRS-shaped .conf files for the narrower tests
+│   │   ├── PayloadCorpusTest.php        detection rate + false positives
+│   │   ├── RulesetInvariantsTest.php    rule counts, markers, TX contract
+│   │   ├── DisabledCategoryScopeTest.php
+│   │   └── RefreshFailureModesTest.php  digest + atomic write
 │   └── Unit/
+│       ├── Body/
 │       ├── Operators/
 │       ├── Parser/
 │       ├── Runtime/
-│       └── Transforms/
+│       ├── Transforms/
+│       └── Variables/
 ├── .circleci/config.yml
-├── .crs-version              Pinned upstream CRS tag
+├── .crs-version              Pinned upstream CRS tag + content digest
 ├── composer.json
 ├── phpcs_ruleset.xml         PSR-12 + PHPCompatibility 8.1+
 ├── phpstan.neon              level: max
