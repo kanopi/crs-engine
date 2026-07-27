@@ -25,6 +25,7 @@ Drupal, WordPress, raw PHP).
 - [The request DTO](#the-request-dto)
 - [The verdict](#the-verdict)
 - [Supported SecLang subset](#supported-seclang-subset)
+- [Detection coverage](#detection-coverage)
 - [Rule scope](#rule-scope)
 - [Refreshing CRS rules](#refreshing-crs-rules)
 - [Debugging a rule](#debugging-a-rule)
@@ -261,7 +262,9 @@ Unsupported operators (`@detectSQLi`, `@detectXSS`, etc.) cause the rule
 to be parsed-and-skipped with a warning recorded in `manifest.json`.
 These two operators back CRS rules **942100** and **941100** specifically —
 the *libinjection-backed* SQLi and XSS detectors. The other 50+ SQLi and 40+
-XSS rules in CRS are pure `@rx` and work normally.
+XSS rules in CRS are pure `@rx` and work normally. See
+[Detection coverage](#detection-coverage) for what that costs in practice
+and what the engine does about it.
 
 **Transforms (20+):** `none`, `lowercase`/`uppercase`,
 `urlDecode`/`urlDecodeUni`, `htmlEntityDecode`,
@@ -285,6 +288,57 @@ Target modifiers `!collection:selector` (exclude), `&collection`
 `ver`/`rev`/`maturity`/`accuracy` (recorded but unused at runtime),
 `setvar`, `skipAfter`. `ctl:*`, `expirevar`, `deprecatevar`, and similar
 state-management actions are accepted by the parser and silently ignored.
+
+---
+
+## Detection coverage
+
+The engine cannot run CRS 942100 and 941100, the two libinjection-backed
+detectors, and those are the PL1 backbone for SQL injection. Measured against
+34 attack payloads and 32 samples of realistic CMS/search traffic:
+
+| Paranoia | Attacks blocked | False positives |
+|---|---|---|
+| **1** (default) | 30/34 (88%) | **0/32 (0%)** |
+| 2 | 32/34 (94%) | 4/32 (12.5%) |
+| 3 | 32/34 (94%) | 10/32 (31%) |
+| 4 | 34/34 (100%) | 27/32 (84%) |
+
+**Raising the default to PL2 is not recommended.** The rules that come in at
+PL2 block ordinary content — markdown post bodies, JSON API payloads, code
+snippets in comment fields, quoted prose. PL3 additionally blocks accented,
+CJK and Arabic names. Both are usable, but only with a per-site exclusion
+list built from real traffic; see `disabledRules` and `disabledCategories`.
+
+### What the engine adds
+
+`supplemental/REQUEST-948-TAUTOLOGY.conf` ships one engine-owned rule,
+**948100**, covering the `' OR '1'='1` / `OR 1=1` family that libinjection
+would otherwise catch at PL1. It is parsed alongside CRS by `bin/refresh-crs`
+and survives CRS bumps because it lives outside `rules/`. It is tagged
+`kanopi-crs-engine` so it is easy to tell apart from upstream rules, and it
+can be turned off like any other rule:
+
+```php
+new CrsConfig(disabledRules: [948100]);
+```
+
+Its false-positive profile is pinned by `tests/Integration/PayloadCorpusTest.php`,
+which fails the build if it starts flagging ordinary prose.
+
+### Known gaps at PL1
+
+These need real tokenisation and are deliberately **not** chased with regex,
+because every pattern that catches them also catches ordinary content:
+
+| Payload | Why not | Caught at |
+|---|---|---|
+| `admin'--` | collides with quoted prose using `--` | PL2 |
+| `` `id` `` | collides with inline code in comment fields | PL2 |
+| RFI by hostname | needs `TX:` regex selectors (unimplemented) | PL4 |
+
+If you need these at PL1, run PL2 with an exclusion list, or open an issue
+about porting libinjection.
 
 ---
 

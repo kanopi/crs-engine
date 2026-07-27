@@ -1,0 +1,75 @@
+{
+    "source_file": "REQUEST-948-TAUTOLOGY.conf",
+    "crs_version": "v4.26.0",
+    "rule_count": 1,
+    "rules": [
+        {
+            "id": 948100,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "(?i)(?:['\"][\\s)]*(?:or|and)\\s+\\(?\\s*['\"]?[\\w.]+['\"]?\\s*(?:=|<=>|<>|!=|<|>|>=|<=)\\s*\\(?\\s*['\"]?[\\w.]+|\\b(?:or|and)\\s+([\\w.]+)(?:=|<=>)\\1\\b)",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "ARGS",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_BODY",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "urlDecodeUni",
+                "removeNulls"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "SQL Injection Attack: Tautology detected",
+            "tags": [
+                "application-multi",
+                "language-multi",
+                "platform-multi",
+                "attack-sqli",
+                "paranoia-level/1",
+                "kanopi-crs-engine",
+                "kanopi/LIBINJECTION-GAP"
+            ],
+            "paranoia": 1,
+            "category": "misc",
+            "setvars": [
+                {
+                    "name": "tx.sql_injection_score",
+                    "op": "+",
+                    "value": "%{tx.critical_anomaly_score}"
+                },
+                {
+                    "name": "tx.inbound_anomaly_score_pl1",
+                    "op": "+",
+                    "value": "%{tx.critical_anomaly_score}"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "marker": null,
+            "unconditional": false
+        }
+    ]
+}

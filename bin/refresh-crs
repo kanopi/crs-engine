@@ -42,7 +42,7 @@ $fetcher = new CrsFetcher();
 $workDir = sys_get_temp_dir() . '/crs-engine-' . bin2hex(random_bytes(4));
 $writer  = new RuleWriter($dryRun ? $workDir . '/rules-out' : $root . '/rules');
 
-$runner = new RefreshRunner($pin, $fetcher, $writer, $workDir);
+$runner = new RefreshRunner($pin, $fetcher, $writer, $workDir, $root . '/supplemental');
 
 try {
     $result = $runner->run($tag, $bump);
