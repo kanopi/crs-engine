@@ -21,6 +21,13 @@ final class CrsVerdict
      *        these are gaps in coverage for this request, and a clean verdict
      *        alongside a non-empty list here means less was inspected than it
      *        appears. Worth alerting on.
+     * @param array<int, array{what: string, inspected: int, total: int}> $truncations
+     *        Where an inspection cap cut this request short — too many
+     *        arguments, or a body larger than maxBodyBytes. Like
+     *        $operatorErrors these are coverage gaps rather than findings, but
+     *        deliberate ones: the caps exist so an oversized request cannot buy
+     *        unbounded CPU. `&ARGS` counting is never capped, so the CRS rules
+     *        that flag an over-large request still fire.
      */
     public function __construct(
         public readonly string $action,
@@ -29,6 +36,7 @@ final class CrsVerdict
         public readonly int $totalScore,
         public readonly ?int $blockingRuleId = null,
         public readonly array $operatorErrors = [],
+        public readonly array $truncations = [],
     ) {
     }
 
@@ -46,6 +54,14 @@ final class CrsVerdict
     }
 
     /**
+     * True when an inspection cap stopped part of this request being examined.
+     */
+    public function wasTruncated(): bool
+    {
+        return $this->truncations !== [];
+    }
+
+    /**
      * @return array<string, mixed>
      */
     public function toArray(): array
@@ -57,6 +73,7 @@ final class CrsVerdict
             'blocking_rule_id'  => $this->blockingRuleId,
             'matched_rules'     => $this->matchedRules,
             'operator_errors'   => $this->operatorErrors,
+            'truncations'       => $this->truncations,
         ];
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Kanopi\Crs\Variables;
 
 use Kanopi\Crs\Body\XmlBody;
+use Kanopi\Crs\CrsConfig;
 use Kanopi\Crs\Request\RequestData;
 use Kanopi\Crs\Request\ResponseData;
 use Kanopi\Crs\Runtime\TxStore;
@@ -37,10 +38,52 @@ final class VariableResolver
      */
     private array $collectionCache = [];
 
+    /**
+     * Argument collections, whose value enumeration is capped. Counting is not:
+     * see resolve().
+     *
+     * @var array<int, string>
+     */
+    private const ARG_COLLECTIONS = [
+        'ARGS', 'ARGS_GET', 'ARGS_POST',
+        'ARGS_NAMES', 'ARGS_GET_NAMES', 'ARGS_POST_NAMES',
+    ];
+
+    /**
+     * What this request had inspection cut short on, keyed so a repeat from a
+     * later rule does not report twice.
+     *
+     * @var array<string, array{what: string, inspected: int, total: int}>
+     */
+    private array $truncations = [];
+
+    /**
+     * @param int $maxArgs Argument values to enumerate, or CrsConfig::UNLIMITED.
+     *        Defaults to unbounded here rather than to the CrsConfig default,
+     *        so a resolver constructed directly — as tests do — behaves as it
+     *        always has. CrsEngine supplies the configured values.
+     * @param int $maxBodyBytes Body bytes to expose, or CrsConfig::UNLIMITED.
+     * @param int $maxArgBytes Total argument bytes per resolve() call, or
+     *        CrsConfig::UNLIMITED.
+     */
     public function __construct(
         private readonly TxStore $txStore,
         private readonly ?ResponseData $responseData = null,
+        private readonly int $maxArgs = CrsConfig::UNLIMITED,
+        private readonly int $maxBodyBytes = CrsConfig::UNLIMITED,
+        private readonly int $maxArgBytes = CrsConfig::UNLIMITED,
     ) {
+    }
+
+    /**
+     * Where inspection was cut short for this request. Empty when everything
+     * was seen.
+     *
+     * @return array<int, array{what: string, inspected: int, total: int}>
+     */
+    public function truncations(): array
+    {
+        return array_values($this->truncations);
     }
 
     /**
@@ -69,10 +112,17 @@ final class VariableResolver
                 continue;
             }
 
+            // Counting is never capped. CRS 920380 blocks on `&ARGS` exceeding
+            // tx.max_num_args, so if the cap fed it a truncated count the very
+            // rule that flags an over-large request would stop firing — and the
+            // truncation would then be a silent detection loss instead of a
+            // flagged one.
             if ($count) {
                 $resolved[] = new ResolvedValue('&' . $collection . ($selector ? ':' . $selector : ''), (string) count($values));
                 continue;
             }
+
+            $values = $this->capArgValues($collection, $values);
 
             foreach ($values as $value) {
                 $resolved[] = $value;
@@ -87,6 +137,111 @@ final class VariableResolver
             $resolved,
             static fn (ResolvedValue $resolvedValue): bool => !isset($excluded[$resolvedValue->location])
         ));
+    }
+
+    /**
+     * Limit how many argument values go through the ruleset.
+     *
+     * Unbounded, cost is linear in the argument count with a large constant —
+     * 5,000 arguments in a 130 KB body took 2.2s of CPU against the shipped
+     * ruleset, versus 26ms for an ordinary request. The request is blocked, but
+     * only after the work is done, which makes it cheap amplification against a
+     * fixed worker pool.
+     *
+     * @param array<int, ResolvedValue> $values
+     * @return array<int, ResolvedValue>
+     */
+    private function capArgValues(string $collection, array $values): array
+    {
+        if (!in_array(strtoupper($collection), self::ARG_COLLECTIONS, true)) {
+            return $values;
+        }
+
+        if ($this->maxArgs !== CrsConfig::UNLIMITED && count($values) > $this->maxArgs) {
+            $this->recordTruncation('args', $this->maxArgs, count($values));
+            $values = array_slice($values, 0, $this->maxArgs);
+        }
+
+        return $this->capArgBytes($values);
+    }
+
+    /**
+     * Spend a byte budget across the argument values, truncating the one that
+     * crosses it and dropping the rest.
+     *
+     * The count cap alone does not bound the work: a single 2.5 MB argument
+     * costs about what ten thousand small ones do, because the expense is bytes
+     * scanned per rule rather than values iterated. Both ceilings are needed.
+     *
+     * @param array<int, ResolvedValue> $values
+     * @return array<int, ResolvedValue>
+     */
+    private function capArgBytes(array $values): array
+    {
+        if ($this->maxArgBytes === CrsConfig::UNLIMITED) {
+            return $values;
+        }
+
+        $total = 0;
+        foreach ($values as $value) {
+            $total += strlen($value->value);
+        }
+
+        if ($total <= $this->maxArgBytes) {
+            return $values;
+        }
+
+        $this->recordTruncation('arg_bytes', $this->maxArgBytes, $total);
+
+        $remaining = $this->maxArgBytes;
+        $out       = [];
+        foreach ($values as $value) {
+            $length = strlen($value->value);
+
+            if ($length <= $remaining) {
+                $out[]      = $value;
+                $remaining -= $length;
+                continue;
+            }
+
+            // Keep a prefix of the value that crosses the budget rather than
+            // dropping it whole: a payload at the front of an oversized
+            // argument is still worth catching.
+            if ($remaining > 0) {
+                $out[] = new ResolvedValue($value->location, substr($value->value, 0, $remaining));
+            }
+
+            break;
+        }
+
+        return $out;
+    }
+
+    /**
+     * Limit how much of a body the ruleset sees. Cost is linear in body size,
+     * and every byte is attacker-controlled.
+     */
+    private function capBody(string $what, string $body): string
+    {
+        if ($this->maxBodyBytes === CrsConfig::UNLIMITED) {
+            return $body;
+        }
+
+        $length = strlen($body);
+        if ($length <= $this->maxBodyBytes) {
+            return $body;
+        }
+
+        $this->recordTruncation($what, $this->maxBodyBytes, $length);
+
+        return substr($body, 0, $this->maxBodyBytes);
+    }
+
+    private function recordTruncation(string $what, int $inspected, int $total): void
+    {
+        // Keyed by kind: the same cap is hit by every rule targeting the same
+        // collection, and reporting it 200 times says nothing extra.
+        $this->truncations[$what] = ['what' => $what, 'inspected' => $inspected, 'total' => $total];
     }
 
     /**
@@ -140,7 +295,7 @@ final class VariableResolver
             'REQUEST_METHOD'   => [new ResolvedValue('REQUEST_METHOD', $requestData->method)],
             'REQUEST_PROTOCOL' => [new ResolvedValue('REQUEST_PROTOCOL', $requestData->protocol)],
             'REQUEST_LINE'     => [new ResolvedValue('REQUEST_LINE', sprintf('%s %s %s', $requestData->method, $requestData->uri, $requestData->protocol))],
-            'REQUEST_BODY'     => [new ResolvedValue('REQUEST_BODY', $requestData->body)],
+            'REQUEST_BODY'     => [new ResolvedValue('REQUEST_BODY', $this->capBody('request_body', $requestData->body))],
             'QUERY_STRING'     => [new ResolvedValue('QUERY_STRING', $requestData->queryString)],
             'REMOTE_ADDR'      => [new ResolvedValue('REMOTE_ADDR', $requestData->remoteAddr)],
             'UNIQUE_ID'        => $requestData->uniqueId === null ? [] : [new ResolvedValue('UNIQUE_ID', $requestData->uniqueId)],
@@ -154,7 +309,7 @@ final class VariableResolver
             'RESPONSE_PROTOCOL' => $this->responseData instanceof \Kanopi\Crs\Request\ResponseData ? [new ResolvedValue('RESPONSE_PROTOCOL', $this->responseData->protocol)] : [],
             'RESPONSE_HEADERS' => $this->responseData instanceof \Kanopi\Crs\Request\ResponseData ? $this->flattenHeaders('RESPONSE_HEADERS', $this->responseData->headers, $selector, $selectorIsRegex) : [],
             'RESPONSE_HEADERS_NAMES' => $this->responseData instanceof \Kanopi\Crs\Request\ResponseData ? $this->keys('RESPONSE_HEADERS_NAMES', $this->responseData->headers, $selector, $selectorIsRegex) : [],
-            'RESPONSE_BODY'    => $this->responseData instanceof \Kanopi\Crs\Request\ResponseData ? [new ResolvedValue('RESPONSE_BODY', $this->responseData->body)] : [],
+            'RESPONSE_BODY'    => $this->responseData instanceof \Kanopi\Crs\Request\ResponseData ? [new ResolvedValue('RESPONSE_BODY', $this->capBody('response_body', $this->responseData->body))] : [],
             'RESPONSE_CONTENT_TYPE' => $this->responseData instanceof \Kanopi\Crs\Request\ResponseData ? [new ResolvedValue('RESPONSE_CONTENT_TYPE', $this->responseData->effectiveContentType())] : [],
             'RESPONSE_CONTENT_LENGTH' => $this->responseData instanceof \Kanopi\Crs\Request\ResponseData ? [new ResolvedValue('RESPONSE_CONTENT_LENGTH', (string) $this->responseData->bodyLength())] : [],
             'OUTBOUND_DATA_ERROR' => $this->responseData instanceof \Kanopi\Crs\Request\ResponseData ? [new ResolvedValue('OUTBOUND_DATA_ERROR', $this->responseData->status >= 500 ? '1' : '0')] : [],
@@ -324,6 +479,15 @@ final class VariableResolver
      */
     private function xmlValues(string $xpath, RequestData $requestData): array
     {
+        // An oversized body is not parsed at all rather than parsed truncated:
+        // a prefix of a document is not a document, so DOM would reject it and
+        // report nothing — with no record of why. Refusing up front keeps the
+        // reason on the verdict.
+        if ($this->maxBodyBytes !== CrsConfig::UNLIMITED && strlen($requestData->body) > $this->maxBodyBytes) {
+            $this->recordTruncation('xml_body', 0, strlen($requestData->body));
+            return [];
+        }
+
         if (!$this->xmlBody instanceof XmlBody) {
             $this->xmlBody = new XmlBody($requestData);
         }

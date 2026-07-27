@@ -62,7 +62,13 @@ final class RuleEvaluator
             $txStore->set($name, $value);
         }
 
-        $variableResolver    = new VariableResolver($txStore, $responseData);
+        $variableResolver    = new VariableResolver(
+            $txStore,
+            $responseData,
+            $this->crsConfig->maxArgs,
+            $this->crsConfig->maxBodyBytes,
+            $this->crsConfig->maxArgBytes,
+        );
         $transformPipeline    = new TransformPipeline($this->transformRegistry);
         $matched     = [];
         $skipUntil   = null;
@@ -169,7 +175,15 @@ final class RuleEvaluator
         $totalScore = $this->totalScore($txStore, $requestPhase);
         $action     = $this->decideAction($blockingId, $totalScore, $requestPhase, $operatorErrors);
 
-        return new CrsVerdict($action, $scores, $matched, $totalScore, $blockingId, $operatorErrors);
+        return new CrsVerdict(
+            $action,
+            $scores,
+            $matched,
+            $totalScore,
+            $blockingId,
+            $operatorErrors,
+            $variableResolver->truncations(),
+        );
     }
 
     /**

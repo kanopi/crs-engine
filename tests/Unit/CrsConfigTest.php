@@ -190,4 +190,61 @@ final class CrsConfigTest extends TestCase
 
         $this->assertSame(12, $crsConfig->inboundThreshold());
     }
+
+    public function testInspectionLimitsDefaultToTheDocumentedValues(): void
+    {
+        $crsConfig = new CrsConfig();
+
+        $this->assertSame(CrsConfig::DEFAULT_MAX_ARGS, $crsConfig->maxArgs);
+        $this->assertSame(CrsConfig::DEFAULT_MAX_BODY_BYTES, $crsConfig->maxBodyBytes);
+        $this->assertSame(CrsConfig::DEFAULT_MAX_ARG_BYTES, $crsConfig->maxArgBytes);
+    }
+
+    public function testUnlimitedIsAnAcceptedInspectionLimit(): void
+    {
+        $crsConfig = new CrsConfig(
+            maxArgs: CrsConfig::UNLIMITED,
+            maxBodyBytes: CrsConfig::UNLIMITED,
+            maxArgBytes: CrsConfig::UNLIMITED,
+        );
+
+        $this->assertSame(CrsConfig::UNLIMITED, $crsConfig->maxArgs);
+        $this->assertSame(CrsConfig::UNLIMITED, $crsConfig->maxBodyBytes);
+        $this->assertSame(CrsConfig::UNLIMITED, $crsConfig->maxArgBytes);
+    }
+
+    /**
+     * Zero would mean "inspect nothing", which is a WAF that does not work, and
+     * is the shape an unset config key would arrive in.
+     */
+    public function testZeroInspectionLimitIsRejected(): void
+    {
+        $this->expectException(ConfigurationException::class);
+        new CrsConfig(maxArgs: 0);
+    }
+
+    public function testNegativeInspectionLimitOtherThanUnlimitedIsRejected(): void
+    {
+        $this->expectException(ConfigurationException::class);
+        new CrsConfig(maxBodyBytes: -99);
+    }
+
+    public function testInspectionLimitsComeThroughFromArray(): void
+    {
+        $crsConfig = CrsConfig::fromArray([
+            'max_args'       => 10,
+            'max_body_bytes' => 20,
+            'max_arg_bytes'  => 30,
+        ]);
+
+        $this->assertSame(10, $crsConfig->maxArgs);
+        $this->assertSame(20, $crsConfig->maxBodyBytes);
+        $this->assertSame(30, $crsConfig->maxArgBytes);
+    }
+
+    public function testFailClosedOnOperatorErrorDefaultsOffAndComesThroughFromArray(): void
+    {
+        $this->assertFalse((new CrsConfig())->failClosedOnOperatorError);
+        $this->assertTrue(CrsConfig::fromArray(['fail_closed_on_operator_error' => true])->failClosedOnOperatorError);
+    }
 }
