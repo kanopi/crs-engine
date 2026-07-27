@@ -448,10 +448,14 @@ What it does:
 1. Reads `.crs-version` (or applies the override flag).
 2. Downloads `https://github.com/coreruleset/coreruleset/archive/refs/tags/<tag>.tar.gz`.
 3. Extracts to a temp directory with `PharData`.
-4. Parses every supported `REQUEST-*.conf` with the bundled `SecLangParser`.
-5. Writes `rules/<source>.json`, `rules/manifest.json`, and
-   `rules/compiled.php`.
-6. Updates `.crs-version` with the new tag.
+4. **Verifies the content digest against the pin.** A mismatch aborts before
+   anything is parsed or written, leaving `rules/` untouched.
+5. Parses every supported `REQUEST-*.conf` with the bundled `SecLangParser`,
+   plus anything in `supplemental/`.
+6. Builds the output in a staging directory and swaps it into place only once
+   every file has been written. A failure part-way through leaves the previous
+   `rules/` intact and loadable.
+7. Updates `.crs-version` with the tag and the digest.
 
 The result is normal, reviewable git changes. The intended pattern for
 production projects is a scheduled CI job that runs `--bump` weekly, opens a
@@ -464,13 +468,40 @@ pattern.
 `.crs-version` is a plain key=value file:
 
 ```
-tag=v4.0.0
-sha=
+tag=v4.26.0
+sha=sha256:99877496ab5a278f2978afa89b6e49a11b39d252b000889ffead4bd39adf3e70
 source=https://github.com/coreruleset/coreruleset
 ```
 
-The `source` field can point at a fork or mirror. `sha` is populated for
-provenance but not enforced.
+The `source` field can point at a fork or mirror.
+
+`sha` is a **content digest of the CRS rule files** — a sha256 over
+`filename:sha256` for every file in the release's `rules/` directory, sorted.
+It is enforced: if the rules published under the pinned tag stop matching it,
+the refresh fails and `rules/` is left alone.
+
+It hashes the extracted files rather than the tarball on purpose. GitHub's
+`/archive/refs/tags/` tarballs are generated on demand and are not guaranteed
+byte-stable — when GitHub changed its gzip in 2023, every auto-generated
+archive checksum changed at once and broke everyone pinning them. Since the
+refresh runs on a schedule, a pin that can fail for reasons unrelated to the
+content would just train people to ignore it.
+
+Be clear about what this does and does not buy you. It detects **ruleset
+substitution**: a re-tagged release, a tampered mirror, an unexpected content
+change under a tag you have already reviewed. It is *not* a signature — it
+does not authenticate the publisher, and it cannot help on the very first
+fetch, which is trust-on-first-use. If the pin is empty the digest is recorded
+rather than enforced, and `bin/refresh-crs` says so:
+
+```
+Content digest recorded (nothing to verify against yet): sha256:9987…
+Content digest verified: sha256:9987…
+```
+
+`--bump` deliberately re-pins, because moving to a new tag is a content change
+by definition. Review the `rules/` diff in the resulting PR — that diff, not
+the digest, is what tells you what actually changed.
 
 ---
 
