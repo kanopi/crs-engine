@@ -34,7 +34,8 @@
             "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 956011,
@@ -66,7 +67,8 @@
             "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 956012,
@@ -98,7 +100,8 @@
             "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 956100,
@@ -137,7 +140,7 @@
                 {
                     "name": "tx.outbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "4"
+                    "value": "%{tx.error_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -145,7 +148,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 956013,
@@ -177,7 +181,8 @@
             "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 956014,
@@ -209,7 +214,8 @@
             "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 956110,
@@ -248,7 +254,7 @@
                 {
                     "name": "tx.outbound_anomaly_score_pl2",
                     "op": "+",
-                    "value": "4"
+                    "value": "%{tx.error_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -256,7 +262,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 956015,
@@ -288,7 +295,8 @@
             "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 956016,
@@ -320,7 +328,8 @@
             "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 956017,
@@ -352,7 +361,8 @@
             "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 956018,
@@ -384,7 +394,8 @@
             "skip_after": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 0,
@@ -406,7 +417,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": "END-RESPONSE-956-DATA-LEAKAGES-RUBY"
+            "marker": "END-RESPONSE-956-DATA-LEAKAGES-RUBY",
+            "unconditional": false
         }
     ]
 }

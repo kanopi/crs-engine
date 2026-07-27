@@ -33,7 +33,8 @@
             "skip_after": "END-REQUEST-930-APPLICATION-ATTACK-LFI",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 930012,
@@ -65,7 +66,8 @@
             "skip_after": "END-REQUEST-930-APPLICATION-ATTACK-LFI",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 930100,
@@ -139,12 +141,12 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.lfi_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -152,7 +154,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 930110,
@@ -230,12 +233,12 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.lfi_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -243,7 +246,8 @@
             "skip_after": null,
             "multi_match": true,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 930120,
@@ -313,12 +317,12 @@
                 {
                     "name": "tx.lfi_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -326,7 +330,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 930130,
@@ -368,12 +373,12 @@
                 {
                     "name": "tx.lfi_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -381,7 +386,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 930140,
@@ -423,12 +429,12 @@
                 {
                     "name": "tx.lfi_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -436,7 +442,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 930013,
@@ -468,7 +475,8 @@
             "skip_after": "END-REQUEST-930-APPLICATION-ATTACK-LFI",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 930014,
@@ -500,7 +508,8 @@
             "skip_after": "END-REQUEST-930-APPLICATION-ATTACK-LFI",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 930121,
@@ -549,12 +558,12 @@
                 {
                     "name": "tx.lfi_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl2",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -562,7 +571,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 930015,
@@ -594,7 +604,8 @@
             "skip_after": "END-REQUEST-930-APPLICATION-ATTACK-LFI",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 930016,
@@ -626,7 +637,8 @@
             "skip_after": "END-REQUEST-930-APPLICATION-ATTACK-LFI",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 930017,
@@ -658,7 +670,8 @@
             "skip_after": "END-REQUEST-930-APPLICATION-ATTACK-LFI",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 930018,
@@ -690,7 +703,8 @@
             "skip_after": "END-REQUEST-930-APPLICATION-ATTACK-LFI",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 0,
@@ -712,7 +726,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": "END-REQUEST-930-APPLICATION-ATTACK-LFI"
+            "marker": "END-REQUEST-930-APPLICATION-ATTACK-LFI",
+            "unconditional": false
         }
     ]
 }

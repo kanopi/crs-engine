@@ -34,7 +34,8 @@
             "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 952011,
@@ -66,7 +67,8 @@
             "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 952012,
@@ -98,7 +100,8 @@
             "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 952110,
@@ -137,7 +140,7 @@
                 {
                     "name": "tx.outbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "4"
+                    "value": "%{tx.error_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -145,7 +148,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 952013,
@@ -177,7 +181,8 @@
             "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 952014,
@@ -209,7 +214,8 @@
             "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 952015,
@@ -241,7 +247,8 @@
             "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 952016,
@@ -273,7 +280,8 @@
             "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 952017,
@@ -305,7 +313,8 @@
             "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 952018,
@@ -337,7 +346,8 @@
             "skip_after": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 0,
@@ -359,7 +369,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": "END-RESPONSE-952-DATA-LEAKAGES-JAVA"
+            "marker": "END-RESPONSE-952-DATA-LEAKAGES-JAVA",
+            "unconditional": false
         }
     ]
 }

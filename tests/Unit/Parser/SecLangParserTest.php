@@ -65,7 +65,10 @@ CONF
         $this->assertCount(1, $r->setvars);
         $this->assertSame('tx.sql_injection_score', $r->setvars[0]['name']);
         $this->assertSame('+', $r->setvars[0]['op']);
-        $this->assertSame('5', $r->setvars[0]['value']);
+        // The reference is preserved for the evaluator to expand per request.
+        // Resolving it here collapsed anything the parser did not recognise to
+        // a literal 0, which is what left anomaly-score blocking dead.
+        $this->assertSame('%{tx.critical_anomaly_score}', $r->setvars[0]['value']);
     }
 
     public function testParsesChainedRules(): void

@@ -33,7 +33,8 @@
             "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921012,
@@ -65,7 +66,8 @@
             "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921110,
@@ -127,12 +129,12 @@
                 {
                     "name": "tx.http_violation_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -140,7 +142,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921120,
@@ -208,12 +211,12 @@
                 {
                     "name": "tx.http_violation_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -221,7 +224,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921130,
@@ -290,12 +294,12 @@
                 {
                     "name": "tx.http_violation_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -303,7 +307,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921140,
@@ -350,12 +355,12 @@
                 {
                     "name": "tx.http_violation_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -363,7 +368,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921150,
@@ -402,12 +408,12 @@
                 {
                     "name": "tx.http_violation_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -415,7 +421,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921160,
@@ -462,12 +469,12 @@
                 {
                     "name": "tx.http_violation_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -475,7 +482,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921190,
@@ -515,12 +523,12 @@
                 {
                     "name": "tx.http_violation_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -528,7 +536,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921200,
@@ -595,7 +604,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -603,7 +612,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921421,
@@ -643,7 +653,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -651,7 +661,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921240,
@@ -692,7 +703,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -700,7 +711,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921250,
@@ -739,7 +751,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -747,7 +759,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921013,
@@ -779,7 +792,8 @@
             "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921014,
@@ -811,7 +825,8 @@
             "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921151,
@@ -850,12 +865,12 @@
                 {
                     "name": "tx.http_violation_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl2",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -863,7 +878,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921422,
@@ -903,7 +919,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl2",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -911,7 +927,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921015,
@@ -943,7 +960,8 @@
             "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921016,
@@ -975,7 +993,8 @@
             "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921230,
@@ -1014,7 +1033,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl3",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -1022,7 +1041,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921170,
@@ -1066,7 +1086,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921180,
@@ -1103,12 +1124,12 @@
                 {
                     "name": "tx.http_violation_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl3",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -1116,7 +1137,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921210,
@@ -1153,12 +1175,12 @@
                 {
                     "name": "tx.http_violation_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl3",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -1166,7 +1188,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921017,
@@ -1198,7 +1221,8 @@
             "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921018,
@@ -1230,7 +1254,8 @@
             "skip_after": "END-REQUEST-921-PROTOCOL-ATTACK",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 921220,
@@ -1267,12 +1292,12 @@
                 {
                     "name": "tx.http_violation_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl4",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -1280,7 +1305,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 0,
@@ -1302,7 +1328,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": "END-REQUEST-921-PROTOCOL-ATTACK"
+            "marker": "END-REQUEST-921-PROTOCOL-ATTACK",
+            "unconditional": false
         }
     ]
 }

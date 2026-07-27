@@ -40,7 +40,7 @@
                 {
                     "name": "tx.922100_charset",
                     "op": "=",
-                    "value": "|0|"
+                    "value": "|%{ARGS._charset_}|"
                 }
             ],
             "chain": [
@@ -72,7 +72,7 @@
                         {
                             "name": "tx.inbound_anomaly_score_pl1",
                             "op": "+",
-                            "value": "5"
+                            "value": "%{tx.critical_anomaly_score}"
                         }
                     ],
                     "chain": [],
@@ -80,14 +80,16 @@
                     "skip_after": null,
                     "multi_match": false,
                     "warnings": [],
-                    "marker": null
+                    "marker": null,
+                    "unconditional": false
                 }
             ],
             "capture": false,
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 922140,
@@ -129,7 +131,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 922150,
@@ -164,7 +167,7 @@
                 {
                     "name": "tx.multipart_headers_content_types_%{tx.multipart_headers_content_counter}",
                     "op": "=",
-                    "value": "0"
+                    "value": "%{tx.1}"
                 },
                 {
                     "name": "tx.multipart_headers_content_counter",
@@ -177,7 +180,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 922110,
@@ -218,7 +222,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -226,7 +230,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 922120,
@@ -267,7 +272,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -275,7 +280,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 922130,
@@ -315,7 +321,7 @@
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -323,7 +329,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         }
     ]
 }

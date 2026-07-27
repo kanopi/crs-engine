@@ -33,7 +33,8 @@
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 934012,
@@ -65,7 +66,8 @@
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 934100,
@@ -148,12 +150,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -161,7 +163,8 @@
             "skip_after": null,
             "multi_match": true,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 934110,
@@ -235,12 +238,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -248,7 +251,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 934190,
@@ -322,12 +326,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -335,7 +339,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 934130,
@@ -405,12 +410,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -418,7 +423,8 @@
             "skip_after": null,
             "multi_match": true,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 934150,
@@ -486,12 +492,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -499,7 +505,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 934160,
@@ -580,12 +587,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -593,7 +600,8 @@
             "skip_after": null,
             "multi_match": true,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 934170,
@@ -668,12 +676,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -681,7 +689,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 934200,
@@ -749,12 +758,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl1",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -762,7 +771,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 934013,
@@ -794,7 +804,8 @@
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 934014,
@@ -826,7 +837,8 @@
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 934101,
@@ -906,12 +918,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl2",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -919,7 +931,8 @@
             "skip_after": null,
             "multi_match": true,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 934120,
@@ -993,12 +1006,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl2",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -1006,7 +1019,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 934140,
@@ -1074,12 +1088,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl2",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -1087,7 +1101,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 934180,
@@ -1154,12 +1169,12 @@
                 {
                     "name": "tx.rce_score",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 },
                 {
                     "name": "tx.inbound_anomaly_score_pl2",
                     "op": "+",
-                    "value": "5"
+                    "value": "%{tx.critical_anomaly_score}"
                 }
             ],
             "chain": [],
@@ -1167,7 +1182,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 934015,
@@ -1199,7 +1215,8 @@
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 934016,
@@ -1231,7 +1248,8 @@
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 934017,
@@ -1263,7 +1281,8 @@
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 934018,
@@ -1295,7 +1314,8 @@
             "skip_after": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
             "multi_match": false,
             "warnings": [],
-            "marker": null
+            "marker": null,
+            "unconditional": false
         },
         {
             "id": 0,
@@ -1317,7 +1337,8 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "marker": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC"
+            "marker": "END-REQUEST-934-APPLICATION-ATTACK-GENERIC",
+            "unconditional": false
         }
     ]
 }

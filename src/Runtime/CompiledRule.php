@@ -42,7 +42,17 @@ final class CompiledRule
         public readonly bool $multiMatch,
         public readonly array $rawWarnings = [],
         public readonly ?string $marker = null,
+        public readonly bool $unconditional = false,
     ) {
+    }
+
+    /**
+     * True for SecAction directives, which have no operator and apply their
+     * actions to every request.
+     */
+    public function isUnconditional(): bool
+    {
+        return $this->unconditional;
     }
 
     /**
@@ -75,7 +85,8 @@ final class CompiledRule
      *     skip_after?: ?string,
      *     multi_match?: bool,
      *     warnings?: array<int, string>,
-     *     marker?: ?string
+     *     marker?: ?string,
+     *     unconditional?: bool
      * } $data
      */
     public static function fromArray(array $data): self
@@ -107,6 +118,7 @@ final class CompiledRule
             multiMatch:       $data['multi_match'] ?? false,
             rawWarnings:      $data['warnings'] ?? [],
             marker:           $data['marker'] ?? null,
+            unconditional:    $data['unconditional'] ?? false,
         );
     }
 }
