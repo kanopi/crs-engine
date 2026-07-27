@@ -50,7 +50,7 @@
                 "kanopi/LIBINJECTION-GAP"
             ],
             "paranoia": 1,
-            "category": "misc",
+            "category": "sqli",
             "setvars": [
                 {
                     "name": "tx.sql_injection_score",

@@ -27,7 +27,7 @@
                 "OWASP_CRS/DATA-LEAKAGES-JAVA"
             ],
             "paranoia": 1,
-            "category": "java",
+            "category": "response_leak_java",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -60,7 +60,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "java",
+            "category": "response_leak_java",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -93,7 +93,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "java",
+            "category": "response_leak_java",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -135,7 +135,7 @@
                 "capec/1000/118/116"
             ],
             "paranoia": 1,
-            "category": "java",
+            "category": "response_leak_java",
             "setvars": [
                 {
                     "name": "tx.outbound_anomaly_score_pl1",
@@ -174,7 +174,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "java",
+            "category": "response_leak_java",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -207,7 +207,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "java",
+            "category": "response_leak_java",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -240,7 +240,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "java",
+            "category": "response_leak_java",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -273,7 +273,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "java",
+            "category": "response_leak_java",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -306,7 +306,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "java",
+            "category": "response_leak_java",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -339,7 +339,7 @@
                 "OWASP_CRS"
             ],
             "paranoia": 1,
-            "category": "java",
+            "category": "response_leak_java",
             "setvars": [],
             "chain": [],
             "capture": false,
@@ -362,7 +362,7 @@
             "message": "",
             "tags": [],
             "paranoia": 1,
-            "category": "java",
+            "category": "response_leak_java",
             "setvars": [],
             "chain": [],
             "capture": false,

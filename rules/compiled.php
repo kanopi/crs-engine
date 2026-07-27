@@ -33,7 +33,7 @@ return array (
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'method_enforcement',
       'setvars' => 
       array (
       ),
@@ -78,7 +78,7 @@ return array (
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'method_enforcement',
       'setvars' => 
       array (
       ),
@@ -130,7 +130,7 @@ return array (
         7 => 'capec/1000/210/272/220/274',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'method_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -181,7 +181,7 @@ return array (
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'method_enforcement',
       'setvars' => 
       array (
       ),
@@ -226,7 +226,7 @@ return array (
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'method_enforcement',
       'setvars' => 
       array (
       ),
@@ -271,7 +271,7 @@ return array (
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'method_enforcement',
       'setvars' => 
       array (
       ),
@@ -316,7 +316,7 @@ return array (
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'method_enforcement',
       'setvars' => 
       array (
       ),
@@ -361,7 +361,7 @@ return array (
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'method_enforcement',
       'setvars' => 
       array (
       ),
@@ -406,7 +406,7 @@ return array (
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'method_enforcement',
       'setvars' => 
       array (
       ),
@@ -442,7 +442,7 @@ return array (
       array (
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'method_enforcement',
       'setvars' => 
       array (
       ),
@@ -1019,7 +1019,7 @@ Mozilla/5.0 (compatible; AppScan;',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -1064,7 +1064,7 @@ Mozilla/5.0 (compatible; AppScan;',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -1117,7 +1117,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -1185,7 +1185,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -1244,7 +1244,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -1303,7 +1303,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -1338,7 +1338,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -1407,7 +1407,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -1442,7 +1442,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -1511,7 +1511,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -1545,7 +1545,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
           ),
@@ -1589,7 +1589,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
           ),
@@ -1633,7 +1633,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -1702,7 +1702,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -1737,7 +1737,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -1806,7 +1806,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -1840,7 +1840,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -1909,7 +1909,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -1968,7 +1968,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -2027,7 +2027,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/255/153/267',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -2077,7 +2077,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -2155,7 +2155,7 @@ Mozilla/5.0 (compatible; AppScan;',
         8 => 'capec/1000/255/153/267/72',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -2239,7 +2239,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -2298,7 +2298,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -2357,7 +2357,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -2399,7 +2399,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -2452,7 +2452,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -2486,7 +2486,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
           ),
@@ -2531,7 +2531,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -2600,7 +2600,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -2634,7 +2634,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
           ),
@@ -2679,7 +2679,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -2748,7 +2748,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -2807,7 +2807,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -2842,7 +2842,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -2911,7 +2911,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -2970,7 +2970,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -3005,7 +3005,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -3074,7 +3074,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -3110,7 +3110,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -3179,7 +3179,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -3215,7 +3215,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -3284,7 +3284,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -3319,7 +3319,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -3388,7 +3388,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -3422,7 +3422,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
           ),
@@ -3467,7 +3467,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -3536,7 +3536,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -3571,7 +3571,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -3641,7 +3641,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/255/153',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -3700,7 +3700,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/255/153',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -3741,7 +3741,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -3810,7 +3810,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/255/153',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -3851,7 +3851,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -3921,7 +3921,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/255/153',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -3980,7 +3980,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -4015,7 +4015,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -4084,7 +4084,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -4144,7 +4144,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -4186,7 +4186,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -4256,7 +4256,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -4316,7 +4316,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -4356,7 +4356,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -4427,7 +4427,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/255/153',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -4486,7 +4486,7 @@ Mozilla/5.0 (compatible; AppScan;',
         6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -4539,7 +4539,7 @@ Mozilla/5.0 (compatible; AppScan;',
         1 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -4616,7 +4616,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/255/153/267/72',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -4674,7 +4674,7 @@ Mozilla/5.0 (compatible; AppScan;',
         6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -4732,7 +4732,7 @@ Mozilla/5.0 (compatible; AppScan;',
         6 => 'OWASP_CRS/PROTOCOL-ENFORCEMENT',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -4783,7 +4783,7 @@ Mozilla/5.0 (compatible; AppScan;',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -4828,7 +4828,7 @@ Mozilla/5.0 (compatible; AppScan;',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -4881,7 +4881,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 2,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -4915,7 +4915,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -4985,7 +4985,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 2,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -5019,7 +5019,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -5088,7 +5088,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/255/153/267/120',
       ),
       'paranoia' => 2,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -5172,7 +5172,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 2,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -5231,7 +5231,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 2,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -5299,7 +5299,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 2,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -5359,7 +5359,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 2,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -5399,7 +5399,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -5468,7 +5468,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/255/153/267/72',
       ),
       'paranoia' => 2,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -5502,7 +5502,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
           ),
@@ -5546,7 +5546,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -5615,7 +5615,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 2,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -5651,7 +5651,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
           ),
@@ -5698,7 +5698,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -5759,7 +5759,7 @@ Mozilla/5.0 (compatible; AppScan;',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -5804,7 +5804,7 @@ Mozilla/5.0 (compatible; AppScan;',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -5890,7 +5890,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 3,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -5949,7 +5949,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 3,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -5983,7 +5983,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
           ),
@@ -6028,7 +6028,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -6096,7 +6096,7 @@ Mozilla/5.0 (compatible; AppScan;',
         6 => 'capec/1000/210/272',
       ),
       'paranoia' => 3,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -6131,7 +6131,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -6201,7 +6201,7 @@ Mozilla/5.0 (compatible; AppScan;',
         8 => 'capec/1000/210/272',
       ),
       'paranoia' => 3,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -6235,7 +6235,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -6305,7 +6305,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/255/153',
       ),
       'paranoia' => 3,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -6356,7 +6356,7 @@ Mozilla/5.0 (compatible; AppScan;',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -6401,7 +6401,7 @@ Mozilla/5.0 (compatible; AppScan;',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -6455,7 +6455,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 4,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -6489,7 +6489,7 @@ Mozilla/5.0 (compatible; AppScan;',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'rce',
+          'category' => 'protocol_enforcement',
           'setvars' => 
           array (
             0 => 
@@ -6575,7 +6575,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 4,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -6683,7 +6683,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 4,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -6751,7 +6751,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/210/272',
       ),
       'paranoia' => 4,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -6836,7 +6836,7 @@ Mozilla/5.0 (compatible; AppScan;',
         7 => 'capec/1000/153/267',
       ),
       'paranoia' => 4,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
         0 => 
@@ -6884,7 +6884,7 @@ Mozilla/5.0 (compatible; AppScan;',
       array (
       ),
       'paranoia' => 1,
-      'category' => 'rce',
+      'category' => 'protocol_enforcement',
       'setvars' => 
       array (
       ),
@@ -39213,7 +39213,7 @@ sun.reflect',
         6 => 'kanopi/LIBINJECTION-GAP',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'sqli',
       'setvars' => 
       array (
         0 => 
@@ -39271,7 +39271,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -39323,7 +39323,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -39375,7 +39375,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -39427,7 +39427,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -39479,7 +39479,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -39531,7 +39531,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -39583,7 +39583,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -39635,7 +39635,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -39678,7 +39678,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -39721,7 +39721,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -39773,7 +39773,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -39825,7 +39825,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -39877,7 +39877,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -39929,7 +39929,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -39981,7 +39981,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -40033,7 +40033,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -40085,7 +40085,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -40137,7 +40137,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -40179,7 +40179,7 @@ sun.reflect',
       array (
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -40226,7 +40226,7 @@ sun.reflect',
         1 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -40260,7 +40260,7 @@ sun.reflect',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'misc',
+          'category' => 'blocking_evaluation',
           'setvars' => 
           array (
           ),
@@ -40317,7 +40317,7 @@ sun.reflect',
         1 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -40362,7 +40362,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -40407,7 +40407,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -40452,7 +40452,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -40497,7 +40497,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -40542,7 +40542,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -40587,7 +40587,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -40632,7 +40632,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -40677,7 +40677,7 @@ sun.reflect',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -40713,7 +40713,7 @@ sun.reflect',
       array (
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -43279,7 +43279,7 @@ XPATH syntax error:',
         1 => 'OWASP_CRS/DATA-LEAKAGES-JAVA',
       ),
       'paranoia' => 1,
-      'category' => 'java',
+      'category' => 'response_leak_java',
       'setvars' => 
       array (
       ),
@@ -43324,7 +43324,7 @@ XPATH syntax error:',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'java',
+      'category' => 'response_leak_java',
       'setvars' => 
       array (
       ),
@@ -43369,7 +43369,7 @@ XPATH syntax error:',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'java',
+      'category' => 'response_leak_java',
       'setvars' => 
       array (
       ),
@@ -43422,7 +43422,7 @@ XPATH syntax error:',
         7 => 'capec/1000/118/116',
       ),
       'paranoia' => 1,
-      'category' => 'java',
+      'category' => 'response_leak_java',
       'setvars' => 
       array (
         0 => 
@@ -43473,7 +43473,7 @@ XPATH syntax error:',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'java',
+      'category' => 'response_leak_java',
       'setvars' => 
       array (
       ),
@@ -43518,7 +43518,7 @@ XPATH syntax error:',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'java',
+      'category' => 'response_leak_java',
       'setvars' => 
       array (
       ),
@@ -43563,7 +43563,7 @@ XPATH syntax error:',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'java',
+      'category' => 'response_leak_java',
       'setvars' => 
       array (
       ),
@@ -43608,7 +43608,7 @@ XPATH syntax error:',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'java',
+      'category' => 'response_leak_java',
       'setvars' => 
       array (
       ),
@@ -43653,7 +43653,7 @@ XPATH syntax error:',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'java',
+      'category' => 'response_leak_java',
       'setvars' => 
       array (
       ),
@@ -43698,7 +43698,7 @@ XPATH syntax error:',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'java',
+      'category' => 'response_leak_java',
       'setvars' => 
       array (
       ),
@@ -43734,7 +43734,7 @@ XPATH syntax error:',
       array (
       ),
       'paranoia' => 1,
-      'category' => 'java',
+      'category' => 'response_leak_java',
       'setvars' => 
       array (
       ),
@@ -43780,7 +43780,7 @@ XPATH syntax error:',
         1 => 'OWASP_CRS/DATA-LEAKAGES-PHP',
       ),
       'paranoia' => 1,
-      'category' => 'php',
+      'category' => 'response_leak_php',
       'setvars' => 
       array (
       ),
@@ -43825,7 +43825,7 @@ XPATH syntax error:',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'php',
+      'category' => 'response_leak_php',
       'setvars' => 
       array (
       ),
@@ -43870,7 +43870,7 @@ XPATH syntax error:',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'php',
+      'category' => 'response_leak_php',
       'setvars' => 
       array (
       ),
@@ -45755,7 +45755,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
         7 => 'capec/1000/118/116',
       ),
       'paranoia' => 1,
-      'category' => 'php',
+      'category' => 'response_leak_php',
       'setvars' => 
       array (
         0 => 
@@ -45814,7 +45814,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
         7 => 'capec/1000/118/116',
       ),
       'paranoia' => 1,
-      'category' => 'php',
+      'category' => 'response_leak_php',
       'setvars' => 
       array (
         0 => 
@@ -45873,7 +45873,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
         7 => 'capec/1000/118/116',
       ),
       'paranoia' => 1,
-      'category' => 'php',
+      'category' => 'response_leak_php',
       'setvars' => 
       array (
         0 => 
@@ -45924,7 +45924,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'php',
+      'category' => 'response_leak_php',
       'setvars' => 
       array (
       ),
@@ -45969,7 +45969,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'php',
+      'category' => 'response_leak_php',
       'setvars' => 
       array (
       ),
@@ -46022,7 +46022,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
         7 => 'capec/1000/118/116',
       ),
       'paranoia' => 2,
-      'category' => 'php',
+      'category' => 'response_leak_php',
       'setvars' => 
       array (
         0 => 
@@ -46073,7 +46073,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'php',
+      'category' => 'response_leak_php',
       'setvars' => 
       array (
       ),
@@ -46118,7 +46118,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'php',
+      'category' => 'response_leak_php',
       'setvars' => 
       array (
       ),
@@ -46163,7 +46163,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'php',
+      'category' => 'response_leak_php',
       'setvars' => 
       array (
       ),
@@ -46208,7 +46208,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'php',
+      'category' => 'response_leak_php',
       'setvars' => 
       array (
       ),
@@ -46244,7 +46244,7 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       array (
       ),
       'paranoia' => 1,
-      'category' => 'php',
+      'category' => 'response_leak_php',
       'setvars' => 
       array (
       ),
@@ -49216,7 +49216,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         1 => 'OWASP_CRS/DATA-LEAKAGES-RUBY',
       ),
       'paranoia' => 1,
-      'category' => 'response_leak',
+      'category' => 'response_leak_ruby',
       'setvars' => 
       array (
       ),
@@ -49261,7 +49261,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'response_leak',
+      'category' => 'response_leak_ruby',
       'setvars' => 
       array (
       ),
@@ -49306,7 +49306,7 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'response_leak',
+      'category' => 'response_leak_ruby',
       'setvars' => 
       array (
       ),
@@ -49464,7 +49464,7 @@ ActionView::TemplateError',
         7 => 'capec/1000/118/116',
       ),
       'paranoia' => 1,
-      'category' => 'response_leak',
+      'category' => 'response_leak_ruby',
       'setvars' => 
       array (
         0 => 
@@ -49515,7 +49515,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'response_leak',
+      'category' => 'response_leak_ruby',
       'setvars' => 
       array (
       ),
@@ -49560,7 +49560,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'response_leak',
+      'category' => 'response_leak_ruby',
       'setvars' => 
       array (
       ),
@@ -49613,7 +49613,7 @@ ActionView::TemplateError',
         7 => 'capec/1000/118/116',
       ),
       'paranoia' => 2,
-      'category' => 'response_leak',
+      'category' => 'response_leak_ruby',
       'setvars' => 
       array (
         0 => 
@@ -49664,7 +49664,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'response_leak',
+      'category' => 'response_leak_ruby',
       'setvars' => 
       array (
       ),
@@ -49709,7 +49709,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'response_leak',
+      'category' => 'response_leak_ruby',
       'setvars' => 
       array (
       ),
@@ -49754,7 +49754,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'response_leak',
+      'category' => 'response_leak_ruby',
       'setvars' => 
       array (
       ),
@@ -49799,7 +49799,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'response_leak',
+      'category' => 'response_leak_ruby',
       'setvars' => 
       array (
       ),
@@ -49835,7 +49835,7 @@ ActionView::TemplateError',
       array (
       ),
       'paranoia' => 1,
-      'category' => 'response_leak',
+      'category' => 'response_leak_ruby',
       'setvars' => 
       array (
       ),
@@ -49881,7 +49881,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -49933,7 +49933,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -49985,7 +49985,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -50037,7 +50037,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -50089,7 +50089,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -50141,7 +50141,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -50193,7 +50193,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -50245,7 +50245,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -50288,7 +50288,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -50331,7 +50331,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -50373,7 +50373,7 @@ ActionView::TemplateError',
       array (
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -50419,7 +50419,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -50471,7 +50471,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -50523,7 +50523,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -50575,7 +50575,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -50627,7 +50627,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -50679,7 +50679,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -50731,7 +50731,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -50783,7 +50783,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
         0 => 
@@ -50836,7 +50836,7 @@ ActionView::TemplateError',
         1 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -50870,7 +50870,7 @@ ActionView::TemplateError',
           array (
           ),
           'paranoia' => 1,
-          'category' => 'misc',
+          'category' => 'blocking_evaluation',
           'setvars' => 
           array (
           ),
@@ -50927,7 +50927,7 @@ ActionView::TemplateError',
         1 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -50972,7 +50972,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -51017,7 +51017,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -51062,7 +51062,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -51107,7 +51107,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -51152,7 +51152,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -51197,7 +51197,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -51242,7 +51242,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -51287,7 +51287,7 @@ ActionView::TemplateError',
         0 => 'OWASP_CRS',
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
@@ -51323,7 +51323,7 @@ ActionView::TemplateError',
       array (
       ),
       'paranoia' => 1,
-      'category' => 'misc',
+      'category' => 'blocking_evaluation',
       'setvars' => 
       array (
       ),
