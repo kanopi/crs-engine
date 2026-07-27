@@ -61,14 +61,14 @@ final class IpMatchOperator implements OperatorInterface
             self::$parsedCache[$argument] = $ranges;
         }
 
-        $valueBin = @inet_pton($value);
-        if ($valueBin === false) {
+        $valueBin = $this->pack($value);
+        if ($valueBin === null) {
             return OperatorMatch::miss();
         }
 
         foreach ($ranges as [$ip, $bits]) {
-            $ipBin = @inet_pton($ip);
-            if ($ipBin === false) {
+            $ipBin = $this->pack($ip);
+            if ($ipBin === null) {
                 continue;
             }
 
@@ -82,6 +82,33 @@ final class IpMatchOperator implements OperatorInterface
         }
 
         return OperatorMatch::miss();
+    }
+
+    /**
+     * inet_pton() as a total function: the packed address, or null for anything
+     * that is not one.
+     *
+     * It returns false for a malformed address but *throws* ValueError when the
+     * input contains a null byte, and the @ suppression operator does not catch
+     * exceptions. An address is attacker-controlled whenever a rule points
+     * @ipMatch at a header rather than REMOTE_ADDR — X-Forwarded-For being the
+     * obvious one — so a null byte there took the request down instead of the
+     * rule. The shipped CRS ruleset does not use @ipMatch at all, but custom
+     * rules are a supported path and this is a natural thing to write.
+     */
+    private function pack(string $address): ?string
+    {
+        if ($address === '' || str_contains($address, "\0")) {
+            return null;
+        }
+
+        try {
+            $packed = @inet_pton($address);
+        } catch (\ValueError) {
+            return null;
+        }
+
+        return $packed === false ? null : $packed;
     }
 
     private function binaryMatch(string $a, string $b, int $bits): bool

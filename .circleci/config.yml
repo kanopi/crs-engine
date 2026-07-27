@@ -55,6 +55,32 @@ jobs:
       - store_artifacts:
           path: reports
 
+  coverage:
+    parameters:
+      php:
+        type: string
+        default: *PHP_VERSION
+    docker:
+      - image: cimg/php:<< parameters.php >>
+        auth:
+          username: $DOCKERHUB_USER
+          password: $DOCKERHUB_PASS
+    resource_class: small
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: composer install --optimize-autoloader --no-progress --no-interaction
+      - run:
+          # Runs on one PHP version only. Coverage is a property of the tests,
+          # not of the runtime, so measuring it five times would cost five times
+          # as long to say the same thing.
+          name: Coverage floor on the detection-critical directories
+          command: composer run-script test:coverage
+      - store_artifacts:
+          path: build/clover.xml
+          destination: coverage
+
   refresh-and-branch:
     parameters:
       php:
@@ -173,6 +199,14 @@ workflows:
             parameters:
               php: *PHP_VERSION_TEST
           name: 'phpunit <<matrix.php>>'
+          context: kanopi-code
+          filters:
+            tags:
+              ignore: /.*/
+            branches:
+              only: /.*/
+      - coverage:
+          name: 'coverage'
           context: kanopi-code
           filters:
             tags:
