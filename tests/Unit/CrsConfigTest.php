@@ -196,7 +196,8 @@ final class CrsConfigTest extends TestCase
         $crsConfig = new CrsConfig();
 
         $this->assertSame(CrsConfig::DEFAULT_MAX_ARGS, $crsConfig->maxArgs);
-        $this->assertSame(CrsConfig::DEFAULT_MAX_BODY_BYTES, $crsConfig->maxBodyBytes);
+        $this->assertSame(CrsConfig::DEFAULT_MAX_REQUEST_BODY_BYTES, $crsConfig->maxRequestBodyBytes);
+        $this->assertSame(CrsConfig::DEFAULT_MAX_RESPONSE_BODY_BYTES, $crsConfig->maxResponseBodyBytes);
         $this->assertSame(CrsConfig::DEFAULT_MAX_ARG_BYTES, $crsConfig->maxArgBytes);
     }
 
@@ -204,12 +205,14 @@ final class CrsConfigTest extends TestCase
     {
         $crsConfig = new CrsConfig(
             maxArgs: CrsConfig::UNLIMITED,
-            maxBodyBytes: CrsConfig::UNLIMITED,
+            maxRequestBodyBytes: CrsConfig::UNLIMITED,
             maxArgBytes: CrsConfig::UNLIMITED,
+            maxResponseBodyBytes: CrsConfig::UNLIMITED,
         );
 
         $this->assertSame(CrsConfig::UNLIMITED, $crsConfig->maxArgs);
-        $this->assertSame(CrsConfig::UNLIMITED, $crsConfig->maxBodyBytes);
+        $this->assertSame(CrsConfig::UNLIMITED, $crsConfig->maxRequestBodyBytes);
+        $this->assertSame(CrsConfig::UNLIMITED, $crsConfig->maxResponseBodyBytes);
         $this->assertSame(CrsConfig::UNLIMITED, $crsConfig->maxArgBytes);
     }
 
@@ -226,19 +229,21 @@ final class CrsConfigTest extends TestCase
     public function testNegativeInspectionLimitOtherThanUnlimitedIsRejected(): void
     {
         $this->expectException(ConfigurationException::class);
-        new CrsConfig(maxBodyBytes: -99);
+        new CrsConfig(maxRequestBodyBytes: -99);
     }
 
     public function testInspectionLimitsComeThroughFromArray(): void
     {
         $crsConfig = CrsConfig::fromArray([
             'max_args'       => 10,
-            'max_body_bytes' => 20,
+            'max_request_body_bytes' => 20,
+            'max_response_body_bytes' => 40,
             'max_arg_bytes'  => 30,
         ]);
 
         $this->assertSame(10, $crsConfig->maxArgs);
-        $this->assertSame(20, $crsConfig->maxBodyBytes);
+        $this->assertSame(20, $crsConfig->maxRequestBodyBytes);
+        $this->assertSame(40, $crsConfig->maxResponseBodyBytes);
         $this->assertSame(30, $crsConfig->maxArgBytes);
     }
 
@@ -246,5 +251,43 @@ final class CrsConfigTest extends TestCase
     {
         $this->assertFalse((new CrsConfig())->failClosedOnOperatorError);
         $this->assertTrue(CrsConfig::fromArray(['fail_closed_on_operator_error' => true])->failClosedOnOperatorError);
+    }
+
+    public function testDeprecatedMaxBodyBytesSetsBothDirections(): void
+    {
+        $crsConfig = null;
+        $this->collectDeprecations(function () use (&$crsConfig): void {
+            $crsConfig = CrsConfig::fromArray(['max_body_bytes' => 4096]);
+        });
+
+        $this->assertInstanceOf(CrsConfig::class, $crsConfig);
+        $this->assertSame(4096, $crsConfig->maxRequestBodyBytes);
+        $this->assertSame(4096, $crsConfig->maxResponseBodyBytes);
+    }
+
+    public function testDeprecatedMaxBodyBytesEmitsADeprecation(): void
+    {
+        $seen = $this->collectDeprecations(static function (): void {
+            CrsConfig::fromArray(['max_body_bytes' => 4096]);
+        });
+
+        $this->assertCount(1, $seen);
+        $this->assertStringContainsString('max_body_bytes', $seen[0]);
+        $this->assertStringContainsString('max_response_body_bytes', $seen[0]);
+    }
+
+    public function testExplicitDirectionalKeysWinOverTheDeprecatedOne(): void
+    {
+        $crsConfig = null;
+        $this->collectDeprecations(function () use (&$crsConfig): void {
+            $crsConfig = CrsConfig::fromArray([
+                'max_body_bytes'          => 4096,
+                'max_response_body_bytes' => 999999,
+            ]);
+        });
+
+        $this->assertInstanceOf(CrsConfig::class, $crsConfig);
+        $this->assertSame(4096, $crsConfig->maxRequestBodyBytes);
+        $this->assertSame(999999, $crsConfig->maxResponseBodyBytes);
     }
 }

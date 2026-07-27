@@ -23,7 +23,7 @@ final class CrsVerdict
      *        appears. Worth alerting on.
      * @param array<int, array{what: string, inspected: int, total: int}> $truncations
      *        Where an inspection cap cut this request short — too many
-     *        arguments, or a body larger than maxBodyBytes. Like
+     *        arguments, or a body larger than the applicable body limit. Like
      *        $operatorErrors these are coverage gaps rather than findings, but
      *        deliberate ones: the caps exist so an oversized request cannot buy
      *        unbounded CPU. `&ARGS` counting is never capped, so the CRS rules

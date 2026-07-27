@@ -180,7 +180,14 @@ final class InspectionLimitsTest extends TestCase
     public function testResponseBodyIsCapped(): void
     {
         $responseData = new ResponseData(status: 200, body: str_repeat('c', 500));
-        $variableResolver = new VariableResolver(new TxStore(), $responseData, CrsConfig::UNLIMITED, 50);
+        $variableResolver = new VariableResolver(
+            new TxStore(),
+            $responseData,
+            CrsConfig::UNLIMITED,
+            CrsConfig::UNLIMITED,
+            CrsConfig::UNLIMITED,
+            maxResponseBodyBytes: 50,
+        );
 
         $values = $variableResolver->resolve([['collection' => 'RESPONSE_BODY']], $this->req());
 

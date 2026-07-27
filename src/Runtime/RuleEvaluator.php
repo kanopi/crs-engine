@@ -66,8 +66,9 @@ final class RuleEvaluator
             $txStore,
             $responseData,
             $this->crsConfig->maxArgs,
-            $this->crsConfig->maxBodyBytes,
+            $this->crsConfig->maxRequestBodyBytes,
             $this->crsConfig->maxArgBytes,
+            $this->crsConfig->maxResponseBodyBytes,
         );
         $transformPipeline    = new TransformPipeline($this->transformRegistry);
         $matched     = [];
@@ -161,7 +162,7 @@ final class RuleEvaluator
             // disruptive short-circuited on the first match, which bypassed
             // anomaly scoring entirely and made anomalyThresholds inert.
             // The 949/959 blocking-evaluation rules carry the real `deny`.
-            if (in_array($compiledRule->action, self::DISRUPTIVE_ACTIONS, true) && $this->crsConfig->mode === CrsConfig::MODE_BLOCK) {
+            if (in_array($compiledRule->action, self::DISRUPTIVE_ACTIONS, true) && $this->crsConfig->modeFor($requestPhase) === CrsConfig::MODE_BLOCK) {
                 $blockingId = $compiledRule->id;
                 break;
             }
@@ -515,7 +516,7 @@ final class RuleEvaluator
      */
     private function decideAction(?int $blockingId, int $totalScore, bool $requestPhase, array $operatorErrors): string
     {
-        if ($blockingId !== null && $this->crsConfig->mode === CrsConfig::MODE_BLOCK) {
+        if ($blockingId !== null && $this->crsConfig->modeFor($requestPhase) === CrsConfig::MODE_BLOCK) {
             return CrsVerdict::ACTION_BLOCK;
         }
 
@@ -525,13 +526,13 @@ final class RuleEvaluator
         // either way — so an integrator can measure how often this fires before
         // deciding to act on it.
         if ($operatorErrors !== [] && $this->crsConfig->failClosedOnOperatorError) {
-            return $this->crsConfig->mode === CrsConfig::MODE_BLOCK
+            return $this->crsConfig->modeFor($requestPhase) === CrsConfig::MODE_BLOCK
                 ? CrsVerdict::ACTION_BLOCK
                 : CrsVerdict::ACTION_LOG;
         }
 
         if ($totalScore >= $this->thresholdFor($requestPhase)) {
-            return $this->crsConfig->mode === CrsConfig::MODE_BLOCK
+            return $this->crsConfig->modeFor($requestPhase) === CrsConfig::MODE_BLOCK
                 ? CrsVerdict::ACTION_BLOCK
                 : CrsVerdict::ACTION_LOG;
         }

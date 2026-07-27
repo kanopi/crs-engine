@@ -159,8 +159,9 @@ final class InspectionLimitsTest extends TestCase
         $crsEngine = new CrsEngine(new CrsConfig(
             paranoia: 1,
             maxArgs: CrsConfig::UNLIMITED,
-            maxBodyBytes: CrsConfig::UNLIMITED,
+            maxRequestBodyBytes: CrsConfig::UNLIMITED,
             maxArgBytes: CrsConfig::UNLIMITED,
+            maxResponseBodyBytes: CrsConfig::UNLIMITED,
         ));
 
         $crsVerdict = $this->verdict($this->manyArgs(1000), $crsEngine);

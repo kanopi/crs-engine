@@ -6,14 +6,22 @@ declare(strict_types=1);
 /**
  * Debug helper: show how a parsed rule would evaluate against a payload.
  *
+ * The direction follows the rule. A phase 1-2 rule is tested by putting the
+ * payload in a request argument; a phase 3-5 rule is tested by putting it in a
+ * response body, because evaluate() skips response-phase rules entirely and
+ * would otherwise report "did not match" for a rule it never ran.
+ *
  * Usage:
  *   bin/crs-explain 942100
  *   bin/crs-explain 942100 --payload="' OR 1=1"
+ *   bin/crs-explain 951230 --payload="You have an error in your SQL syntax"
+ *   bin/crs-explain 951230 --payload="..." --status=500
  */
 
 use Kanopi\Crs\CrsConfig;
 use Kanopi\Crs\CrsEngine;
 use Kanopi\Crs\Request\RequestData;
+use Kanopi\Crs\Request\ResponseData;
 
 $root = dirname(__DIR__);
 $autoload = $root . '/vendor/autoload.php';
@@ -25,13 +33,20 @@ require $autoload;
 
 $id = (int) ($argv[1] ?? 0);
 if ($id <= 0) {
-    fwrite(STDERR, "Usage: crs-explain <rule-id> [--payload=<text>]\n");
+    fwrite(STDERR, "Usage: crs-explain <rule-id> [--payload=<text>] [--status=<code>]\n");
     exit(1);
 }
 $payload = null;
+$status  = 200;
 foreach ($argv as $arg) {
     if (str_starts_with($arg, '--payload=')) {
         $payload = substr($arg, strlen('--payload='));
+    }
+
+    // Some response rules gate on the status — OUTBOUND_DATA_ERROR keys off
+    // 5xx, and a leaked stack trace usually arrives with one.
+    if (str_starts_with($arg, '--status=')) {
+        $status = (int) substr($arg, strlen('--status='));
     }
 }
 
@@ -48,7 +63,10 @@ if ($rule === null) {
     exit(1);
 }
 
+$isResponseRule = $rule->phase >= 3;
+
 echo "Rule {$rule->id} ({$rule->category}, paranoia {$rule->paranoia}, severity {$rule->severity})\n";
+printf("  phase:     %d (%s)\n", $rule->phase, $isResponseRule ? 'response' : 'request');
 echo "  message:   {$rule->message}\n";
 echo "  operator:  @{$rule->operator}" . ($rule->operatorNegated ? ' (negated)' : '') . "\n";
 echo "  argument:  " . substr($rule->operatorArgument, 0, 200) . (strlen($rule->operatorArgument) > 200 ? '...' : '') . "\n";
@@ -65,14 +83,27 @@ echo "  tags:      " . implode(', ', $rule->tags) . "\n";
 if ($payload !== null) {
     $req = new RequestData(
         method: 'GET',
-        uri: '/?test=' . urlencode($payload),
-        rawUri: '/?test=' . urlencode($payload),
-        queryString: 'test=' . urlencode($payload),
+        uri: $isResponseRule ? '/' : '/?test=' . urlencode($payload),
+        rawUri: $isResponseRule ? '/' : '/?test=' . urlencode($payload),
+        queryString: $isResponseRule ? '' : 'test=' . urlencode($payload),
         protocol: 'HTTP/1.1',
         remoteAddr: '127.0.0.1',
-        queryArgs: ['test' => $payload],
+        queryArgs: $isResponseRule ? [] : ['test' => $payload],
+        headers: ['host' => 'crs-explain.test'],
     );
-    $verdict = $engine->evaluate($req);
+
+    if ($isResponseRule) {
+        echo "\n  Testing as a RESPONSE body (phase {$rule->phase}), status {$status}.\n";
+        $verdict = $engine->evaluateResponse($req, new ResponseData(
+            status: $status,
+            headers: ['content-type' => 'text/html; charset=utf-8'],
+            body: $payload,
+        ));
+    } else {
+        echo "\n  Testing as a REQUEST argument (ARGS:test, phase {$rule->phase}).\n";
+        $verdict = $engine->evaluate($req);
+    }
+
     $hit = false;
     foreach ($verdict->matchedRules as $m) {
         if ($m['id'] === $id) {
@@ -83,6 +114,17 @@ if ($payload !== null) {
     }
     if (!$hit) {
         echo "  → did not match payload\n";
+    }
+
+    printf(
+        "  verdict:   %s (score %d, %s threshold)\n",
+        $verdict->action,
+        $verdict->totalScore,
+        $isResponseRule ? 'outbound' : 'inbound',
+    );
+
+    if ($verdict->wasTruncated()) {
+        echo "  note:      inspection was truncated — " . json_encode($verdict->truncations) . "\n";
     }
 }
 

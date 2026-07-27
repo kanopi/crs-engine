@@ -62,16 +62,23 @@ final class VariableResolver
      *        Defaults to unbounded here rather than to the CrsConfig default,
      *        so a resolver constructed directly — as tests do — behaves as it
      *        always has. CrsEngine supplies the configured values.
-     * @param int $maxBodyBytes Body bytes to expose, or CrsConfig::UNLIMITED.
+     * @param int $maxRequestBodyBytes Request body bytes to expose, or
+     *        CrsConfig::UNLIMITED.
      * @param int $maxArgBytes Total argument bytes per resolve() call, or
      *        CrsConfig::UNLIMITED.
+     * @param int $maxResponseBodyBytes Response body bytes to expose, or
+     *        CrsConfig::UNLIMITED. Separate from the request limit: a 128 KB
+     *        request body is large, a 128 KB HTML page is ordinary, and capping
+     *        both at the request figure hid the tail of normal pages from the
+     *        response-phase rules.
      */
     public function __construct(
         private readonly TxStore $txStore,
         private readonly ?ResponseData $responseData = null,
         private readonly int $maxArgs = CrsConfig::UNLIMITED,
-        private readonly int $maxBodyBytes = CrsConfig::UNLIMITED,
+        private readonly int $maxRequestBodyBytes = CrsConfig::UNLIMITED,
         private readonly int $maxArgBytes = CrsConfig::UNLIMITED,
+        private readonly int $maxResponseBodyBytes = CrsConfig::UNLIMITED,
     ) {
     }
 
@@ -221,20 +228,20 @@ final class VariableResolver
      * Limit how much of a body the ruleset sees. Cost is linear in body size,
      * and every byte is attacker-controlled.
      */
-    private function capBody(string $what, string $body): string
+    private function capBody(string $what, string $body, int $limit): string
     {
-        if ($this->maxBodyBytes === CrsConfig::UNLIMITED) {
+        if ($limit === CrsConfig::UNLIMITED) {
             return $body;
         }
 
         $length = strlen($body);
-        if ($length <= $this->maxBodyBytes) {
+        if ($length <= $limit) {
             return $body;
         }
 
-        $this->recordTruncation($what, $this->maxBodyBytes, $length);
+        $this->recordTruncation($what, $limit, $length);
 
-        return substr($body, 0, $this->maxBodyBytes);
+        return substr($body, 0, $limit);
     }
 
     private function recordTruncation(string $what, int $inspected, int $total): void
@@ -295,7 +302,7 @@ final class VariableResolver
             'REQUEST_METHOD'   => [new ResolvedValue('REQUEST_METHOD', $requestData->method)],
             'REQUEST_PROTOCOL' => [new ResolvedValue('REQUEST_PROTOCOL', $requestData->protocol)],
             'REQUEST_LINE'     => [new ResolvedValue('REQUEST_LINE', sprintf('%s %s %s', $requestData->method, $requestData->uri, $requestData->protocol))],
-            'REQUEST_BODY'     => [new ResolvedValue('REQUEST_BODY', $this->capBody('request_body', $requestData->body))],
+            'REQUEST_BODY'     => [new ResolvedValue('REQUEST_BODY', $this->capBody('request_body', $requestData->body, $this->maxRequestBodyBytes))],
             'QUERY_STRING'     => [new ResolvedValue('QUERY_STRING', $requestData->queryString)],
             'REMOTE_ADDR'      => [new ResolvedValue('REMOTE_ADDR', $requestData->remoteAddr)],
             'UNIQUE_ID'        => $requestData->uniqueId === null ? [] : [new ResolvedValue('UNIQUE_ID', $requestData->uniqueId)],
@@ -309,7 +316,7 @@ final class VariableResolver
             'RESPONSE_PROTOCOL' => $this->responseData instanceof \Kanopi\Crs\Request\ResponseData ? [new ResolvedValue('RESPONSE_PROTOCOL', $this->responseData->protocol)] : [],
             'RESPONSE_HEADERS' => $this->responseData instanceof \Kanopi\Crs\Request\ResponseData ? $this->flattenHeaders('RESPONSE_HEADERS', $this->responseData->headers, $selector, $selectorIsRegex) : [],
             'RESPONSE_HEADERS_NAMES' => $this->responseData instanceof \Kanopi\Crs\Request\ResponseData ? $this->keys('RESPONSE_HEADERS_NAMES', $this->responseData->headers, $selector, $selectorIsRegex) : [],
-            'RESPONSE_BODY'    => $this->responseData instanceof \Kanopi\Crs\Request\ResponseData ? [new ResolvedValue('RESPONSE_BODY', $this->capBody('response_body', $this->responseData->body))] : [],
+            'RESPONSE_BODY'    => $this->responseData instanceof \Kanopi\Crs\Request\ResponseData ? [new ResolvedValue('RESPONSE_BODY', $this->capBody('response_body', $this->responseData->body, $this->maxResponseBodyBytes))] : [],
             'RESPONSE_CONTENT_TYPE' => $this->responseData instanceof \Kanopi\Crs\Request\ResponseData ? [new ResolvedValue('RESPONSE_CONTENT_TYPE', $this->responseData->effectiveContentType())] : [],
             'RESPONSE_CONTENT_LENGTH' => $this->responseData instanceof \Kanopi\Crs\Request\ResponseData ? [new ResolvedValue('RESPONSE_CONTENT_LENGTH', (string) $this->responseData->bodyLength())] : [],
             'OUTBOUND_DATA_ERROR' => $this->responseData instanceof \Kanopi\Crs\Request\ResponseData ? [new ResolvedValue('OUTBOUND_DATA_ERROR', $this->responseData->status >= 500 ? '1' : '0')] : [],
@@ -509,7 +516,7 @@ final class VariableResolver
         // a prefix of a document is not a document, so DOM would reject it and
         // report nothing — with no record of why. Refusing up front keeps the
         // reason on the verdict.
-        if ($this->maxBodyBytes !== CrsConfig::UNLIMITED && strlen($requestData->body) > $this->maxBodyBytes) {
+        if ($this->maxRequestBodyBytes !== CrsConfig::UNLIMITED && strlen($requestData->body) > $this->maxRequestBodyBytes) {
             $this->recordTruncation('xml_body', 0, strlen($requestData->body));
             return [];
         }
