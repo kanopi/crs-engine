@@ -84,6 +84,29 @@ final class CrsConfig
     public const UNLIMITED = -1;
 
     /**
+     * Outbound defaults to monitor, not block.
+     *
+     * The outbound threshold is 4 and 59 of the 61 response rules that carry a
+     * message are severity error or critical, worth 4 and 5. So a single match
+     * blocks: there is no anomaly accumulation outbound the way there is
+     * inbound, where a threshold of 5 gives a notice or warning somewhere to
+     * land. One rule, one block.
+     *
+     * That is too sharp to have on by default for the traffic this engine sees.
+     * 953110 matches PHP function names in output, so a documentation page
+     * listing fopen and fwrite trips it; 952110 matches a Java stack trace, so
+     * a tutorial showing one trips it. Three of seven ordinary pages in the
+     * pre-1.0 sweep were blocked. And blocking a response is heavier than
+     * blocking a request — the application has already done the work, and the
+     * visitor gets an error instead of a page that was fine.
+     *
+     * Monitor still evaluates every RESPONSE-* rule and still fills in
+     * matchedRules and totalScore. Sites that want outbound blocking opt in
+     * with responseMode: MODE_BLOCK, ideally after reading their own logs.
+     */
+    public const DEFAULT_RESPONSE_MODE = self::MODE_MONITOR;
+
+    /**
      * How much each severity contributes to the anomaly score. Upstream CRS
      * exposes these in crs-setup.conf and operators do tune them.
      */
@@ -143,8 +166,10 @@ final class CrsConfig
      *        CrsConfig::UNLIMITED to inspect all of it.
      * @param string|null $requestMode Overrides $mode for evaluate(). Null to
      *        follow $mode.
-     * @param string|null $responseMode Overrides $mode for evaluateResponse().
-     *        Null to follow $mode.
+     * @param string|null $responseMode Overrides the outbound mode. Null uses
+     *        DEFAULT_RESPONSE_MODE (monitor) rather than $mode — see that
+     *        constant for why outbound is not blocked by default. Pass
+     *        MODE_BLOCK explicitly to reject leaking responses.
      *
      *        Blocking outbound is a much heavier action than blocking inbound:
      *        the application has already done its work, and rejecting the
@@ -180,7 +205,7 @@ final class CrsConfig
         }
 
         $this->requestMode  = $requestMode ?? $mode;
-        $this->responseMode = $responseMode ?? $mode;
+        $this->responseMode = $responseMode ?? self::DEFAULT_RESPONSE_MODE;
 
         // Zero would mean "inspect nothing", which is a WAF that does not work.
         // UNLIMITED is spelled -1 so that reading the value cannot be confused

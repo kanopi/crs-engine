@@ -170,6 +170,40 @@ final class RequestData
     }
 
     /**
+     * What processed this body, for the REQBODY_PROCESSOR variable.
+     *
+     * Falls back to the Content-Type when the integrator did not say. That
+     * matters more than it looks: CRS gates real behaviour on this. 920539
+     * checks REQBODY_PROCESSOR for JSON and switches off 920540, which flags
+     * `\uXXXX` as a Unicode bypass attempt — ordinary string escaping in JSON,
+     * so without the gate every JSON API request carrying an accented
+     * character or an emoji is rejected. Leaving the variable unset because an
+     * integrator did not know to populate it turned a rule CRS disables into a
+     * rule that fires constantly.
+     *
+     * An explicitly supplied value always wins; this only fills a gap.
+     */
+    public function effectiveBodyProcessor(): ?string
+    {
+        if ($this->bodyProcessor !== null) {
+            return $this->bodyProcessor;
+        }
+
+        $contentType = strtolower((string) $this->header('Content-Type'));
+        if ($contentType === '') {
+            return null;
+        }
+
+        return match (true) {
+            str_contains($contentType, 'json')                       => 'JSON',
+            str_contains($contentType, 'xml')                        => 'XML',
+            str_contains($contentType, 'multipart/')                 => 'MULTIPART',
+            str_contains($contentType, 'application/x-www-form-urlencoded') => 'URLENCODED',
+            default                                                  => null,
+        };
+    }
+
+    /**
      * Combined GET + POST args as a name-keyed map, for integrators that want
      * one bag to inspect.
      *

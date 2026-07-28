@@ -1,6 +1,6 @@
 {
     "source_file": "REQUEST-922-MULTIPART-ATTACK.conf",
-    "crs_version": "v4.26.0",
+    "crs_version": "v4.28.0",
     "rule_count": 6,
     "rules": [
         {
@@ -82,7 +82,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -91,7 +93,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{ARGS._charset_}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 922140,
@@ -135,7 +139,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 922150,
@@ -185,7 +191,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 922110,
@@ -236,7 +244,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{MATCHED_VAR} found within Content-Type multipart form",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 922120,
@@ -287,7 +297,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 922130,
@@ -337,7 +349,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         }
     ]
 }

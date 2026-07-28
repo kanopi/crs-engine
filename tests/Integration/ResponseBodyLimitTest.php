@@ -49,7 +49,12 @@ final class ResponseBodyLimitTest extends TestCase
 
     private function verdict(string $body, ?CrsConfig $crsConfig = null): CrsVerdict
     {
-        return (new CrsEngine($crsConfig ?? new CrsConfig(paranoia: 1)))->evaluateResponse(
+        // Outbound defaults to monitor, so these assert on isBlocked() only
+        // because they opt into outbound blocking — what is under test is which
+        // bytes the rules were shown, not the mode.
+        $crsConfig ??= new CrsConfig(paranoia: 1, responseMode: CrsConfig::MODE_BLOCK);
+
+        return (new CrsEngine($crsConfig))->evaluateResponse(
             $this->requestData,
             new ResponseData(status: 500, headers: ['content-type' => 'text/html'], body: $body),
         );
@@ -114,7 +119,7 @@ final class ResponseBodyLimitTest extends TestCase
     public function testTheRequestLimitDoesNotGovernTheResponse(): void
     {
         // A tiny request limit must leave response inspection untouched.
-        $crsConfig = new CrsConfig(paranoia: 1, maxRequestBodyBytes: 64);
+        $crsConfig = new CrsConfig(paranoia: 1, maxRequestBodyBytes: 64, responseMode: CrsConfig::MODE_BLOCK);
         $crsVerdict = $this->verdict($this->page(169 * 1024, leakAtEnd: true), $crsConfig);
 
         $this->assertTrue($crsVerdict->isBlocked());
@@ -146,7 +151,7 @@ final class ResponseBodyLimitTest extends TestCase
 
     public function testUnlimitedResponseBodyInspectsEverything(): void
     {
-        $crsConfig = new CrsConfig(paranoia: 1, maxResponseBodyBytes: CrsConfig::UNLIMITED);
+        $crsConfig = new CrsConfig(paranoia: 1, maxResponseBodyBytes: CrsConfig::UNLIMITED, responseMode: CrsConfig::MODE_BLOCK);
         $crsVerdict = $this->verdict($this->page(700 * 1024, leakAtEnd: true), $crsConfig);
 
         $this->assertFalse($crsVerdict->wasTruncated());

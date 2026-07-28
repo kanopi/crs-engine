@@ -1,6 +1,6 @@
 {
     "source_file": "REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION.conf",
-    "crs_version": "v4.26.0",
+    "crs_version": "v4.28.0",
     "rule_count": 12,
     "rules": [
         {
@@ -35,7 +35,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 943012,
@@ -69,7 +71,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 943100,
@@ -109,6 +113,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -152,13 +163,15 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 943110,
             "phase": 2,
             "operator": "rx",
-            "operator_arg": "^(?:j(?:se(?:ssionid|rvsession)|wsession)|(?:asp(?:\\.net_)?session|zend_session_)id|p(?:hpsessi(?:on|d)|lay_session)|(?:(?:w(?:eblogic|l)|rack\\.|laravel_)sessio|(?:next-auth\\.session-|meteor_login_)toke)n|s(?:(?:ession[\\-_]?|ails\\.s)id|hiny-token)|_(?:session_id|(?:(?:flask|rails)_sessio|_(?:secure|host)-next-auth\\.session-toke)n)|c(?:f(?:s?id|token)|onnect\\.sid|akephp|i_session)|koa[\\.:]sess)$",
+            "operator_arg": "^(?:json\\.)?(?:j(?:se(?:ssionid|rvsession)|wsession)|(?:asp(?:\\.net_)?session|zend_session_)id|p(?:hpsessi(?:on|d)|lay_session)|(?:(?:w(?:eblogic|l)|rack\\.|laravel_)sessio|(?:next-auth\\.session-|meteor_login_)toke)n|s(?:(?:ession[\\-_]?|ails\\.s)id|hiny-token)|_(?:session_id|(?:(?:flask|rails)_sessio|_(?:secure|host)-next-auth\\.session-toke)n)|c(?:f(?:s?id|token)|onnect\\.sid|akephp|i_session)|koa[\\.:]sess)$",
             "operator_negated": false,
             "targets": [
                 {
@@ -226,7 +239,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 },
                 {
                     "id": 0,
@@ -269,7 +284,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": true,
@@ -278,13 +295,15 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{TX.943110_MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 943120,
             "phase": 2,
             "operator": "rx",
-            "operator_arg": "^(?:j(?:se(?:ssionid|rvsession)|wsession)|(?:asp(?:\\.net_)?session|session[\\-_]?)id|phpsessi(?:on|d)|(?:weblogic|laravel_)session|_(?:session_id|flask_session)|c(?:f(?:s?id|token)|onnect\\.sid))$",
+            "operator_arg": "^(?:json\\.)?(?:j(?:se(?:ssionid|rvsession)|wsession)|(?:asp(?:\\.net_)?session|session[\\-_]?)id|phpsessi(?:on|d)|(?:weblogic|laravel_)session|_(?:session_id|flask_session)|c(?:f(?:s?id|token)|onnect\\.sid))$",
             "operator_negated": false,
             "targets": [
                 {
@@ -363,7 +382,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": true,
@@ -372,7 +393,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{TX.943120_MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 943013,
@@ -406,7 +429,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 943014,
@@ -440,7 +465,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 943015,
@@ -474,7 +501,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 943016,
@@ -508,7 +537,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 943017,
@@ -542,7 +573,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 943018,
@@ -576,7 +609,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 0,
@@ -600,7 +635,9 @@
             "warnings": [],
             "logdata": null,
             "marker": "END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION",
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         }
     ]
 }

@@ -19,6 +19,9 @@ final class ParsedRule
      * @param array<int, string> $warnings
      * @param string|null $marker Non-null only for SecMarker placeholders, which
      *        carry no operator and exist purely as skipAfter landing points.
+     * @param array<int, int> $suppressRuleIds Rules this one switches off for the
+     *        rest of the transaction when it matches (ctl:ruleRemoveById).
+     * @param array<int, string> $suppressRuleTags As above, by tag.
      */
     public function __construct(
         public readonly int $id,
@@ -43,6 +46,8 @@ final class ParsedRule
         public readonly ?string $logdata = null,
         public readonly ?string $marker = null,
         public readonly bool $unconditional = false,
+        public readonly array $suppressRuleIds = [],
+        public readonly array $suppressRuleTags = [],
     ) {
     }
 
@@ -145,6 +150,8 @@ final class ParsedRule
             'logdata'           => $this->logdata,
             'marker'            => $this->marker,
             'unconditional'     => $this->unconditional,
+            'suppress_rule_ids'  => $this->suppressRuleIds,
+            'suppress_rule_tags' => $this->suppressRuleTags,
         ];
     }
 }

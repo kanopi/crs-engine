@@ -67,6 +67,9 @@ final class AnomalyScoringTest extends TestCase
                 paranoia: 1,
                 mode: $mode,
                 anomalyThresholds: ['inbound' => $threshold, 'outbound' => $threshold],
+                // Outbound defaults to monitor; these tests are about scoring
+                // and threshold mechanics, so both directions follow $mode.
+                responseMode: $mode,
             ),
             new RuleSet($rules, 'test'),
         );

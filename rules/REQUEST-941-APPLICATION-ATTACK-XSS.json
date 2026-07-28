@@ -1,6 +1,6 @@
 {
     "source_file": "REQUEST-941-APPLICATION-ATTACK-XSS.conf",
-    "crs_version": "v4.26.0",
+    "crs_version": "v4.28.0",
     "rule_count": 41,
     "rules": [
         {
@@ -35,7 +35,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941012,
@@ -69,7 +71,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941010,
@@ -106,7 +110,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941110,
@@ -170,6 +176,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -216,7 +229,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941120,
@@ -280,6 +295,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -326,7 +348,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941130,
@@ -383,6 +407,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -429,13 +460,15 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941140,
             "phase": 2,
             "operator": "rx",
-            "operator_arg": "(?i)[a-z]+=(?:[^:=]+:.+;)*?[^:=]+:url\\(javascript",
+            "operator_arg": "(?i)[a-z]+=(?:[^:=]+:[^;]+;)*?[^:=]+:url\\(javascript",
             "operator_negated": false,
             "targets": [
                 {
@@ -493,6 +526,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -540,7 +580,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941160,
@@ -604,6 +646,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -650,13 +699,15 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941170,
             "phase": 2,
             "operator": "rx",
-            "operator_arg": "(?i)(?:\\W|^)(?:javascript:(?:[\\s\\S]+[=\\x5c\\(\\[\\.<]|[\\s\\S]*?(?:\\bname\\b|\\x5c[ux]\\d))|data:(?:(?:[a-z]\\w+/\\w[\\w+-]+\\w)?[;,]|[\\s\\S]*?;[\\s\\S]*?\\b(?:base64|charset=)|[\\s\\S]*?,[\\s\\S]*?<[\\s\\S]*?\\w[\\s\\S]*?>))|@\\W*?i\\W*?m\\W*?p\\W*?o\\W*?r\\W*?t\\W*?(?:/\\*[\\s\\S]*?)?(?:[\"']|\\W*?u\\W*?r\\W*?l[\\s\\S]*?\\()|[^-]*?-\\W*?m\\W*?o\\W*?z\\W*?-\\W*?b\\W*?i\\W*?n\\W*?d\\W*?i\\W*?n\\W*?g[^:]*?:\\W*?u\\W*?r\\W*?l[\\s\\S]*?\\(",
+            "operator_arg": "(?i)(?:[^0-9A-Z_a-z]|^)(?:javascript:(?:.+[\\(\\.<=\\[\\x5c]|.*?(?:\\bname\\b|\\x5c[ux][0-9]))|data:(?:(?:[a-z][0-9A-Z_a-z]+/[0-9A-Z_a-z][\\+\\-0-9A-Z_a-z]+[0-9A-Z_a-z])?[,;]|.*?(?:;.*?\\b(?:base64|charset=)|,.*?<.*?[0-9A-Z_a-z].*?>)))|@[^0-9A-Z_a-z]*?i[^0-9A-Z_a-z]*?m[^0-9A-Z_a-z]*?p[^0-9A-Z_a-z]*?o[^0-9A-Z_a-z]*?r[^0-9A-Z_a-z]*?t[^0-9A-Z_a-z]*?(?:/\\*.*?)?(?:[\"']|[^0-9A-Z_a-z]*?u[^0-9A-Z_a-z]*?r[^0-9A-Z_a-z]*?l.*?\\()|-[^0-9A-Z_a-z]*?m[^0-9A-Z_a-z]*?o[^0-9A-Z_a-z]*?z[^0-9A-Z_a-z]*?-[^0-9A-Z_a-z]*?b[^0-9A-Z_a-z]*?i[^0-9A-Z_a-z]*?n[^0-9A-Z_a-z]*?d[^0-9A-Z_a-z]*?i[^0-9A-Z_a-z]*?n[^0-9A-Z_a-z]*?g[^:]*?:[^0-9A-Z_a-z]*?u[^0-9A-Z_a-z]*?r[^0-9A-Z_a-z]*?l.*?\\(",
             "operator_negated": false,
             "targets": [
                 {
@@ -714,6 +765,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -760,7 +818,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941180,
@@ -810,6 +870,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -856,7 +923,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941190,
@@ -906,6 +975,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -952,7 +1028,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941200,
@@ -1002,6 +1080,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1048,7 +1133,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941210,
@@ -1098,6 +1185,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1144,7 +1238,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941220,
@@ -1194,6 +1290,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1240,7 +1343,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941230,
@@ -1290,6 +1395,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1336,7 +1448,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941240,
@@ -1383,6 +1497,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -1433,7 +1554,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941250,
@@ -1483,6 +1606,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1529,7 +1659,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941260,
@@ -1579,6 +1711,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1625,7 +1764,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941270,
@@ -1675,6 +1816,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1721,7 +1869,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941280,
@@ -1771,6 +1921,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1817,7 +1974,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941290,
@@ -1867,6 +2026,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1913,7 +2079,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941300,
@@ -1963,6 +2131,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -2009,7 +2184,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941310,
@@ -2056,6 +2233,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -2127,7 +2311,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": true,
@@ -2136,7 +2322,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941350,
@@ -2186,6 +2374,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -2229,7 +2424,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941360,
@@ -2279,6 +2476,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -2318,7 +2522,9 @@
             "warnings": [],
             "logdata": "Matched Data: Suspicious payload found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941370,
@@ -2358,6 +2564,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -2402,7 +2615,9 @@
             "warnings": [],
             "logdata": "Matched Data: Suspicious JS global variable found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941390,
@@ -2452,6 +2667,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -2494,7 +2716,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941400,
@@ -2544,6 +2768,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -2585,7 +2816,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941013,
@@ -2619,7 +2852,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941014,
@@ -2653,7 +2888,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941150,
@@ -2710,6 +2947,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -2756,7 +3000,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941181,
@@ -2803,6 +3049,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -2853,7 +3106,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941320,
@@ -2903,6 +3158,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -2945,7 +3207,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941330,
@@ -2995,6 +3259,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -3037,7 +3308,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941340,
@@ -3087,6 +3360,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -3129,7 +3409,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941380,
@@ -3179,6 +3461,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -3218,7 +3507,9 @@
             "warnings": [],
             "logdata": "Matched Data: Suspicious payload found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941015,
@@ -3252,7 +3543,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941016,
@@ -3286,7 +3579,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941017,
@@ -3320,7 +3615,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 941018,
@@ -3354,7 +3651,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 0,
@@ -3378,7 +3677,9 @@
             "warnings": [],
             "logdata": null,
             "marker": "END-REQUEST-941-APPLICATION-ATTACK-XSS",
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         }
     ]
 }

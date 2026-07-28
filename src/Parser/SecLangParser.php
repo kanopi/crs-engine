@@ -358,6 +358,8 @@ final class SecLangParser
             multiMatch:       $r->multiMatch,
             warnings:         $r->warnings,
             logdata:          $r->logdata,
+            suppressRuleIds:  $r->suppressRuleIds,
+            suppressRuleTags: $r->suppressRuleTags,
         );
     }
 
@@ -484,6 +486,8 @@ final class SecLangParser
             multiMatch:       $parsedActions->multiMatch,
             warnings:         [],
             logdata:          $parsedActions->logdata,
+            suppressRuleIds:  $parsedActions->suppressRuleIds,
+            suppressRuleTags: $parsedActions->suppressRuleTags,
         );
 
         return new RuleParseState($parsedRule, $parsedActions->chain);
@@ -755,6 +759,85 @@ final class SecLangParser
         }
     }
 
+    /**
+     * Recognise the ctl: forms this engine implements, returning true when the
+     * value was consumed.
+     *
+     * ModSecurity scopes a ctl action to the current transaction and to rules
+     * evaluated after it, which is exactly how CRS uses it: a cheap guard rule
+     * fires early and switches off a later rule that would otherwise misfire on
+     * that shape of traffic.
+     *
+     * ruleRemoveById accepts a single id or an inclusive range (`1-99`), and a
+     * space-separated list of either.
+     */
+    private function parseCtl(string $value, ParsedActions $parsedActions): bool
+    {
+        $eq = strpos($value, '=');
+        if ($eq === false) {
+            return false;
+        }
+
+        $directive = strtolower(trim(substr($value, 0, $eq)));
+        $argument  = trim(substr($value, $eq + 1));
+
+        if ($directive === 'ruleremovebytag') {
+            if ($argument === '') {
+                return false;
+            }
+
+            $parsedActions->suppressRuleTags[] = $argument;
+            return true;
+        }
+
+        if ($directive !== 'ruleremovebyid') {
+            return false;
+        }
+
+        $ids = [];
+        foreach (preg_split('/[\s,]+/', $argument) ?: [] as $entry) {
+            if ($entry === '') {
+                continue;
+            }
+
+            if (preg_match('/^(\d+)-(\d+)$/', $entry, $m) === 1) {
+                $from = (int) $m[1];
+                $to   = (int) $m[2];
+                if ($from > $to) {
+                    return false;
+                }
+
+                // A CRS id block is 100 wide; anything vastly larger is a
+                // malformed rule rather than an intent to disable the ruleset.
+                if ($to - $from > 10000) {
+                    return false;
+                }
+
+                for ($id = $from; $id <= $to; $id++) {
+                    $ids[] = $id;
+                }
+
+                continue;
+            }
+
+            if (!ctype_digit($entry)) {
+                return false;
+            }
+
+            $ids[] = (int) $entry;
+        }
+
+        if ($ids === []) {
+            return false;
+        }
+
+        foreach ($ids as $id) {
+            $parsedActions->suppressRuleIds[] = $id;
+        }
+
+        return true;
+    }
+
     private function parseActions(string $raw): ParsedActions
     {
         $parsedActions = new ParsedActions();
@@ -841,6 +924,19 @@ final class SecLangParser
                 // targets. The rest imply cross-request state this engine does
                 // not model at all.
                 case 'ctl':
+                    // Two forms are implemented, because CRS relies on them to
+                    // switch a rule off for traffic it knows will trip it —
+                    // 920539 exists solely to disable 920540 on JSON bodies,
+                    // where \uXXXX is ordinary string escaping rather than an
+                    // evasion attempt. Anything else still warns.
+                    if ($value !== null && $this->parseCtl($value, $parsedActions)) {
+                        break;
+                    }
+
+                    $parsedActions->unsupportedActions[] = $value === null
+                        ? 'ctl'
+                        : 'ctl:' . $value;
+                    break;
                 case 'expirevar':
                 case 'deprecatevar':
                 case 'initcol':

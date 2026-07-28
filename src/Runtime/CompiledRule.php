@@ -21,6 +21,9 @@ final class CompiledRule
      * @param string|null $logdata Diagnostic template from the rule, surfaced on the verdict.
      * @param string|null $marker Non-null only for SecMarker placeholders, which
      *        carry no operator and exist purely as skipAfter landing points.
+     * @param array<int, int> $suppressRuleIds Rules switched off for the rest of
+     *        this transaction once this one matches (ctl:ruleRemoveById).
+     * @param array<int, string> $suppressRuleTags As above, by tag.
      */
     public function __construct(
         public readonly int $id,
@@ -44,6 +47,8 @@ final class CompiledRule
         public readonly ?string $logdata = null,
         public readonly ?string $marker = null,
         public readonly bool $unconditional = false,
+        public readonly array $suppressRuleIds = [],
+        public readonly array $suppressRuleTags = [],
     ) {
     }
 
@@ -87,7 +92,9 @@ final class CompiledRule
      *     multi_match?: bool,
      *     logdata?: ?string,
      *     marker?: ?string,
-     *     unconditional?: bool
+     *     unconditional?: bool,
+     *     suppress_rule_ids?: array<int, int>,
+     *     suppress_rule_tags?: array<int, string>
      * } $data
      */
     public static function fromArray(array $data): self
@@ -120,6 +127,8 @@ final class CompiledRule
             logdata:          $data['logdata'] ?? null,
             marker:           $data['marker'] ?? null,
             unconditional:    $data['unconditional'] ?? false,
+            suppressRuleIds:  $data['suppress_rule_ids'] ?? [],
+            suppressRuleTags: $data['suppress_rule_tags'] ?? [],
         );
     }
 }

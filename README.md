@@ -236,6 +236,88 @@ inferred.
 `anomalyThresholds` was already directional and is unchanged. `maxArgs` and
 `maxArgBytes` are request-only concepts, since a response has no arguments.
 
+### Tuning for a CMS
+
+CRS is tuned for applications, and a CMS is an application whose users paste
+code into text fields. At PL1 the shipped ruleset flags a fair amount of
+ordinary editorial content, and that is upstream behaviour rather than an
+engine defect — but it is the first thing you will hit, so it is worth knowing
+what to expect before you turn blocking on.
+
+Sweeping twenty realistic benign requests through the default config, four were
+blocked:
+
+| Traffic | Rules | Why |
+|---|---|---|
+| A post body containing `cat /etc/hosts \| grep localhost` | 930120, 932235, 932260 | Shell commands in content look exactly like RCE payloads |
+| A regex in a support ticket | 932280 | Shell metacharacters |
+| A JSON blob pasted into a form field | 920540 | `\uXXXX` reads as a Unicode bypass outside a JSON body |
+| A URL path containing `../` | 930100, 930110 | Genuinely a traversal pattern |
+
+None of these have a clever fix. They need exclusions, scoped as tightly as you
+can manage.
+
+**Start here, then narrow.** Exclude the specific fields that carry authored
+content rather than disabling rules globally:
+
+```php
+new CrsConfig(
+    // Fields where users legitimately paste code, paths and regexes.
+    // Prefer this over disabledRules: it keeps the rule working everywhere else.
+    disabledRules: [
+        932235, 932260,   // unix command injection — trips on shell examples
+        932280,           // shell metacharacters — trips on regexes
+    ],
+);
+```
+
+If only part of your site accepts authored content, run two engine instances
+with different configs and pick per route. That keeps full strength on your
+login and checkout paths, where it matters most, and relaxes only the editor.
+
+**Watch before you block.** `mode: MODE_MONITOR` evaluates everything and
+returns `log` instead of `block`. Run it over real traffic for a week, group
+`matchedRules` by rule id, and you will have a far better exclusion list than
+any generic one — including this one.
+
+**Outbound is already monitor-only by default.** See
+[Request and response are configured separately](#request-and-response-are-configured-separately);
+you do not need to do anything to avoid a docs page being blocked for
+mentioning `fopen`.
+
+### Feeding the engine correctly
+
+Two integration details change how much the engine can see. Neither is
+obvious, and both silently reduce detection if missed.
+
+**Decode JSON bodies into `postArgs`.** The engine does not parse request
+bodies — that is the integrator's job, because your framework has already done
+it. `REQUEST_BODY` is inspected as a single string, but almost all of the
+detection rules target `ARGS`, so an attack in an undecoded JSON body is not
+seen:
+
+```php
+// A JSON API endpoint. Without the decode, ARGS is empty.
+$decoded = json_decode($rawBody, true);
+
+new RequestData(
+    // ...
+    postArgs: is_array($decoded) ? $decoded : [],
+    body:     $rawBody,
+);
+```
+
+```
+SQLi in a JSON body, not decoded    allow  score=0
+SQLi in a JSON body, decoded        block  score=10  rules=[942190,942360,949110]
+```
+
+**Set `bodyProcessor`, or send an accurate `Content-Type`.** CRS gates real
+behaviour on `REQBODY_PROCESSOR`: rule 920539 checks it for `JSON` and switches
+off 920540, which would otherwise flag every `\uXXXX` escape as a Unicode
+bypass. The engine infers the processor from `Content-Type` when you do not set
+it explicitly, so an accurate header is usually enough.
+
 ### Thresholds vs. severity scores
 
 These are the two halves of the anomaly model and are easy to confuse:
@@ -536,7 +618,7 @@ which this engine replaces with `CrsConfig` and
 would make rule 901001 deny every request, because it checks a variable
 `crs-setup.conf` is supposed to have set.
 
-The current release parses **583 CRS rules** plus 1 supplemental rule, 67
+The current release parses **586 CRS rules** plus 1 supplemental rule, 67
 chain conditions, 6 `SecAction` directives and 29 `SecMarker` placeholders.
 Four CRS rules are skipped for using `@detectSQLi`/`@detectXSS`; the counts
 are asserted by `tests/Integration/RulesetInvariantsTest.php`, so they cannot
@@ -600,8 +682,8 @@ pattern.
 `.crs-version` is a plain key=value file:
 
 ```
-tag=v4.26.0
-sha=sha256:99877496ab5a278f2978afa89b6e49a11b39d252b000889ffead4bd39adf3e70
+tag=v4.28.0
+sha=sha256:aac29fbd56288cb37adec9ac879fa694f6aaa410a564bf5b834bd335d0e216df
 source=https://github.com/coreruleset/coreruleset
 ```
 

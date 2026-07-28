@@ -306,7 +306,9 @@ final class VariableResolver
             'QUERY_STRING'     => [new ResolvedValue('QUERY_STRING', $requestData->queryString)],
             'REMOTE_ADDR'      => [new ResolvedValue('REMOTE_ADDR', $requestData->remoteAddr)],
             'UNIQUE_ID'        => $requestData->uniqueId === null ? [] : [new ResolvedValue('UNIQUE_ID', $requestData->uniqueId)],
-            'REQBODY_PROCESSOR' => $requestData->bodyProcessor === null ? [] : [new ResolvedValue('REQBODY_PROCESSOR', $requestData->bodyProcessor)],
+            'REQBODY_PROCESSOR' => ($processor = $requestData->effectiveBodyProcessor()) === null
+                ? []
+                : [new ResolvedValue('REQBODY_PROCESSOR', $processor)],
             'FILES_NAMES'      => $this->fileNames($requestData->files),
             'FILES'            => $this->fileContents($requestData->files),
             'FILES_TMPNAMES'   => $this->fileTmpNames($requestData->files),
