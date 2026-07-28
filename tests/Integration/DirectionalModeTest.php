@@ -76,17 +76,34 @@ final class DirectionalModeTest extends TestCase
         return (new CrsEngine($crsConfig))->evaluateResponse($this->cleanRequest(), $this->response());
     }
 
-    public function testModeStillGovernsBothDirectionsByDefault(): void
+    /**
+     * `mode` governs the request. Outbound does not follow it, because a single
+     * response-rule match is already over the outbound threshold and blocking a
+     * response is heavier than rejecting a request — see
+     * CrsConfig::DEFAULT_RESPONSE_MODE.
+     */
+    public function testModeGovernsTheRequestAndOutboundDefaultsToMonitor(): void
     {
         $crsConfig = new CrsConfig(paranoia: 1, mode: CrsConfig::MODE_BLOCK);
 
         $this->assertSame(CrsConfig::MODE_BLOCK, $crsConfig->requestMode);
-        $this->assertSame(CrsConfig::MODE_BLOCK, $crsConfig->responseMode);
+        $this->assertSame(CrsConfig::MODE_MONITOR, $crsConfig->responseMode);
         $this->assertTrue($this->inbound($crsConfig)->isBlocked());
+        $this->assertFalse($this->outbound($crsConfig)->isBlocked());
+    }
+
+    public function testOutboundBlockingIsAvailableByOptingIn(): void
+    {
+        $crsConfig = new CrsConfig(
+            paranoia: 1,
+            mode: CrsConfig::MODE_BLOCK,
+            responseMode: CrsConfig::MODE_BLOCK,
+        );
+
         $this->assertTrue($this->outbound($crsConfig)->isBlocked());
     }
 
-    public function testMonitorModeStillGovernsBothDirectionsByDefault(): void
+    public function testMonitorModeGovernsBothDirections(): void
     {
         $crsConfig = new CrsConfig(paranoia: 1, mode: CrsConfig::MODE_MONITOR);
 
@@ -134,6 +151,7 @@ final class DirectionalModeTest extends TestCase
             paranoia: 1,
             mode: CrsConfig::MODE_BLOCK,
             requestMode: CrsConfig::MODE_MONITOR,
+            responseMode: CrsConfig::MODE_BLOCK,
         );
 
         $this->assertFalse($this->inbound($crsConfig)->isBlocked());

@@ -31,7 +31,13 @@ final class ResponseRulesTest extends TestCase
             $compiled[] = CompiledRule::fromArray($p->toArray());
         }
 
-        $this->crsEngine = new CrsEngine(new CrsConfig(), new RuleSet($compiled, 'fixture'));
+        // Outbound defaults to monitor so a documentation page is not blocked
+        // for mentioning fopen. These tests are about whether the RESPONSE-*
+        // rules detect and block, so they opt into outbound blocking.
+        $this->crsEngine = new CrsEngine(
+            new CrsConfig(responseMode: CrsConfig::MODE_BLOCK),
+            new RuleSet($compiled, 'fixture'),
+        );
     }
 
     public function testBlocksMysqlSyntaxErrorLeak(): void

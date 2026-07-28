@@ -119,9 +119,11 @@ final class RuleEvaluator
             if ($this->crsConfig->isRuleDisabled($compiledRule->id)) {
                 continue;
             }
+
             if (isset($suppressedIds[$compiledRule->id])) {
                 continue;
             }
+
             if ($this->hasSuppressedTag($compiledRule, $suppressedTags)) {
                 continue;
             }

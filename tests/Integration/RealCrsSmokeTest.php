@@ -35,7 +35,11 @@ final class RealCrsSmokeTest extends TestCase
             self::markTestSkipped('Real CRS rules not present — run bin/refresh-crs to populate rules/.');
         }
 
-        self::$crsEngine = new CrsEngine(new CrsConfig(paranoia: 1));
+        // responseMode is explicit because outbound defaults to monitor; the
+        // smoke test asserts the response rules can block when asked to.
+        self::$crsEngine = new CrsEngine(
+            new CrsConfig(paranoia: 1, responseMode: CrsConfig::MODE_BLOCK),
+        );
     }
 
     /**
