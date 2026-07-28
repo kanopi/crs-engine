@@ -306,14 +306,38 @@ mentioning `fopen`.
 Two integration details change how much the engine can see. Neither is
 obvious, and both silently reduce detection if missed.
 
-**Decode JSON bodies into `postArgs`.** The engine does not parse request
-bodies — that is the integrator's job, because your framework has already done
-it. `REQUEST_BODY` is inspected as a single string, but almost all of the
-detection rules target `ARGS`, so an attack in an undecoded JSON body is not
-seen:
+**Which body formats reach the rules.** The ruleset looks at `ARGS` — 187 rules
+target it, against 19 that read `REQUEST_BODY` as raw text — so a structured
+body has to reach `ARGS` to be inspected properly.
+
+| Content-Type | Reaches `ARGS` | Parsed by |
+|---|---|---|
+| `application/x-www-form-urlencoded` | yes | engine, if `postArgs` is empty |
+| `application/json` (and `+json` types) | yes, as `json.path` names | engine, if `postArgs` is empty |
+| `text/xml`, `application/xml` | yes, via `XML:` targets | engine, always |
+| `multipart/form-data` | **only if you supply `postArgs`** | you |
+| `text/plain`, `application/octet-stream` | n/a — no structure | — |
+
+Every body is read as raw text through `REQUEST_BODY` regardless, which is the
+right treatment for the unstructured ones.
+
+**Multipart is yours to supply.** Boundaries, part headers, transfer encodings
+and file parts add up to a real parser, and it is the one format where
+disagreeing subtly with your application creates bypasses rather than closing
+them — so the engine does not guess. Pass `postArgs`, and `files`,
+`multipartFlags` and `multipartPartHeaders` if your parser can produce them; the
+CRS 922 rules read those. If a multipart body arrives with no `postArgs`, the
+verdict reports `multipart_body_unparsed` rather than passing quietly.
+
+**Supplying `postArgs` is better even where the engine can parse.** Not for
+detection — both give the same verdict, which is asserted per payload — but
+because it removes a parser differential. If the engine parses the body and your
+application parses it differently, an attacker can arrange for the two to
+disagree and get the engine inspecting something the application never sees.
+Your decode is the one the application will act on, so it is the one worth
+inspecting:
 
 ```php
-// A JSON API endpoint. Without the decode, ARGS is empty.
 $decoded = json_decode($rawBody, true);
 
 new RequestData(
@@ -323,10 +347,12 @@ new RequestData(
 );
 ```
 
-```
-SQLi in a JSON body, not decoded    allow  score=0
-SQLi in a JSON body, decoded        block  score=10  rules=[942190,942360,949110]
-```
+`postArgs` wins outright whenever it is populated; the engine parses only when
+nothing did.
+
+**Gaps are reported, not silent.** `CrsVerdict::$truncations` records
+`body_too_large_to_parse`, `json_body_unparsable` and `multipart_body_unparsed`,
+so "the WAF is not catching anything" is diagnosable rather than guesswork.
 
 **Set `bodyProcessor`, or send an accurate `Content-Type`.** CRS gates real
 behaviour on `REQBODY_PROCESSOR`: rule 920539 checks it for `JSON` and switches
