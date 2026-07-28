@@ -55,6 +55,57 @@ jobs:
       - store_artifacts:
           path: reports
 
+  quality-check:
+    # Replaces ci-tools/composer for these checks. That job is built for deploy
+    # work: it runs `sudo apt update; sudo apt install rsync` unconditionally —
+    # there is no parameter to skip it — and defaults use-cache to false, so
+    # every one of the fifteen check jobs on a PR paid for an apt refresh, an
+    # rsync install it never used, and an uncached composer install.
+    #
+    # Its cache is also keyed on composer.lock, which this repo deliberately
+    # does not commit (the PHP 8.1-8.5 matrix is the reason), so enabling it
+    # would not have worked. Keying on composer.json, as the phpunit job
+    # already does, does.
+    parameters:
+      php:
+        type: string
+        default: *PHP_VERSION
+      command:
+        type: string
+      report:
+        type: string
+    docker:
+      - image: cimg/php:<< parameters.php >>
+        auth:
+          username: $DOCKERHUB_USER
+          password: $DOCKERHUB_PASS
+    resource_class: small
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - composer-cache-{{ checksum "composer.json" }}
+            - composer-cache-
+      - run:
+          name: Install dependencies
+          command: composer install --optimize-autoloader --no-progress --no-interaction
+      - save_cache:
+          key: composer-cache-{{ checksum "composer.json" }}
+          paths:
+            - vendor
+      - run:
+          name: Run << parameters.command >>
+          command: composer run-script << parameters.command >>
+      - store_test_results:
+          # These run even when the check fails, which is the case that matters:
+          # a red build with no report attached is a build you have to re-read
+          # the log for.
+          path: << parameters.report >>
+          when: always
+      - store_artifacts:
+          path: << parameters.report >>
+          when: always
+
   coverage:
     parameters:
       php:
@@ -231,60 +282,45 @@ workflows:
               ignore: /.*/
             branches:
               only: /.*/
-      - ci-tools/composer:
+      - quality-check:
           matrix:
             parameters:
-              tag: *PHP_VERSION_TEST
-          name: 'phpstan <<matrix.tag>>'
+              php: *PHP_VERSION_TEST
+          name: 'phpstan <<matrix.php>>'
           context: kanopi-code
           command: 'check:stan:circleci'
+          report: phpstan-report.xml
           filters:
             tags:
               ignore: /.*/
             branches:
               only: /.*/
-          post-steps:
-            - store_test_results:
-                path: phpstan-report.xml
-            - store_artifacts:
-                path: phpstan-report.xml
-                destination: phpstan
-      - ci-tools/composer:
+      - quality-check:
           matrix:
             parameters:
-              tag: *PHP_VERSION_TEST
-          name: 'rector <<matrix.tag>>'
+              php: *PHP_VERSION_TEST
+          name: 'rector <<matrix.php>>'
           context: kanopi-code
           command: 'check:rector:circleci'
+          report: rector-report.xml
           filters:
             tags:
               ignore: /.*/
             branches:
               only: /.*/
-          post-steps:
-            - store_test_results:
-                path: rector-report.xml
-            - store_artifacts:
-                path: rector-report.xml
-                destination: rector
-      - ci-tools/composer:
+      - quality-check:
           matrix:
             parameters:
-              tag: *PHP_VERSION_TEST
-          name: 'quality <<matrix.tag>>'
+              php: *PHP_VERSION_TEST
+          name: 'quality <<matrix.php>>'
           context: kanopi-code
           command: 'check:code:circleci'
+          report: phpcs-report.xml
           filters:
             tags:
               ignore: /.*/
             branches:
               only: /.*/
-          post-steps:
-            - store_test_results:
-                path: phpcs-report.xml
-            - store_artifacts:
-                path: phpcs-report.xml
-                destination: phpcs
 
   weekly-refresh:
     # Trigger this workflow from a CircleCI Scheduled Pipeline:
@@ -309,37 +345,40 @@ workflows:
               only: /^v\d+\.\d+\.\d+(-.+)?$/
             branches:
               ignore: /.*/
-      - ci-tools/composer:
+      - quality-check:
           matrix:
             parameters:
-              tag: *PHP_VERSION_TEST
-          name: 'phpstan-release <<matrix.tag>>'
+              php: *PHP_VERSION_TEST
+          name: 'phpstan-release <<matrix.php>>'
           context: kanopi-code
           command: 'check:stan:circleci'
+          report: phpstan-report.xml
           filters:
             tags:
               only: /^v\d+\.\d+\.\d+(-.+)?$/
             branches:
               ignore: /.*/
-      - ci-tools/composer:
+      - quality-check:
           matrix:
             parameters:
-              tag: *PHP_VERSION_TEST
-          name: 'rector-release <<matrix.tag>>'
+              php: *PHP_VERSION_TEST
+          name: 'rector-release <<matrix.php>>'
           context: kanopi-code
           command: 'check:rector:circleci'
+          report: rector-report.xml
           filters:
             tags:
               only: /^v\d+\.\d+\.\d+(-.+)?$/
             branches:
               ignore: /.*/
-      - ci-tools/composer:
+      - quality-check:
           matrix:
             parameters:
-              tag: *PHP_VERSION_TEST
-          name: 'quality-release <<matrix.tag>>'
+              php: *PHP_VERSION_TEST
+          name: 'quality-release <<matrix.php>>'
           context: kanopi-code
           command: 'check:code:circleci'
+          report: phpcs-report.xml
           filters:
             tags:
               only: /^v\d+\.\d+\.\d+(-.+)?$/
