@@ -16,6 +16,10 @@ final class ParsedActions
      * @param array<int, string> $transforms
      * @param array<int, string> $tags
      * @param array<int, array{name: string, op: string, value: string}> $setvars
+     * @param array<int, int> $suppressRuleIds Rule IDs this rule switches off
+     *        for the rest of the transaction, from ctl:ruleRemoveById.
+     * @param array<int, string> $suppressRuleTags Tags this rule switches off
+     *        for the rest of the transaction, from ctl:ruleRemoveByTag.
      * @param array<int, string> $unsupportedActions Actions recognised but not
      *        implemented, which change what a rule does — the caller turns
      *        these into parser warnings once it knows the rule id. Metadata the
@@ -38,6 +42,8 @@ final class ParsedActions
         public ?string $skipAfter = null,
         public ?string $logdata = null,
         public array $unsupportedActions = [],
+        public array $suppressRuleIds = [],
+        public array $suppressRuleTags = [],
     ) {
     }
 }

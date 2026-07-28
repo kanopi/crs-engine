@@ -35,7 +35,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920012,
@@ -69,7 +71,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920100,
@@ -118,7 +122,9 @@
             "warnings": [],
             "logdata": "%{request_line}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920120,
@@ -175,7 +181,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920160,
@@ -224,7 +232,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920170,
@@ -299,7 +309,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -308,7 +320,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920171,
@@ -383,7 +397,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -392,7 +408,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920180,
@@ -459,7 +477,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 },
                 {
                     "id": 0,
@@ -491,7 +511,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 },
                 {
                     "id": 0,
@@ -529,7 +551,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -538,7 +562,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920181,
@@ -613,7 +639,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -622,7 +650,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920190,
@@ -695,7 +725,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": true,
@@ -704,7 +736,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920660,
@@ -753,7 +787,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920210,
@@ -802,7 +838,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920250,
@@ -889,7 +927,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -898,7 +938,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920260,
@@ -955,7 +997,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920270,
@@ -1026,7 +1070,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920280,
@@ -1075,7 +1121,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920290,
@@ -1124,7 +1172,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 0,
@@ -1148,7 +1198,9 @@
             "warnings": [],
             "logdata": null,
             "marker": "END-HOST-CHECK",
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920310,
@@ -1215,7 +1267,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 },
                 {
                     "id": 0,
@@ -1255,7 +1309,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -1264,7 +1320,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920311,
@@ -1331,7 +1389,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 },
                 {
                     "id": 0,
@@ -1371,7 +1431,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -1380,7 +1442,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920330,
@@ -1429,7 +1493,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920340,
@@ -1504,7 +1570,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -1513,7 +1581,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920350,
@@ -1562,7 +1632,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920380,
@@ -1637,7 +1709,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -1646,7 +1720,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920360,
@@ -1722,7 +1798,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -1731,7 +1809,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920370,
@@ -1807,7 +1887,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -1816,7 +1898,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920390,
@@ -1891,7 +1975,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -1900,7 +1986,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920400,
@@ -1967,7 +2055,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 },
                 {
                     "id": 0,
@@ -2007,7 +2097,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -2016,7 +2108,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920410,
@@ -2091,7 +2185,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -2100,7 +2196,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920470,
@@ -2150,7 +2248,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920420,
@@ -2231,7 +2331,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": true,
@@ -2240,7 +2342,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920480,
@@ -2321,7 +2425,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": true,
@@ -2330,7 +2436,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920530,
@@ -2380,7 +2488,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920640,
@@ -2455,7 +2565,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -2464,7 +2576,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920430,
@@ -2513,7 +2627,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920440,
@@ -2596,7 +2712,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": true,
@@ -2605,7 +2723,9 @@
             "warnings": [],
             "logdata": "%{TX.0}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920500,
@@ -2655,7 +2775,9 @@
             "warnings": [],
             "logdata": "%{TX.0}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920450,
@@ -2735,7 +2857,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": true,
@@ -2744,7 +2868,9 @@
             "warnings": [],
             "logdata": "Restricted header detected: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920520,
@@ -2795,7 +2921,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920600,
@@ -2844,7 +2972,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920539,
@@ -2881,7 +3011,11 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [
+                920540
+            ],
+            "suppress_rule_tags": []
         },
         {
             "id": 920540,
@@ -2951,7 +3085,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920610,
@@ -2999,7 +3135,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920620,
@@ -3047,7 +3185,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920013,
@@ -3081,7 +3221,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920014,
@@ -3115,7 +3257,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920200,
@@ -3188,7 +3332,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -3197,7 +3343,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920201,
@@ -3271,7 +3419,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -3280,7 +3430,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920230,
@@ -3329,7 +3481,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920271,
@@ -3400,7 +3554,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920320,
@@ -3449,7 +3605,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920121,
@@ -3506,7 +3664,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920451,
@@ -3586,7 +3746,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": true,
@@ -3595,7 +3757,9 @@
             "warnings": [],
             "logdata": "Restricted header detected: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920240,
@@ -3662,7 +3826,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 },
                 {
                     "id": 0,
@@ -3700,7 +3866,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -3709,7 +3877,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920650,
@@ -3779,7 +3949,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 },
                 {
                     "id": 0,
@@ -3821,7 +3993,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -3830,7 +4004,9 @@
             "warnings": [],
             "logdata": "Requested method override: %{ARGS._method}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920015,
@@ -3864,7 +4040,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920016,
@@ -3898,7 +4076,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920272,
@@ -3976,7 +4156,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920300,
@@ -4043,7 +4225,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 },
                 {
                     "id": 0,
@@ -4083,7 +4267,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -4092,7 +4278,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920490,
@@ -4166,7 +4354,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -4175,7 +4365,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920510,
@@ -4249,7 +4441,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -4258,7 +4452,9 @@
             "warnings": [],
             "logdata": "Invalid Cache-Control value in request found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920521,
@@ -4308,7 +4504,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920017,
@@ -4342,7 +4540,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920018,
@@ -4376,7 +4576,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920202,
@@ -4450,7 +4652,9 @@
                     "warnings": [],
                     "logdata": null,
                     "marker": null,
-                    "unconditional": false
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
                 }
             ],
             "capture": false,
@@ -4459,7 +4663,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920273,
@@ -4523,7 +4729,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920274,
@@ -4615,7 +4823,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920275,
@@ -4672,7 +4882,9 @@
             "warnings": [],
             "logdata": "%{MATCHED_VAR_NAME}=%{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 920460,
@@ -4749,7 +4961,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 0,
@@ -4773,7 +4987,9 @@
             "warnings": [],
             "logdata": null,
             "marker": "END-REQUEST-920-PROTOCOL-ENFORCEMENT",
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         }
     ]
 }

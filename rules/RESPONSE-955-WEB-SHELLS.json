@@ -36,7 +36,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955011,
@@ -70,7 +72,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955012,
@@ -104,7 +108,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955100,
@@ -152,7 +158,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955110,
@@ -200,7 +208,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955120,
@@ -248,7 +258,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955130,
@@ -296,7 +308,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955140,
@@ -344,7 +358,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955150,
@@ -392,7 +408,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955160,
@@ -440,7 +458,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955170,
@@ -488,7 +508,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955180,
@@ -536,7 +558,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955190,
@@ -584,7 +608,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955200,
@@ -632,7 +658,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955210,
@@ -680,7 +708,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955220,
@@ -728,7 +758,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955230,
@@ -776,7 +808,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955240,
@@ -824,7 +858,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955250,
@@ -872,7 +908,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955260,
@@ -920,7 +958,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955270,
@@ -968,7 +1008,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955280,
@@ -1016,7 +1058,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955290,
@@ -1064,7 +1108,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955300,
@@ -1114,7 +1160,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955310,
@@ -1162,7 +1210,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955320,
@@ -1210,7 +1260,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955330,
@@ -1258,7 +1310,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955340,
@@ -1306,7 +1360,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955400,
@@ -1354,7 +1410,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955013,
@@ -1388,7 +1446,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955014,
@@ -1422,7 +1482,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955350,
@@ -1470,7 +1532,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955015,
@@ -1504,7 +1568,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955016,
@@ -1538,7 +1604,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955017,
@@ -1572,7 +1640,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 955018,
@@ -1606,7 +1676,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 0,
@@ -1630,7 +1702,9 @@
             "warnings": [],
             "logdata": null,
             "marker": "END-RESPONSE-955-WEB-SHELLS",
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         }
     ]
 }

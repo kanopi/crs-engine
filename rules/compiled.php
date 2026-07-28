@@ -49,6 +49,12 @@ return array (
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     1 => 
     array (
@@ -95,6 +101,12 @@ return array (
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     2 => 
     array (
@@ -154,6 +166,12 @@ return array (
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     3 => 
     array (
@@ -200,6 +218,12 @@ return array (
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     4 => 
     array (
@@ -246,6 +270,12 @@ return array (
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     5 => 
     array (
@@ -292,6 +322,12 @@ return array (
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     6 => 
     array (
@@ -338,6 +374,12 @@ return array (
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     7 => 
     array (
@@ -384,6 +426,12 @@ return array (
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     8 => 
     array (
@@ -430,6 +478,12 @@ return array (
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     9 => 
     array (
@@ -467,6 +521,12 @@ return array (
       'logdata' => NULL,
       'marker' => 'END-REQUEST-911-METHOD-ENFORCEMENT',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     10 => 
     array (
@@ -513,6 +573,12 @@ return array (
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     11 => 
     array (
@@ -559,6 +625,12 @@ return array (
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     12 => 
     array (
@@ -696,6 +768,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     13 => 
     array (
@@ -742,6 +820,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     14 => 
     array (
@@ -788,6 +872,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     15 => 
     array (
@@ -834,6 +924,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     16 => 
     array (
@@ -880,6 +976,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     17 => 
     array (
@@ -926,6 +1028,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     18 => 
     array (
@@ -972,6 +1080,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     19 => 
     array (
@@ -1009,6 +1123,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => 'END-REQUEST-913-SCANNER-DETECTION',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     20 => 
     array (
@@ -1055,6 +1175,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     21 => 
     array (
@@ -1101,6 +1227,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     22 => 
     array (
@@ -1161,6 +1293,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{request_line}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     23 => 
     array (
@@ -1230,6 +1368,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     24 => 
     array (
@@ -1290,6 +1434,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     25 => 
     array (
@@ -1385,6 +1535,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -1396,6 +1552,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     26 => 
     array (
@@ -1491,6 +1653,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -1502,6 +1670,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     27 => 
     array (
@@ -1590,6 +1764,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
         1 => 
         array (
@@ -1635,6 +1815,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
         2 => 
         array (
@@ -1686,6 +1872,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -1697,6 +1889,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     28 => 
     array (
@@ -1792,6 +1990,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -1803,6 +2007,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     29 => 
     array (
@@ -1897,6 +2107,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -1908,6 +2124,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     30 => 
     array (
@@ -1968,6 +2190,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     31 => 
     array (
@@ -2028,6 +2256,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     32 => 
     array (
@@ -2138,6 +2372,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -2149,6 +2389,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     33 => 
     array (
@@ -2218,6 +2464,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     34 => 
     array (
@@ -2303,6 +2555,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     35 => 
     array (
@@ -2363,6 +2621,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     36 => 
     array (
@@ -2423,6 +2687,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     37 => 
     array (
@@ -2460,6 +2730,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => 'END-HOST-CHECK',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     38 => 
     array (
@@ -2548,6 +2824,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
         1 => 
         array (
@@ -2600,6 +2882,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -2611,6 +2899,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     39 => 
     array (
@@ -2699,6 +2993,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
         1 => 
         array (
@@ -2751,6 +3051,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -2762,6 +3068,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     40 => 
     array (
@@ -2822,6 +3134,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     41 => 
     array (
@@ -2917,6 +3235,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -2928,6 +3252,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     42 => 
     array (
@@ -2988,6 +3318,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     43 => 
     array (
@@ -3083,6 +3419,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -3094,6 +3436,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     44 => 
     array (
@@ -3190,6 +3538,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -3201,6 +3555,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     45 => 
     array (
@@ -3297,6 +3657,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -3308,6 +3674,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     46 => 
     array (
@@ -3403,6 +3775,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -3414,6 +3792,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     47 => 
     array (
@@ -3502,6 +3886,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
         1 => 
         array (
@@ -3554,6 +3944,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -3565,6 +3961,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     48 => 
     array (
@@ -3660,6 +4062,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -3671,6 +4079,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     49 => 
     array (
@@ -3732,6 +4146,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     50 => 
     array (
@@ -3833,6 +4253,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -3844,6 +4270,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     51 => 
     array (
@@ -3945,6 +4377,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -3956,6 +4394,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     52 => 
     array (
@@ -4017,6 +4461,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     53 => 
     array (
@@ -4112,6 +4562,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -4123,6 +4579,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     54 => 
     array (
@@ -4183,6 +4645,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     55 => 
     array (
@@ -4286,6 +4754,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -4297,6 +4771,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{TX.0}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     56 => 
     array (
@@ -4358,6 +4838,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{TX.0}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     57 => 
     array (
@@ -4459,6 +4945,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -4470,6 +4962,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Restricted header detected: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     58 => 
     array (
@@ -4532,6 +5030,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     59 => 
     array (
@@ -4592,6 +5096,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     60 => 
     array (
@@ -4640,6 +5150,13 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+        0 => 920540,
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     61 => 
     array (
@@ -4724,6 +5241,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     62 => 
     array (
@@ -4783,6 +5306,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     63 => 
     array (
@@ -4842,6 +5371,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     64 => 
     array (
@@ -4888,6 +5423,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     65 => 
     array (
@@ -4934,6 +5475,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     66 => 
     array (
@@ -5028,6 +5575,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -5039,6 +5592,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     67 => 
     array (
@@ -5134,6 +5693,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -5145,6 +5710,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     68 => 
     array (
@@ -5205,6 +5776,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     69 => 
     array (
@@ -5290,6 +5867,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     70 => 
     array (
@@ -5350,6 +5933,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     71 => 
     array (
@@ -5419,6 +6008,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     72 => 
     array (
@@ -5520,6 +6115,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -5531,6 +6132,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Restricted header detected: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     73 => 
     array (
@@ -5619,6 +6226,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
         1 => 
         array (
@@ -5670,6 +6283,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -5681,6 +6300,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     74 => 
     array (
@@ -5771,6 +6396,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
         1 => 
         array (
@@ -5825,6 +6456,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -5836,6 +6473,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Requested method override: %{ARGS._method}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     75 => 
     array (
@@ -5882,6 +6525,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     76 => 
     array (
@@ -5928,6 +6577,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     77 => 
     array (
@@ -6021,6 +6676,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     78 => 
     array (
@@ -6109,6 +6770,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
         1 => 
         array (
@@ -6161,6 +6828,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -6172,6 +6845,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     79 => 
     array (
@@ -6266,6 +6945,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -6277,6 +6962,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     80 => 
     array (
@@ -6372,6 +7063,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -6383,6 +7080,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Invalid Cache-Control value in request found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     81 => 
     array (
@@ -6444,6 +7147,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     82 => 
     array (
@@ -6490,6 +7199,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     83 => 
     array (
@@ -6536,6 +7251,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     84 => 
     array (
@@ -6631,6 +7352,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -6642,6 +7369,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     85 => 
     array (
@@ -6719,6 +7452,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     86 => 
     array (
@@ -6828,6 +7567,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     87 => 
     array (
@@ -6897,6 +7642,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => '%{MATCHED_VAR_NAME}=%{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     88 => 
     array (
@@ -6989,6 +7740,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     89 => 
     array (
@@ -7026,6 +7783,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => 'END-REQUEST-920-PROTOCOL-ENFORCEMENT',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     90 => 
     array (
@@ -7072,6 +7835,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     91 => 
     array (
@@ -7118,6 +7887,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     92 => 
     array (
@@ -7210,6 +7985,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     93 => 
     array (
@@ -7309,6 +8090,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     94 => 
     array (
@@ -7409,6 +8196,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     95 => 
     array (
@@ -7484,6 +8277,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     96 => 
     array (
@@ -7550,6 +8349,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     97 => 
     array (
@@ -7625,6 +8430,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     98 => 
     array (
@@ -7692,6 +8503,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     99 => 
     array (
@@ -7784,6 +8601,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     100 => 
     array (
@@ -7845,6 +8668,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     101 => 
     array (
@@ -7907,6 +8736,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     102 => 
     array (
@@ -7967,6 +8802,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     103 => 
     array (
@@ -8013,6 +8854,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     104 => 
     array (
@@ -8059,6 +8906,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     105 => 
     array (
@@ -8125,6 +8978,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     106 => 
     array (
@@ -8186,6 +9045,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     107 => 
     array (
@@ -8232,6 +9097,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     108 => 
     array (
@@ -8278,6 +9149,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     109 => 
     array (
@@ -8338,6 +9215,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: Header %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     110 => 
     array (
@@ -8396,6 +9279,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     111 => 
     array (
@@ -8461,6 +9350,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     112 => 
     array (
@@ -8526,6 +9421,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     113 => 
     array (
@@ -8572,6 +9473,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     114 => 
     array (
@@ -8618,6 +9525,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     115 => 
     array (
@@ -8683,6 +9596,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     116 => 
     array (
@@ -8720,6 +9639,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => 'END-REQUEST-921-PROTOCOL-ATTACK',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     117 => 
     array (
@@ -8821,6 +9746,12 @@ Mozilla/5.0 (compatible; AppScan;',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -8832,6 +9763,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{ARGS._charset_}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     118 => 
     array (
@@ -8887,6 +9824,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     119 => 
     array (
@@ -8949,6 +9892,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     120 => 
     array (
@@ -9011,6 +9960,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{MATCHED_VAR} found within Content-Type multipart form',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     121 => 
     array (
@@ -9073,6 +10028,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     122 => 
     array (
@@ -9134,6 +10095,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     123 => 
     array (
@@ -9180,6 +10147,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     124 => 
     array (
@@ -9226,6 +10199,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     125 => 
     array (
@@ -9332,6 +10311,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     126 => 
     array (
@@ -9442,6 +10427,12 @@ Mozilla/5.0 (compatible; AppScan;',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     127 => 
     array (
@@ -10623,6 +11614,12 @@ login.sql
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     128 => 
     array (
@@ -11313,6 +12310,12 @@ login.sql
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     129 => 
     array (
@@ -11406,6 +12409,12 @@ login.sql
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     130 => 
     array (
@@ -11452,6 +12461,12 @@ login.sql
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     131 => 
     array (
@@ -11498,6 +12513,12 @@ login.sql
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     132 => 
     array (
@@ -12655,6 +13676,12 @@ login.sql
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     133 => 
     array (
@@ -12701,6 +13728,12 @@ login.sql
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     134 => 
     array (
@@ -12747,6 +13780,12 @@ login.sql
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     135 => 
     array (
@@ -12793,6 +13832,12 @@ login.sql
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     136 => 
     array (
@@ -12839,6 +13884,12 @@ login.sql
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     137 => 
     array (
@@ -12876,6 +13927,12 @@ login.sql
       'logdata' => NULL,
       'marker' => 'END-REQUEST-930-APPLICATION-ATTACK-LFI',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     138 => 
     array (
@@ -12922,6 +13979,12 @@ login.sql
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     139 => 
     array (
@@ -12968,6 +14031,12 @@ login.sql
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     140 => 
     array (
@@ -13043,6 +14112,12 @@ login.sql
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     141 => 
     array (
@@ -13118,6 +14193,12 @@ login.sql
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     142 => 
     array (
@@ -13184,6 +14265,12 @@ login.sql
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     143 => 
     array (
@@ -13230,6 +14317,12 @@ login.sql
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     144 => 
     array (
@@ -13276,6 +14369,12 @@ login.sql
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     145 => 
     array (
@@ -13388,6 +14487,12 @@ login.sql
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -13399,6 +14504,12 @@ login.sql
       'logdata' => 'Matched Data: %{TX.0} found within %{tx.original_target}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     146 => 
     array (
@@ -13460,6 +14571,12 @@ login.sql
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     147 => 
     array (
@@ -13506,6 +14623,12 @@ login.sql
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     148 => 
     array (
@@ -13552,6 +14675,12 @@ login.sql
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     149 => 
     array (
@@ -13598,6 +14727,12 @@ login.sql
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     150 => 
     array (
@@ -13644,6 +14779,12 @@ login.sql
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     151 => 
     array (
@@ -13681,6 +14822,12 @@ login.sql
       'logdata' => NULL,
       'marker' => 'END-REQUEST-931-APPLICATION-ATTACK-RFI',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     152 => 
     array (
@@ -13727,6 +14874,12 @@ login.sql
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     153 => 
     array (
@@ -13773,6 +14926,12 @@ login.sql
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     154 => 
     array (
@@ -13871,6 +15030,12 @@ login.sql
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     155 => 
     array (
@@ -13969,6 +15134,12 @@ login.sql
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     156 => 
     array (
@@ -14489,6 +15660,12 @@ Write-Warning',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     157 => 
     array (
@@ -14587,6 +15764,12 @@ Write-Warning',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     158 => 
     array (
@@ -14686,6 +15869,12 @@ Write-Warning',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     159 => 
     array (
@@ -14785,6 +15974,12 @@ Write-Warning',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     160 => 
     array (
@@ -14884,6 +16079,12 @@ Write-Warning',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     161 => 
     array (
@@ -14982,6 +16183,12 @@ Write-Warning',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     162 => 
     array (
@@ -15080,6 +16287,12 @@ Write-Warning',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     163 => 
     array (
@@ -15178,6 +16391,12 @@ Write-Warning',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     164 => 
     array (
@@ -15292,6 +16511,12 @@ Write-Warning',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     165 => 
     array (
@@ -15390,6 +16615,12 @@ Write-Warning',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     166 => 
     array (
@@ -16198,6 +17429,12 @@ sbin/start-stop-daemon',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     167 => 
     array (
@@ -16273,6 +17510,12 @@ sbin/start-stop-daemon',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     168 => 
     array (
@@ -16356,6 +17599,12 @@ sbin/start-stop-daemon',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     169 => 
     array (
@@ -16454,6 +17703,12 @@ sbin/start-stop-daemon',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     170 => 
     array (
@@ -17073,6 +18328,12 @@ zoneinfo',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -17084,6 +18345,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     171 => 
     array (
@@ -17182,6 +18449,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     172 => 
     array (
@@ -17280,6 +18553,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     173 => 
     array (
@@ -17326,6 +18605,12 @@ zoneinfo',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     174 => 
     array (
@@ -17372,6 +18657,12 @@ zoneinfo',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     175 => 
     array (
@@ -17470,6 +18761,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     176 => 
     array (
@@ -17568,6 +18865,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     177 => 
     array (
@@ -17643,6 +18946,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     178 => 
     array (
@@ -17772,6 +19081,12 @@ zoneinfo',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
         1 => 
         array (
@@ -17830,6 +19145,12 @@ zoneinfo',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -17841,6 +19162,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.0} found within %{TX.932200_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     179 => 
     array (
@@ -17938,6 +19265,12 @@ zoneinfo',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
         1 => 
         array (
@@ -17984,6 +19317,12 @@ zoneinfo',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
         2 => 
         array (
@@ -18042,6 +19381,12 @@ zoneinfo',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -18053,6 +19398,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.2} found within %{TX.932205_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     180 => 
     array (
@@ -18150,6 +19501,12 @@ zoneinfo',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
         1 => 
         array (
@@ -18208,6 +19565,12 @@ zoneinfo',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -18219,6 +19582,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.0} found within %{TX.932206_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     181 => 
     array (
@@ -18316,6 +19685,12 @@ zoneinfo',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
         1 => 
         array (
@@ -18362,6 +19737,12 @@ zoneinfo',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
         2 => 
         array (
@@ -18408,6 +19789,12 @@ zoneinfo',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
         3 => 
         array (
@@ -18466,6 +19853,12 @@ zoneinfo',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -18477,6 +19870,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.0} found within %{TX.932207_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     182 => 
     array (
@@ -18575,6 +19974,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     183 => 
     array (
@@ -18706,6 +20111,12 @@ zoneinfo',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -18717,6 +20128,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.0} found within %{TX.932240_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     184 => 
     array (
@@ -18815,6 +20232,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     185 => 
     array (
@@ -18915,6 +20338,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     186 => 
     array (
@@ -19014,6 +20443,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     187 => 
     array (
@@ -19112,6 +20547,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     188 => 
     array (
@@ -19210,6 +20651,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     189 => 
     array (
@@ -19308,6 +20755,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     190 => 
     array (
@@ -19406,6 +20859,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     191 => 
     array (
@@ -19480,6 +20939,12 @@ zoneinfo',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     192 => 
     array (
@@ -20264,6 +21729,12 @@ sbin/start-stop-daemon',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     193 => 
     array (
@@ -20379,6 +21850,12 @@ sbin/start-stop-daemon',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     194 => 
     array (
@@ -20425,6 +21902,12 @@ sbin/start-stop-daemon',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     195 => 
     array (
@@ -20471,6 +21954,12 @@ sbin/start-stop-daemon',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     196 => 
     array (
@@ -20569,6 +22058,12 @@ sbin/start-stop-daemon',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     197 => 
     array (
@@ -20645,6 +22140,12 @@ sbin/start-stop-daemon',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     198 => 
     array (
@@ -20761,6 +22262,12 @@ sbin/start-stop-daemon',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     199 => 
     array (
@@ -20829,6 +22336,12 @@ sbin/start-stop-daemon',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     200 => 
     array (
@@ -20943,6 +22456,12 @@ sbin/start-stop-daemon',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     201 => 
     array (
@@ -21041,6 +22560,12 @@ sbin/start-stop-daemon',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     202 => 
     array (
@@ -21139,6 +22664,12 @@ sbin/start-stop-daemon',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     203 => 
     array (
@@ -21237,6 +22768,12 @@ sbin/start-stop-daemon',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     204 => 
     array (
@@ -21335,6 +22872,12 @@ sbin/start-stop-daemon',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     205 => 
     array (
@@ -21381,6 +22924,12 @@ sbin/start-stop-daemon',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     206 => 
     array (
@@ -21427,6 +22976,12 @@ sbin/start-stop-daemon',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     207 => 
     array (
@@ -21464,6 +23019,12 @@ sbin/start-stop-daemon',
       'logdata' => NULL,
       'marker' => 'END-REQUEST-932-APPLICATION-ATTACK-RCE',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     208 => 
     array (
@@ -21510,6 +23071,12 @@ sbin/start-stop-daemon',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     209 => 
     array (
@@ -21556,6 +23123,12 @@ sbin/start-stop-daemon',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     210 => 
     array (
@@ -21670,6 +23243,12 @@ sbin/start-stop-daemon',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     211 => 
     array (
@@ -21770,6 +23349,12 @@ sbin/start-stop-daemon',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     212 => 
     array (
@@ -21869,6 +23454,12 @@ sbin/start-stop-daemon',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     213 => 
     array (
@@ -21989,6 +23580,12 @@ $HTTP_SERVER_VARS',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     214 => 
     array (
@@ -22095,6 +23692,12 @@ $HTTP_SERVER_VARS',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     215 => 
     array (
@@ -22193,6 +23796,12 @@ $HTTP_SERVER_VARS',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     216 => 
     array (
@@ -22295,6 +23904,12 @@ $HTTP_SERVER_VARS',
       'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     217 => 
     array (
@@ -22668,6 +24283,12 @@ zlib_decode',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -22679,6 +24300,12 @@ zlib_decode',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     218 => 
     array (
@@ -22785,6 +24412,12 @@ zlib_decode',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     219 => 
     array (
@@ -22891,6 +24524,12 @@ zlib_decode',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     220 => 
     array (
@@ -22997,6 +24636,12 @@ zlib_decode',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     221 => 
     array (
@@ -23106,6 +24751,12 @@ zlib_decode',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     222 => 
     array (
@@ -23213,6 +24864,12 @@ zlib_decode',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     223 => 
     array (
@@ -23259,6 +24916,12 @@ zlib_decode',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     224 => 
     array (
@@ -23305,6 +24968,12 @@ zlib_decode',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     225 => 
     array (
@@ -23411,6 +25080,12 @@ zlib_decode',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     226 => 
     array (
@@ -23517,6 +25192,12 @@ zlib_decode',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     227 => 
     array (
@@ -23623,6 +25304,12 @@ zlib_decode',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     228 => 
     array (
@@ -23669,6 +25356,12 @@ zlib_decode',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     229 => 
     array (
@@ -23715,6 +25408,12 @@ zlib_decode',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     230 => 
     array (
@@ -23815,6 +25514,12 @@ zlib_decode',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     231 => 
     array (
@@ -23921,6 +25626,12 @@ zlib_decode',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     232 => 
     array (
@@ -24021,6 +25732,12 @@ zlib_decode',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     233 => 
     array (
@@ -24120,6 +25837,12 @@ zlib_decode',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     234 => 
     array (
@@ -24229,6 +25952,12 @@ zlib_decode',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     235 => 
     array (
@@ -24275,6 +26004,12 @@ zlib_decode',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     236 => 
     array (
@@ -24321,6 +26056,12 @@ zlib_decode',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     237 => 
     array (
@@ -24358,6 +26099,12 @@ zlib_decode',
       'logdata' => NULL,
       'marker' => 'END-REQUEST-933-APPLICATION-ATTACK-PHP',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     238 => 
     array (
@@ -24404,6 +26151,12 @@ zlib_decode',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     239 => 
     array (
@@ -24450,6 +26203,12 @@ zlib_decode',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     240 => 
     array (
@@ -24565,6 +26324,12 @@ zlib_decode',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     241 => 
     array (
@@ -24773,6 +26538,12 @@ http://localhost:9001/2018-06-01/runtime/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     242 => 
     array (
@@ -24891,6 +26662,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     243 => 
     array (
@@ -24992,6 +26769,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     244 => 
     array (
@@ -25091,6 +26874,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     245 => 
     array (
@@ -25204,6 +26993,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     246 => 
     array (
@@ -25311,6 +27106,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     247 => 
     array (
@@ -25410,6 +27211,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     248 => 
     array (
@@ -25456,6 +27263,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     249 => 
     array (
@@ -25502,6 +27315,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     250 => 
     array (
@@ -25614,6 +27433,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     251 => 
     array (
@@ -25720,6 +27545,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     252 => 
     array (
@@ -25819,6 +27650,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     253 => 
     array (
@@ -25917,6 +27754,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     254 => 
     array (
@@ -25963,6 +27806,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     255 => 
     array (
@@ -26009,6 +27858,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     256 => 
     array (
@@ -26055,6 +27910,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     257 => 
     array (
@@ -26101,6 +27962,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     258 => 
     array (
@@ -26138,6 +28005,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => 'END-REQUEST-934-APPLICATION-ATTACK-GENERIC',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     259 => 
     array (
@@ -26184,6 +28057,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     260 => 
     array (
@@ -26230,6 +28109,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     261 => 
     array (
@@ -26278,6 +28163,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     262 => 
     array (
@@ -26407,6 +28298,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     263 => 
     array (
@@ -26536,6 +28433,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     264 => 
     array (
@@ -26657,6 +28560,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     265 => 
     array (
@@ -26787,6 +28696,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     266 => 
     array (
@@ -26916,6 +28831,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     267 => 
     array (
@@ -27045,6 +28966,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     268 => 
     array (
@@ -27158,6 +29085,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     269 => 
     array (
@@ -27271,6 +29204,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     270 => 
     array (
@@ -27384,6 +29323,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     271 => 
     array (
@@ -27497,6 +29442,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     272 => 
     array (
@@ -27610,6 +29561,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     273 => 
     array (
@@ -27723,6 +29680,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     274 => 
     array (
@@ -27837,6 +29800,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     275 => 
     array (
@@ -27950,6 +29919,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     276 => 
     array (
@@ -28063,6 +30038,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     277 => 
     array (
@@ -28176,6 +30157,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     278 => 
     array (
@@ -28289,6 +30276,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     279 => 
     array (
@@ -28402,6 +30395,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     280 => 
     array (
@@ -28515,6 +30514,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     281 => 
     array (
@@ -28660,6 +30665,12 @@ lvh.me/',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -28671,6 +30682,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     282 => 
     array (
@@ -28781,6 +30798,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     283 => 
     array (
@@ -28887,6 +30910,12 @@ lvh.me/',
       'logdata' => 'Matched Data: Suspicious payload found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     284 => 
     array (
@@ -28987,6 +31016,12 @@ lvh.me/',
       'logdata' => 'Matched Data: Suspicious JS global variable found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     285 => 
     array (
@@ -29096,6 +31131,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     286 => 
     array (
@@ -29204,6 +31245,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     287 => 
     array (
@@ -29250,6 +31297,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     288 => 
     array (
@@ -29296,6 +31349,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     289 => 
     array (
@@ -29417,6 +31476,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     290 => 
     array (
@@ -29531,6 +31596,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     291 => 
     array (
@@ -29640,6 +31711,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     292 => 
     array (
@@ -29749,6 +31826,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     293 => 
     array (
@@ -29858,6 +31941,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     294 => 
     array (
@@ -29964,6 +32053,12 @@ lvh.me/',
       'logdata' => 'Matched Data: Suspicious payload found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     295 => 
     array (
@@ -30010,6 +32105,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     296 => 
     array (
@@ -30056,6 +32157,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     297 => 
     array (
@@ -30102,6 +32209,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     298 => 
     array (
@@ -30148,6 +32261,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     299 => 
     array (
@@ -30185,6 +32304,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => 'END-REQUEST-941-APPLICATION-ATTACK-XSS',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     300 => 
     array (
@@ -30231,6 +32356,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     301 => 
     array (
@@ -30277,6 +32408,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     302 => 
     array (
@@ -30376,6 +32513,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     303 => 
     array (
@@ -30475,6 +32618,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     304 => 
     array (
@@ -30583,6 +32732,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     305 => 
     array (
@@ -30682,6 +32837,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     306 => 
     array (
@@ -30782,6 +32943,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     307 => 
     array (
@@ -30881,6 +33048,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     308 => 
     array (
@@ -30980,6 +33153,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     309 => 
     array (
@@ -31079,6 +33258,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     310 => 
     array (
@@ -31178,6 +33363,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     311 => 
     array (
@@ -31277,6 +33468,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     312 => 
     array (
@@ -31392,6 +33589,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     313 => 
     array (
@@ -31491,6 +33694,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     314 => 
     array (
@@ -31590,6 +33799,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     315 => 
     array (
@@ -31690,6 +33905,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     316 => 
     array (
@@ -31789,6 +34010,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     317 => 
     array (
@@ -31888,6 +34115,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     318 => 
     array (
@@ -31988,6 +34221,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     319 => 
     array (
@@ -32088,6 +34327,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     320 => 
     array (
@@ -32196,6 +34441,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     321 => 
     array (
@@ -32242,6 +34493,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     322 => 
     array (
@@ -32288,6 +34545,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     323 => 
     array (
@@ -32380,6 +34643,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     324 => 
     array (
@@ -32505,6 +34774,12 @@ lvh.me/',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -32516,6 +34791,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{TX.942130_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     325 => 
     array (
@@ -32641,6 +34922,12 @@ lvh.me/',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -32652,6 +34939,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{TX.942131_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     326 => 
     array (
@@ -32751,6 +35044,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     327 => 
     array (
@@ -32850,6 +35149,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     328 => 
     array (
@@ -33000,6 +35305,12 @@ lvh.me/',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -33011,6 +35322,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     329 => 
     array (
@@ -33110,6 +35427,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     330 => 
     array (
@@ -33209,6 +35532,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     331 => 
     array (
@@ -33308,6 +35637,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     332 => 
     array (
@@ -33407,6 +35742,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     333 => 
     array (
@@ -33506,6 +35847,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     334 => 
     array (
@@ -33605,6 +35952,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     335 => 
     array (
@@ -33704,6 +36057,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     336 => 
     array (
@@ -33803,6 +36162,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     337 => 
     array (
@@ -33918,6 +36283,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     338 => 
     array (
@@ -34017,6 +36388,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     339 => 
     array (
@@ -34116,6 +36493,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     340 => 
     array (
@@ -34215,6 +36598,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     341 => 
     array (
@@ -34314,6 +36703,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     342 => 
     array (
@@ -34413,6 +36808,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     343 => 
     array (
@@ -34528,6 +36929,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     344 => 
     array (
@@ -34611,6 +37018,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.1} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     345 => 
     array (
@@ -34745,6 +37158,12 @@ lvh.me/',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -34756,6 +37175,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     346 => 
     array (
@@ -34855,6 +37280,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     347 => 
     array (
@@ -34954,6 +37385,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     348 => 
     array (
@@ -35053,6 +37490,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     349 => 
     array (
@@ -35193,6 +37636,12 @@ lvh.me/',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -35204,6 +37653,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{TX.942521_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     350 => 
     array (
@@ -35287,6 +37742,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     351 => 
     array (
@@ -35362,6 +37823,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     352 => 
     array (
@@ -35437,6 +37904,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     353 => 
     array (
@@ -35483,6 +37956,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     354 => 
     array (
@@ -35529,6 +38008,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     355 => 
     array (
@@ -35628,6 +38113,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     356 => 
     array (
@@ -35727,6 +38218,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     357 => 
     array (
@@ -35802,6 +38299,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.1} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     358 => 
     array (
@@ -35901,6 +38404,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.1} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     359 => 
     array (
@@ -35967,6 +38476,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     360 => 
     array (
@@ -36066,6 +38581,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     361 => 
     array (
@@ -36165,6 +38686,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     362 => 
     array (
@@ -36211,6 +38738,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     363 => 
     array (
@@ -36257,6 +38790,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     364 => 
     array (
@@ -36332,6 +38871,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.1} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     365 => 
     array (
@@ -36415,6 +38960,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.1} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     366 => 
     array (
@@ -36452,6 +39003,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => 'END-REQUEST-942-APPLICATION-ATTACK-SQLI',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     367 => 
     array (
@@ -36498,6 +39055,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     368 => 
     array (
@@ -36544,6 +39107,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     369 => 
     array (
@@ -36643,6 +39212,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     370 => 
     array (
@@ -36738,6 +39313,12 @@ lvh.me/',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
         1 => 
         array (
@@ -36795,6 +39376,12 @@ lvh.me/',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -36806,6 +39393,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{TX.943110_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     371 => 
     array (
@@ -36913,6 +39506,12 @@ lvh.me/',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -36924,6 +39523,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{TX.0} found within %{TX.943120_MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     372 => 
     array (
@@ -36970,6 +39575,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     373 => 
     array (
@@ -37016,6 +39627,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     374 => 
     array (
@@ -37062,6 +39679,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     375 => 
     array (
@@ -37108,6 +39731,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     376 => 
     array (
@@ -37154,6 +39783,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     377 => 
     array (
@@ -37200,6 +39835,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     378 => 
     array (
@@ -37237,6 +39878,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => 'END-REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     379 => 
     array (
@@ -37283,6 +39930,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     380 => 
     array (
@@ -37329,6 +39982,12 @@ lvh.me/',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     381 => 
     array (
@@ -37460,6 +40119,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     382 => 
     array (
@@ -37641,6 +40306,12 @@ lvh.me/',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -37652,6 +40323,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     383 => 
     array (
@@ -37817,6 +40494,12 @@ lvh.me/',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -37828,6 +40511,12 @@ lvh.me/',
       'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     384 => 
     array (
@@ -38033,6 +40722,12 @@ sun.reflect',
       'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     385 => 
     array (
@@ -38133,6 +40828,12 @@ sun.reflect',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     386 => 
     array (
@@ -38266,6 +40967,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     387 => 
     array (
@@ -38312,6 +41019,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     388 => 
     array (
@@ -38358,6 +41071,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     389 => 
     array (
@@ -38491,6 +41210,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     390 => 
     array (
@@ -38620,6 +41345,12 @@ sun.reflect',
       'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     391 => 
     array (
@@ -38749,6 +41480,12 @@ sun.reflect',
       'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     392 => 
     array (
@@ -38880,6 +41617,12 @@ sun.reflect',
       'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     393 => 
     array (
@@ -39010,6 +41753,12 @@ sun.reflect',
       'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     394 => 
     array (
@@ -39140,6 +41889,12 @@ sun.reflect',
       'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     395 => 
     array (
@@ -39186,6 +41941,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     396 => 
     array (
@@ -39232,6 +41993,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     397 => 
     array (
@@ -39362,6 +42129,12 @@ sun.reflect',
       'logdata' => 'Matched Data: %{MATCHED_VAR} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     398 => 
     array (
@@ -39408,6 +42181,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     399 => 
     array (
@@ -39454,6 +42233,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     400 => 
     array (
@@ -39587,6 +42372,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     401 => 
     array (
@@ -39624,6 +42415,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => 'END-REQUEST-944-APPLICATION-ATTACK-JAVA',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     402 => 
     array (
@@ -39707,6 +42504,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     403 => 
     array (
@@ -39760,6 +42563,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     404 => 
     array (
@@ -39813,6 +42622,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     405 => 
     array (
@@ -39866,6 +42681,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     406 => 
     array (
@@ -39919,6 +42740,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     407 => 
     array (
@@ -39972,6 +42799,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     408 => 
     array (
@@ -40025,6 +42858,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     409 => 
     array (
@@ -40078,6 +42917,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     410 => 
     array (
@@ -40131,6 +42976,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     411 => 
     array (
@@ -40175,6 +43026,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => true,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     412 => 
     array (
@@ -40219,6 +43076,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => true,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     413 => 
     array (
@@ -40272,6 +43135,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     414 => 
     array (
@@ -40325,6 +43194,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     415 => 
     array (
@@ -40378,6 +43253,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     416 => 
     array (
@@ -40431,6 +43312,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     417 => 
     array (
@@ -40484,6 +43371,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     418 => 
     array (
@@ -40537,6 +43430,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     419 => 
     array (
@@ -40590,6 +43489,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     420 => 
     array (
@@ -40643,6 +43548,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     421 => 
     array (
@@ -40680,6 +43591,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => 'BEGIN-REQUEST-BLOCKING-EVAL',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     422 => 
     array (
@@ -40762,6 +43679,12 @@ sun.reflect',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -40773,6 +43696,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     423 => 
     array (
@@ -40821,6 +43750,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     424 => 
     array (
@@ -40867,6 +43802,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     425 => 
     array (
@@ -40913,6 +43854,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     426 => 
     array (
@@ -40959,6 +43906,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     427 => 
     array (
@@ -41005,6 +43958,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     428 => 
     array (
@@ -41051,6 +44010,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     429 => 
     array (
@@ -41097,6 +44062,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     430 => 
     array (
@@ -41143,6 +44114,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     431 => 
     array (
@@ -41189,6 +44166,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     432 => 
     array (
@@ -41226,6 +44209,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => 'END-REQUEST-949-BLOCKING-EVALUATION',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     433 => 
     array (
@@ -41273,6 +44262,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     434 => 
     array (
@@ -41320,6 +44315,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     435 => 
     array (
@@ -41366,6 +44367,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     436 => 
     array (
@@ -41412,6 +44419,12 @@ sun.reflect',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     437 => 
     array (
@@ -41472,6 +44485,12 @@ sun.reflect',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     438 => 
     array (
@@ -41532,6 +44551,12 @@ sun.reflect',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     439 => 
     array (
@@ -41648,6 +44673,12 @@ System.Web.Http.HttpRouteCollection',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     440 => 
     array (
@@ -41694,6 +44725,12 @@ System.Web.Http.HttpRouteCollection',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     441 => 
     array (
@@ -41740,6 +44777,12 @@ System.Web.Http.HttpRouteCollection',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     442 => 
     array (
@@ -41800,6 +44843,12 @@ System.Web.Http.HttpRouteCollection',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     443 => 
     array (
@@ -41846,6 +44895,12 @@ System.Web.Http.HttpRouteCollection',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     444 => 
     array (
@@ -41892,6 +44947,12 @@ System.Web.Http.HttpRouteCollection',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     445 => 
     array (
@@ -41938,6 +44999,12 @@ System.Web.Http.HttpRouteCollection',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     446 => 
     array (
@@ -41984,6 +45051,12 @@ System.Web.Http.HttpRouteCollection',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     447 => 
     array (
@@ -42021,6 +45094,12 @@ System.Web.Http.HttpRouteCollection',
       'logdata' => NULL,
       'marker' => 'END-RESPONSE-950-DATA-LEAKAGES',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     448 => 
     array (
@@ -42068,6 +45147,12 @@ System.Web.Http.HttpRouteCollection',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     449 => 
     array (
@@ -42114,6 +45199,12 @@ System.Web.Http.HttpRouteCollection',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     450 => 
     array (
@@ -42160,6 +45251,12 @@ System.Web.Http.HttpRouteCollection',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     451 => 
     array (
@@ -42383,6 +45480,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     452 => 
     array (
@@ -42449,6 +45552,12 @@ XPATH syntax error:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     453 => 
     array (
@@ -42515,6 +45624,12 @@ XPATH syntax error:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     454 => 
     array (
@@ -42581,6 +45696,12 @@ XPATH syntax error:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     455 => 
     array (
@@ -42647,6 +45768,12 @@ XPATH syntax error:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     456 => 
     array (
@@ -42713,6 +45840,12 @@ XPATH syntax error:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     457 => 
     array (
@@ -42779,6 +45912,12 @@ XPATH syntax error:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     458 => 
     array (
@@ -42845,6 +45984,12 @@ XPATH syntax error:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     459 => 
     array (
@@ -42911,6 +46056,12 @@ XPATH syntax error:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     460 => 
     array (
@@ -42977,6 +46128,12 @@ XPATH syntax error:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     461 => 
     array (
@@ -43043,6 +46200,12 @@ XPATH syntax error:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     462 => 
     array (
@@ -43109,6 +46272,12 @@ XPATH syntax error:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     463 => 
     array (
@@ -43175,6 +46344,12 @@ XPATH syntax error:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     464 => 
     array (
@@ -43241,6 +46416,12 @@ XPATH syntax error:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     465 => 
     array (
@@ -43307,6 +46488,12 @@ XPATH syntax error:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     466 => 
     array (
@@ -43373,6 +46560,12 @@ XPATH syntax error:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     467 => 
     array (
@@ -43439,6 +46632,12 @@ XPATH syntax error:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     468 => 
     array (
@@ -43476,6 +46675,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => 'END-SQL-ERROR-MATCH-PL1',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     469 => 
     array (
@@ -43522,6 +46727,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     470 => 
     array (
@@ -43568,6 +46779,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     471 => 
     array (
@@ -43614,6 +46831,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     472 => 
     array (
@@ -43660,6 +46883,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     473 => 
     array (
@@ -43706,6 +46935,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     474 => 
     array (
@@ -43752,6 +46987,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     475 => 
     array (
@@ -43789,6 +47030,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => 'END-RESPONSE-951-DATA-LEAKAGES-SQL',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     476 => 
     array (
@@ -43836,6 +47083,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     477 => 
     array (
@@ -43882,6 +47135,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     478 => 
     array (
@@ -43928,6 +47187,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     479 => 
     array (
@@ -43988,6 +47253,12 @@ XPATH syntax error:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     480 => 
     array (
@@ -44034,6 +47305,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     481 => 
     array (
@@ -44080,6 +47357,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     482 => 
     array (
@@ -44126,6 +47409,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     483 => 
     array (
@@ -44172,6 +47461,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     484 => 
     array (
@@ -44218,6 +47513,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     485 => 
     array (
@@ -44264,6 +47565,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     486 => 
     array (
@@ -44301,6 +47608,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => 'END-RESPONSE-952-DATA-LEAKAGES-JAVA',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     487 => 
     array (
@@ -44348,6 +47661,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     488 => 
     array (
@@ -44394,6 +47713,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     489 => 
     array (
@@ -44440,6 +47765,12 @@ XPATH syntax error:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     490 => 
     array (
@@ -46332,6 +49663,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     491 => 
     array (
@@ -46392,6 +49729,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     492 => 
     array (
@@ -46452,6 +49795,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     493 => 
     array (
@@ -46498,6 +49847,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     494 => 
     array (
@@ -46544,6 +49899,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     495 => 
     array (
@@ -46604,6 +49965,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     496 => 
     array (
@@ -46650,6 +50017,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     497 => 
     array (
@@ -46696,6 +50069,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     498 => 
     array (
@@ -46742,6 +50121,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     499 => 
     array (
@@ -46788,6 +50173,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     500 => 
     array (
@@ -46825,6 +50216,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => 'END-RESPONSE-953-DATA-LEAKAGES-PHP',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     501 => 
     array (
@@ -46872,6 +50269,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     502 => 
     array (
@@ -46918,6 +50321,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     503 => 
     array (
@@ -46964,6 +50373,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     504 => 
     array (
@@ -47025,6 +50440,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     505 => 
     array (
@@ -47086,6 +50507,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     506 => 
     array (
@@ -47201,6 +50628,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     507 => 
     array (
@@ -47297,6 +50730,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => true,
@@ -47308,6 +50747,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     508 => 
     array (
@@ -47354,6 +50799,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     509 => 
     array (
@@ -47400,6 +50851,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     510 => 
     array (
@@ -47461,6 +50918,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     511 => 
     array (
@@ -47507,6 +50970,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     512 => 
     array (
@@ -47553,6 +51022,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     513 => 
     array (
@@ -47599,6 +51074,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     514 => 
     array (
@@ -47645,6 +51126,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     515 => 
     array (
@@ -47682,6 +51169,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => 'END-RESPONSE-954-DATA-LEAKAGES-IIS',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     516 => 
     array (
@@ -47729,6 +51222,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     517 => 
     array (
@@ -47775,6 +51274,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     518 => 
     array (
@@ -47821,6 +51326,12 @@ zlib >= 1.2.4 required for BLOCK deflate; current version:',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     519 => 
     array (
@@ -47953,6 +51464,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     520 => 
     array (
@@ -48012,6 +51529,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     521 => 
     array (
@@ -48071,6 +51594,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     522 => 
     array (
@@ -48130,6 +51659,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     523 => 
     array (
@@ -48189,6 +51724,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     524 => 
     array (
@@ -48248,6 +51789,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     525 => 
     array (
@@ -48307,6 +51854,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     526 => 
     array (
@@ -48366,6 +51919,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     527 => 
     array (
@@ -48425,6 +51984,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     528 => 
     array (
@@ -48484,6 +52049,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     529 => 
     array (
@@ -48543,6 +52114,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     530 => 
     array (
@@ -48602,6 +52179,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     531 => 
     array (
@@ -48661,6 +52244,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     532 => 
     array (
@@ -48720,6 +52309,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     533 => 
     array (
@@ -48779,6 +52374,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     534 => 
     array (
@@ -48838,6 +52439,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     535 => 
     array (
@@ -48897,6 +52504,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     536 => 
     array (
@@ -48956,6 +52569,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     537 => 
     array (
@@ -49015,6 +52634,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     538 => 
     array (
@@ -49074,6 +52699,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     539 => 
     array (
@@ -49135,6 +52766,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     540 => 
     array (
@@ -49194,6 +52831,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     541 => 
     array (
@@ -49253,6 +52896,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     542 => 
     array (
@@ -49312,6 +52961,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     543 => 
     array (
@@ -49371,6 +53026,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     544 => 
     array (
@@ -49432,6 +53093,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     545 => 
     array (
@@ -49478,6 +53145,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     546 => 
     array (
@@ -49524,6 +53197,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     547 => 
     array (
@@ -49583,6 +53262,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     548 => 
     array (
@@ -49629,6 +53314,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     549 => 
     array (
@@ -49675,6 +53366,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     550 => 
     array (
@@ -49721,6 +53418,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     551 => 
     array (
@@ -49767,6 +53470,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     552 => 
     array (
@@ -49804,6 +53513,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => NULL,
       'marker' => 'END-RESPONSE-955-WEB-SHELLS',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     553 => 
     array (
@@ -49851,6 +53566,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     554 => 
     array (
@@ -49897,6 +53618,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     555 => 
     array (
@@ -49943,6 +53670,12 @@ PHPShell by MAX666, Private Exploit, For Server Hacking
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     556 => 
     array (
@@ -50108,6 +53841,12 @@ ActionView::TemplateError',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     557 => 
     array (
@@ -50154,6 +53893,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     558 => 
     array (
@@ -50200,6 +53945,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     559 => 
     array (
@@ -50260,6 +54011,12 @@ ActionView::TemplateError',
       'logdata' => 'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}',
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     560 => 
     array (
@@ -50306,6 +54063,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     561 => 
     array (
@@ -50352,6 +54115,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     562 => 
     array (
@@ -50398,6 +54167,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     563 => 
     array (
@@ -50444,6 +54219,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     564 => 
     array (
@@ -50481,6 +54262,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => 'END-RESPONSE-956-DATA-LEAKAGES-RUBY',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     565 => 
     array (
@@ -50534,6 +54321,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     566 => 
     array (
@@ -50587,6 +54380,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     567 => 
     array (
@@ -50640,6 +54439,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     568 => 
     array (
@@ -50693,6 +54498,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     569 => 
     array (
@@ -50746,6 +54557,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     570 => 
     array (
@@ -50799,6 +54616,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     571 => 
     array (
@@ -50852,6 +54675,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     572 => 
     array (
@@ -50905,6 +54734,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     573 => 
     array (
@@ -50949,6 +54784,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => true,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     574 => 
     array (
@@ -50993,6 +54834,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => true,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     575 => 
     array (
@@ -51030,6 +54877,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => 'EARLY_BLOCKING_ANOMALY_SCORING',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     576 => 
     array (
@@ -51083,6 +54936,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     577 => 
     array (
@@ -51136,6 +54995,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     578 => 
     array (
@@ -51189,6 +55054,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     579 => 
     array (
@@ -51242,6 +55113,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     580 => 
     array (
@@ -51295,6 +55172,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     581 => 
     array (
@@ -51348,6 +55231,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     582 => 
     array (
@@ -51401,6 +55290,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     583 => 
     array (
@@ -51454,6 +55349,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     584 => 
     array (
@@ -51536,6 +55437,12 @@ ActionView::TemplateError',
           'logdata' => NULL,
           'marker' => NULL,
           'unconditional' => false,
+          'suppress_rule_ids' => 
+          array (
+          ),
+          'suppress_rule_tags' => 
+          array (
+          ),
         ),
       ),
       'capture' => false,
@@ -51547,6 +55454,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     585 => 
     array (
@@ -51595,6 +55508,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     586 => 
     array (
@@ -51641,6 +55560,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     587 => 
     array (
@@ -51687,6 +55612,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     588 => 
     array (
@@ -51733,6 +55664,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     589 => 
     array (
@@ -51779,6 +55716,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     590 => 
     array (
@@ -51825,6 +55768,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     591 => 
     array (
@@ -51871,6 +55820,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     592 => 
     array (
@@ -51917,6 +55872,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     593 => 
     array (
@@ -51963,6 +55924,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     594 => 
     array (
@@ -52000,6 +55967,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => 'END-RESPONSE-959-BLOCKING-EVALUATION',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     595 => 
     array (
@@ -52074,6 +56047,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => true,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     596 => 
     array (
@@ -52120,6 +56099,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     597 => 
     array (
@@ -52166,6 +56151,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     598 => 
     array (
@@ -52212,6 +56203,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     599 => 
     array (
@@ -52258,6 +56255,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     600 => 
     array (
@@ -52304,6 +56307,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     601 => 
     array (
@@ -52350,6 +56359,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     602 => 
     array (
@@ -52396,6 +56411,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     603 => 
     array (
@@ -52442,6 +56463,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     604 => 
     array (
@@ -52488,6 +56515,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     605 => 
     array (
@@ -52534,6 +56567,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     606 => 
     array (
@@ -52580,6 +56619,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     607 => 
     array (
@@ -52617,6 +56662,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => 'LOG-REPORTING',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     608 => 
     array (
@@ -52656,6 +56707,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => true,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     609 => 
     array (
@@ -52693,6 +56750,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => 'END-REPORTING',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     610 => 
     array (
@@ -52739,6 +56802,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     611 => 
     array (
@@ -52785,6 +56854,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     612 => 
     array (
@@ -52831,6 +56906,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     613 => 
     array (
@@ -52877,6 +56958,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     614 => 
     array (
@@ -52923,6 +57010,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     615 => 
     array (
@@ -52969,6 +57062,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     616 => 
     array (
@@ -53015,6 +57114,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     617 => 
     array (
@@ -53061,6 +57166,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => NULL,
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
     618 => 
     array (
@@ -53098,6 +57209,12 @@ ActionView::TemplateError',
       'logdata' => NULL,
       'marker' => 'END-RESPONSE-980-CORRELATION',
       'unconditional' => false,
+      'suppress_rule_ids' => 
+      array (
+      ),
+      'suppress_rule_tags' => 
+      array (
+      ),
     ),
   ),
 );

@@ -35,7 +35,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 930012,
@@ -69,7 +71,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 930100,
@@ -158,7 +162,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 930110,
@@ -251,7 +257,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 930120,
@@ -336,7 +344,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 930130,
@@ -393,7 +403,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 930140,
@@ -450,7 +462,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 930013,
@@ -484,7 +498,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 930014,
@@ -518,7 +534,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 930121,
@@ -582,7 +600,9 @@
             "warnings": [],
             "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 930015,
@@ -616,7 +636,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 930016,
@@ -650,7 +672,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 930017,
@@ -684,7 +708,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 930018,
@@ -718,7 +744,9 @@
             "warnings": [],
             "logdata": null,
             "marker": null,
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         },
         {
             "id": 0,
@@ -742,7 +770,9 @@
             "warnings": [],
             "logdata": null,
             "marker": "END-REQUEST-930-APPLICATION-ATTACK-LFI",
-            "unconditional": false
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
         }
     ]
 }

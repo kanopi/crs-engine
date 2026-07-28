@@ -35,8 +35,9 @@ final class UnsupportedActionWarningTest extends TestCase
      */
     public static function consequentialActionProvider(): \Iterator
     {
-        yield 'ctl' => ['ctl:ruleRemoveById=920540'];
         yield 'ctl body processor' => ['ctl:requestBodyProcessor=XML'];
+        yield 'ctl audit engine' => ['ctl:auditEngine=Off'];
+        yield 'ctl remove target by tag' => ['ctl:ruleRemoveTargetByTag=foo;ARGS'];
         yield 'expirevar' => ["expirevar:'ip.block=600'"];
         yield 'deprecatevar' => ["deprecatevar:'ip.score=1/60'"];
         yield 'initcol' => ["initcol:'ip=%{remote_addr}'"];
@@ -58,17 +59,49 @@ final class UnsupportedActionWarningTest extends TestCase
     public function testTheWarningNamesTheActionAndItsValue(): void
     {
         $warnings = $this->warningsFor(
-            'SecRule ARGS "@rx x" "id:920999,phase:2,pass,ctl:ruleRemoveById=920540"'
+            'SecRule ARGS "@rx x" "id:920999,phase:2,pass,ctl:auditEngine=Off"'
         );
 
-        $this->assertStringContainsString('ctl:ruleRemoveById=920540', $warnings[0]);
+        $this->assertStringContainsString('ctl:auditEngine=Off', $warnings[0]);
+    }
+
+    /**
+     * ruleRemoveById and ruleRemoveByTag are implemented, so they must not be
+     * reported as ignored — the warning channel is for divergence, and there is
+     * none here any more.
+     *
+     * @return \Iterator<string, array{string}>
+     */
+    public static function implementedCtlProvider(): \Iterator
+    {
+        yield 'remove by id' => ['ctl:ruleRemoveById=920540'];
+        yield 'remove by id range' => ['ctl:ruleRemoveById=920500-920599'];
+        yield 'remove by tag' => ['ctl:ruleRemoveByTag=attack-xss'];
+    }
+
+    #[\PHPUnit\Framework\Attributes\DataProvider('implementedCtlProvider')]
+    public function testImplementedCtlFormsDoNotWarn(string $action): void
+    {
+        $this->assertSame([], $this->warningsFor(
+            sprintf('SecRule ARGS "@rx x" "id:920999,phase:2,pass,%s"', $action)
+        ));
+    }
+
+    public function testAMalformedRuleRemoveByIdStillWarns(): void
+    {
+        $warnings = $this->warningsFor(
+            'SecRule ARGS "@rx x" "id:920999,phase:2,pass,ctl:ruleRemoveById=not-an-id"'
+        );
+
+        $this->assertCount(1, $warnings);
+        $this->assertStringContainsString('ctl:ruleRemoveById=not-an-id', $warnings[0]);
     }
 
     public function testTheRuleItselfIsStillParsed(): void
     {
         $secLangParser = new SecLangParser();
         $rules = $secLangParser->parseString(
-            'SecRule ARGS "@rx attack" "id:920999,phase:2,block,ctl:ruleRemoveById=920540"',
+            'SecRule ARGS "@rx attack" "id:920999,phase:2,block,ctl:auditEngine=Off"',
             'REQUEST-920-PROTOCOL-ENFORCEMENT.conf'
         );
 

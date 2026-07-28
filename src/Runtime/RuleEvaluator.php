@@ -76,6 +76,13 @@ final class RuleEvaluator
         $blockingId  = null;
         /** @var array<int, array{rule_id: int, operator: string, error: string}> $operatorErrors */
         $operatorErrors = [];
+        // Rules switched off for the rest of this transaction by a ctl action
+        // on an earlier rule. Per-request, never shared: the whole point is
+        // that it depends on what this particular request looks like.
+        /** @var array<int, true> $suppressedIds */
+        $suppressedIds = [];
+        /** @var array<string, true> $suppressedTags */
+        $suppressedTags = [];
 
         foreach ($ruleSet->all() as $compiledRule) {
             // Markers are phase-agnostic and never evaluated — they exist only
@@ -112,6 +119,12 @@ final class RuleEvaluator
             if ($this->crsConfig->isRuleDisabled($compiledRule->id)) {
                 continue;
             }
+            if (isset($suppressedIds[$compiledRule->id])) {
+                continue;
+            }
+            if ($this->hasSuppressedTag($compiledRule, $suppressedTags)) {
+                continue;
+            }
 
             if ($this->crsConfig->isCategoryDisabled($compiledRule->category)) {
                 continue;
@@ -122,6 +135,7 @@ final class RuleEvaluator
             // detection and does not belong in the matched-rule report.
             if ($compiledRule->isUnconditional()) {
                 $this->applySetvars($compiledRule, $txStore);
+                $this->applySuppressions($compiledRule, $suppressedIds, $suppressedTags);
                 continue;
             }
 
@@ -140,6 +154,11 @@ final class RuleEvaluator
             // findings that matter under twenty that don't. Every rule in the
             // shipped ruleset that contributes score also has a message, so
             // this drops nothing real.
+            // A ctl on a matching rule takes effect for everything evaluated
+            // after it — which is how 920539 reaches 920540, sitting one
+            // position later in the ruleset.
+            $this->applySuppressions($compiledRule, $suppressedIds, $suppressedTags);
+
             $score = $this->scoreFromSetvars($compiledRule, $txStore);
             if ($compiledRule->message !== '' || $score !== 0) {
                 $matched[] = [
@@ -185,6 +204,39 @@ final class RuleEvaluator
             $operatorErrors,
             $variableResolver->truncations(),
         );
+    }
+
+    /**
+     * @param array<int, true> $suppressedIds
+     * @param array<string, true> $suppressedTags
+     */
+    private function applySuppressions(CompiledRule $compiledRule, array &$suppressedIds, array &$suppressedTags): void
+    {
+        foreach ($compiledRule->suppressRuleIds as $id) {
+            $suppressedIds[$id] = true;
+        }
+
+        foreach ($compiledRule->suppressRuleTags as $tag) {
+            $suppressedTags[$tag] = true;
+        }
+    }
+
+    /**
+     * @param array<string, true> $suppressedTags
+     */
+    private function hasSuppressedTag(CompiledRule $compiledRule, array $suppressedTags): bool
+    {
+        if ($suppressedTags === []) {
+            return false;
+        }
+
+        foreach ($compiledRule->tags as $tag) {
+            if (isset($suppressedTags[$tag])) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

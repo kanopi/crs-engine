@@ -1,6 +1,6 @@
 {
     "version": "v4.26.0",
-    "generated_at": "2026-07-27T22:16:35+00:00",
+    "generated_at": "2026-07-28T00:22:07+00:00",
     "rule_count": 619,
     "files": [
         "REQUEST-911-METHOD-ENFORCEMENT.json",
@@ -31,7 +31,6 @@
     ],
     "warnings": [
         "REQUEST-920-PROTOCOL-ENFORCEMENT.conf:1031 \u2014 a chain continuation uses unsupported action `ctl:forceRequestBodyVariable=On`; it is ignored and the rule may behave differently than under ModSecurity",
-        "REQUEST-920-PROTOCOL-ENFORCEMENT.conf:1298 \u2014 rule 920539 uses unsupported action `ctl:ruleRemoveById=920540`; it is ignored and the rule may behave differently than under ModSecurity",
         "REQUEST-930-APPLICATION-ATTACK-LFI.conf \u2014 transform `t:normalizePathWin` is not implemented; skipped on 4 rules, which will therefore match against less-normalised input than upstream intends",
         "REQUEST-932-APPLICATION-ATTACK-RCE.conf \u2014 transform `t:escapeSeqDecode` is not implemented; skipped on 7 rules, which will therefore match against less-normalised input than upstream intends",
         "REQUEST-932-APPLICATION-ATTACK-RCE.conf \u2014 transform `t:normalizePath` is not implemented; skipped on 5 rules, which will therefore match against less-normalised input than upstream intends",
