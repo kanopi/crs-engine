@@ -1,7 +1,7 @@
 {
     "source_file": "REQUEST-934-APPLICATION-ATTACK-GENERIC.conf",
-    "crs_version": "v4.26.0",
-    "rule_count": 21,
+    "crs_version": "v4.28.0",
+    "rule_count": 23,
     "rules": [
         {
             "id": 934011,
@@ -123,6 +123,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -223,6 +230,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -314,6 +328,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -395,6 +416,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -482,6 +510,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -577,6 +612,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -631,7 +673,7 @@
             "id": 934170,
             "phase": 2,
             "operator": "rx",
-            "operator_arg": "^data:(?:(?:\\*|[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]+)/(?:\\*|[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]+)|\\*)(?:[\\s\\x0b]*;[\\s\\x0b]*(?:charset[\\s\\x0b]*=[\\s\\x0b]*\"?(?:iso-8859-15?|utf-8|windows-1252)\\b\"?|(?:[^\\s\\x0b-\"\\(\\),/:-\\?\\[-\\]c\\{\\}]|c(?:[^!\"\\(\\),/:-\\?\\[-\\]h\\{\\}]|h(?:[^!\"\\(\\),/:-\\?\\[-\\]a\\{\\}]|a(?:[^!\"\\(\\),/:-\\?\\[-\\]r\\{\\}]|r(?:[^!\"\\(\\),/:-\\?\\[-\\]s\\{\\}]|s(?:[^!\"\\(\\),/:-\\?\\[-\\]e\\{\\}]|e[^!\"\\(\\),/:-\\?\\[-\\]t\\{\\}]))))))[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]*[\\s\\x0b]*=[\\s\\x0b]*[^!\\(\\),/:-\\?\\[-\\]\\{\\}]+);?)*(?:[\\s\\x0b]*,[\\s\\x0b]*(?:(?:\\*|[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]+)/(?:\\*|[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]+)|\\*)(?:[\\s\\x0b]*;[\\s\\x0b]*(?:charset[\\s\\x0b]*=[\\s\\x0b]*\"?(?:iso-8859-15?|utf-8|windows-1252)\\b\"?|(?:[^\\s\\x0b-\"\\(\\),/:-\\?\\[-\\]c\\{\\}]|c(?:[^!\"\\(\\),/:-\\?\\[-\\]h\\{\\}]|h(?:[^!\"\\(\\),/:-\\?\\[-\\]a\\{\\}]|a(?:[^!\"\\(\\),/:-\\?\\[-\\]r\\{\\}]|r(?:[^!\"\\(\\),/:-\\?\\[-\\]s\\{\\}]|s(?:[^!\"\\(\\),/:-\\?\\[-\\]e\\{\\}]|e[^!\"\\(\\),/:-\\?\\[-\\]t\\{\\}]))))))[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]*[\\s\\x0b]*=[\\s\\x0b]*[^!\\(\\),/:-\\?\\[-\\]\\{\\}]+);?)*)*",
+            "operator_arg": "^(?:json\\.)?data:(?:(?:\\*|[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]+)/(?:\\*|[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]+)|\\*)(?:[\\s\\x0b]*;[\\s\\x0b]*(?:charset[\\s\\x0b]*=[\\s\\x0b]*\"?(?:iso-8859-15?|utf-8|windows-1252)\\b\"?|(?:[^\\s\\x0b-\"\\(\\),/:-\\?\\[-\\]c\\{\\}]|c(?:[^!\"\\(\\),/:-\\?\\[-\\]h\\{\\}]|h(?:[^!\"\\(\\),/:-\\?\\[-\\]a\\{\\}]|a(?:[^!\"\\(\\),/:-\\?\\[-\\]r\\{\\}]|r(?:[^!\"\\(\\),/:-\\?\\[-\\]s\\{\\}]|s(?:[^!\"\\(\\),/:-\\?\\[-\\]e\\{\\}]|e[^!\"\\(\\),/:-\\?\\[-\\]t\\{\\}]))))))[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]*[\\s\\x0b]*=[\\s\\x0b]*[^!\\(\\),/:-\\?\\[-\\]\\{\\}]+);?)*(?:[\\s\\x0b]*,[\\s\\x0b]*(?:(?:\\*|[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]+)/(?:\\*|[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]+)|\\*)(?:[\\s\\x0b]*;[\\s\\x0b]*(?:charset[\\s\\x0b]*=[\\s\\x0b]*\"?(?:iso-8859-15?|utf-8|windows-1252)\\b\"?|(?:[^\\s\\x0b-\"\\(\\),/:-\\?\\[-\\]c\\{\\}]|c(?:[^!\"\\(\\),/:-\\?\\[-\\]h\\{\\}]|h(?:[^!\"\\(\\),/:-\\?\\[-\\]a\\{\\}]|a(?:[^!\"\\(\\),/:-\\?\\[-\\]r\\{\\}]|r(?:[^!\"\\(\\),/:-\\?\\[-\\]s\\{\\}]|s(?:[^!\"\\(\\),/:-\\?\\[-\\]e\\{\\}]|e[^!\"\\(\\),/:-\\?\\[-\\]t\\{\\}]))))))[^!\"\\(\\),/:-\\?\\[-\\]\\{\\}]*[\\s\\x0b]*=[\\s\\x0b]*[^!\\(\\),/:-\\?\\[-\\]\\{\\}]+);?)*)*",
             "operator_negated": false,
             "targets": [
                 {
@@ -672,6 +714,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -757,6 +806,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -924,6 +980,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1021,6 +1084,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1102,6 +1172,13 @@
                 {
                     "collection": "XML",
                     "selector": "/*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -1190,6 +1267,13 @@
                     "negated": false,
                     "count": false,
                     "regex": false
+                },
+                {
+                    "collection": "XML",
+                    "selector": "//@*",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
                 }
             ],
             "transforms": [
@@ -1216,6 +1300,64 @@
                     "op": "+",
                     "value": "%{tx.critical_anomaly_score}"
                 },
+                {
+                    "name": "tx.inbound_anomaly_score_pl2",
+                    "op": "+",
+                    "value": "%{tx.critical_anomaly_score}"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
+            "marker": null,
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
+        },
+        {
+            "id": 934220,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "__[^\"&=]*__(?:i?(?:startswith|e(?:ndswith|xact)|contains|regex)|i(?:snull|n)|range|[gl]te?|has_(?:keys?|any_keys)|contained_by)(?:$|\"[\\s\\x0b]*:)",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_BODY",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "urlDecodeUni"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "ORM Lookup Operator Injection via Nested Traversal",
+            "tags": [
+                "application-multi",
+                "platform-multi",
+                "attack-injection-generic",
+                "paranoia-level/2",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-GENERIC",
+                "capec/1000/152/248/66/109"
+            ],
+            "paranoia": 2,
+            "category": "generic",
+            "setvars": [
                 {
                     "name": "tx.inbound_anomaly_score_pl2",
                     "op": "+",
@@ -1300,6 +1442,64 @@
             "multi_match": false,
             "warnings": [],
             "logdata": null,
+            "marker": null,
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
+        },
+        {
+            "id": 934210,
+            "phase": 2,
+            "operator": "rx",
+            "operator_arg": "__(?:i?(?:startswith|e(?:ndswith|xact)|contains|regex)|i(?:snull|n)|range|[gl]te?|has_(?:keys?|any_keys)|contained_by)(?:$|\"[\\s\\x0b]*:)",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "ARGS_NAMES",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                },
+                {
+                    "collection": "REQUEST_BODY",
+                    "selector": null,
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none",
+                "urlDecodeUni"
+            ],
+            "action": "block",
+            "severity": "critical",
+            "message": "ORM Lookup Operator Injection",
+            "tags": [
+                "application-multi",
+                "platform-multi",
+                "attack-injection-generic",
+                "paranoia-level/3",
+                "OWASP_CRS",
+                "OWASP_CRS/ATTACK-GENERIC",
+                "capec/1000/152/248/66/109"
+            ],
+            "paranoia": 3,
+            "category": "generic",
+            "setvars": [
+                {
+                    "name": "tx.inbound_anomaly_score_pl3",
+                    "op": "+",
+                    "value": "%{tx.critical_anomaly_score}"
+                }
+            ],
+            "chain": [],
+            "capture": true,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "logdata": "Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}",
             "marker": null,
             "unconditional": false,
             "suppress_rule_ids": [],

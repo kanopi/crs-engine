@@ -1,6 +1,6 @@
 {
     "source_file": "REQUEST-920-PROTOCOL-ENFORCEMENT.conf",
-    "crs_version": "v4.26.0",
+    "crs_version": "v4.28.0",
     "rule_count": 70,
     "rules": [
         {
@@ -2028,13 +2028,13 @@
                 {
                     "id": 0,
                     "phase": 2,
-                    "operator": "rx",
-                    "operator_arg": "^(?i)multipart/form-data",
+                    "operator": "streq",
+                    "operator_arg": "MULTIPART",
                     "operator_negated": false,
                     "targets": [
                         {
-                            "collection": "REQUEST_HEADERS",
-                            "selector": "Content-Type",
+                            "collection": "REQBODY_PROCESSOR",
+                            "selector": null,
                             "negated": false,
                             "count": false,
                             "regex": false
@@ -3764,13 +3764,13 @@
         {
             "id": 920240,
             "phase": 2,
-            "operator": "rx",
-            "operator_arg": "^(?i)application/x-www-form-urlencoded",
+            "operator": "streq",
+            "operator_arg": "URLENCODED",
             "operator_negated": false,
             "targets": [
                 {
-                    "collection": "REQUEST_HEADERS",
-                    "selector": "Content-Type",
+                    "collection": "REQBODY_PROCESSOR",
+                    "selector": null,
                     "negated": false,
                     "count": false,
                     "regex": false

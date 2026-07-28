@@ -1,6 +1,6 @@
 {
     "source_file": "RESPONSE-951-DATA-LEAKAGES-SQL.conf",
-    "crs_version": "v4.26.0",
+    "crs_version": "v4.28.0",
     "rule_count": 28,
     "rules": [
         {

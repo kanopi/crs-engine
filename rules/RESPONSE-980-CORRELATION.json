@@ -1,6 +1,6 @@
 {
     "source_file": "RESPONSE-980-CORRELATION.conf",
-    "crs_version": "v4.26.0",
+    "crs_version": "v4.28.0",
     "rule_count": 24,
     "rules": [
         {

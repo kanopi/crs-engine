@@ -1,7 +1,7 @@
 {
-    "version": "v4.26.0",
-    "generated_at": "2026-07-28T00:22:07+00:00",
-    "rule_count": 619,
+    "version": "v4.28.0",
+    "generated_at": "2026-07-28T03:55:03+00:00",
+    "rule_count": 622,
     "files": [
         "REQUEST-911-METHOD-ENFORCEMENT.json",
         "REQUEST-913-SCANNER-DETECTION.json",
@@ -38,7 +38,7 @@
         "REQUEST-934-APPLICATION-ATTACK-GENERIC.conf \u2014 transform `t:jsDecode` is not implemented; skipped on 7 rules, which will therefore match against less-normalised input than upstream intends",
         "REQUEST-941-APPLICATION-ATTACK-XSS.conf:57 \u2014 rule 941010 uses unsupported action `ctl:ruleRemoveTargetByTag=xss-perf-disable;REQUEST_FILENAME`; it is ignored and the rule may behave differently than under ModSecurity",
         "REQUEST-941-APPLICATION-ATTACK-XSS.conf:83 \u2014 unsupported operator '@detectXSS', skipping rule",
-        "REQUEST-941-APPLICATION-ATTACK-XSS.conf:884 \u2014 unsupported operator '@detectXSS', skipping rule",
+        "REQUEST-941-APPLICATION-ATTACK-XSS.conf:894 \u2014 unsupported operator '@detectXSS', skipping rule",
         "REQUEST-941-APPLICATION-ATTACK-XSS.conf \u2014 transform `t:cssDecode` is not implemented; skipped on 21 rules, which will therefore match against less-normalised input than upstream intends",
         "REQUEST-941-APPLICATION-ATTACK-XSS.conf \u2014 transform `t:jsDecode` is not implemented; skipped on 25 rules, which will therefore match against less-normalised input than upstream intends",
         "REQUEST-942-APPLICATION-ATTACK-SQLI.conf:46 \u2014 unsupported operator '@detectSQLi', skipping rule",

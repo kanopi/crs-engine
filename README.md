@@ -618,7 +618,7 @@ which this engine replaces with `CrsConfig` and
 would make rule 901001 deny every request, because it checks a variable
 `crs-setup.conf` is supposed to have set.
 
-The current release parses **583 CRS rules** plus 1 supplemental rule, 67
+The current release parses **586 CRS rules** plus 1 supplemental rule, 67
 chain conditions, 6 `SecAction` directives and 29 `SecMarker` placeholders.
 Four CRS rules are skipped for using `@detectSQLi`/`@detectXSS`; the counts
 are asserted by `tests/Integration/RulesetInvariantsTest.php`, so they cannot
@@ -682,8 +682,8 @@ pattern.
 `.crs-version` is a plain key=value file:
 
 ```
-tag=v4.26.0
-sha=sha256:99877496ab5a278f2978afa89b6e49a11b39d252b000889ffead4bd39adf3e70
+tag=v4.28.0
+sha=sha256:aac29fbd56288cb37adec9ac879fa694f6aaa410a564bf5b834bd335d0e216df
 source=https://github.com/coreruleset/coreruleset
 ```
 

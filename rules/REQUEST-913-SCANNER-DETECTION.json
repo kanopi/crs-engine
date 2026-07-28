@@ -1,6 +1,6 @@
 {
     "source_file": "REQUEST-913-SCANNER-DETECTION.conf",
-    "crs_version": "v4.26.0",
+    "crs_version": "v4.28.0",
     "rule_count": 10,
     "rules": [
         {
