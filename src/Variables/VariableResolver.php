@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kanopi\Crs\Variables;
 
+use Kanopi\Crs\Body\JsonBody;
 use Kanopi\Crs\Body\XmlBody;
 use Kanopi\Crs\CrsConfig;
 use Kanopi\Crs\Request\RequestData;
@@ -22,6 +23,8 @@ use Kanopi\Crs\Runtime\TxStore;
 final class VariableResolver
 {
     private ?XmlBody $xmlBody = null;
+
+    private ?JsonBody $jsonBody = null;
 
     /**
      * Resolved collections for this request.
@@ -282,15 +285,23 @@ final class VariableResolver
             'ARGS'             => array_merge(
                 $this->flatten('ARGS', $requestData->queryArgs, $selector, $selectorIsRegex),
                 $this->flatten('ARGS', $requestData->postArgs, $selector, $selectorIsRegex),
+                $this->flatten('ARGS', $this->jsonArgs($requestData), $selector, $selectorIsRegex),
             ),
             'ARGS_GET'         => $this->flatten('ARGS_GET', $requestData->queryArgs, $selector, $selectorIsRegex),
-            'ARGS_POST'        => $this->flatten('ARGS_POST', $requestData->postArgs, $selector, $selectorIsRegex),
+            'ARGS_POST'        => array_merge(
+                $this->flatten('ARGS_POST', $requestData->postArgs, $selector, $selectorIsRegex),
+                $this->flatten('ARGS_POST', $this->jsonArgs($requestData), $selector, $selectorIsRegex),
+            ),
             'ARGS_NAMES'       => array_merge(
                 $this->keys('ARGS_NAMES', $requestData->queryArgs, $selector, $selectorIsRegex),
                 $this->keys('ARGS_NAMES', $requestData->postArgs, $selector, $selectorIsRegex),
+                $this->keys('ARGS_NAMES', $this->jsonArgs($requestData), $selector, $selectorIsRegex),
             ),
             'ARGS_GET_NAMES'   => $this->keys('ARGS_GET_NAMES', $requestData->queryArgs, $selector, $selectorIsRegex),
-            'ARGS_POST_NAMES'  => $this->keys('ARGS_POST_NAMES', $requestData->postArgs, $selector, $selectorIsRegex),
+            'ARGS_POST_NAMES'  => array_merge(
+                $this->keys('ARGS_POST_NAMES', $requestData->postArgs, $selector, $selectorIsRegex),
+                $this->keys('ARGS_POST_NAMES', $this->jsonArgs($requestData), $selector, $selectorIsRegex),
+            ),
             'REQUEST_HEADERS'  => $this->flattenHeaders('REQUEST_HEADERS', $requestData->headers, $selector, $selectorIsRegex),
             'REQUEST_HEADERS_NAMES' => $this->keys('REQUEST_HEADERS_NAMES', $requestData->headers, $selector, $selectorIsRegex),
             'REQUEST_COOKIES'  => $this->flatten('REQUEST_COOKIES', $requestData->cookies, $selector, $selectorIsRegex),
@@ -507,6 +518,51 @@ final class VariableResolver
         }
 
         return $out;
+    }
+
+    /**
+     * Arguments recovered from a JSON body, when nothing else supplied any.
+     *
+     * Only reached if postArgs is empty. An integrator who populated it parsed
+     * the body with the same parser the application will use, and re-parsing
+     * here would create a differential the attacker could aim at — two readings
+     * of one document, with the WAF inspecting whatever the application does
+     * not. Trusting theirs is the safer half of this; filling the silence when
+     * there is none is the other.
+     *
+     * @return array<string, string>
+     */
+    private function jsonArgs(RequestData $requestData): array
+    {
+        if ($requestData->postArgs !== []) {
+            return [];
+        }
+
+        if (!$this->jsonBody instanceof JsonBody) {
+            $this->jsonBody = new JsonBody($requestData, $this->maxRequestBodyBytes);
+        }
+
+        if (!$this->jsonBody->isLikelyJson()) {
+            return [];
+        }
+
+        $length = strlen($requestData->body);
+
+        // Oversized: refused rather than parsed, and reported, because a
+        // truncated document is not a document.
+        if ($this->maxRequestBodyBytes !== CrsConfig::UNLIMITED && $length > $this->maxRequestBodyBytes) {
+            $this->recordTruncation('json_body', 0, $length);
+            return [];
+        }
+
+        if ($this->jsonBody->failedToParse()) {
+            // Malformed: the ruleset saw none of it as arguments, which is a
+            // coverage gap rather than a clean request, so say so.
+            $this->recordTruncation('json_body_unparsable', 0, $length);
+            return [];
+        }
+
+        return $this->jsonBody->args();
     }
 
     /**

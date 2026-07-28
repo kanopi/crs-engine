@@ -306,14 +306,15 @@ mentioning `fopen`.
 Two integration details change how much the engine can see. Neither is
 obvious, and both silently reduce detection if missed.
 
-**Decode JSON bodies into `postArgs`.** The engine does not parse request
-bodies — that is the integrator's job, because your framework has already done
-it. `REQUEST_BODY` is inspected as a single string, but almost all of the
-detection rules target `ARGS`, so an attack in an undecoded JSON body is not
-seen:
+**JSON bodies are parsed for you, but supplying `postArgs` is better.** The
+ruleset looks at `ARGS` — 187 rules target it, against 19 that read
+`REQUEST_BODY` as raw text — so a JSON body has to reach `ARGS` to be inspected
+at all. The engine flattens it there if nothing else did, using ModSecurity's
+naming: `{"user":{"name":"x"}}` becomes `ARGS:json.user.name`.
+
+Prefer passing your framework's already-decoded body as `postArgs` anyway:
 
 ```php
-// A JSON API endpoint. Without the decode, ARGS is empty.
 $decoded = json_decode($rawBody, true);
 
 new RequestData(
@@ -323,10 +324,16 @@ new RequestData(
 );
 ```
 
-```
-SQLi in a JSON body, not decoded    allow  score=0
-SQLi in a JSON body, decoded        block  score=10  rules=[942190,942360,949110]
-```
+Not for detection — both give the same verdict — but because it removes a
+parser differential. If the engine parses the body and your application parses
+it differently, an attacker can arrange for the two to disagree and get the
+engine inspecting something the application never sees. Your decode is the one
+the application will act on, so it is the one worth inspecting. `postArgs` wins
+outright whenever it is populated; the engine only parses when nothing did.
+
+A body that is too large to inspect, or that is not valid JSON, is reported on
+`CrsVerdict::$truncations` as `json_body` or `json_body_unparsable` rather than
+passing quietly as a clean request.
 
 **Set `bodyProcessor`, or send an accurate `Content-Type`.** CRS gates real
 behaviour on `REQBODY_PROCESSOR`: rule 920539 checks it for `JSON` and switches
