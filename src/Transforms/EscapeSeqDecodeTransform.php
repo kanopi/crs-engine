@@ -45,7 +45,10 @@ final class EscapeSeqDecodeTransform implements TransformInterface
             $next = $value[$i + 1];
 
             if ($next === 'x' && $i + 3 < $length && ctype_xdigit(substr($value, $i + 2, 2))) {
-                $out .= chr((int) hexdec(substr($value, $i + 2, 2)));
+                // Masked for the same reason as the octal and CSS paths: two hex
+                // digits cannot exceed 0xFF, but PHP 8.5 narrowed chr() to
+                // int<0, 255> and the range has to be provable, not merely true.
+                $out .= chr((int) hexdec(substr($value, $i + 2, 2)) & 0xFF);
                 $i += 3;
                 continue;
             }
