@@ -202,6 +202,22 @@ new CrsConfig(
 | `maxArgBytes` | `131072` | Total argument bytes a single rule inspects. Bounds what a few very large arguments cost. |
 | `failClosedOnOperatorError` | `false` | Treat a request whose evaluation hit an operator error as blocked. |
 
+### Constructing the config
+
+Use named arguments, or `fromArray()`. The constructor takes fourteen
+parameters and will gain more; positional construction is not a supported way
+to call it, and the parameter order carries no meaning worth relying on.
+
+`fromArray()` is the path for CMS integrations — a Drupal module hands it
+`config.get()`, a WordPress plugin hands it `get_option()` — and every
+constructor parameter has a snake_case key there. That parity is enforced by
+`CrsConfigArrayParityTest`, so a parameter added later cannot quietly become
+unreachable from configuration.
+
+Unknown keys are ignored rather than rejected, because handing over a whole
+settings array that carries unrelated keys is the normal shape. The cost is
+that a mistyped key does nothing silently, so check against the table above.
+
 ### Request and response are configured separately
 
 The two directions do not carry the same traffic and do not warrant the same
