@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Kanopi\Crs\Variables;
 
 use Kanopi\Crs\Body\JsonBody;
+use Kanopi\Crs\Body\UrlEncodedBody;
 use Kanopi\Crs\Body\XmlBody;
 use Kanopi\Crs\CrsConfig;
 use Kanopi\Crs\Request\RequestData;
@@ -25,6 +26,9 @@ final class VariableResolver
     private ?XmlBody $xmlBody = null;
 
     private ?JsonBody $jsonBody = null;
+
+    private ?UrlEncodedBody $urlEncodedBody = null;
+
 
     /**
      * Resolved collections for this request.
@@ -285,22 +289,22 @@ final class VariableResolver
             'ARGS'             => array_merge(
                 $this->flatten('ARGS', $requestData->queryArgs, $selector, $selectorIsRegex),
                 $this->flatten('ARGS', $requestData->postArgs, $selector, $selectorIsRegex),
-                $this->flatten('ARGS', $this->jsonArgs($requestData), $selector, $selectorIsRegex),
+                $this->flatten('ARGS', $this->bodyArgs($requestData), $selector, $selectorIsRegex),
             ),
             'ARGS_GET'         => $this->flatten('ARGS_GET', $requestData->queryArgs, $selector, $selectorIsRegex),
             'ARGS_POST'        => array_merge(
                 $this->flatten('ARGS_POST', $requestData->postArgs, $selector, $selectorIsRegex),
-                $this->flatten('ARGS_POST', $this->jsonArgs($requestData), $selector, $selectorIsRegex),
+                $this->flatten('ARGS_POST', $this->bodyArgs($requestData), $selector, $selectorIsRegex),
             ),
             'ARGS_NAMES'       => array_merge(
                 $this->keys('ARGS_NAMES', $requestData->queryArgs, $selector, $selectorIsRegex),
                 $this->keys('ARGS_NAMES', $requestData->postArgs, $selector, $selectorIsRegex),
-                $this->keys('ARGS_NAMES', $this->jsonArgs($requestData), $selector, $selectorIsRegex),
+                $this->keys('ARGS_NAMES', $this->bodyArgs($requestData), $selector, $selectorIsRegex),
             ),
             'ARGS_GET_NAMES'   => $this->keys('ARGS_GET_NAMES', $requestData->queryArgs, $selector, $selectorIsRegex),
             'ARGS_POST_NAMES'  => array_merge(
                 $this->keys('ARGS_POST_NAMES', $requestData->postArgs, $selector, $selectorIsRegex),
-                $this->keys('ARGS_POST_NAMES', $this->jsonArgs($requestData), $selector, $selectorIsRegex),
+                $this->keys('ARGS_POST_NAMES', $this->bodyArgs($requestData), $selector, $selectorIsRegex),
             ),
             'REQUEST_HEADERS'  => $this->flattenHeaders('REQUEST_HEADERS', $requestData->headers, $selector, $selectorIsRegex),
             'REQUEST_HEADERS_NAMES' => $this->keys('REQUEST_HEADERS_NAMES', $requestData->headers, $selector, $selectorIsRegex),
@@ -521,48 +525,92 @@ final class VariableResolver
     }
 
     /**
-     * Arguments recovered from a JSON body, when nothing else supplied any.
+     * Arguments recovered from the request body, when nothing else supplied any.
      *
      * Only reached if postArgs is empty. An integrator who populated it parsed
-     * the body with the same parser the application will use, and re-parsing
+     * the body with the same parser the application will act on, and re-parsing
      * here would create a differential the attacker could aim at — two readings
-     * of one document, with the WAF inspecting whatever the application does
+     * of one document, with the engine inspecting whatever the application does
      * not. Trusting theirs is the safer half of this; filling the silence when
      * there is none is the other.
      *
-     * @return array<string, string>
+     * Which is the whole reason this dispatches by format rather than handling
+     * one: 187 CRS rules target ARGS and 19 read REQUEST_BODY, so any structured
+     * body that does not reach ARGS is a body the ruleset barely inspects, and it
+     * does not matter which format left it there.
+     *
+     * @return array<string, string|array<int|string, mixed>>
      */
-    private function jsonArgs(RequestData $requestData): array
+    private function bodyArgs(RequestData $requestData): array
     {
-        if ($requestData->postArgs !== []) {
+        if ($requestData->postArgs !== [] || $requestData->body === '') {
             return [];
         }
 
-        if (!$this->jsonBody instanceof JsonBody) {
-            $this->jsonBody = new JsonBody($requestData, $this->maxRequestBodyBytes);
-        }
+        $length      = strlen($requestData->body);
+        $contentType = strtolower((string) $requestData->header('Content-Type'));
 
-        if (!$this->jsonBody->isLikelyJson()) {
+        // Multipart is deliberately not parsed. Boundaries, part headers,
+        // transfer encodings and file parts add up to a real parser, and it is
+        // the format where a subtle disagreement with the application creates
+        // bypasses rather than closing them. The engine already accepts what CRS
+        // needs from a proper one — files, multipartFlags, multipartPartHeaders —
+        // which is the design saying the integrator supplies this. Reported so
+        // that "nothing reached ARGS" is visible rather than inferred.
+        if (str_contains($contentType, 'multipart/')) {
+            $this->recordTruncation('multipart_body_unparsed', 0, $length);
             return [];
         }
 
-        $length = strlen($requestData->body);
-
-        // Oversized: refused rather than parsed, and reported, because a
-        // truncated document is not a document.
-        if ($this->maxRequestBodyBytes !== CrsConfig::UNLIMITED && $length > $this->maxRequestBodyBytes) {
-            $this->recordTruncation('json_body', 0, $length);
+        if (!$this->bodyFitsTheLimit($length)) {
             return [];
         }
 
-        if ($this->jsonBody->failedToParse()) {
+        if ($this->urlEncodedBody($requestData)->isLikelyUrlEncoded()) {
+            return $this->urlEncodedBody($requestData)->args();
+        }
+
+        if (!$this->jsonBody($requestData)->isLikelyJson()) {
+            // Anything else — text/plain, octet-stream — has no structure to
+            // flatten. REQUEST_BODY still inspects it as raw text, which is the
+            // right treatment, so there is nothing to report.
+            return [];
+        }
+
+        if ($this->jsonBody($requestData)->failedToParse()) {
             // Malformed: the ruleset saw none of it as arguments, which is a
             // coverage gap rather than a clean request, so say so.
             $this->recordTruncation('json_body_unparsable', 0, $length);
             return [];
         }
 
-        return $this->jsonBody->args();
+        return $this->jsonBody($requestData)->args();
+    }
+
+    /**
+     * Whether the body is small enough to parse at all. A truncated document is
+     * not a document, so an oversized one is refused rather than half-read —
+     * and refusing quietly would be the silence this whole path exists to end.
+     */
+    private function bodyFitsTheLimit(int $length): bool
+    {
+        if ($this->maxRequestBodyBytes === CrsConfig::UNLIMITED || $length <= $this->maxRequestBodyBytes) {
+            return true;
+        }
+
+        $this->recordTruncation('body_too_large_to_parse', 0, $length);
+
+        return false;
+    }
+
+    private function jsonBody(RequestData $requestData): JsonBody
+    {
+        return $this->jsonBody ??= new JsonBody($requestData, $this->maxRequestBodyBytes);
+    }
+
+    private function urlEncodedBody(RequestData $requestData): UrlEncodedBody
+    {
+        return $this->urlEncodedBody ??= new UrlEncodedBody($requestData);
     }
 
     /**

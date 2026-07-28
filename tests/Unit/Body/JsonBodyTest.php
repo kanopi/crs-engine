@@ -171,4 +171,9 @@ final class JsonBodyTest extends TestCase
 
         $this->assertSame(['json.name' => 'José'], $args);
     }
+
+    public function testAUrlEncodedBodyIsNotMistakenForJson(): void
+    {
+        $this->assertFalse($this->body('q=1&r=2', 'application/x-www-form-urlencoded')->isLikelyJson());
+    }
 }

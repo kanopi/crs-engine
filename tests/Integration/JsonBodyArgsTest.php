@@ -222,7 +222,7 @@ final class JsonBodyArgsTest extends TestCase
 
         $this->assertTrue($crsVerdict->wasTruncated());
         $this->assertContains(
-            'json_body',
+            'body_too_large_to_parse',
             array_column($crsVerdict->truncations, 'what'),
             'A refused body should be distinguishable from a malformed one.'
         );
