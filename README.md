@@ -202,6 +202,22 @@ new CrsConfig(
 | `maxArgBytes` | `131072` | Total argument bytes a single rule inspects. Bounds what a few very large arguments cost. |
 | `failClosedOnOperatorError` | `false` | Treat a request whose evaluation hit an operator error as blocked. |
 
+### Constructing the config
+
+Use named arguments, or `fromArray()`. The constructor takes fourteen
+parameters and will gain more; positional construction is not a supported way
+to call it, and the parameter order carries no meaning worth relying on.
+
+`fromArray()` is the path for CMS integrations — a Drupal module hands it
+`config.get()`, a WordPress plugin hands it `get_option()` — and every
+constructor parameter has a snake_case key there. That parity is enforced by
+`CrsConfigArrayParityTest`, so a parameter added later cannot quietly become
+unreachable from configuration.
+
+Unknown keys are ignored rather than rejected, because handing over a whole
+settings array that carries unrelated keys is the normal shape. The cost is
+that a mistyped key does nothing silently, so check against the table above.
+
 ### Request and response are configured separately
 
 The two directions do not carry the same traffic and do not warrant the same
@@ -411,12 +427,21 @@ XSS rules in CRS are pure `@rx` and work normally. See
 [Detection coverage](#detection-coverage) for what that costs in practice
 and what the engine does about it.
 
-**Transforms (21):** `none`, `lowercase`/`uppercase`,
+**Transforms (26):** `none`, `lowercase`/`uppercase`,
 `urlDecode`/`urlDecodeUni`, `htmlEntityDecode`,
 `compressWhitespace`/`removeWhitespace`, `replaceNulls`/`removeNulls`,
 `utf8toUnicode`, `base64Decode`/`base64DecodeExt`, `cmdLine`,
-`normalisePath`, `length`, `sha1`/`md5`, `trim`,
-`removeComments`/`replaceComments`.
+`normalizePath` (aliased as `normalisePath`), `normalizePathWin`,
+`jsDecode`, `cssDecode`, `escapeSeqDecode`,
+`length`, `sha1`/`md5`, `trim`,
+`removeComments`/`replaceComments`/`removeCommentsChar`.
+
+The decoding transforms are anti-evasion steps, and every one of them was
+missing until recently — 76 occurrences across 52 rules were being skipped, so
+those rules matched against less-normalised input than upstream intends. The
+sharpest case was `normalizePath`: the engine implemented it under the British
+spelling, which nothing in CRS writes, so it was dead code and the 930 LFI
+series ran unnormalised. Both spellings resolve now.
 
 **Variables (targets), 52 in total:**
 

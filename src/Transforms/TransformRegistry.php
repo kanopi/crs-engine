@@ -21,6 +21,17 @@ final class TransformRegistry
         $this->transforms[strtolower($transform->name())] = $transform;
     }
 
+    /**
+     * Reach one transform under a second name.
+     *
+     * Used for spelling: CRS writes `normalizePath`, this project's own docs
+     * and tests grew up on `normalisePath`, and both should resolve.
+     */
+    public function alias(string $alias, string $existing): void
+    {
+        $this->transforms[strtolower($alias)] = $this->get($existing);
+    }
+
     public function get(string $name): TransformInterface
     {
         $key = strtolower($name);
@@ -53,6 +64,12 @@ final class TransformRegistry
         $this->register(new Base64DecodeExtTransform());
         $this->register(new CmdLineTransform());
         $this->register(new NormalisePathTransform());
+        $this->alias('normalisePath', 'normalizePath');
+        $this->register(new NormalizePathWinTransform());
+        $this->register(new JsDecodeTransform());
+        $this->register(new CssDecodeTransform());
+        $this->register(new EscapeSeqDecodeTransform());
+        $this->register(new RemoveCommentsCharTransform());
         $this->register(new LengthTransform());
         $this->register(new Sha1Transform());
         $this->register(new Md5Transform());
