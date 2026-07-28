@@ -35,11 +35,11 @@ final class UnknownTransformWarningTest extends TestCase
     public function testUnknownTransformIsReported(): void
     {
         $warnings = $this->warningsFor(
-            'SecRule ARGS "@rx x" "id:941999,phase:2,pass,t:none,t:jsDecode"'
+            'SecRule ARGS "@rx x" "id:941999,phase:2,pass,t:none,t:notARealTransform"'
         );
 
         $this->assertCount(1, $warnings);
-        $this->assertStringContainsString('t:jsDecode', $warnings[0]);
+        $this->assertStringContainsString('t:notARealTransform', $warnings[0]);
         $this->assertStringContainsString('not implemented', $warnings[0]);
     }
 
@@ -69,7 +69,7 @@ final class UnknownTransformWarningTest extends TestCase
     {
         $conf = '';
         for ($i = 0; $i < 5; $i++) {
-            $conf .= sprintf("SecRule ARGS \"@rx x\" \"id:94100%d,phase:2,pass,t:jsDecode\"\n", $i);
+            $conf .= sprintf("SecRule ARGS \"@rx x\" \"id:94100%d,phase:2,pass,t:notARealTransform\"\n", $i);
         }
 
         $warnings = $this->warningsFor($conf);
@@ -80,7 +80,7 @@ final class UnknownTransformWarningTest extends TestCase
 
     public function testSingularWordingForASingleRule(): void
     {
-        $warnings = $this->warningsFor('SecRule ARGS "@rx x" "id:941999,phase:2,pass,t:cssDecode"');
+        $warnings = $this->warningsFor('SecRule ARGS "@rx x" "id:941999,phase:2,pass,t:alsoNotReal"');
 
         $this->assertStringContainsString('1 rule,', $warnings[0]);
     }
@@ -88,7 +88,7 @@ final class UnknownTransformWarningTest extends TestCase
     public function testEachDistinctUnknownTransformGetsItsOwnLine(): void
     {
         $warnings = $this->warningsFor(
-            'SecRule ARGS "@rx x" "id:941999,phase:2,pass,t:jsDecode,t:cssDecode,t:escapeSeqDecode"'
+            'SecRule ARGS "@rx x" "id:941999,phase:2,pass,t:fakeOne,t:fakeTwo,t:fakeThree"'
         );
 
         $this->assertCount(3, $warnings);
@@ -98,11 +98,11 @@ final class UnknownTransformWarningTest extends TestCase
     {
         $warnings = $this->warningsFor(
             "SecRule ARGS \"@rx x\" \"id:941999,phase:2,pass,chain\"\n"
-            . '    SecRule ARGS "@rx y" "t:jsDecode"'
+            . '    SecRule ARGS "@rx y" "t:notARealTransform"'
         );
 
         $this->assertCount(1, $warnings);
-        $this->assertStringContainsString('t:jsDecode', $warnings[0]);
+        $this->assertStringContainsString('t:notARealTransform', $warnings[0]);
     }
 
     /**
@@ -115,7 +115,7 @@ final class UnknownTransformWarningTest extends TestCase
         $transformRegistry->register(new class () implements TransformInterface {
             public function name(): string
             {
-                return 'jsDecode';
+                return 'notARealTransform';
             }
 
             public function apply(string $value): string
@@ -125,25 +125,33 @@ final class UnknownTransformWarningTest extends TestCase
         });
 
         $this->assertSame([], $this->warningsFor(
-            'SecRule ARGS "@rx x" "id:941999,phase:2,pass,t:jsDecode"',
+            'SecRule ARGS "@rx x" "id:941999,phase:2,pass,t:notARealTransform"',
             $transformRegistry
         ));
     }
 
     /**
-     * The engine registers normalisePath, CRS only ever writes normalizePath,
-     * and nothing connected the two — so the transform was dead code and 12
-     * rules ran unnormalised. The warning is what makes that visible; wiring an
-     * alias is deliberately not done here, because normalisePath also collapses
-     * leading `../`, which would change what those rules see.
+     * The spellings are now connected. CRS writes normalizePath; the engine's
+     * own history uses normalisePath; both resolve, and neither warns.
+     *
+     * @return \Iterator<string, array{string}>
      */
-    public function testTheNormalizePathSpellingGapIsReported(): void
+    public static function nowImplementedProvider(): \Iterator
     {
-        $warnings = $this->warningsFor(
-            'SecRule ARGS "@rx x" "id:930999,phase:2,pass,t:normalizePath"'
-        );
+        yield 'normalizePath' => ['normalizePath'];
+        yield 'normalisePath alias' => ['normalisePath'];
+        yield 'normalizePathWin' => ['normalizePathWin'];
+        yield 'jsDecode' => ['jsDecode'];
+        yield 'cssDecode' => ['cssDecode'];
+        yield 'escapeSeqDecode' => ['escapeSeqDecode'];
+        yield 'removeCommentsChar' => ['removeCommentsChar'];
+    }
 
-        $this->assertCount(1, $warnings);
-        $this->assertStringContainsString('t:normalizePath', $warnings[0]);
+    #[\PHPUnit\Framework\Attributes\DataProvider('nowImplementedProvider')]
+    public function testPreviouslyMissingTransformsNoLongerWarn(string $transform): void
+    {
+        $this->assertSame([], $this->warningsFor(
+            sprintf('SecRule ARGS "@rx x" "id:930999,phase:2,pass,t:%s"', $transform)
+        ));
     }
 }

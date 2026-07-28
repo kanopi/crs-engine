@@ -411,12 +411,21 @@ XSS rules in CRS are pure `@rx` and work normally. See
 [Detection coverage](#detection-coverage) for what that costs in practice
 and what the engine does about it.
 
-**Transforms (21):** `none`, `lowercase`/`uppercase`,
+**Transforms (26):** `none`, `lowercase`/`uppercase`,
 `urlDecode`/`urlDecodeUni`, `htmlEntityDecode`,
 `compressWhitespace`/`removeWhitespace`, `replaceNulls`/`removeNulls`,
 `utf8toUnicode`, `base64Decode`/`base64DecodeExt`, `cmdLine`,
-`normalisePath`, `length`, `sha1`/`md5`, `trim`,
-`removeComments`/`replaceComments`.
+`normalizePath` (aliased as `normalisePath`), `normalizePathWin`,
+`jsDecode`, `cssDecode`, `escapeSeqDecode`,
+`length`, `sha1`/`md5`, `trim`,
+`removeComments`/`replaceComments`/`removeCommentsChar`.
+
+The decoding transforms are anti-evasion steps, and every one of them was
+missing until recently — 76 occurrences across 52 rules were being skipped, so
+those rules matched against less-normalised input than upstream intends. The
+sharpest case was `normalizePath`: the engine implemented it under the British
+spelling, which nothing in CRS writes, so it was dead code and the 930 LFI
+series ran unnormalised. Both spellings resolve now.
 
 **Variables (targets), 52 in total:**
 

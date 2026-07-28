@@ -5,41 +5,82 @@ declare(strict_types=1);
 namespace Kanopi\Crs\Transforms;
 
 /**
- * Collapses path traversals (./, ../) and duplicate slashes so LFI rules
+ * Collapses `.` and `..` segments and duplicate slashes, so LFI and RCE rules
  * match regardless of how the attacker writes the path.
  *
- * Two things to know before relying on this.
+ * Named for the spelling CRS uses — `t:normalizePath`, with a z. The engine
+ * previously registered only the British spelling, which nothing in the ruleset
+ * ever writes, so the transform was dead code and the 12 rules asking for it
+ * ran on unnormalised input. `normalisePath` is kept as an alias.
  *
- * It is not currently reachable from the shipped ruleset. CRS spells the
- * transform `normalizePath`, with a z; this registers as `normalisePath`. The
- * names do not meet, so the 12 rules asking for it — the 930 LFI series, parts
- * of 932 and 933 — run on unnormalised input. SecLangParser reports that as an
- * unknown transform, and it is left reported rather than aliased because of
- * the next paragraph.
+ * A traversal that cannot be resolved is preserved, matching Apache's
+ * ap_getparents() which ModSecurity follows: `../../etc/passwd` has no prior
+ * segment to cancel, so it stays as it is. That distinction is load-bearing
+ * here — the 930 rules match on `../` being present, and an earlier version of
+ * this transform cancelled leading traversals against nothing, which would have
+ * handed those rules a string with the evidence removed.
  *
- * It also diverges from ModSecurity on leading traversals. `../../etc/passwd`
- * comes out as `etc/passwd`, where normalizePath preserves a leading `../`
- * that has no prior segment to cancel. The loop below is happy to treat `..`
- * itself as the segment being cancelled. That matters here because the 930
- * rules match on the presence of `../`, so wiring up the alias without fixing
- * this would hand them a string with the evidence removed — turning a dormant
- * transform into a live regression.
+ * An absolute path is the exception: `/../etc` cannot climb above the root, so
+ * the segment is dropped rather than kept.
  */
-final class NormalisePathTransform implements TransformInterface
+class NormalisePathTransform implements TransformInterface
 {
     public function name(): string
     {
-        return 'normalisePath';
+        return 'normalizePath';
     }
 
     public function apply(string $value): string
     {
-        $value = (string) preg_replace('#/+#', '/', $value);
-        $value = (string) preg_replace('#/\./#', '/', $value);
-        while (preg_match('#[^/]+/\.\./?#', $value)) {
-            $value = (string) preg_replace('#[^/]+/\.\./?#', '', $value, 1);
+        if ($value === '') {
+            return $value;
         }
 
-        return $value;
+        $absolute      = $value[0] === '/';
+        $trailingSlash = str_ends_with($value, '/');
+
+        $out = [];
+        foreach (explode('/', $value) as $segment) {
+            // Empty segments come from `//`; `.` is the current directory.
+            if ($segment === '') {
+                continue;
+            }
+
+            if ($segment === '.') {
+                continue;
+            }
+
+            if ($segment !== '..') {
+                $out[] = $segment;
+                continue;
+            }
+
+            $last = $out === [] ? null : $out[count($out) - 1];
+
+            // Something to cancel: drop the pair.
+            if ($last !== null && $last !== '..') {
+                array_pop($out);
+                continue;
+            }
+
+            // Nothing to cancel. Above the root is nowhere, so an absolute path
+            // discards it; a relative path keeps it, because `../x` genuinely
+            // does refer to somewhere else and the rules want to see that.
+            if (!$absolute) {
+                $out[] = '..';
+            }
+        }
+
+        $path = implode('/', $out);
+
+        if ($absolute) {
+            $path = '/' . $path;
+        }
+
+        if ($trailingSlash && $path !== '' && !str_ends_with($path, '/')) {
+            $path .= '/';
+        }
+
+        return $path === '' ? ($absolute ? '/' : '') : $path;
     }
 }
