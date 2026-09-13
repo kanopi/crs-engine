@@ -17,6 +17,9 @@ final class RefreshRunner
      * @param string|null $supplementalDir Engine-owned SecLang files parsed
      *        alongside CRS. They live outside rules/, which the refresh
      *        regenerates, so they survive CRS version bumps.
+     * @param ReadmePin|null $readmePin Keeps the pin block quoted in the
+     *        README in step with .crs-version. Optional so that tests driving
+     *        the runner against a temp dir need not stage a README.
      */
     public function __construct(
         private readonly VersionPin $versionPin,
@@ -24,6 +27,7 @@ final class RefreshRunner
         private readonly RuleWriter $ruleWriter,
         private readonly string $workDir,
         private readonly ?string $supplementalDir = null,
+        private readonly ?ReadmePin $readmePin = null,
     ) {
     }
 
@@ -91,6 +95,7 @@ final class RefreshRunner
 
         $stats = $this->ruleWriter->write($rulesBySource, $tag, $secLangParser->warnings);
         $this->versionPin->write(['tag' => $tag, 'sha' => $digest]);
+        $this->readmePin?->sync($this->versionPin->read());
 
         return [
             'tag'             => $tag,

@@ -192,7 +192,15 @@ jobs:
             # still include it in the commit so the manifest reflects the
             # actual run. Real rule content lives in compiled.php and the
             # per-source-file JSONs; .crs-version pins the upstream tag.
-            CHANGED=$(git diff --name-only -- .crs-version rules/ | grep -v '^rules/manifest\.json$' || true)
+            #
+            # `git status --porcelain`, not `git diff`: a CRS release that
+            # adds a rule file lands as an *untracked* rules/*.json, which
+            # git diff does not report. If that were the only change the job
+            # would have declared "no changes" and skipped the PR on the one
+            # refresh most worth reviewing. Columns 1-3 are the status code.
+            CHANGED=$(git status --porcelain -- .crs-version rules/ \
+              | cut -c4- \
+              | grep -v '^rules/manifest\.json$' || true)
             if [ -z "$CHANGED" ]; then
               echo "No meaningful CRS changes (only manifest timestamp). Skipping PR."
               exit 0
@@ -207,7 +215,9 @@ jobs:
             git config user.email "ci@kanopi.com"
             git config user.name  "Kanopi CRS Bot"
             git checkout -b "$BRANCH"
-            git add .crs-version rules/
+            # README.md carries the pin block, which bin/refresh-crs now
+            # rewrites from .crs-version; ReadmeTest fails if they disagree.
+            git add .crs-version rules/ README.md
             git commit -m "chore(crs): refresh rules to ${CRS_TAG}"
             git push -u origin "$BRANCH"
 
