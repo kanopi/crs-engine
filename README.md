@@ -733,8 +733,8 @@ pattern.
 `.crs-version` is a plain key=value file:
 
 ```
-tag=v4.28.0
-sha=sha256:aac29fbd56288cb37adec9ac879fa694f6aaa410a564bf5b834bd335d0e216df
+tag=v4.29.0
+sha=sha256:8730ef1e899f71c8d7af0aec46afdf7dae5240717295a617b1384021f156f016
 source=https://github.com/coreruleset/coreruleset
 ```
 
