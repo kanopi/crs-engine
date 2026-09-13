@@ -15,6 +15,7 @@ declare(strict_types=1);
  */
 
 use Kanopi\Crs\Refresh\CrsFetcher;
+use Kanopi\Crs\Refresh\ReadmePin;
 use Kanopi\Crs\Refresh\RefreshRunner;
 use Kanopi\Crs\Refresh\RuleWriter;
 use Kanopi\Crs\Refresh\VersionPin;
@@ -42,7 +43,11 @@ $fetcher = new CrsFetcher();
 $workDir = sys_get_temp_dir() . '/crs-engine-' . bin2hex(random_bytes(4));
 $writer  = new RuleWriter($dryRun ? $workDir . '/rules-out' : $root . '/rules');
 
-$runner = new RefreshRunner($pin, $fetcher, $writer, $workDir, $root . '/supplemental');
+// Dry runs leave the README alone for the same reason they leave rules/
+// alone: nothing about a dry run should be visible in the working tree.
+$readmePin = $dryRun ? null : new ReadmePin($root . '/README.md');
+
+$runner = new RefreshRunner($pin, $fetcher, $writer, $workDir, $root . '/supplemental', $readmePin);
 
 try {
     $result = $runner->run($tag, $bump);
