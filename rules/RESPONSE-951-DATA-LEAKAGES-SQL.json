@@ -1,45 +1,8 @@
 {
     "source_file": "RESPONSE-951-DATA-LEAKAGES-SQL.conf",
-    "crs_version": "v4.29.0",
-    "rule_count": 28,
+    "crs_version": "v4.30.0",
+    "rule_count": 27,
     "rules": [
-        {
-            "id": 951010,
-            "phase": 4,
-            "operator": "pm",
-            "operator_arg": "gzip compress deflate br zstd",
-            "operator_negated": false,
-            "targets": [
-                {
-                    "collection": "RESPONSE_HEADERS",
-                    "selector": "Content-Encoding",
-                    "negated": false,
-                    "count": false,
-                    "regex": false
-                }
-            ],
-            "transforms": [],
-            "action": "pass",
-            "severity": "notice",
-            "message": "",
-            "tags": [
-                "OWASP_CRS",
-                "OWASP_CRS/DATA-LEAKAGES-SQL"
-            ],
-            "paranoia": 1,
-            "category": "response_leak_sql",
-            "setvars": [],
-            "chain": [],
-            "capture": false,
-            "skip_after": "END-RESPONSE-951-DATA-LEAKAGES-SQL",
-            "multi_match": false,
-            "warnings": [],
-            "logdata": null,
-            "marker": null,
-            "unconditional": false,
-            "suppress_rule_ids": [],
-            "suppress_rule_tags": []
-        },
         {
             "id": 951011,
             "phase": 3,
@@ -832,7 +795,7 @@
             "id": 951230,
             "phase": 4,
             "operator": "rx",
-            "operator_arg": "(?i)(?:supplied argument is not a valid |SQL syntax.*)MySQL|Column count doesn't match(?: value count at row)?|mysql_fetch_array\\(\\)|on MySQL result index|You have an error in your SQL syntax(?:;| near)|MyS(?:QL server version for the right syntax to use|qlClient\\.)|\\[MySQL\\]\\[ODBC|(?:Table '[^']+' doesn't exis|valid MySQL resul)t|Warning.{1,10}mysql_(?:[\\(\\)_a-z]{1,26})?|(?:ERROR [0-9]{4} \\([0-9a-z]{5}\\)|XPATH syntax error):",
+            "operator_arg": "(?i)supplied argument is not a valid MySQL|Column count doesn't match(?: value count at row)?|mysql_fetch_array\\(\\)|on MySQL result index|You have an error in your SQL syntax(?:;| near)|MyS(?:QL server version for the right syntax to use|qlClient\\.)|\\[MySQL\\]\\[ODBC|(?:Table '[^']+' doesn't exis|valid MySQL resul)t|Warning.{1,10}mysql_(?:[\\(\\)_a-z]{1,26})?|(?:ERROR [0-9]{4} \\([0-9a-z]{5}\\)|XPATH syntax error):",
             "operator_negated": false,
             "targets": [
                 {

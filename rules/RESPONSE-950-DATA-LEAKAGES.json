@@ -1,8 +1,47 @@
 {
     "source_file": "RESPONSE-950-DATA-LEAKAGES.conf",
-    "crs_version": "v4.29.0",
-    "rule_count": 15,
+    "crs_version": "v4.30.0",
+    "rule_count": 16,
     "rules": [
+        {
+            "id": 950020,
+            "phase": 4,
+            "operator": "pm",
+            "operator_arg": "gzip compress deflate br zstd",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "RESPONSE_HEADERS",
+                    "selector": "Content-Encoding",
+                    "negated": false,
+                    "count": false,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "OWASP_CRS",
+                "OWASP_CRS/DATA-LEAKAGES"
+            ],
+            "paranoia": 1,
+            "category": "response_leak",
+            "setvars": [],
+            "chain": [],
+            "capture": false,
+            "skip_after": "BEGIN-RESPONSE-959-BLOCKING-EVALUATION",
+            "multi_match": false,
+            "warnings": [],
+            "logdata": null,
+            "marker": null,
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
+        },
         {
             "id": 950021,
             "phase": 3,
@@ -41,15 +80,15 @@
             "suppress_rule_tags": []
         },
         {
-            "id": 950010,
+            "id": 950022,
             "phase": 4,
-            "operator": "pm",
-            "operator_arg": "gzip compress deflate br zstd",
+            "operator": "eq",
+            "operator_arg": "1",
             "operator_negated": false,
             "targets": [
                 {
-                    "collection": "RESPONSE_HEADERS",
-                    "selector": "Content-Encoding",
+                    "collection": "TX",
+                    "selector": "crs_skip_response_analysis",
                     "negated": false,
                     "count": false,
                     "regex": false
@@ -68,7 +107,7 @@
             "setvars": [],
             "chain": [],
             "capture": false,
-            "skip_after": "END-RESPONSE-950-DATA-LEAKAGES",
+            "skip_after": "END-RESPONSE-959-BLOCKING-EVALUATION",
             "multi_match": false,
             "warnings": [],
             "logdata": null,

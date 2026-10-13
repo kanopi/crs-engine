@@ -1,6 +1,6 @@
 {
     "source_file": "REQUEST-920-PROTOCOL-ENFORCEMENT.conf",
-    "crs_version": "v4.29.0",
+    "crs_version": "v4.30.0",
     "rule_count": 70,
     "rules": [
         {
@@ -2362,7 +2362,8 @@
                 }
             ],
             "transforms": [
-                "none"
+                "none",
+                "lowercase"
             ],
             "action": "block",
             "severity": "critical",

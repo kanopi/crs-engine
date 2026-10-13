@@ -1,45 +1,8 @@
 {
     "source_file": "RESPONSE-955-WEB-SHELLS.conf",
-    "crs_version": "v4.29.0",
-    "rule_count": 37,
+    "crs_version": "v4.30.0",
+    "rule_count": 36,
     "rules": [
-        {
-            "id": 955010,
-            "phase": 4,
-            "operator": "pm",
-            "operator_arg": "gzip compress deflate br zstd",
-            "operator_negated": false,
-            "targets": [
-                {
-                    "collection": "RESPONSE_HEADERS",
-                    "selector": "Content-Encoding",
-                    "negated": false,
-                    "count": false,
-                    "regex": false
-                }
-            ],
-            "transforms": [],
-            "action": "pass",
-            "severity": "notice",
-            "message": "",
-            "tags": [
-                "OWASP_CRS",
-                "OWASP_CRS/WEB-SHELLS"
-            ],
-            "paranoia": 1,
-            "category": "web_shell",
-            "setvars": [],
-            "chain": [],
-            "capture": false,
-            "skip_after": "END-RESPONSE-955-WEB-SHELLS",
-            "multi_match": false,
-            "warnings": [],
-            "logdata": null,
-            "marker": null,
-            "unconditional": false,
-            "suppress_rule_ids": [],
-            "suppress_rule_tags": []
-        },
         {
             "id": 955011,
             "phase": 3,

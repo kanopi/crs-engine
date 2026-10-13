@@ -1,45 +1,8 @@
 {
     "source_file": "RESPONSE-953-DATA-LEAKAGES-PHP.conf",
-    "crs_version": "v4.29.0",
-    "rule_count": 14,
+    "crs_version": "v4.30.0",
+    "rule_count": 13,
     "rules": [
-        {
-            "id": 953010,
-            "phase": 4,
-            "operator": "pm",
-            "operator_arg": "gzip compress deflate br zstd",
-            "operator_negated": false,
-            "targets": [
-                {
-                    "collection": "RESPONSE_HEADERS",
-                    "selector": "Content-Encoding",
-                    "negated": false,
-                    "count": false,
-                    "regex": false
-                }
-            ],
-            "transforms": [],
-            "action": "pass",
-            "severity": "notice",
-            "message": "",
-            "tags": [
-                "OWASP_CRS",
-                "OWASP_CRS/DATA-LEAKAGES-PHP"
-            ],
-            "paranoia": 1,
-            "category": "response_leak_php",
-            "setvars": [],
-            "chain": [],
-            "capture": false,
-            "skip_after": "END-RESPONSE-953-DATA-LEAKAGES-PHP",
-            "multi_match": false,
-            "warnings": [],
-            "logdata": null,
-            "marker": null,
-            "unconditional": false,
-            "suppress_rule_ids": [],
-            "suppress_rule_tags": []
-        },
         {
             "id": 953011,
             "phase": 3,

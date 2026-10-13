@@ -13,6 +13,7 @@ use Kanopi\Crs\Operators\IpMatchOperator;
 use Kanopi\Crs\Operators\PmOperator;
 use Kanopi\Crs\Operators\RxOperator;
 use Kanopi\Crs\Operators\StreqOperator;
+use Kanopi\Crs\Operators\UnconditionalMatchOperator;
 use Kanopi\Crs\Operators\ValidateByteRangeOperator;
 use Kanopi\Crs\Operators\ValidateUrlEncodingOperator;
 use Kanopi\Crs\Operators\ValidateUtf8EncodingOperator;
@@ -115,5 +116,14 @@ final class OperatorsTest extends TestCase
         $validateUtf8EncodingOperator = new ValidateUtf8EncodingOperator();
         $this->assertFalse($validateUtf8EncodingOperator->evaluate('', 'café')->matched);
         $this->assertTrue($validateUtf8EncodingOperator->evaluate('', "\xC0\xAF")->matched);
+    }
+
+    public function testUnconditionalMatchHitsEveryValue(): void
+    {
+        $unconditionalMatchOperator = new UnconditionalMatchOperator();
+        $this->assertTrue($unconditionalMatchOperator->evaluate('', 'utf-8')->matched);
+        $this->assertTrue($unconditionalMatchOperator->evaluate('', '')->matched);
+        // MATCHED_VAR feeds the setvar in 922100, so the value must come back.
+        $this->assertSame('utf-8', $unconditionalMatchOperator->evaluate('', 'utf-8')->matchedData);
     }
 }

@@ -1,8 +1,54 @@
 {
     "source_file": "REQUEST-922-MULTIPART-ATTACK.conf",
-    "crs_version": "v4.29.0",
-    "rule_count": 6,
+    "crs_version": "v4.30.0",
+    "rule_count": 7,
     "rules": [
+        {
+            "id": 922160,
+            "phase": 2,
+            "operator": "gt",
+            "operator_arg": "0",
+            "operator_negated": false,
+            "targets": [
+                {
+                    "collection": "MULTIPART_PART_HEADERS",
+                    "selector": "_charset_",
+                    "negated": false,
+                    "count": true,
+                    "regex": false
+                }
+            ],
+            "transforms": [
+                "none"
+            ],
+            "action": "pass",
+            "severity": "notice",
+            "message": "",
+            "tags": [
+                "attack-multipart-header",
+                "OWASP_CRS",
+                "OWASP_CRS/MULTIPART-ATTACK"
+            ],
+            "paranoia": 1,
+            "category": "multipart",
+            "setvars": [
+                {
+                    "name": "tx.multipart_headers_charset_counter",
+                    "op": "=",
+                    "value": "0"
+                }
+            ],
+            "chain": [],
+            "capture": false,
+            "skip_after": null,
+            "multi_match": false,
+            "warnings": [],
+            "logdata": null,
+            "marker": null,
+            "unconditional": false,
+            "suppress_rule_ids": [],
+            "suppress_rule_tags": []
+        },
         {
             "id": 922100,
             "phase": 2,
@@ -36,14 +82,53 @@
             ],
             "paranoia": 1,
             "category": "multipart",
-            "setvars": [
-                {
-                    "name": "tx.922100_charset",
-                    "op": "=",
-                    "value": "|%{ARGS._charset_}|"
-                }
-            ],
+            "setvars": [],
             "chain": [
+                {
+                    "id": 0,
+                    "phase": 2,
+                    "operator": "unconditionalMatch",
+                    "operator_arg": "",
+                    "operator_negated": false,
+                    "targets": [
+                        {
+                            "collection": "ARGS",
+                            "selector": "_charset_",
+                            "negated": false,
+                            "count": false,
+                            "regex": false
+                        }
+                    ],
+                    "transforms": [],
+                    "action": "pass",
+                    "severity": "notice",
+                    "message": "",
+                    "tags": [],
+                    "paranoia": 1,
+                    "category": "multipart",
+                    "setvars": [
+                        {
+                            "name": "tx.922100_charset_%{tx.multipart_headers_charset_counter}",
+                            "op": "=",
+                            "value": "|%{MATCHED_VAR}|"
+                        },
+                        {
+                            "name": "tx.multipart_headers_charset_counter",
+                            "op": "+",
+                            "value": "1"
+                        }
+                    ],
+                    "chain": [],
+                    "capture": false,
+                    "skip_after": null,
+                    "multi_match": false,
+                    "warnings": [],
+                    "logdata": null,
+                    "marker": null,
+                    "unconditional": false,
+                    "suppress_rule_ids": [],
+                    "suppress_rule_tags": []
+                },
                 {
                     "id": 0,
                     "phase": 2,
@@ -53,10 +138,10 @@
                     "targets": [
                         {
                             "collection": "TX",
-                            "selector": "922100_CHARSET",
+                            "selector": "^922100_charset_",
                             "negated": false,
                             "count": false,
-                            "regex": false
+                            "regex": true
                         }
                     ],
                     "transforms": [
@@ -91,7 +176,7 @@
             "skip_after": null,
             "multi_match": false,
             "warnings": [],
-            "logdata": "Matched Data: %{ARGS._charset_}",
+            "logdata": "Matched Data: %{MATCHED_VAR}",
             "marker": null,
             "unconditional": false,
             "suppress_rule_ids": [],
