@@ -56,5 +56,6 @@ final class OperatorRegistry
         $this->register(new ValidateByteRangeOperator());
         $this->register(new ValidateUrlEncodingOperator());
         $this->register(new ValidateUtf8EncodingOperator());
+        $this->register(new UnconditionalMatchOperator());
     }
 }

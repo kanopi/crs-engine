@@ -440,10 +440,10 @@ reset aggregate scores between phases, so it is evaluated, not ignored), and
 `SecMarker` (a placeholder that keeps its position so `skipAfter` has
 somewhere to land).
 
-**Operators (18):** `@rx`, `@pm`, `@pmf`, `@beginsWith`, `@endsWith`,
+**Operators (19):** `@rx`, `@pm`, `@pmf`, `@beginsWith`, `@endsWith`,
 `@contains`, `@containsWord`, `@streq`, `@eq`/`@gt`/`@lt`/`@ge`/`@le`,
 `@within`, `@ipMatch` (with CIDR), `@validateByteRange`,
-`@validateUrlEncoding`, `@validateUtf8Encoding`.
+`@validateUrlEncoding`, `@validateUtf8Encoding`, `@unconditionalMatch`.
 
 Unsupported operators (`@detectSQLi`, `@detectXSS`, etc.) cause the rule
 to be parsed-and-skipped with a warning recorded in `manifest.json`.
@@ -733,8 +733,8 @@ pattern.
 `.crs-version` is a plain key=value file:
 
 ```
-tag=v4.29.0
-sha=sha256:8730ef1e899f71c8d7af0aec46afdf7dae5240717295a617b1384021f156f016
+tag=v4.30.0
+sha=sha256:7813333b6d5945dfc5ab40a0de731dd21218e249966708e57f2969acbe1f3832
 source=https://github.com/coreruleset/coreruleset
 ```
 

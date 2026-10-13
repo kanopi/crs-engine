@@ -45,6 +45,7 @@ final class SecLangParser
         'rx', 'pm', 'pmf', 'beginsWith', 'endsWith', 'contains', 'containsWord',
         'streq', 'eq', 'gt', 'lt', 'ge', 'le', 'within', 'ipMatch',
         'validateByteRange', 'validateUrlEncoding', 'validateUtf8Encoding',
+        'unconditionalMatch',
     ];
 
     /** @var array<int, string> */

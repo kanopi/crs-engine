@@ -146,13 +146,13 @@ final class RulesetInvariantsTest extends TestCase
             $secRules++;
         }
 
-        // 587 upstream SecRule directives across the 24 parsed files, less the
+        // 586 upstream SecRule directives across the parsed files, less the
         // 4 that use libinjection operators we do not implement.
         $this->assertSame(
-            586,
+            582,
             $secRules,
             sprintf(
-                'Expected 586 CRS SecRules (590 upstream - 4 unsupported); manifest reports %s total entries. A shortfall means the parser is dropping or swallowing rules.',
+                'Expected 582 CRS SecRules (586 upstream - 4 unsupported); manifest reports %s total entries. A shortfall means the parser is dropping or swallowing rules.',
                 (string) ($manifest['rule_count'] ?? '?'),
             ),
         );
